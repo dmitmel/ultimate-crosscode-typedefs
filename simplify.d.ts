@@ -55,4 +55,10 @@ declare namespace sc {
       marginBottom: number;
     }
   }
+
+  interface CCLoaderVersionGuiMixin {
+    ccloaderVersionGui: sc.TextGui;
+  }
+  interface TitleScreenGui extends CCLoaderVersionGuiMixin {}
+  interface PauseScreenGui extends CCLoaderVersionGuiMixin {}
 }

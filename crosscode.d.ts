@@ -1125,6 +1125,7 @@ declare namespace sc {
   interface FontSystem extends ig.GameAddon {
     font: ig.MultiFont;
     smallFont: ig.MultiFont;
+    tinyFont: ig.MultiFont;
   }
   interface FontSystemConstructor extends ImpactClass<FontSystem> {}
   let FontSystem: FontSystemConstructor;
@@ -1897,6 +1898,14 @@ declare namespace sc {
 /* module game.feature.gui.screen.title-screen */
 
 declare namespace sc {
+  interface TitleScreenGui extends ig.GuiElementBase {
+    versionGui: sc.TextGui;
+  }
+  interface TitleScreenGuiConstructor extends ImpactClass<TitleScreenGui> {
+    new (): this['__instance'];
+  }
+  let TitleScreenGui: TitleScreenGuiConstructor;
+
   interface TitleScreenButtonGui extends ig.GuiElementBase {
     buttonGroup: sc.ButtonGroup;
     buttons: sc.ButtonGui[];
@@ -1928,6 +1937,7 @@ declare namespace sc {
     optionsButton: sc.ButtonGui;
     arenaRestart: sc.ButtonGui;
     arenaLobby: sc.ButtonGui;
+    versionGui: sc.TextGui;
 
     updateButtons(this: this, refocus: boolean): void;
   }
