@@ -739,14 +739,16 @@ declare namespace ig {
 
   namespace StorageData {
     interface SaveFileData {
-      slots: string[];
-      autoSlot: string;
-      globals: string;
-      lastSlot: number;
+      slots: Array<string | ig.SaveSlot.Data>;
+      autoSlot?: string | ig.SaveSlot.Data | null;
+      globals: string | ig.Storage.GlobalsData;
+      lastSlot?: number;
     }
   }
   interface StorageData extends ig.Class {
-    data: ig.StorageData.SaveFileData;
+    data: ig.StorageData.SaveFileData | null;
+
+    save(this: this, data: string): void;
     getData(this: this): this['data'];
   }
   interface StorageDataConstructor extends ImpactClass<StorageData> {
@@ -767,17 +769,27 @@ declare namespace ig {
   interface Storage extends ig.GameAddon, sc.Model {
     slots: ig.SaveSlot[];
     autoSlot: ig.SaveSlot | null;
+    lastUsedSlot: number;
     listeners: ig.Storage.Listener[];
     globalData: ig.Storage.GlobalsData;
     data: ig.StorageData;
 
     register(this: this, listener: ig.Storage.Listener): void;
+    _saveToStorage(this: this): ig.StorageData.SaveFileData;
   }
   interface StorageConstructor extends ImpactClass<Storage> {
     new (): this['__instance'];
   }
   let Storage: StorageConstructor;
   let storage: Storage;
+
+  namespace StorageTools {
+    function isEncrypted(data: unknown): data is string;
+    function encrypt(data: string): string;
+    function decrypt(data: string): string;
+    function decryptSlotData(data: string): ig.SaveSlot.Data;
+    function encryptSlotData(data: ig.SaveSlot.Data): string;
+  }
 }
 
 /* module impact.feature.bgm.bgm */
