@@ -1,5 +1,7 @@
 {
   "private": true,
+  "name": "ultimate-crosscode-typedefs",
+  "version": "0.0.1",
   "dependencies": {
     "@types/jquery": "~1.10",
     "@types/node": "*",
