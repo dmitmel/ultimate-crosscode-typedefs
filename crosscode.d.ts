@@ -655,7 +655,9 @@ declare namespace ig {
     get(this: this, key: string): unknown;
     onload(this: this, data: ig.Database.Data): void;
   }
-  interface DatabaseConstructor extends ImpactClass<Database> {}
+  interface DatabaseConstructor extends ImpactClass<Database> {
+    new (): this['__instance'];
+  }
   let Database: DatabaseConstructor;
   let database: Database;
 }
@@ -2690,16 +2692,14 @@ declare namespace sc {
   let MenuModel: MenuModelConstructor;
   let menu: sc.MenuModel;
 
-  interface MenuHelper {
-    drawLevel(
-      this: this,
+  namespace MenuHelper {
+    function drawLevel(
       level: number,
       width: number,
       height: number,
       numberGfx: ig.Image,
     ): void;
   }
-  let MenuHelper: MenuHelper;
 }
 
 /* module game.feature.model.game-model */

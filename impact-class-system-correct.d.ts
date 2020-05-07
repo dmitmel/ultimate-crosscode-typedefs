@@ -7,6 +7,15 @@ declare type ReplaceThisParameter<T, This2> = T extends (
     : (this: This2, ...args: Args) => Return
   : T;
 
+declare type ImpactClassMethodThis<
+  K extends keyof Proto,
+  Ctor,
+  Proto,
+  ParentProto
+> = Proto & { constructor: Ctor } & (K extends keyof ParentProto
+    ? { parent: ParentProto[K] }
+    : {});
+
 declare type ImpactClassMember<
   K extends keyof Proto,
   Ctor,
@@ -14,9 +23,7 @@ declare type ImpactClassMember<
   ParentProto
 > = ReplaceThisParameter<
   Proto[K],
-  Proto & { constructor: Ctor } & (K extends keyof ParentProto
-      ? { parent: ParentProto[K] }
-      : {})
+  ImpactClassMethodThis<K, Ctor, Proto, ParentProto>
 >;
 
 declare type ImpactClassDefinition<Ctor, Proto, ParentProto> = {
