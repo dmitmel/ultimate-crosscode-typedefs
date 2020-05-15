@@ -57,6 +57,4 @@ declare interface ImpactClass<Instance> {
 
   readonly classId: number;
   readonly prototype: ImpactClassPrototype<this, Instance>;
-  /// USE ONLY IN CONSTRUCTOR TYPE DEFINITIONS!!! I repeat, USE ONLY IN CONSTRUCTOR TYPE DEFINITIONS!!!
-  readonly __instance: Instance;
 }
