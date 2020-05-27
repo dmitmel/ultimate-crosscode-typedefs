@@ -12,9 +12,9 @@ declare type ImpactClassMethodThis<
   Ctor,
   Proto,
   ParentProto
-> = Proto & { constructor: Ctor } & (K extends keyof ParentProto
-    ? { parent: ParentProto[K] }
-    : {});
+> = K extends keyof ParentProto
+  ? Proto & { constructor: Ctor; parent: ParentProto[K] }
+  : Proto & { constructor: Ctor };
 
 declare type ImpactClassMember<
   K extends keyof Proto,

@@ -1,6 +1,7 @@
 // TypeScript definitions for CrossCode v1.2.0-5
 
-/* eslint-disable no-shadow */
+/* eslint-disable no-shadow, @typescript-eslint/no-empty-interface */
+/* eslint @typescript-eslint/no-explicit-any: warn */
 
 // TODO: rewrite nw.js typedefs, then change version of `@types/node` to `~11.9`
 /// <reference types="nw.js" />
@@ -20,13 +21,13 @@ interface KeySpline {
   get(this: this, t: number): number;
 }
 interface KeySplineConstructor {
+  // eslint-disable-next-line @typescript-eslint/prefer-function-type
   new (x1: number, y1: number, x2: number, y2: number): KeySpline;
 }
 interface Window {
   KeySpline: KeySplineConstructor;
 }
 
-// eslint-disable-next-line @typescript-eslint/class-name-casing
 interface KEY_SPLINES {
   EASE_IN_OUT: KeySpline;
   EASE_OUT: KeySpline;
@@ -1140,7 +1141,10 @@ declare namespace sc {
   type TextLike = string | { toString(): string } | null;
 
   namespace TextGui {
-    type LevelDrawData = { level: number; numberGfx: ig.Image };
+    interface LevelDrawData {
+      level: number;
+      numberGfx: ig.Image;
+    }
 
     interface Settings extends ig.TextBlock.Settings {
       font?: ig.MultiFont;
@@ -1367,7 +1371,7 @@ declare namespace sc {
 
 declare namespace sc {
   interface Model {
-    observers: sc.Model.Observer<this>[];
+    observers: Array<sc.Model.Observer<this>>;
   }
   namespace Model {
     interface Observer<M extends sc.Model = sc.Model> {
@@ -1568,7 +1572,6 @@ declare namespace sc {
   }
 
   namespace OptionDefinition {
-    /* eslint-disable @typescript-eslint/class-name-casing */
     interface BUTTON_GROUP {
       type: 'BUTTON_GROUP';
       data: Record<string, number>;
@@ -1610,7 +1613,6 @@ declare namespace sc {
       init: number;
     }
 
-    // eslint-disable-next-line @typescript-eslint/interface-name-prefix
     interface INFO {
       type: 'INFO';
       data: string;
@@ -1634,7 +1636,6 @@ declare namespace sc {
   );
 
   let OPTIONS_DEFINITION: { [name: string]: OptionDefinition };
-  /* eslint-enable @typescript-eslint/class-name-casing */
 
   namespace OPTIONS_DEFINITION {
     interface KnownTypesMap {
@@ -2125,41 +2126,38 @@ declare namespace sc {
 /* module game.feature.menu.gui.options.options-types */
 
 declare namespace sc {
-  /* eslint-disable @typescript-eslint/class-name-casing, @typescript-eslint/camelcase */
   namespace OPTION_GUIS_DEFS {
     interface BUTTON_GROUP extends ig.GuiElementBase {}
-    interface BUTTON_GROUP_Constructor extends ImpactClass<BUTTON_GROUP> {}
+    interface BUTTON_GROUP_CONSTRUCTOR extends ImpactClass<BUTTON_GROUP> {}
 
     interface ARRAY_SLIDER extends ig.GuiElementBase {}
-    interface ARRAY_SLIDER_Constructor extends ImpactClass<ARRAY_SLIDER> {}
+    interface ARRAY_SLIDER_CONSTRUCTOR extends ImpactClass<ARRAY_SLIDER> {}
 
     interface OBJECT_SLIDER extends ig.GuiElementBase {}
-    interface OBJECT_SLIDER_Constructor extends ImpactClass<OBJECT_SLIDER> {}
+    interface OBJECT_SLIDER_CONSTRUCTOR extends ImpactClass<OBJECT_SLIDER> {}
 
     interface CHECKBOX extends ig.GuiElementBase {
       button: sc.CheckboxGui;
     }
-    interface CHECKBOX_Constructor extends ImpactClass<CHECKBOX> {}
+    interface CHECKBOX_CONSTRUCTOR extends ImpactClass<CHECKBOX> {}
 
     interface CONTROLS extends ig.GuiElementBase {}
-    interface CONTROLS_Constructor extends ImpactClass<CONTROLS> {}
+    interface CONTROLS_CONSTRUCTOR extends ImpactClass<CONTROLS> {}
 
     interface LANGUAGE extends ig.GuiElementBase {}
-    interface LANGUAGE_Constructor extends ImpactClass<LANGUAGE> {}
+    interface LANGUAGE_CONSTRUCTOR extends ImpactClass<LANGUAGE> {}
 
-    /* eslint-disable @typescript-eslint/interface-name-prefix */
     interface INFO extends ig.GuiElementBase {}
-    interface INFO_Constructor extends ImpactClass<INFO> {}
-    /* eslint-enable @typescript-eslint/interface-name-prefix */
+    interface INFO_CONSTRUCTOR extends ImpactClass<INFO> {}
   }
   let OPTION_GUIS: [
-    sc.OPTION_GUIS_DEFS.BUTTON_GROUP_Constructor,
-    sc.OPTION_GUIS_DEFS.ARRAY_SLIDER_Constructor,
-    sc.OPTION_GUIS_DEFS.OBJECT_SLIDER_Constructor,
-    sc.OPTION_GUIS_DEFS.CHECKBOX_Constructor,
-    sc.OPTION_GUIS_DEFS.CONTROLS_Constructor,
-    sc.OPTION_GUIS_DEFS.LANGUAGE_Constructor,
-    sc.OPTION_GUIS_DEFS.INFO_Constructor,
+    sc.OPTION_GUIS_DEFS.BUTTON_GROUP_CONSTRUCTOR,
+    sc.OPTION_GUIS_DEFS.ARRAY_SLIDER_CONSTRUCTOR,
+    sc.OPTION_GUIS_DEFS.OBJECT_SLIDER_CONSTRUCTOR,
+    sc.OPTION_GUIS_DEFS.CHECKBOX_CONSTRUCTOR,
+    sc.OPTION_GUIS_DEFS.CONTROLS_CONSTRUCTOR,
+    sc.OPTION_GUIS_DEFS.LANGUAGE_CONSTRUCTOR,
+    sc.OPTION_GUIS_DEFS.INFO_CONSTRUCTOR,
   ];
 
   interface OptionRow extends ig.GuiElementBase {
@@ -2185,7 +2183,6 @@ declare namespace sc {
     ): OptionRow;
   }
   let OptionRow: OptionRowConstructor;
-  /* eslint-enable @typescript-eslint/class-name-casing, @typescript-eslint/camelcase */
 }
 
 /* module game.feature.menu.gui.options.options-list */
@@ -2851,7 +2848,6 @@ declare namespace sc {
 
 /* module game.feature.npc.npc-steps */
 
-/* eslint-disable @typescript-eslint/class-name-casing, @typescript-eslint/camelcase */
 declare namespace ig {
   namespace EVENT_STEP {
     interface DO_THE_SHAKE extends ig.EventStepBase {
@@ -2859,11 +2855,10 @@ declare namespace ig {
       message: string;
       charExpression: sc.CharacterExpression;
     }
-    interface DO_THE_SHAKE_Constructor extends ImpactClass<DO_THE_SHAKE> {}
-    let DO_THE_SHAKE: DO_THE_SHAKE_Constructor;
+    interface DO_THE_SHAKE_CONSTRUCTOR extends ImpactClass<DO_THE_SHAKE> {}
+    let DO_THE_SHAKE: DO_THE_SHAKE_CONSTRUCTOR;
   }
 }
-/* eslint-enable @typescript-eslint/class-name-casing, @typescript-eslint/camelcase */
 
 /* module game.feature.npc.plug-in */
 /* module game.feature.player.entities.crosshair */

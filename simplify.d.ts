@@ -50,7 +50,6 @@ declare namespace sc {
       checkboxRightAlign?: boolean;
     }
 
-    // eslint-disable-next-line @typescript-eslint/interface-name-prefix
     interface INFO {
       marginBottom: number;
     }
