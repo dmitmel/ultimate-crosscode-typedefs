@@ -3,9 +3,8 @@
 /* eslint-disable no-shadow, @typescript-eslint/no-empty-interface */
 /* eslint @typescript-eslint/no-explicit-any: warn */
 
-/// <reference path="./nw.d.ts" />
-/// <reference types="node" />
 /// <reference types="jquery" />
+/// <reference lib="DOM" />
 
 /// <reference path="./impact-class-system-correct.d.ts" />
 
