@@ -1,5 +1,5 @@
 {
-  "files": ["crosscode.d.ts", "ccloader.d.ts", "simplify.d.ts"],
+  "files": ["crosscode.d.ts", "ccloader.d.ts", "simplify.d.ts", "nw.d.ts"],
   "compilerOptions": {
     "lib": ["ES6", "DOM"],
     "noEmit": true,

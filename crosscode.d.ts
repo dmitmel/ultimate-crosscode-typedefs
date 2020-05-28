@@ -1,10 +1,9 @@
-// TypeScript definitions for CrossCode v1.2.0-5
+// TypeScript definitions for CrossCode 1.2.0-5
 
 /* eslint-disable no-shadow, @typescript-eslint/no-empty-interface */
 /* eslint @typescript-eslint/no-explicit-any: warn */
 
-// TODO: rewrite nw.js typedefs, then change version of `@types/node` to `~11.9`
-/// <reference types="nw.js" />
+/// <reference path="./nw.d.ts" />
 /// <reference types="node" />
 /// <reference types="jquery" />
 

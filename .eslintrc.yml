@@ -2,6 +2,12 @@ extends: eslint-config-dmitmel/presets/node
 env:
   browser: true
 
+rules:
+  node/no-unsupported-features/es-syntax:
+    - error
+    - ignores:
+        - modules
+
 overrides:
   - files: '**/*.ts'
     extends:

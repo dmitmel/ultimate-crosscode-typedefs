@@ -4,8 +4,7 @@
   "version": "0.0.1",
   "dependencies": {
     "@types/jquery": "~1.10",
-    "@types/node": "*",
-    "@types/nw.js": "~0.13"
+    "@types/node": "~11.9"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.0.2",
