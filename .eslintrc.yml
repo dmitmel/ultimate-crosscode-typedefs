@@ -19,3 +19,8 @@ overrides:
   - files: '**/*.d.ts'
     rules:
       no-var: off
+      no-shadow: off
+      '@typescript-eslint/no-empty-interface': off
+      '@typescript-eslint/no-explicit-any':
+        - warn
+        - ignoreRestArgs: true

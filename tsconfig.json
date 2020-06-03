@@ -6,6 +6,7 @@
     "simplify.d.ts",
     "nw.d.ts"
   ],
+  "include": ["modules"],
   "compilerOptions": {
     "lib": ["ES6"],
     "noEmit": true,

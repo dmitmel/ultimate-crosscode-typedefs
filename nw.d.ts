@@ -2,8 +2,7 @@
 // based on https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/nw.js/index.d.ts
 // undocumented fields and methods aren't defined here
 
-/* eslint-disable @typescript-eslint/naming-convention, no-shadow, @typescript-eslint/unified-signatures */
-/* eslint @typescript-eslint/no-explicit-any: ["warn", { "ignoreRestArgs": true }] */
+/* eslint-disable @typescript-eslint/naming-convention, @typescript-eslint/unified-signatures */
 
 /// <reference types="node" />
 

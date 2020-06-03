@@ -1,0 +1,11 @@
+// requires impact.feature.gui.gui.d.ts
+// requires impact.feature.gui.base.basic-gui.d.ts
+// requires game.feature.menu.gui.base-menu.d.ts
+// requires game.feature.menu.gui.menu-misc.d.ts
+// requires game.feature.menu.gui.shop.shop-start.d.ts
+// requires game.feature.menu.gui.shop.shop-list.d.ts
+// requires game.feature.menu.gui.shop.shop-stats.d.ts
+// requires game.feature.menu.gui.shop.shop-cart.d.ts
+// requires game.feature.menu.gui.shop.shop-quantity.d.ts
+// requires game.feature.menu.gui.shop.shop-confirm.d.ts
+// requires game.feature.control.control.d.ts

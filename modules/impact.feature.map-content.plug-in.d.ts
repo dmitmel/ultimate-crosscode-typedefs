@@ -1,0 +1,10 @@
+// requires impact.feature.map-content.map-style.d.ts
+// requires impact.feature.map-content.entities.door.d.ts
+// requires impact.feature.map-content.entities.stair-door.d.ts
+// requires impact.feature.map-content.entities.teleport-ground.d.ts
+// requires impact.feature.map-content.entities.glowing-ground.d.ts
+// requires impact.feature.map-content.entities.prop.d.ts
+// requires impact.feature.map-content.entities.scalable-prop.d.ts
+// requires impact.feature.map-content.entities.hidden-block.d.ts
+// requires impact.feature.map-content.entities.note.d.ts
+// requires impact.feature.map-content.map-content-steps.d.ts
