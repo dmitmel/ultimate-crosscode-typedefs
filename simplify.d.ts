@@ -23,13 +23,13 @@ interface SimplifyResources {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   loadJSONPatched(this: this, path: string): Promise<any>;
 }
-declare let simplifyResources: SimplifyResources;
+declare var simplifyResources: SimplifyResources;
 
 interface Simplify {
   options: SimplifyOptions;
   resources: SimplifyResources;
 }
-declare let simplify: Simplify;
+declare var simplify: Simplify;
 
 declare namespace sc {
   enum OPTION_CATEGORY {

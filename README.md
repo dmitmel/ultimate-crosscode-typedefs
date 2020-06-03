@@ -231,7 +231,7 @@ declare namespace sc {
   interface MyClassConstructor extends ImpactClass<MyClass> {
     new (a: number, b: number): MyClass;
   }
-  let MyClass: MyClassConstructor;
+  var MyClass: MyClassConstructor;
 }
 ```
 
@@ -239,7 +239,7 @@ Let's go over a few things:
 
 - As with simple type extensions, I recommend putting class definitions in header files.
 - The type `sc.MyClass` and the actual constructor which is visible from the (compiled) JavaScript are named the same because the compiler allows it and to not cause confusion.
-- The constructor is defined with a mutable variable (`let`) because you will have to write `sc.MyClass = ig.Class.extend({ ... })` in your code.
+- The constructor is defined with a mutable variable (`var`) because you will have to write `sc.MyClass = ig.Class.extend({ ... })` in your code.
 - All classes should either inherit other Impact classes or `ig.Class` in the declarations since normally it is impossible to create another class without having `ig.Class` at the end of the inheritance chain (because some class has to call `ig.Class.extend`). \
   **TIP:** I generated [an inheritance tree of all classes used in CrossCode](https://gist.github.com/dmitmel/124612112e6f73ead9c3360c1dbc136d) which might come in handy for searching parent classes.
 - `ImpactClass` is a helper interface which automatically generates the `prototype`, defines [`inject`](https://impactjs.com/documentation/class-reference/class#inject) and [`extend`](https://impactjs.com/documentation/class-reference/class#extend).
@@ -282,11 +282,11 @@ declare namespace ig {
     ): TextBlock;
     // ...
   }
-  let TextBlock: TextBlockConstructor;
+  var TextBlock: TextBlockConstructor;
 }
 ```
 
-Unfortunately, extra care needs to be taken when adding enums to Impact classes. From the standpoint of the TypeScript compiler both `let` and `enum` generate JS code, therefore are incompatible. I came up with the following trick to circumvent that:
+Unfortunately, extra care needs to be taken when adding enums to Impact classes. From the standpoint of the TypeScript compiler both `var` and `enum` generate JS code, therefore are incompatible. I came up with the following trick to circumvent that:
 
 ```typescript
 declare namespace ig {
@@ -307,11 +307,11 @@ declare namespace ig {
     ALIGN: typeof Font$ALIGN;
     // ...
   }
-  let Font: FontConstructor;
+  var Font: FontConstructor;
 }
 ```
 
-As you can see, the enum is declared separately from the `let` declaration which it otherwise would be attempted to fuse with, and then both type and static field aliases to the said enum are created.
+As you can see, the enum is declared separately from the `var` declaration which it otherwise would be attempted to fuse with, and then both type and static field aliases to the said enum are created.
 
 ## Recommended code style in definitions
 
