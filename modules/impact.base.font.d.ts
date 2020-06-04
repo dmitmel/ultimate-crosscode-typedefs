@@ -34,9 +34,15 @@ declare namespace ig {
   }
   var Font: FontConstructor;
 
+  namespace MultiFont {
+    interface Mapping {
+      [name: string]: [number, number];
+    }
+  }
   interface MultiFont extends ig.Font {
     iconSets: ig.Font[];
 
+    setMapping(this: this, mapping: MultiFont.Mapping): void;
     getTextDimensions(
       this: this,
       text: string,

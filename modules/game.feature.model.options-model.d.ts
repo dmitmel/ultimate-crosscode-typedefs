@@ -183,6 +183,11 @@ declare namespace sc {
   }
 
   interface OptionModel extends ig.GameAddon, sc.Model {
+    values: {
+      [K in keyof sc.OPTIONS_DEFINITION.KnownTypesMap]: sc.OPTIONS_DEFINITION.KnownTypesMap[K]['init'];
+    } &
+      Record<string, unknown>;
+
     get<K extends keyof sc.OPTIONS_DEFINITION.KnownTypesMap>(
       this: this,
       key: K,

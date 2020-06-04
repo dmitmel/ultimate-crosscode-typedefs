@@ -27,19 +27,24 @@ declare namespace sc {
 
     interface LANGUAGE extends ig.GuiElementBase {}
     interface LANGUAGE_CONSTRUCTOR extends ImpactClass<LANGUAGE> {}
-
-    interface INFO extends ig.GuiElementBase {}
-    interface INFO_CONSTRUCTOR extends ImpactClass<INFO> {}
   }
-  let OPTION_GUIS: [
+  var OPTION_GUIS: [
     sc.OPTION_GUIS_DEFS.BUTTON_GROUP_CONSTRUCTOR,
     sc.OPTION_GUIS_DEFS.ARRAY_SLIDER_CONSTRUCTOR,
     sc.OPTION_GUIS_DEFS.OBJECT_SLIDER_CONSTRUCTOR,
     sc.OPTION_GUIS_DEFS.CHECKBOX_CONSTRUCTOR,
     sc.OPTION_GUIS_DEFS.CONTROLS_CONSTRUCTOR,
     sc.OPTION_GUIS_DEFS.LANGUAGE_CONSTRUCTOR,
-    sc.OPTION_GUIS_DEFS.INFO_CONSTRUCTOR,
   ];
+
+  interface OptionInfoBox extends ig.GuiElementBase {
+    text: sc.TextGui;
+    box: sc.CenterBoxGui;
+  }
+  interface OptionInfoBoxConstructor extends ImpactClass<OptionInfoBox> {
+    new (option: sc.OptionDefinition.INFO, width: number): OptionInfoBox;
+  }
+  var OptionInfoBox: OptionInfoBoxConstructor;
 
   interface OptionRow extends ig.GuiElementBase {
     option: sc.OptionDefinition;
