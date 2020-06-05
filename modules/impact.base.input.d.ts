@@ -105,4 +105,66 @@ declare namespace ig {
     SINGLE_QUOTE,
     AE,
   }
+
+  enum INPUT_DEVICES {
+    KEYBOARD_AND_MOUSE = 1,
+    GAMEPAD = 2,
+  }
+
+  namespace Input {
+    interface KnownActions {
+      back: true;
+      menu: true;
+      confirm: true;
+      quick: true;
+      dash2: true;
+      pause: true;
+      special: true;
+      guard: true;
+      melee: true;
+      left: true;
+      up: true;
+      right: true;
+      down: true;
+      cold: true;
+      shock: true;
+      heat: true;
+      wave: true;
+      neutral: true;
+      help2: true;
+      'circle-right': true;
+      'skip-cutscene': true;
+      help: true;
+      help4: true;
+      help3: true;
+      'circle-left': true;
+      langedit: true;
+      snapshot: true;
+      savedialog: true;
+      fullscreen: true;
+      aim: true;
+      dash: true;
+      scrollUp: true;
+      scrollDown: true;
+    }
+
+    type KnownAction = keyof ig.Input.KnownActions;
+  }
+
+  interface Input extends ig.Class {
+    bindings: Record<ig.KEY, ig.Input.KnownAction> & Record<ig.KEY, string>;
+
+    bind(this: this, key: ig.KEY, action: ig.Input.KnownAction): void;
+    bind(this: this, key: ig.KEY, action: string): void;
+    unbind(this: this, key: ig.KEY): void;
+    state(this: this, action: ig.Input.KnownAction): boolean;
+    state(this: this, action: string): boolean;
+    pressed(this: this, action: ig.Input.KnownAction): boolean;
+    pressed(this: this, action: string): boolean;
+    keyupd(this: this, action: ig.Input.KnownAction): boolean;
+    keyupd(this: this, action: string): boolean;
+  }
+  interface InputConstructor extends ImpactClass<Input> {}
+  var Input: InputConstructor;
+  var input: Input;
 }

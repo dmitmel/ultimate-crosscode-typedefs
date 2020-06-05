@@ -4,6 +4,8 @@
 // requires game.feature.model.base-model.d.ts
 
 declare namespace sc {
+  var KEY_BLACK_LIST: Record<ig.KEY, boolean>;
+
   enum OPTION_TYPES {
     BUTTON_GROUP = 0,
     ARRAY_SLIDER = 1,
@@ -58,7 +60,7 @@ declare namespace sc {
     interface CONTROLS {
       type: 'CONTROLS';
       data?: null | undefined;
-      init: { key: ig.KEY; key2?: ig.KEY };
+      init: { key1: ig.KEY; key2?: ig.KEY };
     }
 
     interface LANGUAGE {
@@ -182,12 +184,31 @@ declare namespace sc {
     }
   }
 
+  interface KeyBinder extends ig.Class {
+    initBindings(this: this): void;
+    unbind(this: this, key: ig.KEY, data: sc.OptionDefinition.CONTROLS): void;
+    updateGamepadIcons(this: this): void;
+    changeBinding(
+      this: this,
+      optionId: string,
+      key: ig.KEY,
+      isAlternative: boolean,
+      unbind: boolean,
+    ): void;
+  }
+  interface KeyBinderConstructor extends ImpactClass<KeyBinder> {
+    new (): KeyBinder;
+  }
+  var KeyBinder: KeyBinderConstructor;
+
   interface OptionModel extends ig.GameAddon, sc.Model {
+    hasChanged: boolean;
     values: {
       [K in keyof sc.OPTIONS_DEFINITION.KnownTypesMap]: sc.OPTIONS_DEFINITION.KnownTypesMap[K]['init'];
     } &
       Record<string, unknown>;
 
+    dispatchKeySwappedEvent(this: this): void;
     get<K extends keyof sc.OPTIONS_DEFINITION.KnownTypesMap>(
       this: this,
       key: K,

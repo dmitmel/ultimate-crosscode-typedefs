@@ -15,6 +15,13 @@ declare namespace sc {
     font: ig.MultiFont;
     smallFont: ig.MultiFont;
     tinyFont: ig.MultiFont;
+
+    changeKeyCodeIcon(
+      this: this,
+      action: ig.Input.KnownAction,
+      key: ig.KEY,
+    ): void;
+    changeKeyCodeIcon(this: this, action: string, key: ig.KEY): void;
   }
   interface FontSystemConstructor extends ImpactClass<FontSystem> {}
   var FontSystem: FontSystemConstructor;
