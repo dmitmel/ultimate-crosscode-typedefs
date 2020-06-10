@@ -90,3 +90,24 @@ declare namespace sc {}
 declare interface Number {
   limit(min: number, max: number): number;
 }
+
+declare var IG_ROOT: string;
+declare var IG_GAME_CACHE: string;
+declare var IG_GAME_DEBUG: boolean;
+declare var IG_GAME_BETA: boolean;
+declare var IG_SOUND_VOLUME: number;
+declare var IG_MUSIC_VOLUME: number;
+declare var IG_WEB_AUDIO_BGM: boolean;
+declare var IG_FORCE_HTML5_AUDIO: boolean;
+declare var IG_KEEP_WINDOW_FOCUS: boolean;
+declare var IG_LANG: string;
+declare var IG_ENTITY_KILL_CALL: boolean;
+declare var IG_IGNORE_OPTIONS: boolean;
+declare var IG_SCREEN_MODE: number;
+declare var IG_USE_WEBAUDIO: boolean;
+declare var IG_GAME_SCALE: number;
+declare var IG_WIDTH: number;
+declare var IG_HEIGHT: number;
+declare var MENU_ON_GAME_START: string;
+declare var IG_LOAD_SLOT: string;
+declare var IG_GAME_FPS: number;
