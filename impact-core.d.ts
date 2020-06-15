@@ -39,13 +39,16 @@ declare namespace ig {
 
   var ready: boolean;
   var loading: boolean;
+  var baked: boolean;
 
   interface Module {
+    name?: string;
     requires: string[];
     loaded: boolean;
     body: (() => void) | null;
   }
   var modules: Record<string, ig.Module>;
+  var _current: ig.Module | null;
   var _waitForOnload: number;
 
   function $new<K extends keyof HTMLElementTagNameMap>(

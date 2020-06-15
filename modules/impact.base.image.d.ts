@@ -11,8 +11,9 @@ declare namespace ig {
     height: number;
 
     loadInternal(this: this, path: string): void;
-    onload(this: this, event: Event): void;
     reload(this: this): void;
+    onload(this: this): void;
+    onerror(this: this): void;
     createPattern(
       this: this,
       x: number,
