@@ -41,6 +41,10 @@ declare namespace ig {
   var loading: boolean;
   var baked: boolean;
 
+  var nocache: string;
+  var root: string;
+  var lib: string;
+
   interface Module {
     name?: string;
     requires: string[];
@@ -59,15 +63,16 @@ declare namespace ig {
   function copy<T>(object: T): T;
   function merge<T, U>(original: T, extended: U, noArrayMerge?: boolean): T & U;
 
-  function module(this: typeof ig, name: string): typeof ig;
-  function requires(this: typeof ig, ...names: string[]): typeof ig;
-  function defines(this: typeof ig, body: () => void): void;
+  function module(name: string): typeof ig;
+  function requires(...names: string[]): typeof ig;
+  function defines(body: () => void): void;
 
   function addResource(resource: ig.Resource): void;
+  function getCacheSuffix(): string;
 
   function addGameAddon<T extends ig.GameAddon>(callback: () => T): void;
 
-  function _execModules(this: typeof ig): void;
+  function _execModules(): void;
 
   interface Class {
     readonly classId: number;

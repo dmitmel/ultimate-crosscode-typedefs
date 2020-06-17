@@ -1,4 +1,7 @@
 declare namespace ig {
+  var fileForwarding: Record<string, string>;
+  function getFilePath(path: string): string;
+
   interface Cacheable extends ig.Class {
     cacheType: string;
 
@@ -12,6 +15,9 @@ declare namespace ig {
     failed: boolean;
     path: string;
 
+    debugReload: boolean;
+
+    reload(this: this): void;
     loadingFinished(this: this, success: boolean): void;
   }
   interface LoadableConstructor extends ImpactClass<Loadable> {
