@@ -5,6 +5,7 @@ declare namespace ig {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     labels: any;
 
+    loadInternal(this: this): void;
     get<T = string>(this: this, path: string): T;
   }
   interface LangConstructor extends ImpactClass<Lang> {}
