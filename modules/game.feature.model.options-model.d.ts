@@ -201,12 +201,9 @@ declare namespace sc {
   }
   var KeyBinder: KeyBinderConstructor;
 
-  interface OptionModel extends ig.GameAddon, sc.Model {
+  interface OptionModel extends ig.GameAddon, sc.Model, ig.Storage.Listener {
     hasChanged: boolean;
-    values: {
-      [K in keyof sc.OPTIONS_DEFINITION.KnownTypesMap]: sc.OPTIONS_DEFINITION.KnownTypesMap[K]['init'];
-    } &
-      Record<string, unknown>;
+    values: ig.Storage.GlobalsData.Options;
 
     dispatchKeySwappedEvent(this: this): void;
     get<K extends keyof sc.OPTIONS_DEFINITION.KnownTypesMap>(
@@ -215,6 +212,7 @@ declare namespace sc {
       local?: boolean,
     ): sc.OPTIONS_DEFINITION.KnownTypesMap[K]['init'];
     get(this: this, key: string, local?: boolean): unknown;
+    _checkForKeyBindingFailure(this: this): void;
   }
   interface OptionModelConstructor extends ImpactClass<OptionModel> {
     new (): OptionModel;

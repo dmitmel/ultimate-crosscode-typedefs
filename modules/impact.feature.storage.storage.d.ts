@@ -72,7 +72,17 @@ declare namespace ig {
   var StorageData: StorageDataConstructor;
 
   namespace Storage {
-    interface GlobalsData {}
+    namespace GlobalsData {
+      type Options = {
+        [K in keyof sc.OPTIONS_DEFINITION.KnownTypesMap]: sc.OPTIONS_DEFINITION.KnownTypesMap[K]['init'];
+      } &
+        Record<string, unknown>;
+    }
+    interface GlobalsData {
+      featVersion: number;
+      feats: Record<string, boolean>;
+      options: GlobalsData.Options;
+    }
 
     interface Listener {
       onStorageGlobalSave(this: this, globals: ig.Storage.GlobalsData): void;

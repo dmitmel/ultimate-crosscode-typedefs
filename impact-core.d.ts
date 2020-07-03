@@ -70,7 +70,8 @@ declare namespace ig {
   function addResource(resource: ig.Resource): void;
   function getCacheSuffix(): string;
 
-  function addGameAddon<T extends ig.GameAddon>(callback: () => T): void;
+  function addGameAddon(callback: () => ig.GameAddon): void;
+  function initGameAddons(): ig.GameAddon[];
 
   function _execModules(): void;
 
