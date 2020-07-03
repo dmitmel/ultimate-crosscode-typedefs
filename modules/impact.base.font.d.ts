@@ -42,6 +42,8 @@ declare namespace ig {
   interface MultiFont extends ig.Font {
     iconSets: ig.Font[];
 
+    pushIconSet(this: this, iconSet: ig.Font): void;
+    setIconSet(this: this, iconSet: ig.Font, index: number): void;
     setMapping(this: this, mapping: MultiFont.Mapping): void;
     getTextDimensions(
       this: this,

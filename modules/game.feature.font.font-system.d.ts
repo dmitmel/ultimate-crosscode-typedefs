@@ -23,7 +23,9 @@ declare namespace sc {
     ): void;
     changeKeyCodeIcon(this: this, action: string, key: ig.KEY): void;
   }
-  interface FontSystemConstructor extends ImpactClass<FontSystem> {}
+  interface FontSystemConstructor extends ImpactClass<FontSystem> {
+    new (): FontSystem;
+  }
   var FontSystem: FontSystemConstructor;
   var fontsystem: sc.FontSystem;
 }
