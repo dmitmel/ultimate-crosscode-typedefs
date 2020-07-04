@@ -8,6 +8,7 @@ declare namespace sc {
     textGui: sc.TextGui;
   }
   interface LogGuiTypeBaseConstructor extends ImpactClass<LogGuiTypeBase> {
+    // TODO
     new (settings: any): LogGuiTypeBase;
   }
   var LogGuiTypeBase: LogGuiTypeBaseConstructor;

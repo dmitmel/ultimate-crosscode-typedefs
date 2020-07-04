@@ -66,7 +66,7 @@ declare namespace ig {
     teleportOrder: number;
     onTeleport?(
       this: this,
-      map: any,
+      map: string,
       teleportPosition?: ig.TeleportPosition | null,
       hint?: 'NEW' | 'LOAD' | null,
       clearCache?: boolean | null,

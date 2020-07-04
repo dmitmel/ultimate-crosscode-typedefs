@@ -25,7 +25,7 @@ declare namespace sc {
     setTraderData(
       this: this,
       trader: string,
-      offer: any,
+      offer: any, // TODO
       buttonPos: number,
     ): void;
   }

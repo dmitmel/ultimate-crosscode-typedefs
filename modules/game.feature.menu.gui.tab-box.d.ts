@@ -18,8 +18,8 @@ declare namespace sc {
       this: this,
       list: sc.ButtonListBox,
       buttonGroup: sc.ButtonGroup,
-      type: any,
-      sort: any,
+      type: any, // TODO
+      sort: any, // TODO
     ): void;
   }
   interface ListTabbedPaneConstructor extends ImpactClass<ListTabbedPane> {}

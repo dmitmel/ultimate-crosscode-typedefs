@@ -6,7 +6,7 @@
 declare namespace sc {
   interface TradeIconGui extends ig.BoxGui {
     entries: Array<{
-      require: any;
+      require: any; // TODO
       gui: sc.TextGui & { tradeName: string } & sc.TextGui.LevelDrawData;
     }>;
 

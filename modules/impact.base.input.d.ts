@@ -154,6 +154,8 @@ declare namespace ig {
   interface Input extends ig.Class {
     bindings: Record<ig.KEY, ig.Input.KnownAction> & Record<ig.KEY, string>;
 
+    // `ig.Input.KnownAction | string` kills autocompletion
+    /* eslint-disable @typescript-eslint/unified-signatures */
     bind(this: this, key: ig.KEY, action: ig.Input.KnownAction): void;
     bind(this: this, key: ig.KEY, action: string): void;
     unbind(this: this, key: ig.KEY): void;
@@ -163,6 +165,7 @@ declare namespace ig {
     pressed(this: this, action: string): boolean;
     keyupd(this: this, action: ig.Input.KnownAction): boolean;
     keyupd(this: this, action: string): boolean;
+    /* eslint-enable @typescript-eslint/unified-signatures */
   }
   interface InputConstructor extends ImpactClass<Input> {}
   var Input: InputConstructor;
