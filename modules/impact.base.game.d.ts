@@ -46,6 +46,7 @@ declare namespace ig {
     addons: Game.Addons;
 
     createPlayer(this: this): void;
+    getErrorData(this: this, gameInfo: Record<string, unknown>): void;
   }
   interface GameConstructor extends ImpactClass<Game> {
     new (): Game;

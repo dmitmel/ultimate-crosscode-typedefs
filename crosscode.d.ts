@@ -5,4 +5,5 @@
 
 /// <reference path="./impact-class-system-correct.d.ts" />
 /// <reference path="./impact-core.d.ts" />
+/// <reference path="./crosscode-external-scripts.d.ts" />
 /// <reference path="./modules/__all__.d.ts" />
