@@ -28,3 +28,6 @@ overrides:
 
       # everything in declarations is public anyway
       '@typescript-eslint/explicit-member-accessibility': off
+
+      # triggers on weird edge-cases such as `import export a = b`
+      '@typescript-eslint/no-use-before-define': off

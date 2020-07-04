@@ -1,11 +1,5 @@
 {
-  "files": [
-    "crosscode.d.ts",
-    "crosscode-nw.d.ts",
-    "ccloader.d.ts",
-    "simplify.d.ts",
-    "nw.d.ts"
-  ],
+  "files": ["crosscode.d.ts", "crosscode-nw.d.ts", "modloader.d.ts", "nw.d.ts"],
   "include": ["modules"],
   "compilerOptions": {
     "lib": ["ES6"],
