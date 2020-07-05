@@ -1,20 +1,6 @@
 // eslint-disable-next-line node/no-extraneous-import, @typescript-eslint/no-unused-vars
 import * as semver from 'semver';
 
-declare module 'semver' {
-  interface SemVer {
-    toString(this: this): string;
-  }
-
-  interface Comparator {
-    toString(this: this): string;
-  }
-
-  interface Range {
-    toString(this: this): string;
-  }
-}
-
 declare global {
   namespace modloader {
     const name: string;
