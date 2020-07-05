@@ -15,8 +15,7 @@ declare namespace sc {
 
     updateToggleState(this: this): void;
   }
-  interface NewGameOptionButtonConstructor
-    extends ImpactClass<NewGameOptionButton> {
+  interface NewGameOptionButtonConstructor extends ImpactClass<NewGameOptionButton> {
     new (
       name: string,
       amount: number,

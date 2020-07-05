@@ -21,19 +21,15 @@ declare type ImpactClassMember<
   Ctor,
   Proto,
   ParentProto
-> = ReplaceThisParameter<
-  Proto[K],
-  ImpactClassMethodThis<K, Ctor, Proto, ParentProto>
->;
+> = ReplaceThisParameter<Proto[K], ImpactClassMethodThis<K, Ctor, Proto, ParentProto>>;
 
 declare type ImpactClassDefinition<Ctor, Proto, ParentProto> = {
   [K in keyof Proto]?: ImpactClassMember<K, Ctor, Proto, ParentProto> | null;
 };
 
-declare type ImpactClassPrototype<
-  Constructor,
-  Instance
-> = Constructor extends new (...args: infer Args) => Instance
+declare type ImpactClassPrototype<Constructor, Instance> = Constructor extends new (
+  ...args: infer Args
+) => Instance
   ? Instance & { init: (this: Instance, ...args: Args) => void }
   : Instance;
 
@@ -46,13 +42,10 @@ declare interface ImpactClass<Instance> {
       this['prototype']
     >,
   ): ChildConstructor;
+
   inject(
     this: this,
-    classDefinition: ImpactClassDefinition<
-      this,
-      this['prototype'],
-      this['prototype']
-    >,
+    classDefinition: ImpactClassDefinition<this, this['prototype'], this['prototype']>,
   ): void;
 
   readonly classId: number;

@@ -109,23 +109,11 @@ declare global {
       function on(event: 'reopen', listener: () => void): void;
       function on(event: string, listener: (...args: any[]) => void): void;
 
-      function once(
-        event: 'open',
-        listener: (this: typeof App, cmdline: string) => void,
-      ): void;
-      function once(
-        event: 'reopen',
-        listener: (this: typeof App) => void,
-      ): void;
-      function once(
-        event: string,
-        listener: (this: typeof App, ...args: any[]) => void,
-      ): void;
+      function once(event: 'open', listener: (this: typeof App, cmdline: string) => void): void;
+      function once(event: 'reopen', listener: (this: typeof App) => void): void;
+      function once(event: string, listener: (this: typeof App, ...args: any[]) => void): void;
 
-      function removeListener(
-        event: string,
-        listener: (...args: any[]) => void,
-      ): void;
+      function removeListener(event: string, listener: (...args: any[]) => void): void;
       function removeAllListeners(event: string): void;
     }
 
@@ -206,10 +194,7 @@ declare global {
       remove(item: MenuItem): void;
       removeAt(i: number): void;
       popup(x: number, y: number): void;
-      createMacBuiltin(
-        appname: string,
-        options?: Menu.CreateMacBuiltinOptions,
-      ): void;
+      createMacBuiltin(appname: string, options?: Menu.CreateMacBuiltinOptions): void;
     }
 
     namespace MenuItem {
@@ -271,10 +256,7 @@ declare global {
       interface DesktopCaptureMonitor extends events.EventEmitter {
         readonly started: boolean;
 
-        start(
-          should_include_screens: boolean,
-          should_include_windows: boolean,
-        ): void;
+        start(should_include_screens: boolean, should_include_windows: boolean): void;
         stop(): void;
         registerStream(id: string): string;
 
@@ -289,23 +271,12 @@ declare global {
             primary?: boolean,
           ) => void,
         ): this;
-        on(
-          event: 'removed',
-          listener: (this: this, order: number) => void,
-        ): this;
+        on(event: 'removed', listener: (this: this, order: number) => void): this;
         on(
           event: 'orderchanged',
-          listener: (
-            this: this,
-            id: string,
-            new_order: number,
-            old_order: number,
-          ) => void,
+          listener: (this: this, id: string, new_order: number, old_order: number) => void,
         ): this;
-        on(
-          event: 'namechanged',
-          listener: (this: this, id: string, name: string) => void,
-        ): this;
+        on(event: 'namechanged', listener: (this: this, id: string, name: string) => void): this;
         on(
           event: 'thumbnailchanged',
           listener: (this: this, id: string, thumbnail: string) => void,
@@ -322,23 +293,12 @@ declare global {
             primary?: boolean,
           ) => void,
         ): this;
-        once(
-          event: 'removed',
-          listener: (this: this, order: number) => void,
-        ): this;
+        once(event: 'removed', listener: (this: this, order: number) => void): this;
         once(
           event: 'orderchanged',
-          listener: (
-            this: this,
-            id: string,
-            new_order: number,
-            old_order: number,
-          ) => void,
+          listener: (this: this, id: string, new_order: number, old_order: number) => void,
         ): this;
-        once(
-          event: 'namechanged',
-          listener: (this: this, id: string, name: string) => void,
-        ): this;
+        once(event: 'namechanged', listener: (this: this, id: string, name: string) => void): this;
         once(
           event: 'thumbnailchanged',
           listener: (this: this, id: string, thumbnail: string) => void,
@@ -361,27 +321,15 @@ declare global {
         event: 'displayBoundsChanged',
         listener: (this: this, screen: Screen.Display) => void,
       ): this;
-      on(
-        event: 'displayAdded',
-        listener: (this: this, screen: Screen.Display) => void,
-      ): this;
-      on(
-        event: 'displayRemoved',
-        listener: (this: this, screen: Screen.Display) => void,
-      ): this;
+      on(event: 'displayAdded', listener: (this: this, screen: Screen.Display) => void): this;
+      on(event: 'displayRemoved', listener: (this: this, screen: Screen.Display) => void): this;
 
       once(
         event: 'displayBoundsChanged',
         listener: (this: this, screen: Screen.Display) => void,
       ): this;
-      once(
-        event: 'displayAdded',
-        listener: (this: this, screen: Screen.Display) => void,
-      ): this;
-      once(
-        event: 'displayRemoved',
-        listener: (this: this, screen: Screen.Display) => void,
-      ): this;
+      once(event: 'displayAdded', listener: (this: this, screen: Screen.Display) => void): this;
+      once(event: 'displayRemoved', listener: (this: this, screen: Screen.Display) => void): this;
 
       DesktopCaptureMonitor: Screen.DesktopCaptureMonitor;
     }
@@ -567,10 +515,7 @@ declare global {
       setProgressBar(progress: number): void;
       setBadgeLabel(label: string): void;
       eval(frame: HTMLIFrameElement | null, script: string): void;
-      evalNWBin(
-        frame: HTMLIFrameElement | null,
-        path: string | ArrayBuffer | Buffer,
-      ): void;
+      evalNWBin(frame: HTMLIFrameElement | null, path: string | ArrayBuffer | Buffer): void;
       evalNWBinModule(
         frame: HTMLIFrameElement | null,
         path: string | ArrayBuffer | Buffer,
@@ -594,24 +539,15 @@ declare global {
       on(event: 'minimize', listener: (this: this) => void): void;
       on(event: 'restore', listener: (this: this) => void): void;
       on(event: 'maximize', listener: (this: this) => void): void;
-      on(
-        event: 'move',
-        listener: (this: this, x: number, y: number) => void,
-      ): void;
-      on(
-        event: 'resize',
-        listener: (this: this, width: number, height: number) => void,
-      ): void;
+      on(event: 'move', listener: (this: this, x: number, y: number) => void): void;
+      on(event: 'resize', listener: (this: this, width: number, height: number) => void): void;
       on(event: 'enter-fullscreen', listener: (this: this) => void): void;
       /** @deprecated */
       on(event: 'leave-fullscreen', listener: (this: this) => void): void;
       on(event: 'zoom', listener: (this: this) => void): void;
       /** @deprecated */
       on(event: 'capturepagedone', listener: (this: this) => void): void;
-      on(
-        event: 'devtools-opened',
-        listener: (this: this, url: string) => void,
-      ): void;
+      on(event: 'devtools-opened', listener: (this: this, url: string) => void): void;
       on(event: 'devtools-closed', listener: (this: this) => void): void;
       on(
         event: 'new-win-policy',
@@ -650,24 +586,15 @@ declare global {
       once(event: 'minimize', listener: (this: this) => void): void;
       once(event: 'restore', listener: (this: this) => void): void;
       once(event: 'maximize', listener: (this: this) => void): void;
-      once(
-        event: 'move',
-        listener: (this: this, x: number, y: number) => void,
-      ): void;
-      once(
-        event: 'resize',
-        listener: (this: this, width: number, height: number) => void,
-      ): void;
+      once(event: 'move', listener: (this: this, x: number, y: number) => void): void;
+      once(event: 'resize', listener: (this: this, width: number, height: number) => void): void;
       once(event: 'enter-fullscreen', listener: (this: this) => void): void;
       /** @deprecated */
       once(event: 'leave-fullscreen', listener: (this: this) => void): void;
       once(event: 'zoom', listener: (this: this) => void): void;
       /** @deprecated */
       once(event: 'capturepagedone', listener: (this: this) => void): void;
-      once(
-        event: 'devtools-opened',
-        listener: (this: this, url: string) => void,
-      ): void;
+      once(event: 'devtools-opened', listener: (this: this, url: string) => void): void;
       once(event: 'devtools-closed', listener: (this: this) => void): void;
       once(
         event: 'new-win-policy',

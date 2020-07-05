@@ -14,8 +14,7 @@ declare namespace sc {
     questLocation: sc.TextGui;
     rewards: sc.QuestHubRewards;
   }
-  interface QuestHubListEntryConstructor
-    extends ImpactClass<QuestHubListEntry> {
+  interface QuestHubListEntryConstructor extends ImpactClass<QuestHubListEntry> {
     new (questID: string, tab: sc.MENU_QUEST_HUB_TABS): QuestHubListEntry;
   }
   var QuestHubListEntry: QuestHubListEntryConstructor;

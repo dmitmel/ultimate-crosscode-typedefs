@@ -5,7 +5,6 @@
 
 declare namespace sc {
   interface LevelUpContentGui extends ig.GuiElementBase {}
-  interface LevelUpContentGuiConstructor
-    extends ImpactClass<LevelUpContentGui> {}
+  interface LevelUpContentGuiConstructor extends ImpactClass<LevelUpContentGui> {}
   var LevelUpContentGui: LevelUpContentGuiConstructor;
 }

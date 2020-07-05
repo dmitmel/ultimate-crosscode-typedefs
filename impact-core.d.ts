@@ -55,9 +55,7 @@ declare namespace ig {
   var _current: ig.Module | null;
   var _waitForOnload: number;
 
-  function $new<K extends keyof HTMLElementTagNameMap>(
-    tagName: K,
-  ): HTMLElementTagNameMap[K];
+  function $new<K extends keyof HTMLElementTagNameMap>(tagName: K): HTMLElementTagNameMap[K];
   function $new(tagName: string): HTMLElement;
 
   function copy<T>(object: T): T;
@@ -99,13 +97,7 @@ declare namespace ig {
 declare namespace sc {}
 
 declare interface Number {
-  map(
-    this: this,
-    min1: number,
-    max1: number,
-    min2: number,
-    max2: number,
-  ): number;
+  map(this: this, min1: number, max1: number, min2: number, max2: number): number;
   limit(this: this, min: number, max: number): number;
   round(this: this, precision: number): number;
   floor(this: this): number;

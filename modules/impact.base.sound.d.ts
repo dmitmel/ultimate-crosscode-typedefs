@@ -18,12 +18,7 @@ declare namespace ig {
       this: this,
       path: string,
       channelCount: number,
-      loadCallback: (
-        path: string,
-        channelCount: number,
-        success: boolean,
-        event?: Event,
-      ) => void,
+      loadCallback: (path: string, channelCount: number, success: boolean, event?: Event) => void,
     ): void;
   }
   interface SoundManagerConstructor extends ImpactClass<SoundManager> {}
@@ -31,15 +26,11 @@ declare namespace ig {
   var soundManager: SoundManager;
 
   interface SoundDefault extends ig.Class, SoundCommon {}
-  interface SoundDefaultConstructor
-    extends ImpactClass<SoundDefault>,
-      SoundConstructorCommon {}
+  interface SoundDefaultConstructor extends ImpactClass<SoundDefault>, SoundConstructorCommon {}
   var SoundDefault: SoundDefaultConstructor;
 
   interface SoundWebAudio extends ig.Class, SoundCommon {}
-  interface SoundWebAudioConstructor
-    extends ImpactClass<SoundWebAudio>,
-      SoundConstructorCommon {}
+  interface SoundWebAudioConstructor extends ImpactClass<SoundWebAudio>, SoundConstructorCommon {}
   var SoundWebAudio: SoundWebAudioConstructor;
 
   namespace Sound {

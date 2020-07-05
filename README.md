@@ -277,11 +277,7 @@ declare namespace ig {
     // ...
   }
   interface TextBlockConstructor extends ImpactClass<TextBlock> {
-    new (
-      font: ig.MultiFont,
-      text: sc.TextLike,
-      settings: ig.TextBlock.Settings,
-    ): TextBlock;
+    new (font: ig.MultiFont, text: sc.TextLike, settings: ig.TextBlock.Settings): TextBlock;
     // ...
   }
   var TextBlock: TextBlockConstructor;

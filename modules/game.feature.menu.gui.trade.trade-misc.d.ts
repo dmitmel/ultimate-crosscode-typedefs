@@ -8,11 +8,7 @@ declare namespace sc {
     location: sc.TextGui;
   }
   interface TradeButtonBoxConstructor extends ImpactClass<TradeButtonBox> {
-    new (
-      trader: string,
-      buttonGroup: sc.ButtonGroup,
-      buttonStartIndex: number,
-    ): TradeButtonBox;
+    new (trader: string, buttonGroup: sc.ButtonGroup, buttonStartIndex: number): TradeButtonBox;
   }
   var TradeButtonBox: TradeButtonBoxConstructor;
 

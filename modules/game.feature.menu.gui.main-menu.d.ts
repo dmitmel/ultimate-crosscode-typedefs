@@ -17,8 +17,7 @@ declare namespace sc {
 
       pushMenuDisplay(this: this, name: sc.TextLike): void;
     }
-    interface CurrentMenuDisplayConstructor
-      extends ImpactClass<CurrentMenuDisplay> {
+    interface CurrentMenuDisplayConstructor extends ImpactClass<CurrentMenuDisplay> {
       new (): CurrentMenuDisplay;
     }
   }

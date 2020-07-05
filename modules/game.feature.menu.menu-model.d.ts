@@ -49,11 +49,6 @@ declare namespace sc {
   var menu: sc.MenuModel;
 
   namespace MenuHelper {
-    function drawLevel(
-      level: number,
-      width: number,
-      height: number,
-      numberGfx: ig.Image,
-    ): void;
+    function drawLevel(level: number, width: number, height: number, numberGfx: ig.Image): void;
   }
 }

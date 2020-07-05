@@ -12,14 +12,9 @@ declare namespace sc {
   interface ArenaRoundEndButtons extends ig.GuiElementBase {
     buttons: sc.ButtonGui[];
   }
-  interface ArenaRoundEndButtonsConstructor
-    extends ImpactClass<ArenaRoundEndButtons> {
+  interface ArenaRoundEndButtonsConstructor extends ImpactClass<ArenaRoundEndButtons> {
     new (
-      callback: (
-        rushMode: boolean,
-        buttonIndex: number,
-        isLastRound: boolean,
-      ) => void,
+      callback: (rushMode: boolean, buttonIndex: number, isLastRound: boolean) => void,
       info: sc.InfoBar,
       playerDeath: boolean,
     ): ArenaRoundEndButtons;

@@ -12,12 +12,7 @@ declare namespace sc {
     description: sc.TextGui;
   }
   interface TrophyListEntryConstructor extends ImpactClass<TrophyListEntry> {
-    new (
-      key: string,
-      groupID: string,
-      sectionID: string,
-      showProgress: boolean,
-    ): TrophyListEntry;
+    new (key: string, groupID: string, sectionID: string, showProgress: boolean): TrophyListEntry;
   }
   var TrophyListEntry: TrophyListEntryConstructor;
 }

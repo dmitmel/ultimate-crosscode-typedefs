@@ -21,12 +21,7 @@ declare namespace sc {
   interface QuestDialog extends sc.QuestBaseBox {
     itemsGui: ig.GuiElementBase;
 
-    setQuestRewards(
-      this: this,
-      quest: sc.Quest,
-      hideRewards: boolean,
-      finished: boolean,
-    ): void;
+    setQuestRewards(this: this, quest: sc.Quest, hideRewards: boolean, finished: boolean): void;
   }
   interface QuestDialogConstructor extends ImpactClass<QuestDialog> {}
   var QuestDialog: QuestDialogConstructor;

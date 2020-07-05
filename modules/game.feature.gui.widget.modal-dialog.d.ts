@@ -14,8 +14,7 @@ declare namespace sc {
   }
 
   interface ModalButtonInteract extends ig.GuiElementBase {}
-  interface ModalButtonInteractConstructor
-    extends ImpactClass<ModalButtonInteract> {}
+  interface ModalButtonInteractConstructor extends ImpactClass<ModalButtonInteract> {}
   var ModalButtonInteract: ModalButtonInteractConstructor;
 
   interface Dialogs {
@@ -23,10 +22,7 @@ declare namespace sc {
       this: this,
       text?: sc.TextLike,
       icon?: sc.DIALOG_INFO_ICON,
-      callback?: (
-        button: sc.ButtonGui,
-        dialog?: sc.ModalButtonInteract,
-      ) => void,
+      callback?: (button: sc.ButtonGui, dialog?: sc.ModalButtonInteract) => void,
       noSubmitSound?: boolean,
     ): void;
   }

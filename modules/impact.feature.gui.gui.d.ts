@@ -34,12 +34,7 @@ declare namespace ig {
       sizeX: number,
       sizeY: number,
     ): ig.GuiDrawable;
-    addText(
-      this: this,
-      textBlock: ig.TextBlock,
-      posX: number,
-      posY: number,
-    ): ig.GuiDrawable;
+    addText(this: this, textBlock: ig.TextBlock, posX: number, posY: number): ig.GuiDrawable;
 
     addTransform(this: this): ig.GuiTransform;
     undoTransform(this: this): void;

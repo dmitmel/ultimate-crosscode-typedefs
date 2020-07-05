@@ -2,7 +2,6 @@
 
 declare namespace sc {
   interface CharacterExpression extends ig.Cacheable {}
-  interface CharacterExpressionConstructor
-    extends ImpactClass<CharacterExpression> {}
+  interface CharacterExpressionConstructor extends ImpactClass<CharacterExpression> {}
   var CharacterExpression: CharacterExpressionConstructor;
 }

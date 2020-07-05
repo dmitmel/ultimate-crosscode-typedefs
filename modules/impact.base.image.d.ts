@@ -46,7 +46,6 @@ declare namespace ig {
   var ImagePattern: ImagePatternConstructor;
 
   interface ImageAtlasFragment extends ig.Class {}
-  interface ImageAtlasFragmentConstructor
-    extends ImpactClass<ImageAtlasFragment> {}
+  interface ImageAtlasFragmentConstructor extends ImpactClass<ImageAtlasFragment> {}
   var ImageAtlasFragment: ImageAtlasFragmentConstructor;
 }

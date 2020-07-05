@@ -7,7 +7,6 @@ declare namespace sc {
   interface StatusViewCombatArtsEntry extends ig.GuiElementBase {
     getConditionType(this: this): string;
   }
-  interface StatusViewCombatArtsEntryConstructor
-    extends ImpactClass<StatusViewCombatArtsEntry> {}
+  interface StatusViewCombatArtsEntryConstructor extends ImpactClass<StatusViewCombatArtsEntry> {}
   var StatusViewCombatArtsEntry: StatusViewCombatArtsEntryConstructor;
 }

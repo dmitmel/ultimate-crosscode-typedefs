@@ -13,14 +13,8 @@ declare namespace ig {
     setFocusLost(this: this): void;
     regainFocus(this: this): void;
     addFocusListener(this: this, listener: (focusLost: boolean) => void): void;
-    removeFocusListener(
-      this: this,
-      listener: (focusLost: boolean) => void,
-    ): void;
-    getBufferContext(
-      this: this,
-      buffer: HTMLCanvasElement,
-    ): CanvasRenderingContext2D;
+    removeFocusListener(this: this, listener: (focusLost: boolean) => void): void;
+    getBufferContext(this: this, buffer: HTMLCanvasElement): CanvasRenderingContext2D;
     error(this: this, error: Error): void;
   }
   interface SystemConstructor extends ImpactClass<System> {}

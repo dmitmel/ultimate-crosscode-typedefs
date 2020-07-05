@@ -73,10 +73,7 @@ declare global {
       options: LoadJSONOptions;
     }
 
-    const imagePatches: patchList.ResourcePatchList<
-      HTMLCanvasElement,
-      ImagePatcherContext
-    >;
+    const imagePatches: patchList.ResourcePatchList<HTMLCanvasElement, ImagePatcherContext>;
     interface ImagePatcherContext extends ResolvePathAdvancedResult {
       options: LoadImageOptions;
     }
@@ -88,10 +85,7 @@ declare global {
     interface LoadJSONOptions extends ResolvePathOptions {
       callerThisValue?: unknown;
     }
-    function loadJSON<T = unknown>(
-      path: string,
-      options?: LoadJSONOptions | null,
-    ): Promise<T>;
+    function loadJSON<T = unknown>(path: string, options?: LoadJSONOptions | null): Promise<T>;
 
     interface LoadImageOptions extends ResolvePathOptions {
       callerThisValue?: unknown;
@@ -102,14 +96,8 @@ declare global {
       options?: LoadImageOptions | null,
     ): Promise<HTMLImageElement | HTMLCanvasElement>;
 
-    function resolvePath(
-      uri: string,
-      options?: ResolvePathOptions | null,
-    ): string;
-    function resolvePathToURL(
-      path: string,
-      options?: ResolvePathOptions | null,
-    ): string;
+    function resolvePath(uri: string, options?: ResolvePathOptions | null): string;
+    function resolvePathToURL(path: string, options?: ResolvePathOptions | null): string;
 
     interface ResolvePathOptions {
       allowAssetOverrides?: boolean | null;
@@ -132,10 +120,7 @@ declare global {
     function loadText(url: string): Promise<string>;
     function loadJSON<T = unknown>(url: string): Promise<T>;
     function loadImage(url: string): Promise<HTMLImageElement>;
-    function loadStylesheet(
-      url: string,
-      options?: { type?: string | null } | null,
-    ): Promise<void>;
+    function loadStylesheet(url: string, options?: { type?: string | null } | null): Promise<void>;
     function loadScript(
       url: string,
       options?: { type?: string | null; async?: boolean | null } | null,
@@ -149,11 +134,7 @@ declare global {
       }
     }
     interface MultiFont {
-      pushIconSet(
-        this: this,
-        font: ig.Font,
-        mapping?: MultiFont.MappingSimple | null,
-      ): void;
+      pushIconSet(this: this, font: ig.Font, mapping?: MultiFont.MappingSimple | null): void;
       setIconSet(
         this: this,
         iconSet: ig.Font,

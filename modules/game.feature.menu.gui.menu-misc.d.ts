@@ -87,8 +87,7 @@ declare namespace sc {
     simpleMode: boolean;
     noPercentMode: boolean;
   }
-  interface SimpleStatusDisplayConstructor
-    extends ImpactClass<SimpleStatusDisplay> {
+  interface SimpleStatusDisplayConstructor extends ImpactClass<SimpleStatusDisplay> {
     new (
       name: string,
       lineID: number,

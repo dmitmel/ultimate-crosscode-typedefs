@@ -30,8 +30,7 @@ declare namespace sc {
     show(this: this): void;
     hide(this: this, skipTransition: boolean): void;
   }
-  interface TitleScreenButtonGuiConstructor
-    extends ImpactClass<TitleScreenButtonGui> {
+  interface TitleScreenButtonGuiConstructor extends ImpactClass<TitleScreenButtonGui> {
     new (): TitleScreenButtonGui;
   }
   var TitleScreenButtonGui: TitleScreenButtonGuiConstructor;

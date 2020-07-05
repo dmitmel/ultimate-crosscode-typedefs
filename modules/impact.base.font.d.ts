@@ -45,11 +45,7 @@ declare namespace ig {
     pushIconSet(this: this, iconSet: ig.Font): void;
     setIconSet(this: this, iconSet: ig.Font, index: number): void;
     setMapping(this: this, mapping: MultiFont.Mapping): void;
-    getTextDimensions(
-      this: this,
-      text: string,
-      linePadding: number,
-    ): ig.TextBlock.Size;
+    getTextDimensions(this: this, text: string, linePadding: number): ig.TextBlock.Size;
     wrapText(
       this: this,
       text: string,
@@ -118,11 +114,7 @@ declare namespace ig {
     draw(this: this, x: number, y: number): void;
   }
   interface TextBlockConstructor extends ImpactClass<TextBlock> {
-    new (
-      font: ig.MultiFont,
-      text: sc.TextLike,
-      settings: ig.TextBlock.Settings,
-    ): TextBlock;
+    new (font: ig.MultiFont, text: sc.TextLike, settings: ig.TextBlock.Settings): TextBlock;
 
     SPEED: typeof TextBlock$SPEED;
   }

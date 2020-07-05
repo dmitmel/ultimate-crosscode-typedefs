@@ -11,11 +11,7 @@ declare namespace sc {
 
     show(
       this: this,
-      finishCallback: (
-        keyCode: number | null,
-        isAlternative: boolean,
-        unbind: boolean,
-      ) => void,
+      finishCallback: (keyCode: number | null, isAlternative: boolean, unbind: boolean) => void,
       forAction: string,
       isAlternative: boolean,
     ): void;

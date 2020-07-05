@@ -10,7 +10,6 @@ declare namespace sc {
     gfx: ig.Image;
     icon: number;
   }
-  interface EnemyBaseParamLineConstructor
-    extends ImpactClass<EnemyBaseParamLine> {}
+  interface EnemyBaseParamLineConstructor extends ImpactClass<EnemyBaseParamLine> {}
   var EnemyBaseParamLine: EnemyBaseParamLineConstructor;
 }

@@ -23,8 +23,7 @@ declare namespace sc {
 
     updateMemberStatus(this: this): void;
   }
-  interface SocialEntryButtonConstructor
-    extends ImpactClass<SocialEntryButton> {
+  interface SocialEntryButtonConstructor extends ImpactClass<SocialEntryButton> {
     new (name: string, model: sc.PartyMemberModel): SocialEntryButton;
   }
   var SocialEntryButton: SocialEntryButtonConstructor;

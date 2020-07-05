@@ -4,7 +4,6 @@
 
 declare namespace sc {
   interface BotanicsEntryButton extends sc.ListBoxButton {}
-  interface BotanicsEntryButtonConstructor
-    extends ImpactClass<BotanicsEntryButton> {}
+  interface BotanicsEntryButtonConstructor extends ImpactClass<BotanicsEntryButton> {}
   var BotanicsEntryButton: BotanicsEntryButtonConstructor;
 }
