@@ -1,3 +1,5 @@
+/// <reference path="./crosscode.d.ts" />
+
 declare namespace sc {
   enum OPTION_CATEGORY {
     MODS = 8,
