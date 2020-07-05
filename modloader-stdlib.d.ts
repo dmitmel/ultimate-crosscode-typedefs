@@ -9,6 +9,26 @@ declare global {
     export import semver = semver_;
   }
 
+  namespace ccmod.utils {
+    type MaybePromise<T> = T | Promise<T>;
+    enum PlatformType {
+      Desktop = 'Desktop',
+      Browser = 'Browser',
+    }
+    const PLATFORM_TYPE: PlatformType;
+    function showDevTools(): Promise<void>;
+    function wait(ms: number): Promise<void>;
+    function compare<T>(a: T, b: T): number;
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    function errorHasMessage(error: any): error is { message: string };
+    function errorHasCode(error: any): error is { code: string };
+    type PromiseResult<T> = { type: 'resolved'; value: T } | { type: 'rejected'; reason: any };
+    /* eslint-enable @typescript-eslint/no-explicit-any */
+    function wrapPromiseResult<T>(promise: Promise<T>): Promise<PromiseResult<T>>;
+    function hasKey(obj: unknown, key: PropertyKey): boolean;
+    function mapGetOrInsert<K, V>(map: Map<K, V>, key: K, defaultValue: V): V;
+  }
+
   namespace ccmod.paths {
     function resolve(...args: string[]): string;
     function normalize(path: string): string;
@@ -35,8 +55,7 @@ declare global {
       data: Data,
       dependencies: Deps,
       context: Ctx,
-    ) => PromiseLike<Data | void> | Data | void;
-    // ) => MaybePromise<Data | void>;
+    ) => utils.MaybePromise<Data | void>;
 
     interface ResourcePatcherWithDeps<Data, Deps, Ctx> {
       dependencies?: ((context: Ctx) => PromiseLike<Deps>) | null;
