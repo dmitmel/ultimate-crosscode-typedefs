@@ -42,7 +42,7 @@ Alright, alright, enough talking and epic speech, let's get to the coding part. 
   "prestart": "dist/prestart.js",
   "ccmodDependencies": {},
   "devDependencies": {
-    "typescript": "^3.8.3",
+    "typescript": "^3.9.0",
     "ultimate-crosscode-typedefs": "dmitmel/ultimate-crosscode-typedefs"
   },
   "scripts": {
@@ -58,7 +58,7 @@ This is the most basic package manifest that is just enough to get our example m
 - `prestart` is used just as an example here, of course you are not required to use only it and there are no incompatibilities between TypeScript and other mod loading stages.
 - An empty `ccmodDependencies` object is included in case you need npm dependencies because if `ccmodDependencies` isn't present CCLoader tries to read `dependencies` which conflicts with npm.
 - Inclusion of developer-only metadata such as `devDependencies` and `scripts` is actually fine. It doesn't crash any existing tools (because the standard allows extra fields in the manifest) and greatly simplifies the mod development because there is no need to handle two separate copies of `package.json`, then copy one of them (the mod manifest, not the Node.js package manifest) into the directory for compiled code, then somehow set up symbolic links and do other unnecessary crap that can be avoided by simply keeping a single `package.json` (In short - I'm waiting for the new manifest, the `ccmod.json`, to be implemented).
-- There have been some problems with TypeScript v3.9.x and later [described here](#typescript-v39x-and-later-support).
+- There are some problems with TypeScript versions below v3.9.x [described here](#important-typescript-versions-below-390-are-unsupported).
 - `ultimate-crosscode-typedefs` is included as a Git dependency because I have no plans about publishing it to npm (this would slow down the development as I would have to release a new version on every commit) and it is easier to update it with with `npm update` than use Git submodules.
 
 **TIP:** A good example of `package.json` in an existing TS mod can be found [here](https://github.com/dmitmel/crosscode-readable-saves/blob/master/package.json).
@@ -94,7 +94,7 @@ The next thing we have to tackle is configuring the TypeScript compiler. A good 
 
 ```json
 {
-  "include": ["src", "node_modules/ultimate-crosscode-typedefs"],
+  "include": ["src", "node_modules/ultimate-crosscode-typedefs/crosscode-ccloader-all.d.ts"],
   "compilerOptions": {
     "outDir": "dist",
     "sourceMap": true,
@@ -149,7 +149,7 @@ All things are defined as you would expect. The type of the class `sc.TextGui` i
 Adding properties and methods to existing types is a very common task in CrossCode modding, which is, fortunately, very easy to accomplish thanks to [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html). In a ~~shellnut~~ nutshell, here's what declaration merging does: the following two TS definitions
 
 ```typescript
-// taken from simplify.d.ts in this repository
+// taken from ccloader-ui.d.ts in this repository
 declare namespace sc {
   namespace OPTIONS_DEFINITION {
     interface KnownTypesMap {
@@ -315,14 +315,25 @@ As you can see, the enum is declared separately from the `var` declaration which
 
 When contributing to this project you must comply with the style I'll be describing here. I don't require you to follow it in your mods, but it would be nice nevertheless.
 
-- Don't put everything into a single gigantic namespace definition. Declaration merging can be used to separate definitions from various game modules.
 - Use as less `any` and `unknown` as possible. This also applies to data of JSON asset files stored in various classes.
 - Put fields and methods in the order they are arranged in the game code.
 - Always use fully-qualified class names (i.e. `ig.Entity`, not `Entity`), unless you are defining a class (reference to the two interfaces of the currently defined class can be written without including the namespace) or creating a structure of nested interfaces, e.g. for defining field types in JSON assets.
 - May the type aliases be with you!
 - Prefer namespaces over interfaces if functions in an object don't contain references to `this`. For example: `ig.TextParser` has references to `this`, so it is defined as an _interface_, on the other hand `sc.MenuHelper` doesn't, so it is a _namespace_.
+- Always use `declare global` TODO
 
 ## Caveats and known limitations
+
+### IMPORTANT: TypeScript versions below 3.9.0 are unsupported!
+
+_See also: [Using `this.constructor`, or TypeScript v3.9.x-and-later support](#using-thisconstructor-or-typescript-v39x-and-later-support)_
+
+All type definition files in this repository are written as ES modules, that is, they include at least one `import` or `export` statement (even if an empty export, i.e. `export {};`). Because of this declarations of global variables, in other words almost all declarations, are put in the `declare global { ... }` blocks. This way was chosen over the regular one (i.e. just put a bunch of `declare namespace`/`declare var`/`declare function` statements) because:
+
+1. It makes putting type/class extensions directly into scripts where they are implemented (in other words where `.inject()` is called) possible, that is allowing to write small mods with only a handful of type extensions without external header files. In theory this makes header files redundant entirely, but so far I haven't tested possibility of writing mods without them entirely.
+2. It makes possible extensions in module-style declaration files. The problem is that global declarations from non-module declaration files are ignored in module declaration files, but not vice versa. In other words, previously it was impossible to add extensions in `declare global` blocks if they referenced existing CrossCode types, so good luck if you needed to `import` something inside a header file. A workaround for that exists, you can use the [`import('./x/y/z')` type expression](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-9.html#import-types), but it is much possible to just write the CrossCode type defintions as ES modules, so that they are usable with both module and non-module TS files.
+
+Unfortunately, due to unknown reason this breaks TypeScript pre-3.9.0 support - projects using ultimate-crosscode-typedefs can't be compiled at all with previous TS compiler versions. Moreover, newer TS versions have some bizarre regression which causes issues when using `this.constructor` (and potentially other arcane features triggering unknown subtle behaviors of my Impact Class System implementation). See [this section for more information](#using-thisconstructor-or-typescript-v39x-and-later-support).
 
 ### Importing ES modules
 
@@ -342,25 +353,11 @@ import { something } from './module2.ts';
 
 And expect the former snippet to appear in the compiled code. Fortunately, the TS compiler understands this situation, so you can import files with `.js` extensions from TypeScript files even when you are really importing a JS script compiled from a TS module. In other words, you can just write the former snippet in the TS source code and it will work perfectly. Furthermore, this doesn't break completion and "go to definition" functionality of Visual Studio Code (and, very likely, other JS/TS IDEs).
 
-### TypeScript v3.9.x-and-later support
+### Using `this.constructor`, or TypeScript v3.9.x-and-later support
 
-In the previous versions of `ultimate-crosscode-typedefs` I defined a field `__instance` in `ImpactClass` that contained a reference to the instance interface (kind of like `prototype`) and was meant to be a shorthand for writing constructors. Basically, instead of
+_See also: [IMPORTANT: TypeScript versions below 3.9.0 are unsupported!](#important-typescript-versions-below-390-are-unsupported)_
 
-```typescript
-interface AreaLoadableConstructor extends ImpactClass<AreaLoadable> {
-  new (path: string): AreaLoadable;
-}
-```
-
-you could write
-
-```typescript
-interface AreaLoadableConstructor extends ImpactClass<AreaLoadable> {
-  new (path: string): this['__instance'];
-}
-```
-
-Unfortunately this caused a weird error when accessing properties or methods of `this.constructor` inside injected functions. I couldn't find the cause or create a workaround, so I removed `__instance` altogether, thus making ultimate-crosscode-typedefs _technically_ compatible with TS 3.9.2. Well... This didn't fix the strange bugs entirely. They don't pop up in small mods, but e.g. crosscode-ru [can't be compiled with these later versions](https://travis-ci.com/github/dmitmel/crosscode-ru/builds/166222106). Basically, if you see the following error:
+When accessing `this.constructor` inside injected functions you might see the following error:
 
 ```
 node_modules/ultimate-crosscode-typedefs/impact-class-system-correct.d.ts:59:12 - error TS2502: 'prototype' is referenced directly or indirectly in its own type annotation.
@@ -369,7 +366,7 @@ node_modules/ultimate-crosscode-typedefs/impact-class-system-correct.d.ts:59:12 
               ~~~~~~~~~
 ```
 
-I recommend reporting it to me (so that I can add it to my collection of bugs in the TypeScript compiler) and trying to downgrade the compiler to 3.8.x, for example by specifying the version constraint for `typescript` as `~3.8.3`.
+Sadly, due to the sheer complexity of the correct `ImpactClass` implementation it was impossible to find what really causes this bug and fix the `ImpactClass` itself. To be honest, if you find a bug which triggers a similar error, I recommend reporting it to me so that I can add it to my collection of bugs in the TypeScript compiler. However, not all is lost! It is possible to use `this.constructor` - for whatever reason an immediate cast to the concrete type of the constructor either with `as ig.ClassConstructor` or `as typeof ig.Class` (replace `ig.Class` with your class name) doesn't trigger this error, even though the inferred type of `this.constructor` _is the type you cast to_.
 
 ### Injecting generic functions in Impact classes
 
