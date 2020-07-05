@@ -1,3 +1,3 @@
-// requires impact.feature.influencer.influencer.d.ts
-// requires impact.feature.terrain.terrain.d.ts
-// requires impact.feature.effect.effect-sheet.d.ts
+import './impact.feature.influencer.influencer';
+import './impact.feature.terrain.terrain';
+import './impact.feature.effect.effect-sheet';

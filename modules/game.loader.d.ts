@@ -1,2 +1,2 @@
-// requires impact.base.timer.d.ts
-// requires impact.base.loader.d.ts
+import './impact.base.timer';
+import './impact.base.loader';

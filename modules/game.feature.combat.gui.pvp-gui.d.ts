@@ -1,10 +1,14 @@
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.gui.base.box.d.ts
+import './impact.feature.gui.gui';
+import './impact.feature.gui.base.box';
 
-declare namespace sc {
-  interface PvpRoundGui extends ig.GuiElementBase {}
-  interface PvpRoundGuiConstructor extends ImpactClass<PvpRoundGui> {
-    new (roundNumber: number, autoContinue: number): PvpRoundGui;
+export {};
+
+declare global {
+  namespace sc {
+    interface PvpRoundGui extends ig.GuiElementBase {}
+    interface PvpRoundGuiConstructor extends ImpactClass<PvpRoundGui> {
+      new (roundNumber: number, autoContinue: number): PvpRoundGui;
+    }
+    var PvpRoundGui: PvpRoundGuiConstructor;
   }
-  var PvpRoundGui: PvpRoundGuiConstructor;
 }

@@ -1,2 +1,2 @@
-// requires impact.base.actor-entity.d.ts
-// requires impact.base.entity.d.ts
+import './impact.base.actor-entity';
+import './impact.base.entity';

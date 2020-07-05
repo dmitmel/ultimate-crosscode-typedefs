@@ -1,2 +1,2 @@
-// requires game.feature.inventory.inventory.d.ts
-// requires game.feature.inventory.detectors.d.ts
+import './game.feature.inventory.inventory';
+import './game.feature.inventory.detectors';

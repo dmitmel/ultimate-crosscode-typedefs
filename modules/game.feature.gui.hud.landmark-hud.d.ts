@@ -1,3 +1,3 @@
-// requires game.feature.gui.hud.right-hud.d.ts
-// requires game.feature.menu.gui.quests.quest-entries.d.ts
-// requires game.feature.model.options-model.d.ts
+import './game.feature.gui.hud.right-hud';
+import './game.feature.menu.gui.quests.quest-entries';
+import './game.feature.model.options-model';

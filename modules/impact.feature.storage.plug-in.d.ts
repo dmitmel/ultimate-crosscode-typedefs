@@ -1,1 +1,1 @@
-// requires impact.feature.storage.storage.d.ts
+import './impact.feature.storage.storage';

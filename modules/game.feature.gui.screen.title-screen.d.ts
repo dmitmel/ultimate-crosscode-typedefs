@@ -1,37 +1,41 @@
-// requires impact.feature.gui.gui.d.ts
-// requires game.feature.gui.base.button.d.ts
-// requires impact.feature.parallax.parallax.d.ts
-// requires game.feature.gui.screen.intro-screen.d.ts
-// requires game.feature.gui.screen.title-logo.d.ts
-// requires impact.base.image.d.ts
-// requires game.feature.gui.screen.title-preset.d.ts
-// requires game.feature.menu.gui.save.save-menu.d.ts
-// requires game.feature.version.version.d.ts
-// requires game.feature.control.control.d.ts
-// requires game.feature.menu.gui.new-game.new-game-dialogs.d.ts
+import './impact.feature.gui.gui';
+import './game.feature.gui.base.button';
+import './impact.feature.parallax.parallax';
+import './game.feature.gui.screen.intro-screen';
+import './game.feature.gui.screen.title-logo';
+import './impact.base.image';
+import './game.feature.gui.screen.title-preset';
+import './game.feature.menu.gui.save.save-menu';
+import './game.feature.version.version';
+import './game.feature.control.control';
+import './game.feature.menu.gui.new-game.new-game-dialogs';
 
-declare namespace sc {
-  interface TitleScreenGui extends ig.GuiElementBase {
-    versionGui: sc.TextGui;
-  }
-  interface TitleScreenGuiConstructor extends ImpactClass<TitleScreenGui> {
-    new (): TitleScreenGui;
-  }
-  var TitleScreenGui: TitleScreenGuiConstructor;
+export {};
 
-  interface TitleScreenButtonGui extends ig.GuiElementBase {
-    buttonGroup: sc.ButtonGroup;
-    buttons: sc.ButtonGui[];
-    changelogButton: sc.ButtonGui;
-    gameCodeButton: sc.ButtonGui;
+declare global {
+  namespace sc {
+    interface TitleScreenGui extends ig.GuiElementBase {
+      versionGui: sc.TextGui;
+    }
+    interface TitleScreenGuiConstructor extends ImpactClass<TitleScreenGui> {
+      new (): TitleScreenGui;
+    }
+    var TitleScreenGui: TitleScreenGuiConstructor;
 
-    followButton: sc.ButtonGui;
+    interface TitleScreenButtonGui extends ig.GuiElementBase {
+      buttonGroup: sc.ButtonGroup;
+      buttons: sc.ButtonGui[];
+      changelogButton: sc.ButtonGui;
+      gameCodeButton: sc.ButtonGui;
 
-    show(this: this): void;
-    hide(this: this, skipTransition: boolean): void;
+      followButton: sc.ButtonGui;
+
+      show(this: this): void;
+      hide(this: this, skipTransition: boolean): void;
+    }
+    interface TitleScreenButtonGuiConstructor extends ImpactClass<TitleScreenButtonGui> {
+      new (): TitleScreenButtonGui;
+    }
+    var TitleScreenButtonGui: TitleScreenButtonGuiConstructor;
   }
-  interface TitleScreenButtonGuiConstructor extends ImpactClass<TitleScreenButtonGui> {
-    new (): TitleScreenButtonGui;
-  }
-  var TitleScreenButtonGui: TitleScreenButtonGuiConstructor;
 }

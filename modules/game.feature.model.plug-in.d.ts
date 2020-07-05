@@ -1,4 +1,4 @@
-// requires game.feature.model.base-model.d.ts
-// requires game.feature.model.game-model.d.ts
-// requires game.feature.model.model-steps.d.ts
-// requires game.feature.model.options-model.d.ts
+import './game.feature.model.base-model';
+import './game.feature.model.game-model';
+import './game.feature.model.model-steps';
+import './game.feature.model.options-model';

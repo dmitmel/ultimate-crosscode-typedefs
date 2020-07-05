@@ -1,2 +1,2 @@
-// requires game.feature.auto-control.auto-control.d.ts
-// requires game.feature.auto-control.auto-control-steps.d.ts
+import './game.feature.auto-control.auto-control';
+import './game.feature.auto-control.auto-control-steps';

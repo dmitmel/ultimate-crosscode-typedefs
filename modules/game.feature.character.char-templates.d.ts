@@ -1,1 +1,1 @@
-// requires impact.base.loader.d.ts
+import './impact.base.loader';

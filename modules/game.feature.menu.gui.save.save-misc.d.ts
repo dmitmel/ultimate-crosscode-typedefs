@@ -1,16 +1,20 @@
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires game.feature.version.version.d.ts
-// requires game.feature.gui.widget.modal-dialog.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
-// requires impact.feature.interact.gui.focus-gui.d.ts
+import './impact.feature.gui.gui';
+import './impact.feature.gui.base.basic-gui';
+import './game.feature.version.version';
+import './game.feature.gui.widget.modal-dialog';
+import './game.feature.menu.gui.menu-misc';
+import './impact.feature.interact.gui.focus-gui';
 
-declare namespace sc {
-  interface SaveSlotButton extends ig.FocusGui {
-    content: ig.GuiElementBase;
+export {};
+
+declare global {
+  namespace sc {
+    interface SaveSlotButton extends ig.FocusGui {
+      content: ig.GuiElementBase;
+    }
+    interface SaveSlotButtonConstructor extends ImpactClass<SaveSlotButton> {
+      new (save: ig.SaveSlot.Data, slot: number): SaveSlotButton;
+    }
+    var SaveSlotButton: SaveSlotButtonConstructor;
   }
-  interface SaveSlotButtonConstructor extends ImpactClass<SaveSlotButton> {
-    new (save: ig.SaveSlot.Data, slot: number): SaveSlotButton;
-  }
-  var SaveSlotButton: SaveSlotButtonConstructor;
 }

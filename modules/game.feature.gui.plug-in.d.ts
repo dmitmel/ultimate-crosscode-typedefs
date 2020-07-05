@@ -1,49 +1,49 @@
-// requires game.feature.gui.base.boxes.d.ts
-// requires game.feature.gui.base.slick-box.d.ts
-// requires game.feature.gui.base.button.d.ts
-// requires game.feature.gui.base.numbers.d.ts
-// requires game.feature.gui.base.text.d.ts
-// requires game.feature.gui.base.misc.d.ts
-// requires game.feature.gui.base.compact-choice-box.d.ts
-// requires game.feature.gui.hud.combat-hud.d.ts
-// requires game.feature.gui.hud.right-hud.d.ts
-// requires game.feature.gui.hud.item-hud.d.ts
-// requires game.feature.gui.hud.element-hud.d.ts
-// requires game.feature.gui.hud.money-hud.d.ts
-// requires game.feature.gui.hud.task-hud.d.ts
-// requires game.feature.gui.hud.status-hud.d.ts
-// requires game.feature.gui.hud.hp-hud.d.ts
-// requires game.feature.gui.hud.exp-hud.d.ts
-// requires game.feature.gui.hud.param-hud.d.ts
-// requires game.feature.gui.hud.buff-hud.d.ts
-// requires game.feature.gui.hud.item-timer-hud.d.ts
-// requires game.feature.gui.hud.quest-hud.d.ts
-// requires game.feature.gui.hud.landmark-hud.d.ts
-// requires game.feature.gui.hud.lore-hud.d.ts
-// requires game.feature.gui.hud.drop-hud.d.ts
-// requires game.feature.gui.hud.member-hud.d.ts
-// requires game.feature.gui.hud.sp-change-hud.d.ts
-// requires game.feature.gui.hud.sp-mini-hud.d.ts
-// requires game.feature.gui.hud.top-msg-hud.d.ts
-// requires game.feature.gui.hud.feat-hud.d.ts
-// requires game.feature.gui.screen.loading-screen.d.ts
-// requires game.feature.gui.screen.title-screen.d.ts
-// requires game.feature.gui.screen.pause-screen.d.ts
-// requires game.feature.gui.screen.credits-screen.d.ts
-// requires game.feature.gui.widget.click-box.d.ts
-// requires game.feature.gui.widget.gamepad-box.d.ts
-// requires game.feature.gui.widget.counter-hud.d.ts
-// requires game.feature.gui.widget.information.d.ts
-// requires game.feature.gui.widget.bar-widget.d.ts
-// requires game.feature.gui.widget.indiegogo-gui.d.ts
-// requires game.feature.gui.widget.level-up-hud.d.ts
-// requires game.feature.gui.widget.social.d.ts
-// requires game.feature.gui.widget.timer-gui.d.ts
-// requires game.feature.gui.widget.sergey-mode.d.ts
-// requires game.feature.gui.widget.chest-items.d.ts
-// requires game.feature.gui.widget.demo-stats.d.ts
-// requires game.feature.gui.widget.demo-highscore.d.ts
-// requires game.feature.gui.widget.tutorial-marker.d.ts
-// requires game.feature.gui.widget.tutorial-start-gui.d.ts
-// requires game.feature.gui.widget.modal-dialog.d.ts
-// requires game.feature.gui.widget.skip-scene.d.ts
+import './game.feature.gui.base.boxes';
+import './game.feature.gui.base.slick-box';
+import './game.feature.gui.base.button';
+import './game.feature.gui.base.numbers';
+import './game.feature.gui.base.text';
+import './game.feature.gui.base.misc';
+import './game.feature.gui.base.compact-choice-box';
+import './game.feature.gui.hud.combat-hud';
+import './game.feature.gui.hud.right-hud';
+import './game.feature.gui.hud.item-hud';
+import './game.feature.gui.hud.element-hud';
+import './game.feature.gui.hud.money-hud';
+import './game.feature.gui.hud.task-hud';
+import './game.feature.gui.hud.status-hud';
+import './game.feature.gui.hud.hp-hud';
+import './game.feature.gui.hud.exp-hud';
+import './game.feature.gui.hud.param-hud';
+import './game.feature.gui.hud.buff-hud';
+import './game.feature.gui.hud.item-timer-hud';
+import './game.feature.gui.hud.quest-hud';
+import './game.feature.gui.hud.landmark-hud';
+import './game.feature.gui.hud.lore-hud';
+import './game.feature.gui.hud.drop-hud';
+import './game.feature.gui.hud.member-hud';
+import './game.feature.gui.hud.sp-change-hud';
+import './game.feature.gui.hud.sp-mini-hud';
+import './game.feature.gui.hud.top-msg-hud';
+import './game.feature.gui.hud.feat-hud';
+import './game.feature.gui.screen.loading-screen';
+import './game.feature.gui.screen.title-screen';
+import './game.feature.gui.screen.pause-screen';
+import './game.feature.gui.screen.credits-screen';
+import './game.feature.gui.widget.click-box';
+import './game.feature.gui.widget.gamepad-box';
+import './game.feature.gui.widget.counter-hud';
+import './game.feature.gui.widget.information';
+import './game.feature.gui.widget.bar-widget';
+import './game.feature.gui.widget.indiegogo-gui';
+import './game.feature.gui.widget.level-up-hud';
+import './game.feature.gui.widget.social';
+import './game.feature.gui.widget.timer-gui';
+import './game.feature.gui.widget.sergey-mode';
+import './game.feature.gui.widget.chest-items';
+import './game.feature.gui.widget.demo-stats';
+import './game.feature.gui.widget.demo-highscore';
+import './game.feature.gui.widget.tutorial-marker';
+import './game.feature.gui.widget.tutorial-start-gui';
+import './game.feature.gui.widget.modal-dialog';
+import './game.feature.gui.widget.skip-scene';

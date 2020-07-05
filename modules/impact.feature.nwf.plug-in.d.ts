@@ -1,1 +1,1 @@
-// requires impact.feature.nwf.nwf-errors.d.ts
+import './impact.feature.nwf.nwf-errors';

@@ -1,1 +1,1 @@
-// requires impact.base.entity.d.ts
+import './impact.base.entity';

@@ -9,7 +9,7 @@ Execute in the console in a **clean game instance without mods or CCLoader**:
   const fs = require('fs');
   let modules = {};
   for (let name of Object.keys(ig.modules)) {
-    modules[name] = ig.modules[name].requires;
+    modules[name] = Array.from(new Set(ig.modules[name].requires));
   }
   fs.writeFileSync('modules.json', JSON.stringify(modules));
 })();
@@ -22,7 +22,7 @@ This will take some time, `nl` is used as a counter. As of 1.2.0-5 the game has 
 ```bash
 jq --raw-output 'keys[]' path/to/modules.json | while IFS= read -r module; do
   echo "$module"
-  jq --raw-output --arg id "$module" '.[$id][] | "// requires \(.)"' \
+  jq --raw-output --arg id "$module" ".[\$id][] | \"import './\\(.)';\"" \
     path/to/modules.json > "$module.d.ts"
 done | nl
 ```
@@ -30,5 +30,5 @@ done | nl
 ### 3. Generate the index file
 
 ```bash
-jq --raw-output 'keys[] | "/// <reference path=\"./\(.).d.ts\" />"' path/to/modules.json > __all__.d.ts
+jq --raw-output "keys[] | \"import './\\(.)';\"" path/to/modules.json > __all__.d.ts
 ```

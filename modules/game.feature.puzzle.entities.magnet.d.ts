@@ -1,4 +1,4 @@
-// requires impact.base.entity.d.ts
-// requires impact.feature.effect.effect-sheet.d.ts
-// requires game.feature.combat.combat-target-event.d.ts
-// requires impact.base.actor-entity.d.ts
+import './impact.base.entity';
+import './impact.feature.effect.effect-sheet';
+import './game.feature.combat.combat-target-event';
+import './impact.base.actor-entity';

@@ -1,1 +1,1 @@
-// requires game.feature.beta.beta-controls.d.ts
+import './game.feature.beta.beta-controls';

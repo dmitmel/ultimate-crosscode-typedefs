@@ -1,2 +1,2 @@
-// requires impact.base.entity.d.ts
-// requires game.feature.map-content.gui.rhombus-map.d.ts
+import './impact.base.entity';
+import './game.feature.map-content.gui.rhombus-map';

@@ -1,8 +1,12 @@
-// requires impact.feature.gui.gui.d.ts
-// requires game.feature.gui.plug-in.d.ts
+import './impact.feature.gui.gui';
+import './game.feature.gui.plug-in';
 
-declare namespace sc {
-  interface BodyPartButton extends sc.ButtonGui {}
-  interface BodyPartButtonConstructor extends ImpactClass<BodyPartButton> {}
-  var BodyPartButton: BodyPartButtonConstructor;
+export {};
+
+declare global {
+  namespace sc {
+    interface BodyPartButton extends sc.ButtonGui {}
+    interface BodyPartButtonConstructor extends ImpactClass<BodyPartButton> {}
+    var BodyPartButton: BodyPartButtonConstructor;
+  }
 }

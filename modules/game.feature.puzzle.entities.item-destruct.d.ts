@@ -1,3 +1,3 @@
-// requires impact.base.entity.d.ts
-// requires impact.feature.effect.effect-sheet.d.ts
-// requires game.feature.menu.menu-model.d.ts
+import './impact.base.entity';
+import './impact.feature.effect.effect-sheet';
+import './game.feature.menu.menu-model';

@@ -3,7 +3,7 @@
 /// <reference types="jquery" />
 /// <reference lib="DOM" />
 
-/// <reference path="./impact-class-system-correct.d.ts" />
-/// <reference path="./impact-core.d.ts" />
-/// <reference path="./crosscode-external-scripts.d.ts" />
-/// <reference path="./modules/__all__.d.ts" />
+import './impact-class-system-correct';
+import './impact-core';
+import './crosscode-external-scripts';
+import './modules/__all__';

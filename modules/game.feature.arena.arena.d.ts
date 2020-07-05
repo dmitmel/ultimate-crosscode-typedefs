@@ -1,10 +1,10 @@
-// requires impact.base.game.d.ts
-// requires impact.feature.storage.storage.d.ts
-// requires game.feature.model.base-model.d.ts
-// requires game.feature.arena.entities.arena-spawn.d.ts
-// requires game.feature.arena.arena-loadable.d.ts
-// requires game.feature.combat.combat.d.ts
-// requires game.feature.arena.arena-bonus-objectives.d.ts
-// requires game.feature.arena.arena-score-types.d.ts
-// requires game.feature.arena.arena-challenges.d.ts
-// requires game.feature.arena.arena-cheer.d.ts
+import './impact.base.game';
+import './impact.feature.storage.storage';
+import './game.feature.model.base-model';
+import './game.feature.arena.entities.arena-spawn';
+import './game.feature.arena.arena-loadable';
+import './game.feature.combat.combat';
+import './game.feature.arena.arena-bonus-objectives';
+import './game.feature.arena.arena-score-types';
+import './game.feature.arena.arena-challenges';
+import './game.feature.arena.arena-cheer';

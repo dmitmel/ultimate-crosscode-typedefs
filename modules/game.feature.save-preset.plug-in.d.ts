@@ -1,1 +1,1 @@
-// requires game.feature.save-preset.save-preset.d.ts
+import './game.feature.save-preset.save-preset';

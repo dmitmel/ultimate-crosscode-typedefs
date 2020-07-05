@@ -1,4 +1,4 @@
-// helper for CrossCode running nw.js
+// helper for CrossCode running in nw.js
 
-/// <reference path="./nw.d.ts" />
-/// <reference path="./crosscode.d.ts" />
+import './nw';
+import './crosscode';

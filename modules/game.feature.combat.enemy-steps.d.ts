@@ -1,4 +1,4 @@
-// requires impact.base.animation.d.ts
-// requires impact.base.action.d.ts
-// requires impact.base.entity.d.ts
-// requires game.feature.combat.entities.enemy.d.ts
+import './impact.base.animation';
+import './impact.base.action';
+import './impact.base.entity';
+import './game.feature.combat.entities.enemy';

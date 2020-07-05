@@ -1,15 +1,19 @@
-// requires impact.feature.gui.base.box.d.ts
-// requires impact.feature.gui.gui.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
-// requires game.feature.menu.gui.quests.quest-entries.d.ts
+import './impact.feature.gui.base.box';
+import './impact.feature.gui.gui';
+import './game.feature.menu.gui.menu-misc';
+import './game.feature.menu.gui.quests.quest-entries';
 
-declare namespace sc {
-  interface LogGuiTypeBase extends ig.GuiElementBase {
-    textGui: sc.TextGui;
+export {};
+
+declare global {
+  namespace sc {
+    interface LogGuiTypeBase extends ig.GuiElementBase {
+      textGui: sc.TextGui;
+    }
+    interface LogGuiTypeBaseConstructor extends ImpactClass<LogGuiTypeBase> {
+      // TODO
+      new (settings: any): LogGuiTypeBase;
+    }
+    var LogGuiTypeBase: LogGuiTypeBaseConstructor;
   }
-  interface LogGuiTypeBaseConstructor extends ImpactClass<LogGuiTypeBase> {
-    // TODO
-    new (settings: any): LogGuiTypeBase;
-  }
-  var LogGuiTypeBase: LogGuiTypeBaseConstructor;
 }

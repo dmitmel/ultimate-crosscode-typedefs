@@ -1,1 +1,1 @@
-// requires game.feature.player.entities.player-base.d.ts
+import './game.feature.player.entities.player-base';

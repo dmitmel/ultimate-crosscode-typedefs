@@ -1,3 +1,3 @@
-// requires impact.base.actor-entity.d.ts
-// requires impact.feature.weather.weather.d.ts
-// requires impact.feature.light.light.d.ts
+import './impact.base.actor-entity';
+import './impact.feature.weather.weather';
+import './impact.feature.light.light';

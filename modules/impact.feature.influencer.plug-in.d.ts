@@ -1,2 +1,2 @@
-// requires impact.feature.influencer.influencer.d.ts
-// requires impact.feature.influencer.influencer-steps.d.ts
+import './impact.feature.influencer.influencer';
+import './impact.feature.influencer.influencer-steps';

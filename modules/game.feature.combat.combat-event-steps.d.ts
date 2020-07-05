@@ -1,7 +1,7 @@
-// requires impact.base.animation.d.ts
-// requires impact.base.action.d.ts
-// requires impact.base.entity.d.ts
-// requires game.feature.combat.entities.drop.d.ts
-// requires game.feature.combat.entities.combatant.d.ts
-// requires game.feature.combat.entities.combat-proxy.d.ts
-// requires impact.feature.effect.effect-steps.d.ts
+import './impact.base.animation';
+import './impact.base.action';
+import './impact.base.entity';
+import './game.feature.combat.entities.drop';
+import './game.feature.combat.entities.combatant';
+import './game.feature.combat.entities.combat-proxy';
+import './impact.feature.effect.effect-steps';

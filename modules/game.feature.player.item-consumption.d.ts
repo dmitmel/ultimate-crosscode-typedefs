@@ -1,1 +1,1 @@
-// requires game.feature.inventory.inventory.d.ts
+import './game.feature.inventory.inventory';

@@ -1,3 +1,3 @@
-// requires impact.base.game.d.ts
-// requires game.feature.model.base-model.d.ts
-// requires game.feature.game-sense.game-sense-model.d.ts
+import './impact.base.game';
+import './game.feature.model.base-model';
+import './game.feature.game-sense.game-sense-model';

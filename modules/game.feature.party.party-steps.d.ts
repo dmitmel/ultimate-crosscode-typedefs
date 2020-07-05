@@ -1,3 +1,3 @@
-// requires impact.base.action.d.ts
-// requires impact.base.event.d.ts
-// requires game.feature.party.party.d.ts
+import './impact.base.action';
+import './impact.base.event';
+import './game.feature.party.party';

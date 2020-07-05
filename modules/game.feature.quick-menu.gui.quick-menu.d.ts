@@ -1,7 +1,7 @@
-// requires impact.base.image.d.ts
-// requires impact.feature.gui.gui.d.ts
-// requires game.feature.quick-menu.gui.quick-screen.d.ts
-// requires game.feature.quick-menu.gui.circle-menu.d.ts
-// requires game.feature.quick-menu.gui.quick-item-menu.d.ts
-// requires game.feature.quick-menu.gui.quick-party.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
+import './impact.base.image';
+import './impact.feature.gui.gui';
+import './game.feature.quick-menu.gui.quick-screen';
+import './game.feature.quick-menu.gui.circle-menu';
+import './game.feature.quick-menu.gui.quick-item-menu';
+import './game.feature.quick-menu.gui.quick-party';
+import './game.feature.menu.gui.menu-misc';

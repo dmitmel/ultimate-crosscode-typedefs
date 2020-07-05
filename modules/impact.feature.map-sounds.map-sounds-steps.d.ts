@@ -1,3 +1,3 @@
-// requires impact.feature.map-sounds.map-sounds.d.ts
-// requires impact.base.action.d.ts
-// requires impact.base.event.d.ts
+import './impact.feature.map-sounds.map-sounds';
+import './impact.base.action';
+import './impact.base.event';

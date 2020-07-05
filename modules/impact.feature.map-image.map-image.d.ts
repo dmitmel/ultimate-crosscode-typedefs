@@ -1,3 +1,3 @@
-// requires impact.base.game.d.ts
-// requires game.config.d.ts
-// requires impact.base.entity.d.ts
+import './impact.base.game';
+import './game.config';
+import './impact.base.entity';

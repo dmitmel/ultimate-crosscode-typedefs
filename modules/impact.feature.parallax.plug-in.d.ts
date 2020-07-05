@@ -1,2 +1,2 @@
-// requires impact.feature.parallax.parallax.d.ts
-// requires impact.feature.parallax.parallax-steps.d.ts
+import './impact.feature.parallax.parallax';
+import './impact.feature.parallax.parallax-steps';

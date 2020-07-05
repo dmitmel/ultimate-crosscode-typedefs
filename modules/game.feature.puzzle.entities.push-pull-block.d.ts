@@ -1,3 +1,3 @@
-// requires impact.base.actor-entity.d.ts
-// requires impact.base.entity.d.ts
-// requires game.feature.puzzle.components.push-pullable.d.ts
+import './impact.base.actor-entity';
+import './impact.base.entity';
+import './game.feature.puzzle.components.push-pullable';

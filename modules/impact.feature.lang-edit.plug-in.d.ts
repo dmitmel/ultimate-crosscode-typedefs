@@ -1,1 +1,1 @@
-// requires impact.feature.lang-edit.lang-edit.d.ts
+import './impact.feature.lang-edit.lang-edit';

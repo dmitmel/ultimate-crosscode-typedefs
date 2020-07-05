@@ -1,28 +1,30 @@
-/// <reference path="./crosscode.d.ts" />
+export {};
 
-declare namespace sc {
-  enum OPTION_CATEGORY {
-    MODS = 8,
-  }
-
-  namespace OptionsTabBox {
-    interface Tabs {
-      mods: sc.ItemTabbedBox.TabButton;
+declare global {
+  namespace sc {
+    enum OPTION_CATEGORY {
+      MODS = 8,
     }
-  }
 
-  namespace OPTIONS_DEFINITION {
-    interface KnownTypesMap {
-      'logLevel-log': sc.OptionDefinition.CHECKBOX;
-      'logLevel-warn': sc.OptionDefinition.CHECKBOX;
-      'logLevel-error': sc.OptionDefinition.CHECKBOX;
-      'mods-description': sc.OptionDefinition.INFO;
+    namespace OptionsTabBox {
+      interface Tabs {
+        mods: sc.ItemTabbedBox.TabButton;
+      }
     }
-  }
 
-  interface CCLoaderVersionGuiMixin {
-    ccloaderVersionGui: sc.TextGui;
+    namespace OPTIONS_DEFINITION {
+      interface KnownTypesMap {
+        'logLevel-log': sc.OptionDefinition.CHECKBOX;
+        'logLevel-warn': sc.OptionDefinition.CHECKBOX;
+        'logLevel-error': sc.OptionDefinition.CHECKBOX;
+        'mods-description': sc.OptionDefinition.INFO;
+      }
+    }
+
+    interface CCLoaderVersionGuiMixin {
+      ccloaderVersionGui: sc.TextGui;
+    }
+    interface TitleScreenGui extends CCLoaderVersionGuiMixin {}
+    interface PauseScreenGui extends CCLoaderVersionGuiMixin {}
   }
-  interface TitleScreenGui extends CCLoaderVersionGuiMixin {}
-  interface PauseScreenGui extends CCLoaderVersionGuiMixin {}
 }

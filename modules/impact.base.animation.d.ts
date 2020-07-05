@@ -1,4 +1,4 @@
-// requires impact.base.loader.d.ts
-// requires impact.base.timer.d.ts
-// requires impact.base.image.d.ts
-// requires impact.base.sprite-fx.d.ts
+import './impact.base.loader';
+import './impact.base.timer';
+import './impact.base.image';
+import './impact.base.sprite-fx';

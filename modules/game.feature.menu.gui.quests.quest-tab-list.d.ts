@@ -1,13 +1,17 @@
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires game.feature.menu.gui.quests.quest-misc.d.ts
-// requires game.feature.gui.base.text.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
-// requires game.feature.menu.gui.list-boxes.d.ts
-// requires game.feature.menu.gui.item.item-sort-menu.d.ts
+import './impact.feature.gui.gui';
+import './impact.feature.gui.base.basic-gui';
+import './game.feature.menu.gui.quests.quest-misc';
+import './game.feature.gui.base.text';
+import './game.feature.menu.gui.menu-misc';
+import './game.feature.menu.gui.list-boxes';
+import './game.feature.menu.gui.item.item-sort-menu';
 
-declare namespace sc {
-  interface QuestListBox extends ig.GuiElementBase {}
-  interface QuestListBoxConstructor extends ImpactClass<QuestListBox> {}
-  var QuestListBox: QuestListBoxConstructor;
+export {};
+
+declare global {
+  namespace sc {
+    interface QuestListBox extends ig.GuiElementBase {}
+    interface QuestListBoxConstructor extends ImpactClass<QuestListBox> {}
+    var QuestListBox: QuestListBoxConstructor;
+  }
 }

@@ -1,3 +1,3 @@
-// requires impact.base.game.d.ts
-// requires game.feature.model.base-model.d.ts
-// requires impact.feature.storage.storage.d.ts
+import './impact.base.game';
+import './game.feature.model.base-model';
+import './impact.feature.storage.storage';

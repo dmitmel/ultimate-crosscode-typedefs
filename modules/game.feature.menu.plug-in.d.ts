@@ -1,32 +1,32 @@
-// requires game.feature.menu.area-loadable.d.ts
-// requires game.feature.menu.menu-steps.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
-// requires game.feature.menu.gui.base-menu.d.ts
-// requires game.feature.menu.gui.main-menu.d.ts
-// requires game.feature.menu.gui.start-menu.d.ts
-// requires game.feature.menu.gui.equip.equip-menu.d.ts
-// requires game.feature.menu.gui.list-boxes.d.ts
-// requires game.feature.menu.gui.circuit.circuit-menu.d.ts
-// requires game.feature.menu.gui.circuit.circuit-misc.d.ts
-// requires game.feature.menu.gui.item.item-menu.d.ts
-// requires game.feature.menu.gui.map.map-menu.d.ts
-// requires game.feature.menu.gui.social.social-menu.d.ts
-// requires game.feature.menu.gui.save.save-menu.d.ts
-// requires game.feature.menu.gui.options.options-menu.d.ts
-// requires game.feature.menu.gui.shop.shop-menu.d.ts
-// requires game.feature.menu.gui.synop.synop-menu.d.ts
-// requires game.feature.menu.gui.quests.quest-menu.d.ts
-// requires game.feature.menu.gui.quest-hub.quest-hub-menu.d.ts
-// requires game.feature.menu.gui.enemies.enemy-menu.d.ts
-// requires game.feature.menu.gui.lore.lore-menu.d.ts
-// requires game.feature.menu.gui.help.help-menu.d.ts
-// requires game.feature.menu.gui.status.status-menu.d.ts
-// requires game.feature.menu.gui.museum.museum-menu.d.ts
-// requires game.feature.menu.gui.stats.stats-menu.d.ts
-// requires game.feature.menu.gui.trophy.trophy-menu.d.ts
-// requires game.feature.menu.gui.trade.trader-menu.d.ts
-// requires game.feature.menu.gui.botanics.botanics-menu.d.ts
-// requires game.feature.menu.gui.arena.arena-menu.d.ts
-// requires game.feature.menu.gui.new-game.new-game-menu.d.ts
-// requires game.feature.menu.menu-model.d.ts
-// requires game.feature.menu.lore-model.d.ts
+import './game.feature.menu.area-loadable';
+import './game.feature.menu.menu-steps';
+import './game.feature.menu.gui.menu-misc';
+import './game.feature.menu.gui.base-menu';
+import './game.feature.menu.gui.main-menu';
+import './game.feature.menu.gui.start-menu';
+import './game.feature.menu.gui.equip.equip-menu';
+import './game.feature.menu.gui.list-boxes';
+import './game.feature.menu.gui.circuit.circuit-menu';
+import './game.feature.menu.gui.circuit.circuit-misc';
+import './game.feature.menu.gui.item.item-menu';
+import './game.feature.menu.gui.map.map-menu';
+import './game.feature.menu.gui.social.social-menu';
+import './game.feature.menu.gui.save.save-menu';
+import './game.feature.menu.gui.options.options-menu';
+import './game.feature.menu.gui.shop.shop-menu';
+import './game.feature.menu.gui.synop.synop-menu';
+import './game.feature.menu.gui.quests.quest-menu';
+import './game.feature.menu.gui.quest-hub.quest-hub-menu';
+import './game.feature.menu.gui.enemies.enemy-menu';
+import './game.feature.menu.gui.lore.lore-menu';
+import './game.feature.menu.gui.help.help-menu';
+import './game.feature.menu.gui.status.status-menu';
+import './game.feature.menu.gui.museum.museum-menu';
+import './game.feature.menu.gui.stats.stats-menu';
+import './game.feature.menu.gui.trophy.trophy-menu';
+import './game.feature.menu.gui.trade.trader-menu';
+import './game.feature.menu.gui.botanics.botanics-menu';
+import './game.feature.menu.gui.arena.arena-menu';
+import './game.feature.menu.gui.new-game.new-game-menu';
+import './game.feature.menu.menu-model';
+import './game.feature.menu.lore-model';

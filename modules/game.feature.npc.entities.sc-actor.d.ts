@@ -1,8 +1,12 @@
-// requires impact.base.actor-entity.d.ts
-// requires impact.feature.effect.effect-sheet.d.ts
+import './impact.base.actor-entity';
+import './impact.feature.effect.effect-sheet';
 
-declare namespace sc {
-  interface ActorEntity extends ig.ActorEntity {}
-  interface ActorEntityConstructor extends ImpactClass<ActorEntity> {}
-  var ActorEntity: ActorEntityConstructor;
+export {};
+
+declare global {
+  namespace sc {
+    interface ActorEntity extends ig.ActorEntity {}
+    interface ActorEntityConstructor extends ImpactClass<ActorEntity> {}
+    var ActorEntity: ActorEntityConstructor;
+  }
 }

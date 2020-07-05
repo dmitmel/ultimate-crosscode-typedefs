@@ -1,10 +1,14 @@
-// requires impact.base.loader.d.ts
-// requires game.config.d.ts
+import './impact.base.loader';
+import './game.config';
 
-declare namespace sc {
-  namespace Inventory {
-    interface Item {
-      // TODO
+export {};
+
+declare global {
+  namespace sc {
+    namespace Inventory {
+      interface Item {
+        // TODO
+      }
     }
   }
 }

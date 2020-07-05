@@ -1,4 +1,4 @@
-// requires impact.base.loader.d.ts
-// requires impact.base.animation.d.ts
-// requires impact.feature.effect.entities.effect.d.ts
-// requires impact.feature.effect.entities.effect-particle.d.ts
+import './impact.base.loader';
+import './impact.base.animation';
+import './impact.feature.effect.entities.effect';
+import './impact.feature.effect.entities.effect-particle';

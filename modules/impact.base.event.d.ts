@@ -1,9 +1,13 @@
-// requires impact.base.steps.d.ts
+import './impact.base.steps';
 
-declare namespace ig {
-  type EventStepBase = StepBase;
-  type EventStepBaseConstructor = StepBaseConstructor;
-  var EventStepBase: EventStepBaseConstructor;
+export {};
 
-  namespace EVENT_STEP {}
+declare global {
+  namespace ig {
+    type EventStepBase = StepBase;
+    type EventStepBaseConstructor = StepBaseConstructor;
+    var EventStepBase: EventStepBaseConstructor;
+
+    namespace EVENT_STEP {}
+  }
 }

@@ -1,4 +1,4 @@
-// requires impact.base.action.d.ts
-// requires impact.base.event.d.ts
-// requires impact.feature.effect.effect-sheet.d.ts
-// requires impact.feature.rumble.rumble.d.ts
+import './impact.base.action';
+import './impact.base.event';
+import './impact.feature.effect.effect-sheet';
+import './impact.feature.rumble.rumble';

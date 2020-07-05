@@ -1,1 +1,1 @@
-// requires impact.base.steps.d.ts
+import './impact.base.steps';

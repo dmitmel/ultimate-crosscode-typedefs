@@ -1,2 +1,2 @@
-// requires impact.feature.weather.weather.d.ts
-// requires impact.feature.weather.weather-steps.d.ts
+import './impact.feature.weather.weather';
+import './impact.feature.weather.weather-steps';

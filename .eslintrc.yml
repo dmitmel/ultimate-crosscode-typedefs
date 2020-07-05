@@ -11,8 +11,8 @@ rules:
 overrides:
   - files: '**/*.ts'
     extends:
-      # - 'plugin:@typescript-eslint/recommended-requiring-type-checking'
       - eslint-config-dmitmel/presets/typescript-addon
+      # - eslint-config-dmitmel/presets/typescript-with-type-checking-addon
     parserOptions:
       project: 'tsconfig.json'
 
@@ -31,3 +31,5 @@ overrides:
 
       # triggers on weird edge-cases such as `import export a = b`
       '@typescript-eslint/no-use-before-define': off
+
+      node/no-missing-import: off

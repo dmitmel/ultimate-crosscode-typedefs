@@ -1,3 +1,3 @@
-// requires impact.feature.navigation.nav-map.d.ts
-// requires impact.feature.navigation.navigation.d.ts
-// requires impact.feature.navigation.navigation-steps.d.ts
+import './impact.feature.navigation.nav-map';
+import './impact.feature.navigation.navigation';
+import './impact.feature.navigation.navigation-steps';

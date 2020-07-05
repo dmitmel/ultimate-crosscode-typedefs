@@ -1,13 +1,17 @@
-// requires impact.base.animation.d.ts
-// requires impact.base.coll-entry.d.ts
-// requires impact.base.impact.d.ts
+import './impact.base.animation';
+import './impact.base.coll-entry';
+import './impact.base.impact';
 
-declare namespace ig {
-  interface Entity extends ig.Class {}
-  interface EntityConstructor extends ImpactClass<Entity> {}
-  var Entity: EntityConstructor;
+export {};
 
-  interface AnimatedEntity extends ig.Entity {}
-  interface AnimatedEntityConstructor extends ImpactClass<AnimatedEntity> {}
-  var AnimatedEntity: AnimatedEntityConstructor;
+declare global {
+  namespace ig {
+    interface Entity extends ig.Class {}
+    interface EntityConstructor extends ImpactClass<Entity> {}
+    var Entity: EntityConstructor;
+
+    interface AnimatedEntity extends ig.Entity {}
+    interface AnimatedEntityConstructor extends ImpactClass<AnimatedEntity> {}
+    var AnimatedEntity: AnimatedEntityConstructor;
+  }
 }

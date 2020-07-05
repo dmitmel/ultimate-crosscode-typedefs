@@ -1,2 +1,2 @@
-// requires game.feature.character.character.d.ts
-// requires game.feature.character.char-templates.d.ts
+import './game.feature.character.character';
+import './game.feature.character.char-templates';

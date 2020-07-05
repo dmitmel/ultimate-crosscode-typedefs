@@ -1,1 +1,1 @@
-// requires impact.feature.effect.effect-sheet.d.ts
+import './impact.feature.effect.effect-sheet';

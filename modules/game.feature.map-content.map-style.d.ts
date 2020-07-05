@@ -1,1 +1,1 @@
-// requires impact.feature.map-content.map-style.d.ts
+import './impact.feature.map-content.map-style';

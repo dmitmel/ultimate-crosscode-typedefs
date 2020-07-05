@@ -1,7 +1,7 @@
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires game.feature.gui.widget.modal-dialog.d.ts
-// requires game.feature.menu.gui.base-menu.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
-// requires game.feature.control.control.d.ts
-// requires game.feature.menu.gui.save.save-list.d.ts
+import './impact.feature.gui.gui';
+import './impact.feature.gui.base.basic-gui';
+import './game.feature.gui.widget.modal-dialog';
+import './game.feature.menu.gui.base-menu';
+import './game.feature.menu.gui.menu-misc';
+import './game.feature.control.control';
+import './game.feature.menu.gui.save.save-list';

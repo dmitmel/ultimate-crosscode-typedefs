@@ -1,3 +1,3 @@
-// requires impact.feature.gui.gui.d.ts
-// requires game.feature.combat.model.combat-params.d.ts
-// requires game.feature.model.options-model.d.ts
+import './impact.feature.gui.gui';
+import './game.feature.combat.model.combat-params';
+import './game.feature.model.options-model';

@@ -1,3 +1,3 @@
-// requires impact.base.game.d.ts
-// requires game.feature.model.game-model.d.ts
-// requires impact.feature.effect.effect-sheet.d.ts
+import './impact.base.game';
+import './game.feature.model.game-model';
+import './impact.feature.effect.effect-sheet';

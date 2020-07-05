@@ -1,11 +1,15 @@
-// requires game.feature.model.base-model.d.ts
+import './game.feature.model.base-model';
 
-declare namespace sc {
-  enum ELEMENT {
-    NEUTRAL,
-    HEAT,
-    COLD,
-    SHOCK,
-    WAVE,
+export {};
+
+declare global {
+  namespace sc {
+    enum ELEMENT {
+      NEUTRAL,
+      HEAT,
+      COLD,
+      SHOCK,
+      WAVE,
+    }
   }
 }

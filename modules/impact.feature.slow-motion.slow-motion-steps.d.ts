@@ -1,3 +1,3 @@
-// requires impact.feature.slow-motion.slow-motion.d.ts
-// requires impact.base.action.d.ts
-// requires impact.base.event.d.ts
+import './impact.feature.slow-motion.slow-motion';
+import './impact.base.action';
+import './impact.base.event';

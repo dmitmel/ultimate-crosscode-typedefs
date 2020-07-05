@@ -1,1 +1,1 @@
-// requires impact.feature.interact.interact.d.ts
+import './impact.feature.interact.interact';

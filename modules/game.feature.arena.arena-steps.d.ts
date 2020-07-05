@@ -1,6 +1,6 @@
-// requires impact.base.action.d.ts
-// requires impact.base.entity.d.ts
-// requires impact.feature.camera.camera.d.ts
-// requires game.feature.arena.arena.d.ts
-// requires game.feature.arena.gui.arena-gui.d.ts
-// requires game.feature.arena.gui.arena-start-gui.d.ts
+import './impact.base.action';
+import './impact.base.entity';
+import './impact.feature.camera.camera';
+import './game.feature.arena.arena';
+import './game.feature.arena.gui.arena-gui';
+import './game.feature.arena.gui.arena-start-gui';

@@ -1,39 +1,38 @@
-// requires game.feature.combat.combat.d.ts
-// requires game.feature.combat.pvp.d.ts
-// requires game.feature.combat.combat-shield.d.ts
-// requires game.feature.combat.combat-force.d.ts
-// requires game.feature.combat.combat-stun.d.ts
-// requires game.feature.combat.combat-assault.d.ts
-// requires game.feature.combat.combat-poi.d.ts
-// requires game.feature.combat.combat-charge.d.ts
-// requires game.feature.combat.combat-sweep.d.ts
-// requires game.feature.combat.stat-change.d.ts
-// requires game.feature.combat.entities.combatant-marble.d.ts
-// requires game.feature.combat.entities.ball.d.ts
-// requires game.feature.combat.entities.combatant.d.ts
-// requires game.feature.combat.entities.food-icon.d.ts
-// requires game.feature.combat.entities.drop.d.ts
-// requires game.feature.combat.entities.item-drop.d.ts
-// requires game.feature.combat.entities.enemy.d.ts
-// requires game.feature.combat.entities.enemy-spawner.d.ts
-// requires game.feature.combat.entities.respawn-blocker.d.ts
-// requires game.feature.combat.entities.hit-number.d.ts
-// requires game.feature.combat.entities.burst-spawner.d.ts
-// requires game.feature.combat.entities.stone.d.ts
-// requires game.feature.combat.gui.status-bar.d.ts
-// requires game.feature.combat.gui.pvp-gui.d.ts
-// requires game.feature.combat.gui.hp-bar-boss.d.ts
-// requires game.feature.combat.gui.enemy-display-gui.d.ts
-// requires game.feature.combat.model.combat-condition.d.ts
-// requires game.feature.combat.model.combat-params.d.ts
-// requires game.feature.combat.model.combat-status.d.ts
-// requires game.feature.combat.model.enemy-type.d.ts
-// requires game.feature.combat.model.enemy-reaction.d.ts
-// requires game.feature.combat.model.enemy-collab.d.ts
-// requires game.feature.combat.model.enemy-level-scaling.d.ts
-// requires game.feature.combat.model.enemy-tracker.d.ts
-// requires game.feature.combat.model.enemy-booster.d.ts
-// requires game.feature.combat.combat-action-steps.d.ts
-// requires game.feature.combat.combat-event-steps.d.ts
-// requires game.feature.combat.enemy-steps.d.ts
-// requires game.feature.combat.stat-change.d.ts
+import './game.feature.combat.combat';
+import './game.feature.combat.pvp';
+import './game.feature.combat.combat-shield';
+import './game.feature.combat.combat-force';
+import './game.feature.combat.combat-stun';
+import './game.feature.combat.combat-assault';
+import './game.feature.combat.combat-poi';
+import './game.feature.combat.combat-charge';
+import './game.feature.combat.combat-sweep';
+import './game.feature.combat.stat-change';
+import './game.feature.combat.entities.combatant-marble';
+import './game.feature.combat.entities.ball';
+import './game.feature.combat.entities.combatant';
+import './game.feature.combat.entities.food-icon';
+import './game.feature.combat.entities.drop';
+import './game.feature.combat.entities.item-drop';
+import './game.feature.combat.entities.enemy';
+import './game.feature.combat.entities.enemy-spawner';
+import './game.feature.combat.entities.respawn-blocker';
+import './game.feature.combat.entities.hit-number';
+import './game.feature.combat.entities.burst-spawner';
+import './game.feature.combat.entities.stone';
+import './game.feature.combat.gui.status-bar';
+import './game.feature.combat.gui.pvp-gui';
+import './game.feature.combat.gui.hp-bar-boss';
+import './game.feature.combat.gui.enemy-display-gui';
+import './game.feature.combat.model.combat-condition';
+import './game.feature.combat.model.combat-params';
+import './game.feature.combat.model.combat-status';
+import './game.feature.combat.model.enemy-type';
+import './game.feature.combat.model.enemy-reaction';
+import './game.feature.combat.model.enemy-collab';
+import './game.feature.combat.model.enemy-level-scaling';
+import './game.feature.combat.model.enemy-tracker';
+import './game.feature.combat.model.enemy-booster';
+import './game.feature.combat.combat-action-steps';
+import './game.feature.combat.combat-event-steps';
+import './game.feature.combat.enemy-steps';

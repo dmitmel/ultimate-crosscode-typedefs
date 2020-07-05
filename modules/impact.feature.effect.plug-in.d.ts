@@ -1,12 +1,12 @@
-// requires impact.feature.effect.entities.effect-previewer.d.ts
-// requires impact.feature.effect.effect-sheet.d.ts
-// requires impact.feature.effect.effect-steps.d.ts
-// requires impact.feature.effect.fx.fx-basic.d.ts
-// requires impact.feature.effect.fx.fx-box.d.ts
-// requires impact.feature.effect.fx.fx-color.d.ts
-// requires impact.feature.effect.fx.fx-circle.d.ts
-// requires impact.feature.effect.fx.fx-homing.d.ts
-// requires impact.feature.effect.fx.fx-light.d.ts
-// requires impact.feature.effect.fx.fx-line.d.ts
-// requires impact.feature.effect.fx.fx-rhombus.d.ts
-// requires impact.feature.effect.fx.fx-wipe.d.ts
+import './impact.feature.effect.entities.effect-previewer';
+import './impact.feature.effect.effect-sheet';
+import './impact.feature.effect.effect-steps';
+import './impact.feature.effect.fx.fx-basic';
+import './impact.feature.effect.fx.fx-box';
+import './impact.feature.effect.fx.fx-color';
+import './impact.feature.effect.fx.fx-circle';
+import './impact.feature.effect.fx.fx-homing';
+import './impact.feature.effect.fx.fx-light';
+import './impact.feature.effect.fx.fx-line';
+import './impact.feature.effect.fx.fx-rhombus';
+import './impact.feature.effect.fx.fx-wipe';

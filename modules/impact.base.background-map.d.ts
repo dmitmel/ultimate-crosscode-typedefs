@@ -1,4 +1,4 @@
-// requires impact.base.map.d.ts
-// requires impact.base.image.d.ts
-// requires impact.base.tile-info.d.ts
-// requires game.config.d.ts
+import './impact.base.map';
+import './impact.base.image';
+import './impact.base.tile-info';
+import './game.config';

@@ -1,1 +1,1 @@
-// requires impact.base.game.d.ts
+import './impact.base.game';

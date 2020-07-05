@@ -1,1 +1,1 @@
-// requires game.feature.gui.hud.right-hud.d.ts
+import './game.feature.gui.hud.right-hud';

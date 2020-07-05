@@ -1,5 +1,5 @@
-// requires impact.base.actor-entity.d.ts
-// requires impact.base.entity.d.ts
-// requires game.feature.interact.map-interact.d.ts
-// requires game.feature.inventory.inventory.d.ts
-// requires game.feature.menu.menu-model.d.ts
+import './impact.base.actor-entity';
+import './impact.base.entity';
+import './game.feature.interact.map-interact';
+import './game.feature.inventory.inventory';
+import './game.feature.menu.menu-model';

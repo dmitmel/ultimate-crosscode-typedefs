@@ -1,1 +1,1 @@
-// requires impact.feature.bgm.bgm.d.ts
+import './impact.feature.bgm.bgm';

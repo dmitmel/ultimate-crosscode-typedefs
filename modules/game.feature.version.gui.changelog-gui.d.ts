@@ -1,10 +1,10 @@
-// requires impact.base.image.d.ts
-// requires impact.base.event.d.ts
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires impact.feature.interact.button-interact.d.ts
-// requires game.feature.control.control.d.ts
-// requires game.feature.gui.base.button.d.ts
-// requires game.feature.gui.base.boxes.d.ts
-// requires game.feature.gui.base.numbers.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
+import './impact.base.image';
+import './impact.base.event';
+import './impact.feature.gui.gui';
+import './impact.feature.gui.base.basic-gui';
+import './impact.feature.interact.button-interact';
+import './game.feature.control.control';
+import './game.feature.gui.base.button';
+import './game.feature.gui.base.boxes';
+import './game.feature.gui.base.numbers';
+import './game.feature.menu.gui.menu-misc';

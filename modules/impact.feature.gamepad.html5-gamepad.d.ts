@@ -1,1 +1,1 @@
-// requires impact.feature.gamepad.gamepad.d.ts
+import './impact.feature.gamepad.gamepad';

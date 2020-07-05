@@ -1,7 +1,11 @@
-// requires game.feature.character.abstract-face.d.ts
+import './game.feature.character.abstract-face';
 
-declare namespace sc {
-  interface CharacterExpression extends ig.Cacheable {}
-  interface CharacterExpressionConstructor extends ImpactClass<CharacterExpression> {}
-  var CharacterExpression: CharacterExpressionConstructor;
+export {};
+
+declare global {
+  namespace sc {
+    interface CharacterExpression extends ig.Cacheable {}
+    interface CharacterExpressionConstructor extends ImpactClass<CharacterExpression> {}
+    var CharacterExpression: CharacterExpressionConstructor;
+  }
 }

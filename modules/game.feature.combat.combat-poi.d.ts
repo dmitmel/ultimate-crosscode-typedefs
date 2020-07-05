@@ -1,1 +1,1 @@
-// requires game.feature.combat.model.combat-params.d.ts
+import './game.feature.combat.model.combat-params';

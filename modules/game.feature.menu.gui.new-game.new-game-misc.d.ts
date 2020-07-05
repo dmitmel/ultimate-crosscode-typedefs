@@ -1,30 +1,34 @@
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires impact.feature.gui.base.box.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
+import './impact.feature.gui.gui';
+import './impact.feature.gui.base.basic-gui';
+import './impact.feature.gui.base.box';
+import './game.feature.menu.gui.menu-misc';
 
-declare namespace sc {
-  interface NewGameToggleSet extends ig.GuiElementBase {}
-  interface NewGameToggleSetConstructor extends ImpactClass<NewGameToggleSet> {}
-  var NewGameToggleSet: NewGameToggleSetConstructor;
+export {};
 
-  interface NewGameOptionButton extends sc.ListBoxButton {
-    data: { id: string; description: string };
+declare global {
+  namespace sc {
+    interface NewGameToggleSet extends ig.GuiElementBase {}
+    interface NewGameToggleSetConstructor extends ImpactClass<NewGameToggleSet> {}
+    var NewGameToggleSet: NewGameToggleSetConstructor;
 
-    set: sc.NewGameToggleSet.SetOptions;
+    interface NewGameOptionButton extends sc.ListBoxButton {
+      data: { id: string; description: string };
 
-    updateToggleState(this: this): void;
+      set: sc.NewGameToggleSet.SetOptions;
+
+      updateToggleState(this: this): void;
+    }
+    interface NewGameOptionButtonConstructor extends ImpactClass<NewGameOptionButton> {
+      new (
+        name: string,
+        amount: number,
+        id: string,
+        description: string,
+        setKey: string,
+        setOptions: sc.NewGameToggleSet.SetOptions,
+        setGui: sc.NewGameToggleSet,
+      ): NewGameOptionButton;
+    }
+    var NewGameOptionButton: NewGameOptionButtonConstructor;
   }
-  interface NewGameOptionButtonConstructor extends ImpactClass<NewGameOptionButton> {
-    new (
-      name: string,
-      amount: number,
-      id: string,
-      description: string,
-      setKey: string,
-      setOptions: sc.NewGameToggleSet.SetOptions,
-      setGui: sc.NewGameToggleSet,
-    ): NewGameOptionButton;
-  }
-  var NewGameOptionButton: NewGameOptionButtonConstructor;
 }

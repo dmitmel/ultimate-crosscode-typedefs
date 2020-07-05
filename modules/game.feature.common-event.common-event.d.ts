@@ -1,2 +1,2 @@
-// requires impact.feature.storage.storage.d.ts
-// requires game.feature.party.party.d.ts
+import './impact.feature.storage.storage';
+import './game.feature.party.party';

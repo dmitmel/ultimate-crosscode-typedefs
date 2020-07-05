@@ -1,7 +1,7 @@
-// requires impact.feature.gui.base.box.d.ts
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.interact.button-interact.d.ts
-// requires game.feature.interact.button-group.d.ts
-// requires game.feature.menu.gui.quests.quest-entries.d.ts
-// requires game.feature.menu.gui.quests.quest-misc.d.ts
-// requires game.feature.npc.gui.npc-display-gui.d.ts
+import './impact.feature.gui.base.box';
+import './impact.feature.gui.gui';
+import './impact.feature.interact.button-interact';
+import './game.feature.interact.button-group';
+import './game.feature.menu.gui.quests.quest-entries';
+import './game.feature.menu.gui.quests.quest-misc';
+import './game.feature.npc.gui.npc-display-gui';

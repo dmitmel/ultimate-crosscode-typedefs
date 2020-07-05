@@ -1,4 +1,4 @@
-// requires impact.base.image.d.ts
-// requires impact.base.game.d.ts
-// requires game.feature.model.game-model.d.ts
-// requires game.feature.model.options-model.d.ts
+import './impact.base.image';
+import './impact.base.game';
+import './game.feature.model.game-model';
+import './game.feature.model.options-model';

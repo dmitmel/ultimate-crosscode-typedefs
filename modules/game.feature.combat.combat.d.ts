@@ -1,5 +1,5 @@
-// requires impact.base.game.d.ts
-// requires impact.feature.effect.effect-sheet.d.ts
-// requires impact.feature.database.database.d.ts
-// requires impact.feature.navigation.navigation.d.ts
-// requires game.feature.model.game-model.d.ts
+import './impact.base.game';
+import './impact.feature.effect.effect-sheet';
+import './impact.feature.database.database';
+import './impact.feature.navigation.navigation';
+import './game.feature.model.game-model';

@@ -1,8 +1,12 @@
-// requires impact.base.entity.d.ts
-// requires impact.base.action.d.ts
+import './impact.base.entity';
+import './impact.base.action';
 
-declare namespace ig {
-  interface ActorEntity extends ig.AnimatedEntity {}
-  interface ActorEntityConstructor extends ImpactClass<ActorEntity> {}
-  var ActorEntity: ActorEntityConstructor;
+export {};
+
+declare global {
+  namespace ig {
+    interface ActorEntity extends ig.AnimatedEntity {}
+    interface ActorEntityConstructor extends ImpactClass<ActorEntity> {}
+    var ActorEntity: ActorEntityConstructor;
+  }
 }

@@ -1,5 +1,5 @@
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires game.feature.menu.gui.base-menu.d.ts
-// requires game.feature.menu.gui.social.social-list.d.ts
-// requires game.feature.menu.gui.social.social-misc.d.ts
+import './impact.feature.gui.gui';
+import './impact.feature.gui.base.basic-gui';
+import './game.feature.menu.gui.base-menu';
+import './game.feature.menu.gui.social.social-list';
+import './game.feature.menu.gui.social.social-misc';

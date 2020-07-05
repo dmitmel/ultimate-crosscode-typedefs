@@ -1,2 +1,2 @@
-// requires impact.feature.bgm.bgm.d.ts
-// requires impact.feature.bgm.bgm-steps.d.ts
+import './impact.feature.bgm.bgm';
+import './impact.feature.bgm.bgm-steps';

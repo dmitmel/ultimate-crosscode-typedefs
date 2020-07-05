@@ -1,14 +1,18 @@
-// requires impact.feature.gui.gui.d.ts
+import './impact.feature.gui.gui';
 
-declare namespace ig {
-  interface FocusGui extends ig.GuiElementBase {
-    focus: boolean;
-    active: boolean;
-    keepPressed: boolean;
-    pressed: boolean;
+export {};
 
-    onButtonPress(this: this): void;
+declare global {
+  namespace ig {
+    interface FocusGui extends ig.GuiElementBase {
+      focus: boolean;
+      active: boolean;
+      keepPressed: boolean;
+      pressed: boolean;
+
+      onButtonPress(this: this): void;
+    }
+    interface FocusGuiConstructor extends ImpactClass<FocusGui> {}
+    var FocusGui: FocusGuiConstructor;
   }
-  interface FocusGuiConstructor extends ImpactClass<FocusGui> {}
-  var FocusGui: FocusGuiConstructor;
 }

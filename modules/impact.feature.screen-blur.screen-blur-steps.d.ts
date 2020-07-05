@@ -1,3 +1,3 @@
-// requires impact.feature.screen-blur.screen-blur.d.ts
-// requires impact.base.action.d.ts
-// requires impact.base.event.d.ts
+import './impact.feature.screen-blur.screen-blur';
+import './impact.base.action';
+import './impact.base.event';

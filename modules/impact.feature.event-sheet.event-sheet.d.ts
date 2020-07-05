@@ -1,1 +1,1 @@
-// requires impact.base.event.d.ts
+import './impact.base.event';

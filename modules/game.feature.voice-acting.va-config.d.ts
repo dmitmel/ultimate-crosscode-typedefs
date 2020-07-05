@@ -1,1 +1,1 @@
-// requires game.feature.voice-acting.voice-acting.d.ts
+import './game.feature.voice-acting.voice-acting';

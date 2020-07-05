@@ -1,3 +1,3 @@
-// requires impact.feature.gui.gui.d.ts
-// requires game.feature.gui.base.boxes.d.ts
-// requires game.feature.gui.base.text.d.ts
+import './impact.feature.gui.gui';
+import './game.feature.gui.base.boxes';
+import './game.feature.gui.base.text';

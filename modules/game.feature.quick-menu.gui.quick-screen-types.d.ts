@@ -1,7 +1,7 @@
-// requires impact.base.image.d.ts
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires impact.feature.interact.gui.focus-gui.d.ts
-// requires game.feature.gui.base.numbers.d.ts
-// requires game.feature.combat.combat.d.ts
-// requires game.feature.quick-menu.gui.quick-misc.d.ts
+import './impact.base.image';
+import './impact.feature.gui.gui';
+import './impact.feature.gui.base.basic-gui';
+import './impact.feature.interact.gui.focus-gui';
+import './game.feature.gui.base.numbers';
+import './game.feature.combat.combat';
+import './game.feature.quick-menu.gui.quick-misc';

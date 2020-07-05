@@ -1,3 +1,3 @@
-// requires impact.base.entity.d.ts
-// requires game.feature.interact.map-interact.d.ts
-// requires impact.base.actor-entity.d.ts
+import './impact.base.entity';
+import './game.feature.interact.map-interact';
+import './impact.base.actor-entity';

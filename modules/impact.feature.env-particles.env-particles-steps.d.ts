@@ -1,3 +1,3 @@
-// requires impact.feature.env-particles.env-particles.d.ts
-// requires impact.base.action.d.ts
-// requires impact.base.event.d.ts
+import './impact.feature.env-particles.env-particles';
+import './impact.base.action';
+import './impact.base.event';

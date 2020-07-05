@@ -1,4 +1,4 @@
-// requires impact.base.image.d.ts
-// requires impact.feature.interact.gui.focus-gui.d.ts
-// requires game.feature.interact.button-group.d.ts
-// requires game.feature.gui.base.compact-choice-box.d.ts
+import './impact.base.image';
+import './impact.feature.interact.gui.focus-gui';
+import './game.feature.interact.button-group';
+import './game.feature.gui.base.compact-choice-box';

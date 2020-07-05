@@ -1,2 +1,2 @@
-// requires impact.feature.gui.gui.d.ts
-// requires impact.base.image.d.ts
+import './impact.feature.gui.gui';
+import './impact.base.image';

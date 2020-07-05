@@ -1,1 +1,1 @@
-// requires impact.feature.database.database.d.ts
+import './impact.feature.database.database';

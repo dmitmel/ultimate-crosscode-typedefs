@@ -1,2 +1,2 @@
-// requires game.feature.common-event.common-event.d.ts
-// requires game.feature.common-event.common-event-steps.d.ts
+import './game.feature.common-event.common-event';
+import './game.feature.common-event.common-event-steps';

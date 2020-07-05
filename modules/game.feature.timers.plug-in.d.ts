@@ -1,3 +1,3 @@
-// requires game.feature.timers.timers-steps.d.ts
-// requires game.feature.timers.gui.timers-hud.d.ts
-// requires game.feature.timers.timers-model.d.ts
+import './game.feature.timers.timers-steps';
+import './game.feature.timers.gui.timers-hud';
+import './game.feature.timers.timers-model';

@@ -1,1 +1,1 @@
-// requires impact.feature.greenworks.greenworks.d.ts
+import './impact.feature.greenworks.greenworks';

@@ -1,1 +1,1 @@
-// requires game.feature.game-code.game-code.d.ts
+import './game.feature.game-code.game-code';

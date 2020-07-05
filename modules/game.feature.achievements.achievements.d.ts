@@ -1,7 +1,7 @@
-// requires impact.base.game.d.ts
-// requires impact.base.loader.d.ts
-// requires impact.base.vars.d.ts
-// requires impact.feature.database.database.d.ts
-// requires impact.feature.greenworks.greenworks.d.ts
-// requires game.config.d.ts
-// requires game.feature.achievements.stats-model.d.ts
+import './impact.base.game';
+import './impact.base.loader';
+import './impact.base.vars';
+import './impact.feature.database.database';
+import './impact.feature.greenworks.greenworks';
+import './game.config';
+import './game.feature.achievements.stats-model';

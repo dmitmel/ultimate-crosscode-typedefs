@@ -1,3 +1,3 @@
-// requires impact.base.event.d.ts
-// requires impact.base.game.d.ts
-// requires impact.feature.gui.gui.d.ts
+import './impact.base.event';
+import './impact.base.game';
+import './impact.feature.gui.gui';

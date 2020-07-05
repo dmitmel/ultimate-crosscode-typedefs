@@ -9,8 +9,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import * as events from 'events';
 
-export {};
-
 type DOMWindow_ = Window;
 type NodeBuffer_ = typeof Buffer;
 type NodeGlobal_ = typeof global;
@@ -18,6 +16,8 @@ type NodeProcess_ = typeof process;
 type NodeRequire_ = typeof require;
 type Node__dirname_ = typeof __dirname;
 type Node__filename_ = typeof __filename;
+
+export {};
 
 declare global {
   namespace NodeJS {

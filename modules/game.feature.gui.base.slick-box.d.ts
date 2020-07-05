@@ -1,2 +1,2 @@
-// requires impact.feature.gui.base.box.d.ts
-// requires impact.feature.gui.gui.d.ts
+import './impact.feature.gui.base.box';
+import './impact.feature.gui.gui';

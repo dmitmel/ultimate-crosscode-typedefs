@@ -1,17 +1,21 @@
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires impact.feature.gui.base.box.d.ts
-// requires game.feature.gui.base.text.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
-// requires game.feature.menu.gui.list-boxes.d.ts
-// requires game.feature.menu.gui.item.item-sort-menu.d.ts
+import './impact.feature.gui.gui';
+import './impact.feature.gui.base.basic-gui';
+import './impact.feature.gui.base.box';
+import './game.feature.gui.base.text';
+import './game.feature.menu.gui.menu-misc';
+import './game.feature.menu.gui.list-boxes';
+import './game.feature.menu.gui.item.item-sort-menu';
 
-declare namespace sc {
-  namespace ItemTabbedBox {
-    interface TabButton extends ig.FocusGui {
-      _largeWidth: number;
+export {};
+
+declare global {
+  namespace sc {
+    namespace ItemTabbedBox {
+      interface TabButton extends ig.FocusGui {
+        _largeWidth: number;
+      }
+      interface TabButtonConstructor extends ImpactClass<TabButton> {}
+      var TabButton: TabButtonConstructor;
     }
-    interface TabButtonConstructor extends ImpactClass<TabButton> {}
-    var TabButton: TabButtonConstructor;
   }
 }

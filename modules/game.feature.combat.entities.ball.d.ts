@@ -1,7 +1,7 @@
-// requires game.feature.combat.entities.projectile.d.ts
-// requires game.feature.combat.model.ball-behavior.d.ts
-// requires game.feature.combat.model.proxy.d.ts
-// requires game.constants.d.ts
-// requires impact.feature.effect.effect-sheet.d.ts
-// requires impact.base.entity.d.ts
-// requires impact.feature.light.light.d.ts
+import './game.feature.combat.entities.projectile';
+import './game.feature.combat.model.ball-behavior';
+import './game.feature.combat.model.proxy';
+import './game.constants';
+import './impact.feature.effect.effect-sheet';
+import './impact.base.entity';
+import './impact.feature.light.light';

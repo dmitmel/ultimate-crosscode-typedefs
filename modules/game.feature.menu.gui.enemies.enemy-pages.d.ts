@@ -1,15 +1,19 @@
-// requires impact.feature.gui.base.box.d.ts
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires game.feature.combat.gui.enemy-display-gui.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
-// requires game.feature.gui.base.misc.d.ts
+import './impact.feature.gui.base.box';
+import './impact.feature.gui.gui';
+import './impact.feature.gui.base.basic-gui';
+import './game.feature.combat.gui.enemy-display-gui';
+import './game.feature.menu.gui.menu-misc';
+import './game.feature.gui.base.misc';
 
-declare namespace sc {
-  interface EnemyBaseParamLine extends ig.GuiElementBase {
-    gfx: ig.Image;
-    icon: number;
+export {};
+
+declare global {
+  namespace sc {
+    interface EnemyBaseParamLine extends ig.GuiElementBase {
+      gfx: ig.Image;
+      icon: number;
+    }
+    interface EnemyBaseParamLineConstructor extends ImpactClass<EnemyBaseParamLine> {}
+    var EnemyBaseParamLine: EnemyBaseParamLineConstructor;
   }
-  interface EnemyBaseParamLineConstructor extends ImpactClass<EnemyBaseParamLine> {}
-  var EnemyBaseParamLine: EnemyBaseParamLineConstructor;
 }

@@ -1,3 +1,3 @@
-// requires impact.base.utils.d.ts
-// requires impact.base.event.d.ts
-// requires impact.base.action.d.ts
+import './impact.base.utils';
+import './impact.base.event';
+import './impact.base.action';

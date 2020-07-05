@@ -1,2 +1,2 @@
-// requires impact.base.game.d.ts
-// requires game.feature.skills.skills.d.ts
+import './impact.base.game';
+import './game.feature.skills.skills';

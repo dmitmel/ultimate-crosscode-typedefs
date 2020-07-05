@@ -1,6 +1,6 @@
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires game.feature.gui.base.numbers.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
-// requires game.feature.skills.skilltree.d.ts
-// requires game.feature.player.player-model.d.ts
+import './impact.feature.gui.gui';
+import './impact.feature.gui.base.basic-gui';
+import './game.feature.gui.base.numbers';
+import './game.feature.menu.gui.menu-misc';
+import './game.feature.skills.skilltree';
+import './game.feature.player.player-model';

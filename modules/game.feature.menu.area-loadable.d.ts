@@ -1,38 +1,42 @@
-// requires impact.base.game.d.ts
-// requires impact.base.loader.d.ts
+import './impact.base.game';
+import './impact.base.loader';
 
-declare namespace sc {
-  namespace AreaLoadable {
-    interface Data {
-      DOCTYPE: 'AREAS_MAP';
-      name: ig.LangLabel.Data;
-      width: number;
-      height: number;
-      floors: Floor[];
-      defaultFloor: number;
-      chests: number;
-    }
+export {};
 
-    // TODO
-    interface Floor {
-      level: number;
-      name: ig.LangLabel.Data;
-      tiles: number[][];
-      maps: Map[];
-    }
+declare global {
+  namespace sc {
+    namespace AreaLoadable {
+      interface Data {
+        DOCTYPE: 'AREAS_MAP';
+        name: ig.LangLabel.Data;
+        width: number;
+        height: number;
+        floors: Floor[];
+        defaultFloor: number;
+        chests: number;
+      }
 
-    interface Map {
-      path: string;
-      name: ig.LangLabel.Data;
-      offset: Vec2;
-      dungeon: '' | 'DUNGEON' | 'NO_DUNGEON';
+      // TODO
+      interface Floor {
+        level: number;
+        name: ig.LangLabel.Data;
+        tiles: number[][];
+        maps: Map[];
+      }
+
+      interface Map {
+        path: string;
+        name: ig.LangLabel.Data;
+        offset: Vec2;
+        dungeon: '' | 'DUNGEON' | 'NO_DUNGEON';
+      }
     }
+    interface AreaLoadable extends ig.Loadable {
+      data: sc.AreaLoadable.Data;
+    }
+    interface AreaLoadableConstructor extends ImpactClass<AreaLoadable> {
+      new (path: string): AreaLoadable;
+    }
+    var AreaLoadable: AreaLoadableConstructor;
   }
-  interface AreaLoadable extends ig.Loadable {
-    data: sc.AreaLoadable.Data;
-  }
-  interface AreaLoadableConstructor extends ImpactClass<AreaLoadable> {
-    new (path: string): AreaLoadable;
-  }
-  var AreaLoadable: AreaLoadableConstructor;
 }

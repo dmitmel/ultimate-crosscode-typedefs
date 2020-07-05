@@ -1,1 +1,1 @@
-// requires impact.base.image.d.ts
+import './impact.base.image';

@@ -1,2 +1,2 @@
-// requires impact.base.map.d.ts
-// requires game.config.d.ts
+import './impact.base.map';
+import './game.config';

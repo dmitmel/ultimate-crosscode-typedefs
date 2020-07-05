@@ -1,1 +1,1 @@
-// requires impact.base.sound.d.ts
+import './impact.base.sound';

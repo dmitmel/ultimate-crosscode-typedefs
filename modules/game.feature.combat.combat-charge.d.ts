@@ -1,2 +1,2 @@
-// requires game.feature.combat.model.combat-params.d.ts
-// requires game.feature.combat.entities.ball.d.ts
+import './game.feature.combat.model.combat-params';
+import './game.feature.combat.entities.ball';

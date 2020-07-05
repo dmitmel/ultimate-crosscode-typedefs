@@ -1,6 +1,6 @@
-// requires game.feature.model.base-model.d.ts
-// requires game.feature.combat.model.combat-params.d.ts
-// requires game.feature.combat.entities.ball.d.ts
-// requires game.feature.player.player-config.d.ts
-// requires game.feature.achievements.stats-model.d.ts
-// requires game.feature.player.player-level.d.ts
+import './game.feature.model.base-model';
+import './game.feature.combat.model.combat-params';
+import './game.feature.combat.entities.ball';
+import './game.feature.player.player-config';
+import './game.feature.achievements.stats-model';
+import './game.feature.player.player-level';

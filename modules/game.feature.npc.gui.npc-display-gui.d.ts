@@ -1,1 +1,1 @@
-// requires impact.feature.gui.gui.d.ts
+import './impact.feature.gui.gui';

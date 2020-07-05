@@ -1,10 +1,14 @@
-// requires impact.feature.gui.gui.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
+import './impact.feature.gui.gui';
+import './game.feature.menu.gui.menu-misc';
 
-declare namespace sc {
-  interface ButtonListBox extends sc.ScrollPane {
-    contentPane: ig.GuiElementBase;
+export {};
+
+declare global {
+  namespace sc {
+    interface ButtonListBox extends sc.ScrollPane {
+      contentPane: ig.GuiElementBase;
+    }
+    interface ButtonListBoxConstructor extends ImpactClass<ButtonListBox> {}
+    var ButtonListBox: ButtonListBoxConstructor;
   }
-  interface ButtonListBoxConstructor extends ImpactClass<ButtonListBox> {}
-  var ButtonListBox: ButtonListBoxConstructor;
 }

@@ -1,5 +1,5 @@
-// requires impact.base.image.d.ts
-// requires impact.feature.gui.gui.d.ts
-// requires game.feature.quick-menu.gui.quick-screen-types.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
-// requires game.feature.quick-menu.gui.quick-misc.d.ts
+import './impact.base.image';
+import './impact.feature.gui.gui';
+import './game.feature.quick-menu.gui.quick-screen-types';
+import './game.feature.menu.gui.menu-misc';
+import './game.feature.quick-menu.gui.quick-misc';

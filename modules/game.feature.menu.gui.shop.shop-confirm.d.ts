@@ -1,8 +1,7 @@
-// requires impact.base.image.d.ts
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires impact.feature.gui.base.box.d.ts
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
-// requires game.feature.gui.widget.modal-dialog.d.ts
-// requires game.feature.menu.gui.shop.shop-misc.d.ts
+import './impact.base.image';
+import './impact.feature.gui.gui';
+import './impact.feature.gui.base.basic-gui';
+import './impact.feature.gui.base.box';
+import './game.feature.menu.gui.menu-misc';
+import './game.feature.gui.widget.modal-dialog';
+import './game.feature.menu.gui.shop.shop-misc';

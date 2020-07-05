@@ -1,8 +1,8 @@
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires game.feature.menu.gui.item.item-status-equip.d.ts
-// requires game.feature.menu.gui.item.item-status-default.d.ts
-// requires game.feature.menu.gui.item.item-status-buffs.d.ts
-// requires game.feature.menu.gui.item.item-status-favs.d.ts
-// requires game.feature.menu.gui.item.item-status-trade.d.ts
-// requires game.feature.menu.gui.item.item-list.d.ts
+import './impact.feature.gui.gui';
+import './impact.feature.gui.base.basic-gui';
+import './game.feature.menu.gui.item.item-status-equip';
+import './game.feature.menu.gui.item.item-status-default';
+import './game.feature.menu.gui.item.item-status-buffs';
+import './game.feature.menu.gui.item.item-status-favs';
+import './game.feature.menu.gui.item.item-status-trade';
+import './game.feature.menu.gui.item.item-list';

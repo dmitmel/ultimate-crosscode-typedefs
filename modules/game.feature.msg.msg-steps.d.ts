@@ -1,7 +1,7 @@
-// requires impact.base.action.d.ts
-// requires impact.base.event.d.ts
-// requires game.feature.msg.message-model.d.ts
-// requires game.feature.character.character.d.ts
-// requires game.feature.gui.widget.demo-stats.d.ts
-// requires game.feature.gui.widget.demo-highscore.d.ts
-// requires game.feature.msg.gui.dream-msg.d.ts
+import './impact.base.action';
+import './impact.base.event';
+import './game.feature.msg.message-model';
+import './game.feature.character.character';
+import './game.feature.gui.widget.demo-stats';
+import './game.feature.gui.widget.demo-highscore';
+import './game.feature.msg.gui.dream-msg';

@@ -1,4 +1,4 @@
-// requires impact.base.image.d.ts
-// requires impact.base.game.d.ts
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.storage.storage.d.ts
+import './impact.base.image';
+import './impact.base.game';
+import './impact.feature.gui.gui';
+import './impact.feature.storage.storage';

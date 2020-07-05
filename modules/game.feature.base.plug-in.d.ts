@@ -1,2 +1,2 @@
-// requires game.feature.base.action-steps.d.ts
-// requires game.feature.base.event-steps.d.ts
+import './game.feature.base.action-steps';
+import './game.feature.base.event-steps';

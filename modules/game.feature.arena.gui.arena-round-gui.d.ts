@@ -1,23 +1,27 @@
-// requires impact.feature.rumble.rumble.d.ts
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires impact.feature.gui.base.box.d.ts
-// requires game.feature.gui.hud.right-hud.d.ts
-// requires game.feature.gui.base.text.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
-// requires game.feature.menu.gui.arena.arena-misc.d.ts
-// requires game.feature.arena.gui.arena-effect-display.d.ts
+import './impact.feature.rumble.rumble';
+import './impact.feature.gui.gui';
+import './impact.feature.gui.base.basic-gui';
+import './impact.feature.gui.base.box';
+import './game.feature.gui.hud.right-hud';
+import './game.feature.gui.base.text';
+import './game.feature.menu.gui.menu-misc';
+import './game.feature.menu.gui.arena.arena-misc';
+import './game.feature.arena.gui.arena-effect-display';
 
-declare namespace sc {
-  interface ArenaRoundEndButtons extends ig.GuiElementBase {
-    buttons: sc.ButtonGui[];
+export {};
+
+declare global {
+  namespace sc {
+    interface ArenaRoundEndButtons extends ig.GuiElementBase {
+      buttons: sc.ButtonGui[];
+    }
+    interface ArenaRoundEndButtonsConstructor extends ImpactClass<ArenaRoundEndButtons> {
+      new (
+        callback: (rushMode: boolean, buttonIndex: number, isLastRound: boolean) => void,
+        info: sc.InfoBar,
+        playerDeath: boolean,
+      ): ArenaRoundEndButtons;
+    }
+    var ArenaRoundEndButtons: ArenaRoundEndButtonsConstructor;
   }
-  interface ArenaRoundEndButtonsConstructor extends ImpactClass<ArenaRoundEndButtons> {
-    new (
-      callback: (rushMode: boolean, buttonIndex: number, isLastRound: boolean) => void,
-      info: sc.InfoBar,
-      playerDeath: boolean,
-    ): ArenaRoundEndButtons;
-  }
-  var ArenaRoundEndButtons: ArenaRoundEndButtonsConstructor;
 }

@@ -1,1 +1,1 @@
-// requires impact.feature.height-map.height-map.d.ts
+import './impact.feature.height-map.height-map';

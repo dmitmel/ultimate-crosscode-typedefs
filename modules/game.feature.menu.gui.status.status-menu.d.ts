@@ -1,10 +1,10 @@
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires game.feature.menu.gui.base-menu.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
-// requires game.feature.menu.gui.item.item-status-default.d.ts
-// requires game.feature.menu.gui.status.status-misc.d.ts
-// requires game.feature.menu.gui.status.status-view-main.d.ts
-// requires game.feature.menu.gui.status.status-view-parameters.d.ts
-// requires game.feature.menu.gui.status.status-view-modifiers.d.ts
-// requires game.feature.menu.gui.status.status-view-combat-arts.d.ts
+import './impact.feature.gui.gui';
+import './impact.feature.gui.base.basic-gui';
+import './game.feature.menu.gui.base-menu';
+import './game.feature.menu.gui.menu-misc';
+import './game.feature.menu.gui.item.item-status-default';
+import './game.feature.menu.gui.status.status-misc';
+import './game.feature.menu.gui.status.status-view-main';
+import './game.feature.menu.gui.status.status-view-parameters';
+import './game.feature.menu.gui.status.status-view-modifiers';
+import './game.feature.menu.gui.status.status-view-combat-arts';

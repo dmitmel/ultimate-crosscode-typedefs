@@ -1,3 +1,3 @@
-// requires impact.base.action.d.ts
-// requires impact.base.event.d.ts
-// requires game.feature.credits.credit-loadable.d.ts
+import './impact.base.action';
+import './impact.base.event';
+import './game.feature.credits.credit-loadable';

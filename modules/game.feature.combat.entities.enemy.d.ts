@@ -1,4 +1,4 @@
-// requires game.feature.combat.entities.combatant.d.ts
-// requires game.feature.combat.model.enemy-type.d.ts
-// requires game.feature.combat.model.enemy-annotation.d.ts
-// requires game.feature.new-game.new-game-model.d.ts
+import './game.feature.combat.entities.combatant';
+import './game.feature.combat.model.enemy-type';
+import './game.feature.combat.model.enemy-annotation';
+import './game.feature.new-game.new-game-model';

@@ -1,4 +1,4 @@
-// requires impact.base.action.d.ts
-// requires impact.base.entity.d.ts
-// requires impact.base.event.d.ts
-// requires game.feature.timers.timers-model.d.ts
+import './impact.base.action';
+import './impact.base.entity';
+import './impact.base.event';
+import './game.feature.timers.timers-model';

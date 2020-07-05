@@ -1,10 +1,14 @@
-// requires impact.feature.gui.base.box.d.ts
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.interact.button-interact.d.ts
-// requires game.feature.menu.gui.quest-hub.quest-hub-misc.d.ts
+import './impact.feature.gui.base.box';
+import './impact.feature.gui.gui';
+import './impact.feature.interact.button-interact';
+import './game.feature.menu.gui.quest-hub.quest-hub-misc';
 
-declare namespace sc {
-  interface QuestHubList extends sc.ListTabbedPane {}
-  interface QuestHubListConstructor extends ImpactClass<QuestHubList> {}
-  var QuestHubList: QuestHubListConstructor;
+export {};
+
+declare global {
+  namespace sc {
+    interface QuestHubList extends sc.ListTabbedPane {}
+    interface QuestHubListConstructor extends ImpactClass<QuestHubList> {}
+    var QuestHubList: QuestHubListConstructor;
+  }
 }

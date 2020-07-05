@@ -1,6 +1,6 @@
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires game.feature.menu.gui.base-menu.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
-// requires game.feature.menu.gui.botanics.botanics-list.d.ts
-// requires game.feature.menu.gui.botanics.botanics-misc.d.ts
+import './impact.feature.gui.gui';
+import './impact.feature.gui.base.basic-gui';
+import './game.feature.menu.gui.base-menu';
+import './game.feature.menu.gui.menu-misc';
+import './game.feature.menu.gui.botanics.botanics-list';
+import './game.feature.menu.gui.botanics.botanics-misc';

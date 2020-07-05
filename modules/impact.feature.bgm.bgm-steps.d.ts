@@ -1,3 +1,3 @@
-// requires impact.base.action.d.ts
-// requires impact.base.event.d.ts
-// requires impact.feature.bgm.bgm.d.ts
+import './impact.base.action';
+import './impact.base.event';
+import './impact.feature.bgm.bgm';

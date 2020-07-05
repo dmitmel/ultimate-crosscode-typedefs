@@ -1,13 +1,17 @@
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires game.feature.gui.base.boxes.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
+import './impact.feature.gui.base.basic-gui';
+import './game.feature.gui.base.boxes';
+import './game.feature.menu.gui.menu-misc';
 
-declare namespace sc {
-  interface MultiPageBoxGui extends ig.GuiElementBase {
-    header: sc.TextGui;
+export {};
 
-    _createInitContent(this: this, width: number): void;
+declare global {
+  namespace sc {
+    interface MultiPageBoxGui extends ig.GuiElementBase {
+      header: sc.TextGui;
+
+      _createInitContent(this: this, width: number): void;
+    }
+    interface MultiPageBoxGuiConstructor extends ImpactClass<MultiPageBoxGui> {}
+    var MultiPageBoxGui: MultiPageBoxGuiConstructor;
   }
-  interface MultiPageBoxGuiConstructor extends ImpactClass<MultiPageBoxGui> {}
-  var MultiPageBoxGui: MultiPageBoxGuiConstructor;
 }

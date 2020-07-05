@@ -1,17 +1,21 @@
-// requires impact.feature.gui.gui.d.ts
-// requires impact.feature.gui.base.box.d.ts
-// requires impact.feature.gui.base.basic-gui.d.ts
-// requires game.feature.interact.map-interact.d.ts
+import './impact.feature.gui.gui';
+import './impact.feature.gui.base.box';
+import './impact.feature.gui.base.basic-gui';
+import './game.feature.interact.map-interact';
 
-declare namespace sc {
-  interface TradeIconGui extends ig.BoxGui {
-    entries: Array<{
-      require: any; // TODO
-      gui: sc.TextGui & { tradeName: string } & sc.TextGui.LevelDrawData;
-    }>;
+export {};
 
-    _createContent(this: this): void;
+declare global {
+  namespace sc {
+    interface TradeIconGui extends ig.BoxGui {
+      entries: Array<{
+        require: any; // TODO
+        gui: sc.TextGui & { tradeName: string } & sc.TextGui.LevelDrawData;
+      }>;
+
+      _createContent(this: this): void;
+    }
+    interface TradeIconGuiConstructor extends ImpactClass<TradeIconGui> {}
+    var TradeIconGui: TradeIconGuiConstructor;
   }
-  interface TradeIconGuiConstructor extends ImpactClass<TradeIconGui> {}
-  var TradeIconGui: TradeIconGuiConstructor;
 }

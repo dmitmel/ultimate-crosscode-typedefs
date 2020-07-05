@@ -1,3 +1,3 @@
-// requires impact.base.entity.d.ts
-// requires impact.base.game.d.ts
-// requires impact.feature.effect.effect-sheet.d.ts
+import './impact.base.entity';
+import './impact.base.game';
+import './impact.feature.effect.effect-sheet';

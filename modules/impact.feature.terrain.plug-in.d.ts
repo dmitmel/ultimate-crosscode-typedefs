@@ -1,1 +1,1 @@
-// requires impact.feature.terrain.terrain.d.ts
+import './impact.feature.terrain.terrain';

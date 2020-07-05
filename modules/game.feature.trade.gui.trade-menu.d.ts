@@ -1,6 +1,6 @@
-// requires game.feature.trade.trade-model.d.ts
-// requires impact.base.image.d.ts
-// requires impact.feature.gui.gui.d.ts
-// requires game.feature.menu.gui.menu-misc.d.ts
-// requires game.feature.trade.gui.trade-dialog.d.ts
-// requires game.feature.trade.gui.equip-toggle-stats.d.ts
+import './game.feature.trade.trade-model';
+import './impact.base.image';
+import './impact.feature.gui.gui';
+import './game.feature.menu.gui.menu-misc';
+import './game.feature.trade.gui.trade-dialog';
+import './game.feature.trade.gui.equip-toggle-stats';

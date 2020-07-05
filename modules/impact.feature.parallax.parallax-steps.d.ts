@@ -1,3 +1,3 @@
-// requires impact.feature.parallax.parallax.d.ts
-// requires impact.base.action.d.ts
-// requires impact.base.event.d.ts
+import './impact.feature.parallax.parallax';
+import './impact.base.action';
+import './impact.base.event';

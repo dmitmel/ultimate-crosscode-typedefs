@@ -1,3 +1,3 @@
-// requires impact.base.image.d.ts
-// requires impact.feature.gui.gui.d.ts
-// requires game.feature.inventory.inventory.d.ts
+import './impact.base.image';
+import './impact.feature.gui.gui';
+import './game.feature.inventory.inventory';
