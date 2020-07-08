@@ -122,6 +122,7 @@ declare global {
 
     interface ResolvePathOptions {
       allowAssetOverrides?: boolean | null;
+      allowPatching?: boolean | null;
     }
     interface ResolvePathAdvancedResult {
       resolvedPath: string;
