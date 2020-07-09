@@ -11,13 +11,17 @@ export {};
 
 declare global {
   namespace sc {
-    interface BasicCombatant extends sc.ActorEntity {}
+    interface BasicCombatant extends sc.ActorEntity {
+      getCombatantRoot(this: this): sc.BasicCombatant;
+    }
     interface BasicCombatantConstructor extends ImpactClass<BasicCombatant> {}
     var BasicCombatant: BasicCombatantConstructor;
   }
 
   namespace ig.ENTITY {
-    interface Combatant extends sc.BasicCombatant {}
+    interface Combatant extends sc.BasicCombatant {
+      params: sc.CombatParams;
+    }
     interface CombatantConstructor extends ImpactClass<Combatant> {}
     var Combatant: CombatantConstructor;
   }

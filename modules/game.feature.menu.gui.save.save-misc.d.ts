@@ -10,10 +10,11 @@ export {};
 declare global {
   namespace sc {
     interface SaveSlotButton extends ig.FocusGui {
+      autoSlotMiss: sc.TextGui;
       content: ig.GuiElementBase;
     }
     interface SaveSlotButtonConstructor extends ImpactClass<SaveSlotButton> {
-      new (save: ig.SaveSlot.Data, slot: number): SaveSlotButton;
+      new (save?: ig.SaveSlot.Data, slot?: number): SaveSlotButton;
     }
     var SaveSlotButton: SaveSlotButtonConstructor;
   }

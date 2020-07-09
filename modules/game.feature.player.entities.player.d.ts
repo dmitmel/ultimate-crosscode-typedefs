@@ -12,7 +12,9 @@ export {};
 
 declare global {
   namespace ig.ENTITY {
-    interface Player extends sc.PlayerBaseEntity {}
+    interface Player extends sc.PlayerBaseEntity {
+      proxies: Record<string, sc.ProxySpawnerBase>;
+    }
     interface PlayerConstructor extends ImpactClass<Player> {}
     var Player: PlayerConstructor;
   }

@@ -13,6 +13,8 @@ declare global {
   namespace sc {
     interface GameModel extends ig.GameAddon, sc.Model {
       message: sc.MessageModel;
+
+      enterPrevSubState(this: this): void;
     }
     interface GameModelConstructor extends ImpactClass<GameModel> {}
     var GameModel: GameModelConstructor;

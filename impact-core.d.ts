@@ -6,6 +6,21 @@ declare global {
     y: number;
   }
 
+  namespace Vec2 {
+    function assign(a: Vec2, b: Vec2): Vec2;
+    function createC(x?: number | null, y?: number | null): Vec2;
+  }
+
+  interface Vec3 {
+    x: number;
+    y: number;
+    z: number;
+  }
+
+  namespace Vec3 {
+    function createC(x?: number | null, y?: number | null, z?: number | null): Vec3;
+  }
+
   interface KeySpline {
     get(this: this, t: number): number;
   }
@@ -16,16 +31,16 @@ declare global {
   }
   var KeySpline: KeySplineConstructor;
 
-  interface KEY_SPLINES {
-    EASE_IN_OUT: KeySpline;
-    EASE_OUT: KeySpline;
-    EASE_IN: KeySpline;
-    EASE: KeySpline;
-    EASE_SOUND: KeySpline;
-    LINEAR: KeySpline;
-    JUMPY: KeySpline;
-    EASE_OUT_STRONG: KeySpline;
-    EASE_IN_STRONG: KeySpline;
+  namespace KEY_SPLINES {
+    var EASE_IN_OUT: KeySpline;
+    var EASE_OUT: KeySpline;
+    var EASE_IN: KeySpline;
+    var EASE: KeySpline;
+    var EASE_SOUND: KeySpline;
+    var LINEAR: KeySpline;
+    var JUMPY: KeySpline;
+    var EASE_OUT_STRONG: KeySpline;
+    var EASE_IN_STRONG: KeySpline;
   }
 
   namespace ig {
@@ -88,11 +103,11 @@ declare global {
     let langFileList: string[];
 
     enum PLATFORM_TYPES {
-      UNKNOWN,
-      DESKTOP,
-      BROWSER,
-      MOBILE,
-      WIIU,
+      UNKNOWN = 0,
+      DESKTOP = 1,
+      BROWSER = 2,
+      MOBILE = 3,
+      WIIU = 4,
     }
 
     var platform: ig.PLATFORM_TYPES;
@@ -143,4 +158,7 @@ declare global {
   var MENU_ON_GAME_START: string;
   var IG_LOAD_SLOT: string;
   var IG_GAME_FPS: number;
+  var SC_SKIP_TITLE: boolean;
+  var LOAD_LEVEL_ON_GAME_START: string | undefined | null;
+  var MARKER_ON_GAME_START: string | undefined | null;
 }

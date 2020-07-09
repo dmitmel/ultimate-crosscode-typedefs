@@ -28,6 +28,10 @@ declare global {
     }
     var Loadable: LoadableConstructor;
 
+    interface JsonLoadable extends ig.Loadable, ig.Resource {}
+    interface JsonLoadableConstructor extends ImpactClass<JsonLoadable> {}
+    var JsonLoadable: JsonLoadableConstructor;
+
     interface SingleLoadable extends ig.Class, ig.Resource {
       loaded: boolean;
       failed: boolean;
