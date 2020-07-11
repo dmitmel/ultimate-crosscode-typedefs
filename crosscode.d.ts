@@ -1,4 +1,4 @@
-// TypeScript definitions for CrossCode 1.2.0-5
+// TypeScript definitions for CrossCode 1.3.0-1
 
 /// <reference types="jquery" />
 /// <reference lib="DOM" />

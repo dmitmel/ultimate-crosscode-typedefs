@@ -12,6 +12,7 @@ declare global {
       interface LevelDrawData {
         level: number;
         numberGfx: ig.Image;
+        isScalable: boolean;
       }
 
       interface Settings extends ig.TextBlock.Settings {

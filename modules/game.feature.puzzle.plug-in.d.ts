@@ -11,6 +11,7 @@ import './game.feature.puzzle.entities.ball-changer';
 import './game.feature.puzzle.entities.walls';
 import './game.feature.puzzle.entities.glowing-line';
 import './game.feature.puzzle.entities.lorry';
+import './game.feature.puzzle.entities.ferro';
 import './game.feature.puzzle.entities.one-time-switch';
 import './game.feature.puzzle.entities.element-shield';
 import './game.feature.puzzle.entities.floor-switch';

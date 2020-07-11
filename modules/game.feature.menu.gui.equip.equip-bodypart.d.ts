@@ -12,6 +12,7 @@ declare global {
         numberGfx: ig.Image;
         button: sc.BodyPartButton;
         level: number;
+        isScalable: boolean;
       }
       interface EntryConstructor extends ImpactClass<Entry> {
         new (
