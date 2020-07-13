@@ -14,6 +14,34 @@ declare global {
 
     type ModID = string;
 
+    namespace modDataStorage {
+      type FileData = FileDataV1;
+
+      interface FileDataV1 {
+        version: 1;
+        data: FileDataV1.Data;
+      }
+
+      namespace FileDataV1 {
+        type Data = Record<ModID, ModEntry>;
+        interface ModEntry {
+          enabled: boolean;
+        }
+      }
+    }
+
+    interface modDataStorage {
+      data: Map<ModID, modDataStorage.FileDataV1.ModEntry>;
+
+      readImmediately(this: this): Promise<void>;
+      writeImmediately(this: this): Promise<void>;
+      write(this: this): Promise<void>;
+
+      isModEnabled(this: this, id: ModID): boolean;
+      setModEnabled(this: this, id: ModID, enabled: boolean): void;
+    }
+    const modDataStorage: modDataStorage;
+
     interface Mod {
       readonly baseDirectory: string;
       readonly manifest: Manifest;
