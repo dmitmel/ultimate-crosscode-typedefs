@@ -28,7 +28,9 @@ declare global {
     }
     var Loadable: LoadableConstructor;
 
-    interface JsonLoadable extends ig.Loadable, ig.Resource {}
+    interface JsonLoadable extends ig.Loadable, ig.Resource {
+      onload(this: this, data: unknown): void;
+    }
     interface JsonLoadableConstructor extends ImpactClass<JsonLoadable> {}
     var JsonLoadable: JsonLoadableConstructor;
 

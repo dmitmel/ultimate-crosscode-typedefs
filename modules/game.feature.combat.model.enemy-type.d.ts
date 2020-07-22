@@ -7,7 +7,9 @@ export {};
 
 declare global {
   namespace sc {
-    interface EnemyType extends ig.JsonLoadable {}
+    interface EnemyType extends ig.JsonLoadable {
+      bossLabel: ig.LangLabel.Data | string;
+    }
     interface EnemyTypeConstructor extends ImpactClass<EnemyType> {
       new (name: string): EnemyType;
     }
