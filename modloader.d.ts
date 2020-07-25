@@ -1,5 +1,8 @@
 // eslint-disable-next-line node/no-extraneous-import, @typescript-eslint/no-unused-vars
 import * as semver from 'semver';
+import * as manifestFT from './file-types/mod-manifest';
+import * as modDataStorageFT from './file-types/mod-data-storage';
+import * as modDataStorageV1FT from './file-types/mod-data-storage/v1';
 
 export {};
 
@@ -12,35 +15,20 @@ declare global {
     const installedMods: ReadonlyMap<ModID, Mod>;
     const loadedMods: ReadonlyMap<ModID, Mod>;
 
-    type ModID = string;
+    export import ModID = manifestFT.ModID;
 
     namespace modDataStorage {
-      type FileData = FileDataV1;
+      export import FileData = modDataStorageFT.FileData;
 
-      interface FileDataV1 {
-        version: 1;
-        data: FileDataV1.Data;
-      }
+      let data: Map<ModID, modDataStorageV1FT.ModEntry>;
 
-      namespace FileDataV1 {
-        type Data = Record<ModID, ModEntry>;
-        interface ModEntry {
-          enabled: boolean;
-        }
-      }
+      function readImmediately(): Promise<void>;
+      function writeImmediately(): Promise<void>;
+      function write(): Promise<void>;
+
+      function isModEnabled(id: ModID): boolean;
+      function setModEnabled(id: ModID, enabled: boolean): void;
     }
-
-    interface modDataStorage {
-      data: Map<ModID, modDataStorage.FileDataV1.ModEntry>;
-
-      readImmediately(this: this): Promise<void>;
-      writeImmediately(this: this): Promise<void>;
-      write(this: this): Promise<void>;
-
-      isModEnabled(this: this, id: ModID): boolean;
-      setModEnabled(this: this, id: ModID, enabled: boolean): void;
-    }
-    const modDataStorage: modDataStorage;
 
     interface Mod {
       readonly baseDirectory: string;
@@ -73,79 +61,7 @@ declare global {
       }
     }
 
-    interface Manifest {
-      id: ModID;
-      version: Manifest.SemVer;
-
-      title?: Manifest.LocalizedString;
-      description?: Manifest.LocalizedString;
-      license?: Manifest.SpdxExpression;
-      homepage?: Manifest.LocalizedString;
-      keywords?: Manifest.LocalizedString[];
-      authors?: Manifest.Person[];
-
-      dependencies?: Manifest.ModDependencies;
-
-      assets?: Manifest.FilePath[];
-      assetsDir?: Manifest.FilePath;
-
-      main?: Manifest.FilePath;
-      preload?: Manifest.FilePath;
-      postload?: Manifest.FilePath;
-      prestart?: Manifest.FilePath;
-      poststart?: Manifest.FilePath;
-    }
-
-    interface ManifestLegacy {
-      name: ModID;
-      version?: Manifest.SemVer;
-
-      ccmodHumanName?: string;
-      description?: string;
-      license?: Manifest.SpdxExpression;
-      homepage?: string;
-
-      ccmodDependencies?: ManifestLegacy.ModDependencies;
-      dependencies?: ManifestLegacy.ModDependencies;
-
-      assets?: Manifest.FilePath[];
-
-      plugin?: Manifest.FilePath;
-      preload?: Manifest.FilePath;
-      postload?: Manifest.FilePath;
-      prestart?: Manifest.FilePath;
-      main?: Manifest.FilePath;
-    }
-
-    namespace Manifest {
-      type SemVer = string;
-      type SemVerConstraint = string;
-
-      type LocalizedString = Record<Locale, string> | string;
-      type Locale = string;
-
-      type FilePath = string;
-
-      type ModDependencies = Record<ModID, ModDependency>;
-      type ModDependency = SemVerConstraint | ModDependencyDetails;
-      interface ModDependencyDetails {
-        version: SemVerConstraint;
-        optional?: boolean;
-      }
-
-      type SpdxExpression = string;
-
-      type Person = PersonDetails | string;
-      interface PersonDetails {
-        name: LocalizedString;
-        email?: LocalizedString;
-        url?: LocalizedString;
-        comment?: LocalizedString;
-      }
-    }
-
-    namespace ManifestLegacy {
-      type ModDependencies = Record<ModID, Manifest.SemVerConstraint>;
-    }
+    export import Manifest = manifestFT.Manifest;
+    export import LegacyManifest = manifestFT.LegacyManifest;
   }
 }
