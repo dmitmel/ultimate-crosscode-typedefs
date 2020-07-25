@@ -1,4 +1,6 @@
-export type ModID = string;
+import { ModID } from '../modloader/mod';
+
+export { ModID };
 
 export interface Manifest {
   id: ModID;

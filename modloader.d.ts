@@ -1,5 +1,6 @@
 // eslint-disable-next-line node/no-extraneous-import, @typescript-eslint/no-unused-vars
 import * as semver from 'semver';
+import * as modM from './modloader/mod';
 import * as manifestFT from './file-types/mod-manifest';
 import * as modDataStorageFT from './file-types/mod-data-storage';
 import * as modDataStorageV1FT from './file-types/mod-data-storage/v1';
@@ -15,10 +16,10 @@ declare global {
     const installedMods: ReadonlyMap<ModID, Mod>;
     const loadedMods: ReadonlyMap<ModID, Mod>;
 
-    export import ModID = manifestFT.ModID;
+    type ModID = modM.ModID;
 
     namespace modDataStorage {
-      export import FileData = modDataStorageFT.FileData;
+      type FileData = modDataStorageFT.FileData;
 
       let data: Map<ModID, modDataStorageV1FT.ModEntry>;
 
@@ -30,38 +31,13 @@ declare global {
       function setModEnabled(id: ModID, enabled: boolean): void;
     }
 
-    interface Mod {
-      readonly baseDirectory: string;
-      readonly manifest: Manifest;
-      readonly version: semver.SemVer;
-      readonly dependencies: ReadonlyMap<ModID, Mod.Dependency>;
-      readonly assetsDirectory: string;
-      readonly assets: ReadonlySet<string>;
-      readonly legacyMode: boolean;
-      readonly classInstance: Mod.Class | null;
-
-      resolvePath(path: string): string;
-    }
-
+    type Mod = modM.Mod;
     namespace Mod {
-      interface Dependency {
-        version: semver.Range;
-        optional: boolean;
-      }
-
-      type LoadingStage = 'preload' | 'postload' | 'prestart' | 'poststart';
-
-      interface Class {
-        preload?(mod: Mod): Promise<void> | void;
-        postload?(mod: Mod): Promise<void> | void;
-        prestart?(mod: Mod): Promise<void> | void;
-        poststart?(mod: Mod): Promise<void> | void;
-        /** @deprecated */
-        main?(mod: Mod): Promise<void> | void;
-      }
+      type MainClass = modM.MainClass;
+      type LegacyMainClass = modM.LegacyMainClass;
     }
 
-    export import Manifest = manifestFT.Manifest;
-    export import LegacyManifest = manifestFT.LegacyManifest;
+    type Manifest = manifestFT.Manifest;
+    type LegacyManifest = manifestFT.LegacyManifest;
   }
 }

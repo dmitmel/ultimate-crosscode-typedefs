@@ -1,4 +1,4 @@
-import { ModID } from '../mod-manifest';
+import { ModID } from '../../modloader/mod';
 
 export interface FileData {
   version: 1;
