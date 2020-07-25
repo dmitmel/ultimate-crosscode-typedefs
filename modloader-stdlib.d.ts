@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-// eslint-disable-next-line node/no-extraneous-import
 import * as semver_ from 'semver';
 
 export {};

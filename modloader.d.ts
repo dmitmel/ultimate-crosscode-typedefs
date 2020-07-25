@@ -1,4 +1,3 @@
-// eslint-disable-next-line node/no-extraneous-import, @typescript-eslint/no-unused-vars
 import * as semver from 'semver';
 import * as modM from './modloader/mod';
 import * as manifestFT from './file-types/mod-manifest';

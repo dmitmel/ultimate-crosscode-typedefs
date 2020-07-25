@@ -1,5 +1,5 @@
 {
-  "include": ["*.d.ts", "modules"],
+  "include": ["*.d.ts", "modules", "modloader", "file-types"],
   "compilerOptions": {
     "lib": ["ES6"],
     "noEmit": true,
