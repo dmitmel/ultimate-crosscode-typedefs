@@ -11,7 +11,9 @@ export {};
 
 declare global {
   namespace ccmod {
-    var require: NodeRequire | undefined;
+    const implementor: string;
+    const implementation: string;
+    const require: NodeRequire | undefined;
     export import semver = semverM;
   }
 
