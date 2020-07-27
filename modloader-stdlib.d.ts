@@ -1,151 +1,99 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import * as semver_ from 'semver';
+import * as semverM from 'semver';
+import * as utilsM from './modloader-stdlib/utils';
+import * as pathsM from './modloader-stdlib/paths';
+import * as impactInitHooksM from './modloader-stdlib/impact-init-hooks';
+import * as impactModuleHooksM from './modloader-stdlib/impact-module-hooks';
+import * as patchListM from './modloader-stdlib/patch-list';
+import * as resourcesM from './modloader-stdlib/resources';
+import * as resourcesPlainM from './modloader-stdlib/resources/plain';
 
 export {};
 
 declare global {
   namespace ccmod {
     var require: NodeRequire | undefined;
-    export import semver = semver_;
+    export import semver = semverM;
   }
 
   namespace ccmod.utils {
-    type MaybePromise<T> = T | Promise<T>;
-    enum PlatformType {
-      Desktop = 'Desktop',
-      Browser = 'Browser',
-    }
-    const PLATFORM_TYPE: PlatformType;
-    function showDevTools(): Promise<void>;
-    function wait(ms: number): Promise<void>;
-    function compare<T>(a: T, b: T): number;
-    /* eslint-disable @typescript-eslint/no-explicit-any */
-    function errorHasMessage(error: any): error is { message: string };
-    function errorHasCode(error: any): error is { code: string };
-    type PromiseResult<T> = { type: 'resolved'; value: T } | { type: 'rejected'; reason: any };
-    /* eslint-enable @typescript-eslint/no-explicit-any */
-    function wrapPromiseResult<T>(promise: Promise<T>): Promise<PromiseResult<T>>;
-    function hasKey(obj: unknown, key: PropertyKey): boolean;
-    function mapGetOrInsert<K, V>(map: Map<K, V>, key: K, defaultValue: V): V;
+    export import MaybePromise = utilsM.MaybePromise;
+    export import PlatformType = utilsM.PlatformType;
+    export import PLATFORM_TYPE = utilsM.PLATFORM_TYPE;
+    export import showDevTools = utilsM.showDevTools;
+    export import wait = utilsM.wait;
+    export import compare = utilsM.compare;
+    export import errorHasMessage = utilsM.errorHasMessage;
+    export import errorHasCode = utilsM.errorHasCode;
+    export import PromiseResult = utilsM.PromiseResult;
+    export import wrapPromiseResult = utilsM.wrapPromiseResult;
+    export import hasKey = utilsM.hasKey;
+    export import mapGetOrInsert = utilsM.mapGetOrInsert;
   }
 
   namespace ccmod.paths {
-    function resolve(...args: string[]): string;
-    function normalize(path: string): string;
-    function jailRelative(path: string): string;
-    function isAbsolute(path: string): boolean;
-    function stripRoot(path: string): string;
-    function join(...args: string[]): string;
-    function relative(from: string, to: string): string;
-    function dirname(path: string): string;
-    function basename(path: string, ext?: string): string;
-    function extname(path: string): string;
+    export import resolve = pathsM.resolve;
+    export import normalize = pathsM.normalize;
+    export import jailRelative = pathsM.jailRelative;
+    export import isAbsolute = pathsM.isAbsolute;
+    export import stripRoot = pathsM.stripRoot;
+    export import join = pathsM.join;
+    export import relative = pathsM.relative;
+    export import dirname = pathsM.dirname;
+    export import basename = pathsM.basename;
+    export import extname = pathsM.extname;
   }
 
   namespace ccmod.patchList {
-    class PatchList<P> {
-      patternPatchers: Array<[RegExp, P]>;
-      specificPatchers: Map<string, P[]>;
-
-      forPath(path: string): P[];
-      add(path: string | RegExp, patcher: P): void;
-    }
-
-    type ResourcePatcherSimple<Data, Deps, Ctx> = (
-      data: Data,
-      dependencies: Deps,
-      context: Ctx,
-    ) => utils.MaybePromise<Data | void>;
-
-    interface ResourcePatcherWithDeps<Data, Deps, Ctx> {
-      dependencies?: ((context: Ctx) => PromiseLike<Deps>) | null;
-      patcher: ResourcePatcherSimple<Data, Deps, Ctx>;
-    }
-
-    class ResourcePatchList<Data, Ctx> extends PatchList<
-      ResourcePatcherWithDeps<Data, unknown, Ctx>
-    > {
-      add<Data2 extends Data = Data, Deps = never>(
-        path: string | RegExp,
-        patcher:
-          | ResourcePatcherSimple<Data2, Deps, Ctx>
-          | ResourcePatcherWithDeps<Data2, Deps, Ctx>,
-      ): void;
-    }
+    export import PatchList = patchListM.PatchList;
+    export import ResourcePatcherSimple = patchListM.ResourcePatcherSimple;
+    export import ResourcePatcherWithDeps = patchListM.ResourcePatcherWithDeps;
+    export import ResourcePatchList = patchListM.ResourcePatchList;
   }
 
   namespace ccmod.impactInitHooks {
-    type ImpactInitHook = () => void;
-    const callbacks: ImpactInitHook[];
-    function add(callback: ImpactInitHook): void;
+    export import ImpactInitHook = impactInitHooksM.ImpactInitHook;
+    export import callbacks = impactInitHooksM.callbacks;
+    export import add = impactInitHooksM.add;
   }
 
   namespace ccmod.impactModuleHooks {
-    type ImpactModuleHook = (moduleName: string) => void;
-    const patchList: patchList.PatchList<ImpactModuleHook>;
-    function add(moduleName: string | RegExp, callback: ImpactModuleHook): void;
+    export import ImpactModuleHook = impactModuleHooksM.ImpactModuleHook;
+    export import patchList = impactModuleHooksM.patchList;
+    export import add = impactModuleHooksM.add;
   }
 
   namespace ccmod.resources {
-    const jsonPatches: patchList.ResourcePatchList<unknown, JSONPatcherContext>;
-    interface JSONPatcherContext extends ResolvePathAdvancedResult {
-      options: LoadJSONOptions;
-    }
+    export import jsonPatches = resourcesM.jsonPatches;
+    export import JSONPatcherContext = resourcesM.JSONPatcherContext;
+    export import imagePatches = resourcesM.imagePatches;
+    export import ImagePatcherContext = resourcesM.ImagePatcherContext;
+    export import assetOverridesTable = resourcesM.assetOverridesTable;
 
-    const imagePatches: patchList.ResourcePatchList<HTMLCanvasElement, ImagePatcherContext>;
-    interface ImagePatcherContext extends ResolvePathAdvancedResult {
-      options: LoadImageOptions;
-    }
+    export import loadText = resourcesM.loadText;
+    export import loadJSON = resourcesM.loadJSON;
+    export import LoadJSONOptions = resourcesM.LoadJSONOptions;
+    export import loadImage = resourcesM.loadImage;
+    export import LoadImageOptions = resourcesM.LoadImageOptions;
 
-    const assetOverridesTable: Map<string, string>;
+    export import resolvePath = resourcesM.resolvePath;
+    export import resolvePathToURL = resourcesM.resolvePathToURL;
+    export import resolvePathAdvanced = resourcesM.resolvePathAdvanced;
+    export import ResolvePathOptions = resourcesM.ResolvePathOptions;
+    export import ResolvePathAdvancedResult = resourcesM.ResolvePathAdvancedResult;
 
-    function loadText(url: string): Promise<string>;
-
-    interface LoadJSONOptions extends ResolvePathOptions {
-      callerThisValue?: unknown;
-    }
-    function loadJSON<T = unknown>(path: string, options?: LoadJSONOptions | null): Promise<T>;
-
-    interface LoadImageOptions extends ResolvePathOptions {
-      callerThisValue?: unknown;
-      returnCanvas?: 'always' | 'if-patched' | 'never' | null;
-    }
-    function loadImage(
-      path: string,
-      options?: LoadImageOptions | null,
-    ): Promise<HTMLImageElement | HTMLCanvasElement>;
-
-    function resolvePath(uri: string, options?: ResolvePathOptions | null): string;
-    function resolvePathToURL(path: string, options?: ResolvePathOptions | null): string;
-
-    interface ResolvePathOptions {
-      allowAssetOverrides?: boolean | null;
-      allowPatching?: boolean | null;
-    }
-    interface ResolvePathAdvancedResult {
-      resolvedPath: string;
-      requestedAsset: string | null;
-    }
-    function resolvePathAdvanced(
-      uri: string,
-      options?: ResolvePathOptions | null,
-    ): ResolvePathAdvancedResult;
-
-    function wrapPathIntoURL(path: string): URL;
-    function getGameAssetsURL(): URL;
-    function getCacheSuffix(): string;
+    export import wrapPathIntoURL = resourcesM.wrapPathIntoURL;
+    export import getGameAssetsURL = resourcesM.getGameAssetsURL;
+    export import getCacheSuffix = resourcesM.getCacheSuffix;
   }
 
   namespace ccmod.resources.plain {
-    function loadText(url: string): Promise<string>;
-    function loadJSON<T = unknown>(url: string): Promise<T>;
-    function loadImage(url: string): Promise<HTMLImageElement>;
-    function loadStylesheet(url: string, options?: { type?: string | null } | null): Promise<void>;
-    function loadScript(
-      url: string,
-      options?: { type?: string | null; async?: boolean | null } | null,
-    ): Promise<void>;
+    export import loadText = resourcesPlainM.loadText;
+    export import loadJSON = resourcesPlainM.loadJSON;
+    export import loadImage = resourcesPlainM.loadImage;
+    export import loadStylesheet = resourcesPlainM.loadStylesheet;
+    export import loadScript = resourcesPlainM.loadScript;
   }
 
   namespace ig {

@@ -1,0 +1,10 @@
+export function resolve(...args: string[]): string;
+export function normalize(path: string): string;
+export function jailRelative(path: string): string;
+export function isAbsolute(path: string): boolean;
+export function stripRoot(path: string): string;
+export function join(...args: string[]): string;
+export function relative(from: string, to: string): string;
+export function dirname(path: string): string;
+export function basename(path: string, ext?: string): string;
+export function extname(path: string): string;
