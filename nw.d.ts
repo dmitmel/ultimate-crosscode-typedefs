@@ -6,7 +6,6 @@
 
 /// <reference types="node" />
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import * as events from 'events';
 
 type DOMWindow_ = Window;

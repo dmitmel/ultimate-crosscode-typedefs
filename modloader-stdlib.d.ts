@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import * as semverM from 'semver';
 import * as utilsM from './modloader-stdlib/utils';
 import * as pathsM from './modloader-stdlib/paths';

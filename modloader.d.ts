@@ -1,8 +1,7 @@
 import * as semver from 'semver';
 import * as modM from './modloader/mod';
+import * as modDataStorageM from './modloader/mod-data-storage';
 import * as manifestFT from './file-types/mod-manifest';
-import * as modDataStorageFT from './file-types/mod-data-storage';
-import * as modDataStorageV1FT from './file-types/mod-data-storage/v1';
 
 export {};
 
@@ -15,29 +14,31 @@ declare global {
     const installedMods: ReadonlyMap<ModID, Mod>;
     const loadedMods: ReadonlyMap<ModID, Mod>;
 
-    type ModID = modM.ModID;
+    export import ModID = modM.ModID;
 
     namespace modDataStorage {
-      type FileData = modDataStorageFT.FileData;
+      export import FileData = modDataStorageM.FileData;
 
-      const filePath: string | null;
-      let data: Map<ModID, modDataStorageV1FT.ModEntry>;
+      export import filePath = modDataStorageM.filePath;
+      export import data = modDataStorageM.data;
 
-      function readImmediately(): Promise<void>;
-      function writeImmediately(): Promise<void>;
-      function write(): Promise<void>;
+      export import readImmediately = modDataStorageM.readImmediately;
+      export import writeImmediately = modDataStorageM.writeImmediately;
+      export import write = modDataStorageM.write;
 
-      function isModEnabled(id: ModID): boolean;
-      function setModEnabled(id: ModID, enabled: boolean): void;
+      export import isModEnabled = modDataStorageM.isModEnabled;
+      export import setModEnabled = modDataStorageM.setModEnabled;
     }
 
-    type Mod = modM.Mod;
+    export import Mod = modM.Mod;
     namespace Mod {
-      type MainClass = modM.MainClass;
-      type LegacyMainClass = modM.LegacyMainClass;
+      export import Dependency = modM.Dependency;
+      export import LoadingStage = modM.LoadingStage;
+      export import MainClass = modM.MainClass;
+      export import LegacyMainClass = modM.LegacyMainClass;
     }
 
-    type Manifest = manifestFT.Manifest;
-    type LegacyManifest = manifestFT.LegacyManifest;
+    export import Manifest = manifestFT.Manifest;
+    export import LegacyManifest = manifestFT.LegacyManifest;
   }
 }
