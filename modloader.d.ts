@@ -20,6 +20,7 @@ declare global {
     namespace modDataStorage {
       type FileData = modDataStorageFT.FileData;
 
+      const filePath: string | null;
       let data: Map<ModID, modDataStorageV1FT.ModEntry>;
 
       function readImmediately(): Promise<void>;
