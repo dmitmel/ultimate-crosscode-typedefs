@@ -1,4 +1,4 @@
-import * as semverM from 'semver';
+import * as semverM from './semver-ext';
 import * as utilsM from './modloader-stdlib/utils';
 import * as pathsM from './modloader-stdlib/paths';
 import * as impactInitHooksM from './modloader-stdlib/impact-init-hooks';

@@ -1,4 +1,4 @@
-import * as semver from 'semver';
+import * as semver from './semver-ext';
 import * as modM from './modloader/mod';
 import * as modDataStorageM from './modloader/mod-data-storage';
 import * as manifestFT from './file-types/mod-manifest';

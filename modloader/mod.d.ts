@@ -1,5 +1,5 @@
 import { Manifest } from '../file-types/mod-manifest';
-import * as semver from 'semver';
+import * as semver from '../semver-ext';
 
 export type ModID = string;
 
