@@ -24,4 +24,6 @@ declare global {
   namespace ig {
     var game: sc.CrossCode;
   }
+
+  function startCrossCode(): void;
 }
