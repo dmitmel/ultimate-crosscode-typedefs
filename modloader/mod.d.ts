@@ -6,6 +6,7 @@ export type ModID = string;
 export interface Mod {
   readonly baseDirectory: string;
   readonly manifest: Manifest;
+  readonly id: ModID;
   readonly version: semver.SemVer;
   readonly dependencies: ReadonlyMap<ModID, Dependency>;
   readonly assetsDirectory: string;
