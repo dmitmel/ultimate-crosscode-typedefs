@@ -88,10 +88,10 @@ declare global {
       }
 
       interface Listener {
-        onStorageGlobalSave(this: this, globals: ig.Storage.GlobalsData): void;
-        onStorageSave(this: this, savefile: ig.SaveSlot.Data): void;
-        onStoragePreLoad(this: this, savefile: ig.SaveSlot.Data): void;
-        onStoragePostLoad(this: this, savefile: ig.SaveSlot.Data): void;
+        onStorageGlobalSave?(this: this, globals: ig.Storage.GlobalsData): void;
+        onStorageSave?(this: this, savefile: ig.SaveSlot.Data): void;
+        onStoragePreLoad?(this: this, savefile: ig.SaveSlot.Data): void;
+        onStoragePostLoad?(this: this, savefile: ig.SaveSlot.Data): void;
       }
     }
     interface Storage extends ig.GameAddon, sc.Model {

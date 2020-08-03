@@ -60,7 +60,7 @@ declare global {
     var loading: boolean;
     var baked: boolean;
 
-    var nocache: string;
+    var nocache: number;
     var root: string;
     var lib: string;
 
@@ -139,7 +139,7 @@ declare global {
   }
 
   var IG_ROOT: string;
-  var IG_GAME_CACHE: string;
+  var IG_GAME_CACHE: number;
   var IG_GAME_DEBUG: boolean;
   var IG_GAME_BETA: boolean;
   var IG_SOUND_VOLUME: number;

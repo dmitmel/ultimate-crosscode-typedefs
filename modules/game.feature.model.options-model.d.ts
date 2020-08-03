@@ -216,6 +216,8 @@ declare global {
       ): sc.OPTIONS_DEFINITION.KnownTypesMap[K]['init'];
       get(this: this, key: string, local?: boolean): unknown;
       _checkForKeyBindingFailure(this: this): void;
+      onStorageGlobalSave(this: this, globals: ig.Storage.GlobalsData): void;
+      onStorageGlobalLoad(this: this, globals: ig.Storage.GlobalsData): void;
     }
     interface OptionModelConstructor extends ImpactClass<OptionModel> {
       new (): OptionModel;
