@@ -47,6 +47,7 @@ declare global {
 
   namespace ccmod.patchList {
     export import PatchList = patchListM.PatchList;
+    export import ResourceGenerator = patchListM.ResourceGenerator;
     export import ResourcePatcherSimple = patchListM.ResourcePatcherSimple;
     export import ResourcePatcherWithDeps = patchListM.ResourcePatcherWithDeps;
     export import ResourcePatchList = patchListM.ResourcePatchList;
@@ -65,13 +66,22 @@ declare global {
   }
 
   namespace ccmod.resources {
+    export import assetOverridesTable = resourcesM.assetOverridesTable;
+    export import CommonPatcherContext = resourcesM.CommonPatcherContext;
+    export import textGenerators = resourcesM.textGenerators;
+    export import TextGeneratorContext = resourcesM.TextGeneratorContext;
     export import jsonPatches = resourcesM.jsonPatches;
     export import JSONPatcherContext = resourcesM.JSONPatcherContext;
+    export import jsonGenerators = resourcesM.jsonGenerators;
+    export import JSONGeneratorContext = resourcesM.JSONGeneratorContext;
     export import imagePatches = resourcesM.imagePatches;
     export import ImagePatcherContext = resourcesM.ImagePatcherContext;
-    export import assetOverridesTable = resourcesM.assetOverridesTable;
+    export import imageGenerators = resourcesM.imageGenerators;
+    export import ImageGeneratorContext = resourcesM.ImageGeneratorContext;
 
+    export import CommonLoadOptions = resourcesM.CommonLoadOptions;
     export import loadText = resourcesM.loadText;
+    export import LoadTextOptions = resourcesM.LoadTextOptions;
     export import loadJSON = resourcesM.loadJSON;
     export import LoadJSONOptions = resourcesM.LoadJSONOptions;
     export import loadImage = resourcesM.loadImage;

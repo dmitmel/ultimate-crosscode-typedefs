@@ -8,6 +8,8 @@ export class PatchList<P> {
   add(path: string | RegExp, patcher: P): void;
 }
 
+export type ResourceGenerator<Data, Ctx> = (context: Ctx) => MaybePromise<Data>;
+
 export type ResourcePatcherSimple<Data, Deps, Ctx> = (
   data: Data,
   dependencies: Deps,
