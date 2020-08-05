@@ -7,7 +7,7 @@ export interface Mod {
   readonly baseDirectory: string;
   readonly manifest: Manifest;
   readonly id: ModID;
-  readonly version: semver.SemVer;
+  readonly version: semver.SemVer | null;
   readonly dependencies: ReadonlyMap<ModID, Dependency>;
   readonly assetsDirectory: string;
   readonly assets: ReadonlySet<string>;

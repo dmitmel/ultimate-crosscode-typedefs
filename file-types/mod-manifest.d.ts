@@ -4,7 +4,7 @@ export { ModID };
 
 export interface Manifest {
   id: ModID;
-  version: SemVer;
+  version?: SemVer;
 
   title?: LocalizedString;
   description?: LocalizedString;
