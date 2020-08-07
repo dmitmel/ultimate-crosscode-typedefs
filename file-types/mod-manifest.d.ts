@@ -8,7 +8,7 @@ export interface Manifest {
 
   title?: LocalizedString;
   description?: LocalizedString;
-  license?: SpdxExpression;
+  license?: SPDXExpression;
   homepage?: LocalizedString;
   keywords?: LocalizedString[];
   authors?: Person[];
@@ -31,7 +31,7 @@ export interface LegacyManifest {
 
   ccmodHumanName?: string;
   description?: string;
-  license?: SpdxExpression;
+  license?: SPDXExpression;
   homepage?: string;
 
   ccmodDependencies?: LegacyModDependencies;
@@ -62,7 +62,7 @@ export interface ModDependencyDetails {
   optional?: boolean;
 }
 
-export type SpdxExpression = string;
+export type SPDXExpression = string;
 
 export type Person = PersonDetails | string;
 export interface PersonDetails {
