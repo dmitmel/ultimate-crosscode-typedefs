@@ -1,4 +1,5 @@
 import * as semverM from './semver-ext';
+import * as patchStepsLibM from './patch-steps-lib';
 import * as utilsM from './modloader-stdlib/utils';
 import * as pathsM from './modloader-stdlib/paths';
 import * as impactInitHooksM from './modloader-stdlib/impact-init-hooks';
@@ -15,6 +16,7 @@ declare global {
     const implementation: string;
     const require: NodeRequire | undefined;
     export import semver = semverM;
+    export import patchStepsLib = patchStepsLibM;
   }
 
   namespace ccmod.utils {
