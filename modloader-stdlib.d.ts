@@ -22,10 +22,9 @@ declare global {
     export import PlatformType = utilsM.PlatformType;
     export import PLATFORM_TYPE = utilsM.PLATFORM_TYPE;
     export import showDevTools = utilsM.showDevTools;
+    export import showBackgroundPageDevTools = utilsM.showBackgroundPageDevTools;
     export import wait = utilsM.wait;
     export import compare = utilsM.compare;
-    export import errorHasMessage = utilsM.errorHasMessage;
-    export import errorHasCode = utilsM.errorHasCode;
     export import PromiseResult = utilsM.PromiseResult;
     export import wrapPromiseResult = utilsM.wrapPromiseResult;
     export import hasKey = utilsM.hasKey;
