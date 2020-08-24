@@ -5,7 +5,7 @@ import * as modDataStorageV1FT from '../file-types/mod-data-storage/v1';
 export type FileData = modDataStorageFT.FileData;
 
 export const filePath: string | null;
-export let data: Map<ModID, modDataStorageV1FT.ModEntry>;
+export const data: Map<ModID, modDataStorageV1FT.ModEntry>;
 
 export function readImmediately(): Promise<void>;
 export function writeImmediately(): Promise<void>;
