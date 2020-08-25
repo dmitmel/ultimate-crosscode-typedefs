@@ -14,7 +14,7 @@ declare global {
   namespace ccmod {
     const implementor: string;
     const implementation: string;
-    const require: NodeRequire | undefined;
+    const require: NodeRequire | null | undefined;
     export import semver = semverM;
     export import patchStepsLib = patchStepsLibM;
   }
