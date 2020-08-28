@@ -22,7 +22,7 @@ declare global {
   }
 
   interface KeySpline {
-    get(this: this, t: number): number;
+    get(t: number): number;
   }
   // note that `KeySpline` is not an impact class
   interface KeySplineConstructor {
@@ -116,26 +116,26 @@ declare global {
   namespace sc {}
 
   interface Number {
-    map(this: this, min1: number, max1: number, min2: number, max2: number): number;
-    limit(this: this, min: number, max: number): number;
-    round(this: this, precision: number): number;
-    floor(this: this): number;
-    ceil(this: this): number;
-    toInt(this: this): number;
+    map(min1: number, max1: number, min2: number, max2: number): number;
+    limit(min: number, max: number): number;
+    round(precision: number): number;
+    floor(): number;
+    ceil(): number;
+    toInt(): number;
   }
 
   interface Array<T> {
-    erase(this: this, item: T): this;
-    last(this: this): T;
-    intersect(this: this, otherArray: T[]): boolean;
-    random(this: this): T;
+    erase(item: T): this;
+    last(): T;
+    intersect(otherArray: T[]): boolean;
+    random(): T;
   }
 
   interface String {
-    toPath(this: this, prefix: string, suffix: string): string;
-    toDir(this: this, prefix: string): string;
-    toKey(this: this, prefix: string, suffix: string): string;
-    toCamel(this: this): string;
+    toPath(prefix: string, suffix: string): string;
+    toDir(prefix: string): string;
+    toKey(prefix: string, suffix: string): string;
+    toCamel(): string;
   }
 
   var IG_ROOT: string;

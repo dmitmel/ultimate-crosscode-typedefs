@@ -2,15 +2,15 @@ import * as semver from 'semver';
 
 declare module 'semver' {
   interface SemVer {
-    toString(this: this): string;
+    toString(): string;
   }
 
   interface Comparator {
-    toString(this: this): string;
+    toString(): string;
   }
 
   interface Range {
-    toString(this: this): string;
+    toString(): string;
   }
 }
 export = semver;
