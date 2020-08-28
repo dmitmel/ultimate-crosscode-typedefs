@@ -1,4 +1,4 @@
-import { ResourcePatchList, ResourceGenerator, PatchList } from './patch-list';
+import { PatchList, ResourceGenerator, ResourcePatchList } from './patch-list';
 
 export const assetOverridesTable: Map<string, string>;
 export const textGenerators: PatchList<ResourceGenerator<unknown, TextGeneratorContext>>;

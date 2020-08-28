@@ -78,7 +78,7 @@ declare global {
     function $new(tagName: string): HTMLElement;
 
     function copy<T>(object: T): T;
-    function merge<T, U>(original: T, extended: U, noArrayMerge?: boolean): T & U;
+    function merge<T, U>(original: T, extended: U, noArrayMerge?: boolean | null): T & U;
 
     function module(name: string): typeof ig;
     function requires(...names: string[]): typeof ig;
@@ -100,7 +100,7 @@ declare global {
     }
     var Class: ClassConstructor;
 
-    let langFileList: string[];
+    var langFileList: string[];
 
     enum PLATFORM_TYPES {
       UNKNOWN = 0,
