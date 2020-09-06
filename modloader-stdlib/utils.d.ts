@@ -6,7 +6,7 @@ export enum PlatformType {
 }
 export const PLATFORM_TYPE: PlatformType;
 
-export function showDevTools(): Promise<void>;
+export function showDevTools(window?: nw.Window): Promise<void>;
 export function showBackgroundPageDevTools(): Promise<void>;
 
 export function wait(ms: number): Promise<void>;
