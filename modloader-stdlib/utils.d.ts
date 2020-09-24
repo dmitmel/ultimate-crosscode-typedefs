@@ -1,3 +1,5 @@
+import { Window as NwWindow } from '../nw-types';
+
 export type MaybePromise<T> = T | Promise<T>;
 
 export enum PlatformType {
@@ -6,7 +8,7 @@ export enum PlatformType {
 }
 export const PLATFORM_TYPE: PlatformType;
 
-export function showDevTools(window?: nw.Window): Promise<void>;
+export function showDevTools(window?: NwWindow): Promise<void>;
 export function showBackgroundPageDevTools(): Promise<void>;
 
 export function wait(ms: number): Promise<void>;
