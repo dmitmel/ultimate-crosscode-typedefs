@@ -99,8 +99,8 @@ The next thing we have to tackle is configuring the TypeScript compiler. A good 
     "outDir": "dist",
     "sourceMap": true,
     "strict": true,
-    "module": "esnext",
-    "target": "es2017",
+    "module": "ESNext",
+    "target": "ES2019",
     "allowJs": true,
     "forceConsistentCasingInFileNames": true
   }
