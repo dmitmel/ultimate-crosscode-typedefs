@@ -31,7 +31,10 @@ declare global {
   type ImpactClassPrototype<Constructor, Instance> = Constructor extends new (
     ...args: infer Args
   ) => Instance
-    ? Instance & { init: (this: Instance, ...args: Args) => void }
+    ? Instance & {
+        init: (this: Instance, ...args: Args) => void;
+        staticInstantiate: (this: Instance, ...args: Args) => Instance | null | undefined;
+      }
     : Instance;
 
   interface ImpactClass<Instance> {
