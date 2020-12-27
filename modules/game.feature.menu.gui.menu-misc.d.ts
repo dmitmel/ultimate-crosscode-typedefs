@@ -111,6 +111,10 @@ declare global {
     interface MenuPanelConstructor extends ImpactClass<MenuPanel> {}
     var MenuPanel: MenuPanelConstructor;
 
+    interface HeaderMenuPanel extends sc.MenuPanel {}
+    interface HeaderMenuPanelConstructor extends ImpactClass<HeaderMenuPanel> {}
+    var HeaderMenuPanel: HeaderMenuPanelConstructor;
+
     interface MenuScanLines extends ig.GuiElementBase {}
     interface MenuScanLinesConstructor extends ImpactClass<MenuScanLines> {}
     var MenuScanLines: MenuScanLinesConstructor;

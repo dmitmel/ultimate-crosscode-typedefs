@@ -21,11 +21,20 @@ declare global {
     }
     interface LangLabel extends ig.Class {
       value: string;
-      data: ig.LangLabel.Data;
+      data: ig.LangLabel.Data | null | undefined;
+      langUid: number;
+      originFile: string | null | undefined;
 
       toString(this: this): string;
     }
-    interface LangLabelConstructor extends ImpactClass<LangLabel> {}
+    interface LangLabelConstructor extends ImpactClass<LangLabel> {
+      new (data: ig.LangLabel.Data | null | undefined): LangLabel;
+
+      setOriginFile(file: string | null | undefined): void;
+      getOriginFile(): string | null | undefined;
+      getText(data: ig.LangLabel.Data): string;
+      bakeVars<T extends string | ig.LangLabel | null | undefined>(value: T): T;
+    }
     var LangLabel: LangLabelConstructor;
   }
 }
