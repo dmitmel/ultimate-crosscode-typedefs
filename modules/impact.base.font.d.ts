@@ -106,6 +106,7 @@ declare global {
       size: ig.TextBlock.Size;
       bestRatio?: number;
       linePadding: number;
+      drawCallback: ig.TextBlock.DrawCallback | null | undefined;
 
       setText(this: this, text: sc.TextLike): void;
       setDrawCallback(this: this, drawCallback: ig.TextBlock.DrawCallback): void;

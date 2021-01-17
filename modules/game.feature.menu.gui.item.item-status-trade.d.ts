@@ -29,7 +29,7 @@ declare global {
       }
       interface BaseEntryTypeConstructor extends ImpactClass<BaseEntryType> {
         new (
-          itemSource: sc.Inventory.Item.Source,
+          itemSource: sc.Inventory.ItemSource,
           itemID: number,
           hasSubText?: boolean | null,
           noMaxWidth?: boolean | null,

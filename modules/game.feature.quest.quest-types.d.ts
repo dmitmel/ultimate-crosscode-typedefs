@@ -6,7 +6,28 @@ declare global {
     interface QuestSubTaskBaseConstructor extends ImpactClass<QuestSubTaskBase> {}
     var QuestSubTaskBase: QuestSubTaskBaseConstructor;
 
-    interface Quest extends ig.Class {}
+    namespace Quest {
+      interface Rewards {
+        exp: ExpReward;
+        items: ItemReward[];
+        money: number;
+      }
+
+      interface ExpReward {
+        bonus: number;
+        exp: number;
+      }
+
+      interface ItemReward {
+        id: sc.Inventory.ItemID;
+        amount: number;
+      }
+    }
+    interface Quest extends ig.Class {
+      id: string;
+      rewards: sc.Quest.Rewards;
+      hideRewards: boolean;
+    }
     interface QuestConstructor extends ImpactClass<Quest> {}
     var Quest: QuestConstructor;
   }
