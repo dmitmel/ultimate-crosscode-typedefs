@@ -5,10 +5,9 @@ export const textGenerators: PatchList<ResourceGenerator<unknown, TextGeneratorC
 export const jsonPatches: ResourcePatchList<unknown, JSONPatcherContext>;
 export const jsonGenerators: PatchList<ResourceGenerator<unknown, JSONGeneratorContext>>;
 export const imagePatches: ResourcePatchList<HTMLCanvasElement, ImagePatcherContext>;
-export const imageGenerators: PatchList<ResourceGenerator<
-  HTMLImageElement | HTMLCanvasElement,
-  ImageGeneratorContext
->>;
+export const imageGenerators: PatchList<
+  ResourceGenerator<HTMLImageElement | HTMLCanvasElement, ImageGeneratorContext>
+>;
 
 export interface CommonPatcherContext {
   resolvedPath: string;
