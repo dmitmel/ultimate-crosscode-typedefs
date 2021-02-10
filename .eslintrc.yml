@@ -31,10 +31,9 @@ overrides:
         - warn
         - accessibility: no-public
 
-      # triggers on weird edge-cases such as `import export a = b`
-      '@typescript-eslint/no-use-before-define': off
-
       node/no-missing-import: off
       node/no-extraneous-import: off
 
+      # See <https://github.com/typescript-eslint/typescript-eslint/pull/2902>
+      # and <https://github.com/typescript-eslint/typescript-eslint/pull/2902>
       '@typescript-eslint/no-unused-vars': off
