@@ -13,6 +13,7 @@ declare global {
     var QuestBaseBox: QuestBaseBoxConstructor;
 
     interface QuestInfoBox extends sc.QuestBaseBox {
+      gfx: ig.Image;
       locationGui: ig.ColorGui;
       locationText: sc.TextGui;
     }
