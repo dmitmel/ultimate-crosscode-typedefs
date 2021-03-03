@@ -32,6 +32,7 @@ export interface LegacyManifest {
 
   ccmodHumanName?: string;
   description?: string;
+  icon?: ModIcon;
   license?: SPDXExpression;
   homepage?: string;
 
