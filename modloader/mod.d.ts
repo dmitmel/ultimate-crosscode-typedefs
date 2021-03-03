@@ -3,6 +3,13 @@ import * as semver from '../semver-ext';
 
 export type ModID = string;
 
+export type ModIcon = {
+  "24x24"?: string;
+  "32x32"?: string;
+  "64x64"?: string;
+  "128x128"?: string;
+};
+
 export interface Mod {
   readonly baseDirectory: string;
   readonly manifest: Manifest;
