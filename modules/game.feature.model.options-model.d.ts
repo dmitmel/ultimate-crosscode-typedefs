@@ -17,6 +17,7 @@ declare global {
       CONTROLS = 4,
       LANGUAGE = 5,
       INFO = 6,
+      MOD = 7
     }
 
     enum OPTION_CATEGORY {
@@ -77,6 +78,15 @@ declare global {
         data: string;
         init?: null | undefined;
       }
+
+      interface MOD {
+        type: 'MOD';
+        data?: null | undefined;
+        init: boolean;
+        restart: boolean;
+        checkboxRightAlign: boolean;
+      }
+
     }
 
     type OptionDefinition = {
@@ -92,6 +102,7 @@ declare global {
       | sc.OptionDefinition.CONTROLS
       | sc.OptionDefinition.LANGUAGE
       | sc.OptionDefinition.INFO
+      | sc.OptionDefinition.MOD
     );
 
     var OPTIONS_DEFINITION: { [name: string]: OptionDefinition };
