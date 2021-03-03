@@ -17,7 +17,7 @@ declare global {
       CONTROLS = 4,
       LANGUAGE = 5,
       INFO = 6,
-      MOD = 7
+      MOD = 7,
     }
 
     enum OPTION_CATEGORY {
@@ -86,7 +86,6 @@ declare global {
         restart: boolean;
         checkboxRightAlign: boolean;
       }
-
     }
 
     type OptionDefinition = {
