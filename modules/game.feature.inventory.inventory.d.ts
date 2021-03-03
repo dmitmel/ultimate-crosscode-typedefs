@@ -80,7 +80,7 @@ declare global {
           };
     }
     interface Inventory extends ig.SingleLoadable {
-      getItem(id: sc.Inventory.ItemID): sc.Inventory.Item;
+      getItem(id: sc.Inventory.ItemID): sc.Inventory.Item | null | undefined;
     }
     interface InventoryConstructor extends ImpactClass<Inventory> {}
     var Inventory: InventoryConstructor;

@@ -14,6 +14,12 @@ declare global {
       equip: ig.GuiElementBase;
 
       setCharacter(this: this, id: string): void;
+      createEquipEntry(
+        this: this,
+        itemID: sc.Inventory.ItemID,
+        y: number,
+        bodypart: sc.MENU_EQUIP_BODYPART_STR,
+      ): number;
     }
     interface SocialInfoBoxConstructor extends ImpactClass<SocialInfoBox> {}
     var SocialInfoBox: SocialInfoBoxConstructor;

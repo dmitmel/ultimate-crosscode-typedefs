@@ -17,7 +17,7 @@ Execute in the console in a **clean game instance without mods or CCLoader**:
 
 ## 2. Create missing declaration files
 
-This will take some time, `nl` is used as a counter. As of 1.3.0-1 the game has 570 modules.
+This will take some time, `nl` is used as a counter. As of 1.4.0 the game has 570 modules.
 
 ```bash
 jq --raw-output 'keys[]' path/to/modules.json | while IFS= read -r module; do

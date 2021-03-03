@@ -1,6 +1,6 @@
 # The ultimate CrossCode type definitions
 
-**<big>Written for CrossCode version 1.3.0-1</big>**
+**<big>Written for CrossCode version 1.4.0</big>**
 
 Hi! This document serves as the documentation for the _Ultimate CrossCode TypeDefs_ project and programmer's guide to writing CrossCode mods in [TypeScript](https://www.typescriptlang.org/).
 

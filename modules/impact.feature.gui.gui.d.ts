@@ -79,6 +79,8 @@ declare global {
       transitions: { [name: string]: ig.GuiHook.Transition };
       currentStateName: string;
 
+      removeChildHook(this: this, hook: ig.GuiHook): void;
+      removeChildHookByIndex(this: this, index: number): ig.GuiHook;
       doStateTransition(
         this: this,
         name: string,
@@ -115,6 +117,7 @@ declare global {
       isVisible(this: this): boolean;
       addChildGui(this: this, guiElement: ig.GuiElementBase): void;
       removeChildGui(this: this, guiElement: ig.GuiElementBase): void;
+      removeChildGuiByIndex(this: this, index: number): ig.GuiElementBase;
       removeAllChildren(this: this): void;
       update(this: this): void;
       updateDrawables(this: this, renderer: ig.GuiRenderer): void;
