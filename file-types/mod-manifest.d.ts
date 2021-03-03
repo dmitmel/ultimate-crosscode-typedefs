@@ -1,4 +1,4 @@
-import { ModID, ModIcon} from '../modloader/mod';
+import { ModID, ModIcon } from '../modloader/mod';
 
 export { ModID };
 
@@ -8,7 +8,7 @@ export interface Manifest {
 
   title?: LocalizedString;
   description?: LocalizedString;
-  icon?: ModIcon; 
+  icon?: ModIcon;
   license?: SPDXExpression;
   homepage?: LocalizedString;
   keywords?: LocalizedString[];
