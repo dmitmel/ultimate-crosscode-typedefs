@@ -13,6 +13,10 @@ declare global {
     interface CacheableConstructor extends ImpactClass<Cacheable> {}
     var Cacheable: CacheableConstructor;
 
+    interface LoadListener {
+      onLoadableComplete(success: boolean): void;
+    }
+    
     interface Loadable extends ig.Cacheable, ig.Resource {
       loaded: boolean;
       failed: boolean;
@@ -22,6 +26,7 @@ declare global {
 
       reload(this: this): void;
       loadingFinished(this: this, success: boolean): void;
+      addLoadListener(listener: LoadListener): void;
     }
     interface LoadableConstructor extends ImpactClass<Loadable> {
       new (pathOrData: string): Loadable;

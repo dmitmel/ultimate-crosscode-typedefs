@@ -17,7 +17,7 @@ declare global {
       CONTROLS = 4,
       LANGUAGE = 5,
       INFO = 6,
-      MOD = 7,
+      MOD,
     }
 
     enum OPTION_CATEGORY {
