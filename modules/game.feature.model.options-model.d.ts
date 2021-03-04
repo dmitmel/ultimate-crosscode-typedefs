@@ -79,20 +79,23 @@ declare global {
       }
     }
 
-    type OptionDefinition = {
+    interface OptionDefinitionCommon {
       cat: sc.OPTION_CATEGORY;
       hasDivider?: boolean;
       header?: string;
       restart?: boolean;
-    } & (
-      | sc.OptionDefinition.BUTTON_GROUP
-      | sc.OptionDefinition.ARRAY_SLIDER
-      | sc.OptionDefinition.OBJECT_SLIDER
-      | sc.OptionDefinition.CHECKBOX
-      | sc.OptionDefinition.CONTROLS
-      | sc.OptionDefinition.LANGUAGE
-      | sc.OptionDefinition.INFO
-    );
+    }
+
+    type OptionDefinition = OptionDefinitionCommon &
+      (
+        | sc.OptionDefinition.BUTTON_GROUP
+        | sc.OptionDefinition.ARRAY_SLIDER
+        | sc.OptionDefinition.OBJECT_SLIDER
+        | sc.OptionDefinition.CHECKBOX
+        | sc.OptionDefinition.CONTROLS
+        | sc.OptionDefinition.LANGUAGE
+        | sc.OptionDefinition.INFO
+      );
 
     var OPTIONS_DEFINITION: { [name: string]: OptionDefinition };
 

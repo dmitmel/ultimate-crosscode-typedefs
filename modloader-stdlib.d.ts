@@ -124,13 +124,34 @@ declare global {
     }
   }
 
-  namespace sc.OptionDefinition {
-    interface CHECKBOX {
-      checkboxRightAlign?: boolean;
+  namespace sc {
+    namespace OptionDefinitionCommon {
+      interface Icon {
+        path: string;
+        offsetX?: number | null;
+        offsetY?: number | null;
+        sizeX?: number | null;
+        sizeY?: number | null;
+      }
+    }
+    interface OptionDefinitionCommon {
+      icon?: OptionDefinitionCommon.Icon;
     }
 
-    interface INFO {
-      marginBottom?: number;
+    interface OptionRow {
+      iconSettings: sc.OptionDefinitionCommon.Icon | null | undefined;
+      iconGfx: ig.Image | null | undefined;
+      iconGui: ig.ImageGui;
+    }
+
+    namespace OptionDefinition {
+      interface CHECKBOX {
+        checkboxRightAlign?: boolean;
+      }
+
+      interface INFO {
+        marginBottom?: number;
+      }
     }
   }
 }

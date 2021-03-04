@@ -12,6 +12,7 @@ export interface Manifest {
   homepage?: LocalizedString;
   keywords?: LocalizedString[];
   authors?: Person[];
+  icons?: ModIcons;
 
   dependencies?: ModDependencies;
 
@@ -33,6 +34,7 @@ export interface LegacyManifest {
   description?: string;
   license?: SPDXExpression;
   homepage?: string;
+  icons?: ModIcons;
 
   ccmodDependencies?: LegacyModDependencies;
   dependencies?: LegacyModDependencies;
@@ -71,3 +73,5 @@ export interface PersonDetails {
   url?: LocalizedString;
   comment?: LocalizedString;
 }
+
+export type ModIcons = Record<string, FilePath>;
