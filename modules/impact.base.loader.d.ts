@@ -16,7 +16,7 @@ declare global {
     interface LoadListener {
       onLoadableComplete(success: boolean): void;
     }
-    
+
     interface Loadable extends ig.Cacheable, ig.Resource {
       loaded: boolean;
       failed: boolean;

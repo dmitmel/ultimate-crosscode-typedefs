@@ -33,7 +33,7 @@ declare global {
         x: number,
         type: sc.OPTION_CATEGORY,
       ): sc.ItemTabbedBox.TabButton;
-      _createOptionList(this: this, category: OPTION_CATEGORY) : void;
+      _createOptionList(this: this, category: OPTION_CATEGORY): void;
     }
     interface OptionsTabBoxConstructor extends ImpactClass<OptionsTabBox> {
       new (isLocal: boolean): OptionsTabBox;
