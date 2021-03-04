@@ -8,7 +8,7 @@ export interface Manifest {
 
   title?: LocalizedString;
   description?: LocalizedString;
-  icon?: ModIcon;
+  icons?: ModIcon;
   license?: SPDXExpression;
   homepage?: LocalizedString;
   keywords?: LocalizedString[];
@@ -32,7 +32,7 @@ export interface LegacyManifest {
 
   ccmodHumanName?: string;
   description?: string;
-  icon?: ModIcon;
+  icons?: ModIcon;
   license?: SPDXExpression;
   homepage?: string;
 

@@ -3,9 +3,9 @@ import * as semver from '../semver-ext';
 
 export type ModID = string;
 
-export type ModIcon = {
-  '24x24'?: string;
-};
+export interface ModIcon {
+  '24'?: string;
+}
 
 export interface Mod {
   readonly baseDirectory: string;
