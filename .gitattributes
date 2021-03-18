@@ -1,0 +1,4 @@
+# <https://github.com/github/linguist/blob/072bc3da45b58765db41bd93818121a6ae86aaf2/lib/linguist/vendor.yml#L179-L180>
+# <https://gist.github.com/coalpha/615fa6e1d63b1bdd87b738588206b842>
+# <https://github.com/mui-org/material-ui/blob/fca2ddf44ce5518b82a464cfa806e30f1f973e5c/.gitattributes#L3-L5>
+**/*.d.ts -linguist-vendored
