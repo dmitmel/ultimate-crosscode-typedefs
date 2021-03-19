@@ -12,7 +12,7 @@ export interface Mod {
   readonly assetsDirectory: string;
   readonly assets: ReadonlySet<string>;
   readonly legacyMode: boolean;
-  readonly mainClassInstance: MainClass | null;
+  readonly pluginClassInstance: PluginClass | null;
 
   resolvePath(path: string): string;
 }
@@ -24,14 +24,14 @@ export interface Dependency {
 
 export type LoadingStage = 'preload' | 'postload' | 'prestart' | 'poststart';
 
-export interface MainClass {
+export interface PluginClass {
   preload?(mod: Mod): Promise<void> | void;
   postload?(mod: Mod): Promise<void> | void;
   prestart?(mod: Mod): Promise<void> | void;
   poststart?(mod: Mod): Promise<void> | void;
 }
 
-export interface LegacyMainClass {
+export interface LegacyPluginClass {
   preload?(): Promise<void> | void;
   postload?(): Promise<void> | void;
   prestart?(): Promise<void> | void;

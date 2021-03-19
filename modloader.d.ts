@@ -34,8 +34,8 @@ declare global {
     namespace Mod {
       export import Dependency = modM.Dependency;
       export import LoadingStage = modM.LoadingStage;
-      export import MainClass = modM.MainClass;
-      export import LegacyMainClass = modM.LegacyMainClass;
+      export import PluginClass = modM.PluginClass;
+      export import LegacyPluginClass = modM.LegacyPluginClass;
     }
 
     export import Manifest = manifestFT.Manifest;

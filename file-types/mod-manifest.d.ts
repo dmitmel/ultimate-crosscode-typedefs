@@ -19,7 +19,7 @@ export interface Manifest {
   assets?: FilePath[];
   assetsDir?: FilePath;
 
-  main?: FilePath;
+  plugin?: FilePath;
   preload?: FilePath;
   postload?: FilePath;
   prestart?: FilePath;
