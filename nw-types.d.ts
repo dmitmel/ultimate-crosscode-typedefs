@@ -4,7 +4,8 @@
 
 import { EventEmitter } from 'events';
 
-type DOMWindow_ = Window;
+// eslint-disable-next-line node/no-unsupported-features/es-builtins
+type DOMWindow_ = globalThis.Window;
 
 export namespace App {
   export interface Manifest {
