@@ -10,7 +10,15 @@ declare global {
     interface LandmarkGui extends ig.FocusGui {
       map: sc.AreaLoadable.Map;
     }
-    interface LandmarkGuiConstructor extends ImpactClass<LandmarkGui> {}
+    interface LandmarkGuiConstructor extends ImpactClass<LandmarkGui> {
+      new (
+        key: string,
+        landmark: any, // TODO
+        floor: number,
+        map: any, // TODO
+        area: string,
+      ): LandmarkGui;
+    }
     var LandmarkGui: LandmarkGuiConstructor;
   }
 }

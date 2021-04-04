@@ -8,6 +8,18 @@ declare global {
     namespace Database {
       interface Data {
         areas: { [name: string]: sc.MapModel.Area };
+        enemies: { [id: string]: EnemyData };
+      }
+
+      interface EnemyData {
+        name: ig.LangLabel.Data;
+        species: ig.LangLabel.Data;
+        descriptions: EnemyDescriptionBlock[];
+      }
+
+      interface EnemyDescriptionBlock {
+        text: ig.LangLabel.Data;
+        condition?: string | null;
       }
     }
     interface Database extends ig.SingleLoadable {

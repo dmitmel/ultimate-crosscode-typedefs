@@ -38,6 +38,8 @@ declare global {
 
       onLevelLoadStart(this: this, data: sc.MapModel.Map): void;
       validateCurrentPlayerFloor(this: this): void;
+      getLandmark(this: this, landmark: string, area: string): sc.MapModel.Area.Landmark;
+      getCurrentAreaLandmark(this: this, landmark: string): sc.MapModel.Area.Landmark;
     }
     interface MapModelConstructor extends ImpactClass<MapModel> {}
     var MapModel: MapModelConstructor;
