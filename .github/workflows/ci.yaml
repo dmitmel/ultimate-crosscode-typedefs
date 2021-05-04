@@ -1,36 +1,47 @@
 name: CI
 on: [push, pull_request, workflow_dispatch]
 
+env:
+  FORCE_COLOR: true
+
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: checkout this repo
+        uses: actions/checkout@v2
+
+      - name: install node.js
+        uses: actions/setup-node@v1
         with:
           node-version: '15.x'
 
-      - id: yarn_cache_dir
+      - name: get Yarn cache dir
+        id: yarn_cache_dir
         run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v2
+
+      - name: setup Yarn cache
+        uses: actions/cache@v2
         with:
           path: |
             ${{ steps.yarn_cache_dir.outputs.dir }}
-            node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: |
+            r1/${{ github.workflow }}/${{ runner.os }}/yarn/${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            r1/${{ github.workflow }}/${{ runner.os }}/yarn/
 
-      - name: ESLint cache
+      - name: setup ESLint cache
         uses: actions/cache@v2
         with:
-          path: .eslintcache
-          key: ${{ runner.os }}-eslint-${{ hashFiles('.eslintrc.yml') }}-${{ hashFiles('**/yarn.lock') }}
+          path: |
+            .eslintcache
+          key: |
+            r1/${{ github.workflow }}/${{ runner.os }}/eslint/${{ hashFiles('.eslintrc.yml') }}/${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-eslint-${{ hashFiles('.eslintrc.yml') }}-
-            ${{ runner.os }}-eslint-
+            r1/${{ github.workflow }}/${{ runner.os }}/eslint/${{ hashFiles('.eslintrc.yml') }}/
+            r1/${{ github.workflow }}/${{ runner.os }}/eslint/
 
       - run: yarn install --frozen-lockfile
       - run: yarn run check
