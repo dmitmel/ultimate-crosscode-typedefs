@@ -32,18 +32,7 @@ jobs:
           restore-keys: |
             r1/${{ github.workflow }}/${{ runner.os }}/yarn/
 
-      - name: setup ESLint cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            .eslintcache
-          key: |
-            r1/${{ github.workflow }}/${{ runner.os }}/eslint/${{ hashFiles('.eslintrc.yml') }}/${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            r1/${{ github.workflow }}/${{ runner.os }}/eslint/${{ hashFiles('.eslintrc.yml') }}/
-            r1/${{ github.workflow }}/${{ runner.os }}/eslint/
-
       - run: yarn install --frozen-lockfile
       - run: yarn run check
-      - run: yarn run lint --cache
+      - run: yarn run lint
       - run: yarn run check-fmt
