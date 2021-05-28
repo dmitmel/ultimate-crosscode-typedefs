@@ -1,2 +1,2 @@
-import './impact.feature.gui.gui';
-import './impact.base.image';
+// requires impact.feature.gui.gui
+// requires impact.base.image

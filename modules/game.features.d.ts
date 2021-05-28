@@ -1,67 +1,67 @@
-import './game.loader';
-import './game.constants';
-import './impact.feature.database.plug-in';
-import './impact.feature.gamepad.plug-in';
-import './impact.feature.base.plug-in';
-import './impact.feature.bgm.plug-in';
-import './impact.feature.event-sheet.plug-in';
-import './impact.feature.camera.plug-in';
-import './impact.feature.rumble.plug-in';
-import './impact.feature.slow-motion.plug-in';
-import './impact.feature.effect.plug-in';
-import './impact.feature.gui.plug-in';
-import './impact.feature.light.plug-in';
-import './impact.feature.height-map.plug-in';
-import './impact.feature.navigation.plug-in';
-import './impact.feature.map-content.plug-in';
-import './impact.feature.map-image.plug-in';
-import './impact.feature.overlay.plug-in';
-import './impact.feature.dream-fx.plug-in';
-import './impact.feature.parallax.plug-in';
-import './impact.feature.screen-blur.plug-in';
-import './impact.feature.terrain.plug-in';
-import './impact.feature.interact.plug-in';
-import './impact.feature.env-particles.plug-in';
-import './impact.feature.storage.plug-in';
-import './impact.feature.weather.plug-in';
-import './impact.feature.map-sounds.plug-in';
-import './impact.feature.nwf.plug-in';
-import './impact.feature.video.plug-in';
-import './impact.feature.influencer.plug-in';
-import './impact.feature.greenworks.plug-in';
-import './game.feature.version.plug-in';
-import './game.feature.timers.plug-in';
-import './game.feature.achievements.plug-in';
-import './game.feature.auto-control.plug-in';
-import './game.feature.inventory.plug-in';
-import './game.feature.font.font-system';
-import './game.feature.ar.plug-in';
-import './game.feature.base.plug-in';
-import './game.feature.bgm.plug-in';
-import './game.feature.character.plug-in';
-import './game.feature.combat.plug-in';
-import './game.feature.game-code.plug-in';
-import './game.feature.gui.plug-in';
-import './game.feature.map-content.plug-in';
-import './game.feature.model.plug-in';
-import './game.feature.skills.plug-in';
-import './game.feature.msg.plug-in';
-import './game.feature.interact.plug-in';
-import './game.feature.npc.plug-in';
-import './game.feature.player.plug-in';
-import './game.feature.puzzle.plug-in';
-import './game.feature.control.control';
-import './game.feature.menu.plug-in';
-import './game.feature.quick-menu.plug-in';
-import './game.feature.tutorial.plug-in';
-import './game.feature.trade.plug-in';
-import './game.feature.save-preset.plug-in';
-import './game.feature.xeno-dialogs.plug-in';
-import './game.feature.quest.plug-in';
-import './game.feature.party.plug-in';
-import './game.feature.common-event.plug-in';
-import './game.feature.voice-acting.plug-in';
-import './game.feature.credits.plug-in';
-import './game.feature.arena.plug-in';
-import './game.feature.new-game.plug-in';
-import './game.feature.game-sense.plug-in';
+// requires game.loader
+// requires game.constants
+// requires impact.feature.database.plug-in
+// requires impact.feature.gamepad.plug-in
+// requires impact.feature.base.plug-in
+// requires impact.feature.bgm.plug-in
+// requires impact.feature.event-sheet.plug-in
+// requires impact.feature.camera.plug-in
+// requires impact.feature.rumble.plug-in
+// requires impact.feature.slow-motion.plug-in
+// requires impact.feature.effect.plug-in
+// requires impact.feature.gui.plug-in
+// requires impact.feature.light.plug-in
+// requires impact.feature.height-map.plug-in
+// requires impact.feature.navigation.plug-in
+// requires impact.feature.map-content.plug-in
+// requires impact.feature.map-image.plug-in
+// requires impact.feature.overlay.plug-in
+// requires impact.feature.dream-fx.plug-in
+// requires impact.feature.parallax.plug-in
+// requires impact.feature.screen-blur.plug-in
+// requires impact.feature.terrain.plug-in
+// requires impact.feature.interact.plug-in
+// requires impact.feature.env-particles.plug-in
+// requires impact.feature.storage.plug-in
+// requires impact.feature.weather.plug-in
+// requires impact.feature.map-sounds.plug-in
+// requires impact.feature.nwf.plug-in
+// requires impact.feature.video.plug-in
+// requires impact.feature.influencer.plug-in
+// requires impact.feature.greenworks.plug-in
+// requires game.feature.version.plug-in
+// requires game.feature.timers.plug-in
+// requires game.feature.achievements.plug-in
+// requires game.feature.auto-control.plug-in
+// requires game.feature.inventory.plug-in
+// requires game.feature.font.font-system
+// requires game.feature.ar.plug-in
+// requires game.feature.base.plug-in
+// requires game.feature.bgm.plug-in
+// requires game.feature.character.plug-in
+// requires game.feature.combat.plug-in
+// requires game.feature.game-code.plug-in
+// requires game.feature.gui.plug-in
+// requires game.feature.map-content.plug-in
+// requires game.feature.model.plug-in
+// requires game.feature.skills.plug-in
+// requires game.feature.msg.plug-in
+// requires game.feature.interact.plug-in
+// requires game.feature.npc.plug-in
+// requires game.feature.player.plug-in
+// requires game.feature.puzzle.plug-in
+// requires game.feature.control.control
+// requires game.feature.menu.plug-in
+// requires game.feature.quick-menu.plug-in
+// requires game.feature.tutorial.plug-in
+// requires game.feature.trade.plug-in
+// requires game.feature.save-preset.plug-in
+// requires game.feature.xeno-dialogs.plug-in
+// requires game.feature.quest.plug-in
+// requires game.feature.party.plug-in
+// requires game.feature.common-event.plug-in
+// requires game.feature.voice-acting.plug-in
+// requires game.feature.credits.plug-in
+// requires game.feature.arena.plug-in
+// requires game.feature.new-game.plug-in
+// requires game.feature.game-sense.plug-in

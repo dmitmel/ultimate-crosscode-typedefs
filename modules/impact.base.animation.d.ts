@@ -1,7 +1,7 @@
-import './impact.base.loader';
-import './impact.base.timer';
-import './impact.base.image';
-import './impact.base.sprite-fx';
+// requires impact.base.loader
+// requires impact.base.timer
+// requires impact.base.image
+// requires impact.base.sprite-fx
 
 export {};
 

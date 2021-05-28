@@ -1,7 +1,7 @@
-import './impact.feature.gui.base.box';
-import './impact.feature.gui.gui';
-import './impact.feature.interact.button-interact';
-import './game.feature.menu.gui.quest-hub.quest-hub-misc';
+// requires impact.feature.gui.base.box
+// requires impact.feature.gui.gui
+// requires impact.feature.interact.button-interact
+// requires game.feature.menu.gui.quest-hub.quest-hub-misc
 
 export {};
 

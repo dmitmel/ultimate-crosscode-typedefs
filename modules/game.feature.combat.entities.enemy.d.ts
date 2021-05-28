@@ -1,7 +1,7 @@
-import './game.feature.combat.entities.combatant';
-import './game.feature.combat.model.enemy-type';
-import './game.feature.combat.model.enemy-annotation';
-import './game.feature.new-game.new-game-model';
+// requires game.feature.combat.entities.combatant
+// requires game.feature.combat.model.enemy-type
+// requires game.feature.combat.model.enemy-annotation
+// requires game.feature.new-game.new-game-model
 
 export {};
 

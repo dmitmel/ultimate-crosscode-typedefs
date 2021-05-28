@@ -1,2 +1,2 @@
-import './impact.base.action';
-import './game.feature.tutorial.input-forcer';
+// requires impact.base.action
+// requires game.feature.tutorial.input-forcer

@@ -1,2 +1,2 @@
-import './game.feature.combat.combat';
-import './impact.base.entity';
+// requires game.feature.combat.combat
+// requires impact.base.entity

@@ -1,1 +1,1 @@
-import './impact.feature.interact.interact';
+// requires impact.feature.interact.interact

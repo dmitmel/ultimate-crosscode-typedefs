@@ -1,2 +1,2 @@
-import './game.feature.skills.skills';
-import './game.feature.skills.skilltree';
+// requires game.feature.skills.skills
+// requires game.feature.skills.skilltree

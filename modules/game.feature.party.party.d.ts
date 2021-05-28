@@ -1,7 +1,7 @@
-import './impact.feature.storage.storage';
-import './impact.base.event';
-import './game.feature.menu.map-model';
-import './game.feature.model.game-model';
+// requires impact.feature.storage.storage
+// requires impact.base.event
+// requires game.feature.menu.map-model
+// requires game.feature.model.game-model
 
 export {};
 

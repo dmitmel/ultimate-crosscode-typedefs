@@ -1,2 +1,2 @@
-import './game.config';
-import './impact.base.entity';
+// requires game.config
+// requires impact.base.entity

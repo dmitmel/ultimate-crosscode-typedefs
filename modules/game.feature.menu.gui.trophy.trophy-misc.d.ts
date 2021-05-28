@@ -1,11 +1,11 @@
-import './impact.feature.gui.base.box';
-import './impact.feature.gui.gui';
-import './impact.feature.interact.button-interact';
-import './game.feature.gui.base.text';
-import './game.feature.menu.gui.menu-misc';
-import './game.feature.menu.gui.list-boxes';
-import './game.feature.menu.gui.stats.stats-misc';
-import './game.feature.interact.button-group';
+// requires impact.feature.gui.base.box
+// requires impact.feature.gui.gui
+// requires impact.feature.interact.button-interact
+// requires game.feature.gui.base.text
+// requires game.feature.menu.gui.menu-misc
+// requires game.feature.menu.gui.list-boxes
+// requires game.feature.menu.gui.stats.stats-misc
+// requires game.feature.interact.button-group
 
 export {};
 

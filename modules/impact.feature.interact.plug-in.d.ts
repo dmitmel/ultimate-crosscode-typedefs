@@ -1,4 +1,4 @@
-import './impact.feature.interact.interact';
-import './impact.feature.interact.button-interact';
-import './impact.feature.interact.press-repeater';
-import './impact.feature.interact.gui.focus-gui';
+// requires impact.feature.interact.interact
+// requires impact.feature.interact.button-interact
+// requires impact.feature.interact.press-repeater
+// requires impact.feature.interact.gui.focus-gui

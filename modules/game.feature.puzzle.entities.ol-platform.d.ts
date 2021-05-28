@@ -1,2 +1,2 @@
-import './impact.base.entity';
-import './impact.feature.base.entities.object-layer-view';
+// requires impact.base.entity
+// requires impact.feature.base.entities.object-layer-view

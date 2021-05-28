@@ -1,4 +1,4 @@
-import './impact.feature.gui.gui';
-import './impact.feature.gui.base.basic-gui';
-import './game.feature.menu.gui.help-boxes';
-import './game.feature.menu.gui.synop.synop-misc';
+// requires impact.feature.gui.gui
+// requires impact.feature.gui.base.basic-gui
+// requires game.feature.menu.gui.help-boxes
+// requires game.feature.menu.gui.synop.synop-misc

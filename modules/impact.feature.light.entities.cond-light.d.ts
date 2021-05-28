@@ -1,3 +1,3 @@
-import './impact.base.actor-entity';
-import './impact.feature.weather.weather';
-import './impact.feature.light.light';
+// requires impact.base.actor-entity
+// requires impact.feature.weather.weather
+// requires impact.feature.light.light

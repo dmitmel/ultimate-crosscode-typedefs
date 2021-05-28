@@ -1,2 +1,2 @@
-import './game.feature.combat.model.combat-params';
-import './game.feature.combat.entities.ball';
+// requires game.feature.combat.model.combat-params
+// requires game.feature.combat.entities.ball

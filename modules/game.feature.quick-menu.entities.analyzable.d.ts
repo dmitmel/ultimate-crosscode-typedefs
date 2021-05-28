@@ -1,2 +1,2 @@
-import './impact.base.entity';
-import './game.feature.quick-menu.gui.quick-screen-types';
+// requires impact.base.entity
+// requires game.feature.quick-menu.gui.quick-screen-types

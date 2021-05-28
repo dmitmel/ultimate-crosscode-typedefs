@@ -1,2 +1,2 @@
-import './impact.feature.video.video';
-import './impact.feature.gui.gui';
+// requires impact.feature.video.video
+// requires impact.feature.gui.gui

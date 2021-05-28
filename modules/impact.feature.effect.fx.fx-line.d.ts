@@ -1,1 +1,1 @@
-import './impact.feature.effect.effect-sheet';
+// requires impact.feature.effect.effect-sheet

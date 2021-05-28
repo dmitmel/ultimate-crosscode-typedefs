@@ -1,3 +1,3 @@
-import './impact.base.action';
-import './impact.base.actor-entity';
-import './game.feature.npc.entities.sc-actor';
+// requires impact.base.action
+// requires impact.base.actor-entity
+// requires game.feature.npc.entities.sc-actor

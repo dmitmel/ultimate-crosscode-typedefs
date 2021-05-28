@@ -1,3 +1,3 @@
-import './impact.base.action';
-import './impact.base.event';
-import './impact.feature.camera.camera';
+// requires impact.base.action
+// requires impact.base.event
+// requires impact.feature.camera.camera

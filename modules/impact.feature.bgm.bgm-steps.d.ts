@@ -1,3 +1,3 @@
-import './impact.base.action';
-import './impact.base.event';
-import './impact.feature.bgm.bgm';
+// requires impact.base.action
+// requires impact.base.event
+// requires impact.feature.bgm.bgm

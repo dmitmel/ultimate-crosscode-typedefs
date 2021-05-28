@@ -1,5 +1,5 @@
-import './impact.base.entity';
-import './impact.base.action';
+// requires impact.base.entity
+// requires impact.base.action
 
 export {};
 

@@ -1,10 +1,12 @@
-import './impact.feature.gui.base.box';
-import './impact.feature.gui.gui';
-import './impact.feature.interact.button-interact';
-import './game.feature.interact.button-group';
-import './game.feature.menu.gui.quests.quest-entries';
-import './game.feature.menu.gui.quests.quest-misc';
-import './game.feature.npc.gui.npc-display-gui';
+// requires impact.feature.gui.base.box
+// requires impact.feature.gui.gui
+// requires impact.feature.interact.button-interact
+// requires game.feature.interact.button-group
+// requires game.feature.menu.gui.quests.quest-entries
+// requires game.feature.menu.gui.quests.quest-misc
+// requires game.feature.npc.gui.npc-display-gui
+
+export {};
 
 declare global {
   namespace sc {

@@ -1,7 +1,7 @@
-import './impact.base.loader';
-import './game.feature.combat.model.combat-params';
-import './game.feature.combat.model.combat-condition';
-import './impact.base.animation';
+// requires impact.base.loader
+// requires game.feature.combat.model.combat-params
+// requires game.feature.combat.model.combat-condition
+// requires impact.base.animation
 
 export {};
 

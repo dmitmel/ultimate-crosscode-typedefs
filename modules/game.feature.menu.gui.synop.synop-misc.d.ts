@@ -1,7 +1,7 @@
-import './impact.feature.gui.base.box';
-import './impact.feature.gui.gui';
-import './game.feature.menu.gui.menu-misc';
-import './game.feature.menu.gui.quests.quest-entries';
+// requires impact.feature.gui.base.box
+// requires impact.feature.gui.gui
+// requires game.feature.menu.gui.menu-misc
+// requires game.feature.menu.gui.quests.quest-entries
 
 export {};
 

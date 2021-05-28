@@ -1,6 +1,6 @@
-import './impact.base.font';
-import './impact.base.game';
-import './game.feature.combat.stat-change';
+// requires impact.base.font
+// requires impact.base.game
+// requires game.feature.combat.stat-change
 
 export {};
 

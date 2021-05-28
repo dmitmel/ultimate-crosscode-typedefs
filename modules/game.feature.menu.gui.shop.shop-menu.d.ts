@@ -1,11 +1,11 @@
-import './impact.feature.gui.gui';
-import './impact.feature.gui.base.basic-gui';
-import './game.feature.menu.gui.base-menu';
-import './game.feature.menu.gui.menu-misc';
-import './game.feature.menu.gui.shop.shop-start';
-import './game.feature.menu.gui.shop.shop-list';
-import './game.feature.menu.gui.shop.shop-stats';
-import './game.feature.menu.gui.shop.shop-cart';
-import './game.feature.menu.gui.shop.shop-quantity';
-import './game.feature.menu.gui.shop.shop-confirm';
-import './game.feature.control.control';
+// requires impact.feature.gui.gui
+// requires impact.feature.gui.base.basic-gui
+// requires game.feature.menu.gui.base-menu
+// requires game.feature.menu.gui.menu-misc
+// requires game.feature.menu.gui.shop.shop-start
+// requires game.feature.menu.gui.shop.shop-list
+// requires game.feature.menu.gui.shop.shop-stats
+// requires game.feature.menu.gui.shop.shop-cart
+// requires game.feature.menu.gui.shop.shop-quantity
+// requires game.feature.menu.gui.shop.shop-confirm
+// requires game.feature.control.control

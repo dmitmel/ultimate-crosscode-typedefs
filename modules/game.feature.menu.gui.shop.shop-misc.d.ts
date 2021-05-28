@@ -1,1 +1,1 @@
-import './game.feature.inventory.inventory';
+// requires game.feature.inventory.inventory

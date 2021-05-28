@@ -1,5 +1,5 @@
-import './impact.base.action';
-import './impact.base.entity';
-import './impact.base.event';
-import './game.feature.quest.quest-model';
-import './game.feature.menu.gui.quests.quest-misc';
+// requires impact.base.action
+// requires impact.base.entity
+// requires impact.base.event
+// requires game.feature.quest.quest-model
+// requires game.feature.menu.gui.quests.quest-misc

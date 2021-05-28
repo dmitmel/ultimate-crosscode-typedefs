@@ -1,2 +1,2 @@
-import './impact.feature.dream-fx.dream-fx';
-import './impact.feature.dream-fx.dream-fx-steps';
+// requires impact.feature.dream-fx.dream-fx
+// requires impact.feature.dream-fx.dream-fx-steps

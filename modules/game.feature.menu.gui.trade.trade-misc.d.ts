@@ -1,7 +1,7 @@
-import './impact.feature.gui.gui';
-import './impact.feature.gui.base.basic-gui';
-import './game.feature.trade.gui.trade-dialog';
-import './game.feature.npc.gui.npc-display-gui';
+// requires impact.feature.gui.gui
+// requires impact.feature.gui.base.basic-gui
+// requires game.feature.trade.gui.trade-dialog
+// requires game.feature.npc.gui.npc-display-gui
 
 export {};
 

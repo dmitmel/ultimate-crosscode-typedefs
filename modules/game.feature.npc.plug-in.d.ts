@@ -1,6 +1,6 @@
-import './game.feature.npc.entities.sc-actor';
-import './game.feature.npc.entities.npc-entity';
-import './game.feature.npc.entities.npc-runner-entity';
-import './game.feature.npc.entities.npc-waypoint';
-import './game.feature.npc.npc-runners';
-import './game.feature.npc.npc-steps';
+// requires game.feature.npc.entities.sc-actor
+// requires game.feature.npc.entities.npc-entity
+// requires game.feature.npc.entities.npc-runner-entity
+// requires game.feature.npc.entities.npc-waypoint
+// requires game.feature.npc.npc-runners
+// requires game.feature.npc.npc-steps

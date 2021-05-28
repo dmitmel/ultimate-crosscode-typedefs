@@ -1,3 +1,3 @@
-import './impact.feature.weather.weather';
-import './impact.base.action';
-import './impact.base.event';
+// requires impact.feature.weather.weather
+// requires impact.base.action
+// requires impact.base.event

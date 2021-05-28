@@ -1,4 +1,4 @@
-import './impact.base.map';
-import './impact.base.game';
-import './impact.base.image';
-import './game.config';
+// requires impact.base.map
+// requires impact.base.game
+// requires impact.base.image
+// requires game.config

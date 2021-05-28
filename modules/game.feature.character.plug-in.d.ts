@@ -1,2 +1,2 @@
-import './game.feature.character.character';
-import './game.feature.character.char-templates';
+// requires game.feature.character.character
+// requires game.feature.character.char-templates

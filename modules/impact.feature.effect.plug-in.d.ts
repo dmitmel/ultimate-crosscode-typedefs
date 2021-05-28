@@ -1,12 +1,12 @@
-import './impact.feature.effect.entities.effect-previewer';
-import './impact.feature.effect.effect-sheet';
-import './impact.feature.effect.effect-steps';
-import './impact.feature.effect.fx.fx-basic';
-import './impact.feature.effect.fx.fx-box';
-import './impact.feature.effect.fx.fx-color';
-import './impact.feature.effect.fx.fx-circle';
-import './impact.feature.effect.fx.fx-homing';
-import './impact.feature.effect.fx.fx-light';
-import './impact.feature.effect.fx.fx-line';
-import './impact.feature.effect.fx.fx-rhombus';
-import './impact.feature.effect.fx.fx-wipe';
+// requires impact.feature.effect.entities.effect-previewer
+// requires impact.feature.effect.effect-sheet
+// requires impact.feature.effect.effect-steps
+// requires impact.feature.effect.fx.fx-basic
+// requires impact.feature.effect.fx.fx-box
+// requires impact.feature.effect.fx.fx-color
+// requires impact.feature.effect.fx.fx-circle
+// requires impact.feature.effect.fx.fx-homing
+// requires impact.feature.effect.fx.fx-light
+// requires impact.feature.effect.fx.fx-line
+// requires impact.feature.effect.fx.fx-rhombus
+// requires impact.feature.effect.fx.fx-wipe

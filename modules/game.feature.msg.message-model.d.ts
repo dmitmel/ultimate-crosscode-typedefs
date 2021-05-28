@@ -1,8 +1,8 @@
-import './impact.base.game';
-import './impact.feature.storage.storage';
-import './game.feature.model.base-model';
-import './impact.feature.interact.interact';
-import './impact.feature.interact.button-interact';
+// requires impact.base.game
+// requires impact.feature.storage.storage
+// requires game.feature.model.base-model
+// requires impact.feature.interact.interact
+// requires impact.feature.interact.button-interact
 
 export {};
 

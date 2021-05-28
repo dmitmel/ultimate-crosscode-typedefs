@@ -1,10 +1,10 @@
-import './impact.base.game';
-import './impact.feature.storage.storage';
-import './game.feature.model.base-model';
-import './game.feature.arena.entities.arena-spawn';
-import './game.feature.arena.arena-loadable';
-import './game.feature.combat.combat';
-import './game.feature.arena.arena-bonus-objectives';
-import './game.feature.arena.arena-score-types';
-import './game.feature.arena.arena-challenges';
-import './game.feature.arena.arena-cheer';
+// requires impact.base.game
+// requires impact.feature.storage.storage
+// requires game.feature.model.base-model
+// requires game.feature.arena.entities.arena-spawn
+// requires game.feature.arena.arena-loadable
+// requires game.feature.combat.combat
+// requires game.feature.arena.arena-bonus-objectives
+// requires game.feature.arena.arena-score-types
+// requires game.feature.arena.arena-challenges
+// requires game.feature.arena.arena-cheer

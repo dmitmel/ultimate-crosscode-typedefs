@@ -1,5 +1,5 @@
-import './impact.feature.gui.base.box';
-import './impact.feature.gui.gui';
+// requires impact.feature.gui.base.box
+// requires impact.feature.gui.gui
 
 export {};
 

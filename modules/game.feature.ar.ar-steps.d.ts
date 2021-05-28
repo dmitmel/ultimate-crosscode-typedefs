@@ -1,3 +1,3 @@
-import './impact.base.action';
-import './impact.base.event';
-import './game.feature.ar.gui.ar-box';
+// requires impact.base.action
+// requires impact.base.event
+// requires game.feature.ar.gui.ar-box

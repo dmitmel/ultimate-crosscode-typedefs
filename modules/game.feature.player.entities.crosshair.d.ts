@@ -1,4 +1,4 @@
-import './impact.base.entity';
+// requires impact.base.entity
 
 export {};
 

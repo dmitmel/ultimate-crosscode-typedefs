@@ -1,7 +1,7 @@
-import './impact.feature.gui.gui';
-import './impact.feature.gui.base.basic-gui';
-import './game.feature.gui.base.boxes';
-import './impact.base.image';
+// requires impact.feature.gui.gui
+// requires impact.feature.gui.base.basic-gui
+// requires game.feature.gui.base.boxes
+// requires impact.base.image
 
 export {};
 

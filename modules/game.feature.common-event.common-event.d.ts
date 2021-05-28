@@ -1,2 +1,2 @@
-import './impact.feature.storage.storage';
-import './game.feature.party.party';
+// requires impact.feature.storage.storage
+// requires game.feature.party.party

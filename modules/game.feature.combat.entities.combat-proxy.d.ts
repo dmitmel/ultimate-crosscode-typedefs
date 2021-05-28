@@ -1,4 +1,4 @@
-import './game.feature.npc.entities.sc-actor';
-import './game.feature.combat.model.proxy';
-import './game.feature.combat.entities.combatant';
-import './game.feature.combat.combat-poi';
+// requires game.feature.npc.entities.sc-actor
+// requires game.feature.combat.model.proxy
+// requires game.feature.combat.entities.combatant
+// requires game.feature.combat.combat-poi

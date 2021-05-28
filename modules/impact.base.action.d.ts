@@ -1,4 +1,4 @@
-import './impact.base.steps';
+// requires impact.base.steps
 
 export {};
 

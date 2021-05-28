@@ -1,2 +1,2 @@
-import './game.feature.beta.plug-in';
-import './impact.feature.lang-edit.plug-in';
+// requires game.feature.beta.plug-in
+// requires impact.feature.lang-edit.plug-in

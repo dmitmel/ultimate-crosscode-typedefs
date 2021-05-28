@@ -1,9 +1,9 @@
-import './game.feature.map-content.entities.elevator';
-import './game.feature.map-content.map-content-steps';
-import './game.feature.map-content.gui.icon-hover-text';
-import './game.feature.map-content.map-style';
-import './game.feature.map-content.sc-doors';
-import './game.feature.map-content.prop-interact';
-import './game.feature.map-content.entities.jump-panel';
-import './game.feature.map-content.entities.teleport-central';
-import './game.feature.map-content.entities.rhombus-point';
+// requires game.feature.map-content.entities.elevator
+// requires game.feature.map-content.map-content-steps
+// requires game.feature.map-content.gui.icon-hover-text
+// requires game.feature.map-content.map-style
+// requires game.feature.map-content.sc-doors
+// requires game.feature.map-content.prop-interact
+// requires game.feature.map-content.entities.jump-panel
+// requires game.feature.map-content.entities.teleport-central
+// requires game.feature.map-content.entities.rhombus-point

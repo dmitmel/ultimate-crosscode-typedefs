@@ -1,10 +1,10 @@
-import './game.feature.combat.entities.projectile';
-import './game.feature.combat.model.ball-behavior';
-import './game.feature.combat.model.proxy';
-import './game.constants';
-import './impact.feature.effect.effect-sheet';
-import './impact.base.entity';
-import './impact.feature.light.light';
+// requires game.feature.combat.entities.projectile
+// requires game.feature.combat.model.ball-behavior
+// requires game.feature.combat.model.proxy
+// requires game.constants
+// requires impact.feature.effect.effect-sheet
+// requires impact.base.entity
+// requires impact.feature.light.light
 
 export {};
 

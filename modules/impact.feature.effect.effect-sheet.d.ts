@@ -1,4 +1,4 @@
-import './impact.base.loader';
-import './impact.base.animation';
-import './impact.feature.effect.entities.effect';
-import './impact.feature.effect.entities.effect-particle';
+// requires impact.base.loader
+// requires impact.base.animation
+// requires impact.feature.effect.entities.effect
+// requires impact.feature.effect.entities.effect-particle

@@ -1,10 +1,10 @@
-import './impact.base.image';
-import './impact.feature.gui.gui';
-import './impact.feature.gui.base.basic-gui';
-import './impact.feature.gui.base.box';
-import './game.feature.menu.gui.menu-misc';
-import './game.feature.gui.widget.modal-dialog';
-import './game.feature.menu.gui.shop.shop-misc';
+// requires impact.base.image
+// requires impact.feature.gui.gui
+// requires impact.feature.gui.base.basic-gui
+// requires impact.feature.gui.base.box
+// requires game.feature.menu.gui.menu-misc
+// requires game.feature.gui.widget.modal-dialog
+// requires game.feature.menu.gui.shop.shop-misc
 
 export {};
 

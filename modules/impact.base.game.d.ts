@@ -1,15 +1,15 @@
-import './impact.base.impact';
-import './impact.base.entity';
-import './impact.base.event';
-import './impact.base.renderer';
-import './impact.base.physics';
-import './impact.base.game-state';
-import './impact.base.collision-map';
-import './impact.base.background-map';
-import './impact.base.global-settings';
-import './impact.base.extension';
-import './impact.base.utils';
-import './impact.base.dom';
+// requires impact.base.impact
+// requires impact.base.entity
+// requires impact.base.event
+// requires impact.base.renderer
+// requires impact.base.physics
+// requires impact.base.game-state
+// requires impact.base.collision-map
+// requires impact.base.background-map
+// requires impact.base.global-settings
+// requires impact.base.extension
+// requires impact.base.utils
+// requires impact.base.dom
 
 export {};
 

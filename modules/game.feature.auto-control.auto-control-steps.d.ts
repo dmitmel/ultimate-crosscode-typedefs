@@ -1,2 +1,2 @@
-import './impact.base.event';
-import './game.feature.auto-control.auto-control';
+// requires impact.base.event
+// requires game.feature.auto-control.auto-control

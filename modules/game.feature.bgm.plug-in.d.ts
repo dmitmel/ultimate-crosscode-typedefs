@@ -1,2 +1,2 @@
-import './game.feature.bgm.playlist';
-import './game.feature.bgm.volume-map';
+// requires game.feature.bgm.playlist
+// requires game.feature.bgm.volume-map

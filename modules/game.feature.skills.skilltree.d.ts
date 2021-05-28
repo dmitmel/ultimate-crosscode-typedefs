@@ -1,2 +1,2 @@
-import './impact.base.game';
-import './game.feature.skills.skills';
+// requires impact.base.game
+// requires game.feature.skills.skills

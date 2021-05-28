@@ -1,8 +1,8 @@
-import './impact.base.animation';
-import './impact.base.action';
-import './impact.base.entity';
-import './game.feature.combat.entities.drop';
-import './game.feature.combat.entities.combatant';
-import './game.feature.combat.entities.combat-proxy';
-import './impact.feature.effect.effect-steps';
-import './game.feature.combat.combat-sweep';
+// requires impact.base.animation
+// requires impact.base.action
+// requires impact.base.entity
+// requires game.feature.combat.entities.drop
+// requires game.feature.combat.entities.combatant
+// requires game.feature.combat.entities.combat-proxy
+// requires impact.feature.effect.effect-steps
+// requires game.feature.combat.combat-sweep

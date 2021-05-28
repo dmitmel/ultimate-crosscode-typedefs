@@ -1,14 +1,14 @@
-import './impact.feature.gui.gui';
-import './game.feature.gui.base.button';
-import './impact.feature.parallax.parallax';
-import './game.feature.gui.screen.intro-screen';
-import './game.feature.gui.screen.title-logo';
-import './impact.base.image';
-import './game.feature.gui.screen.title-preset';
-import './game.feature.menu.gui.save.save-menu';
-import './game.feature.version.version';
-import './game.feature.control.control';
-import './game.feature.menu.gui.new-game.new-game-dialogs';
+// requires impact.feature.gui.gui
+// requires game.feature.gui.base.button
+// requires impact.feature.parallax.parallax
+// requires game.feature.gui.screen.intro-screen
+// requires game.feature.gui.screen.title-logo
+// requires impact.base.image
+// requires game.feature.gui.screen.title-preset
+// requires game.feature.menu.gui.save.save-menu
+// requires game.feature.version.version
+// requires game.feature.control.control
+// requires game.feature.menu.gui.new-game.new-game-dialogs
 
 export {};
 

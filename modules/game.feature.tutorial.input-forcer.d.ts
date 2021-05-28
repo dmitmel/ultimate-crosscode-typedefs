@@ -1,2 +1,2 @@
-import './impact.base.game';
-import './impact.feature.gui.gui';
+// requires impact.base.game
+// requires impact.feature.gui.gui

@@ -1,12 +1,12 @@
-import './impact.feature.env-particles.env-particles';
-import './game.feature.combat.entities.ball';
-import './game.feature.player.entities.player-base';
-import './game.feature.combat.entities.combatant';
-import './game.feature.player.entities.crosshair';
-import './game.feature.player.entities.player-pet';
-import './game.feature.player.player-level-notifier';
-import './game.feature.player.item-consumption';
-import './game.feature.new-game.new-game-model';
+// requires impact.feature.env-particles.env-particles
+// requires game.feature.combat.entities.ball
+// requires game.feature.player.entities.player-base
+// requires game.feature.combat.entities.combatant
+// requires game.feature.player.entities.crosshair
+// requires game.feature.player.entities.player-pet
+// requires game.feature.player.player-level-notifier
+// requires game.feature.player.item-consumption
+// requires game.feature.new-game.new-game-model
 
 export {};
 

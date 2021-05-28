@@ -1,5 +1,5 @@
-import './impact.feature.gui.gui';
-import './game.feature.gui.plug-in';
+// requires impact.feature.gui.gui
+// requires game.feature.gui.plug-in
 
 export {};
 

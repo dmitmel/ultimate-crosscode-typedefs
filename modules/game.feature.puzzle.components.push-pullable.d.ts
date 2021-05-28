@@ -1,2 +1,2 @@
-import './impact.base.entity';
-import './game.feature.interact.map-interact';
+// requires impact.base.entity
+// requires game.feature.interact.map-interact

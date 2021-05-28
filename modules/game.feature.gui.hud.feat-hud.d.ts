@@ -1,6 +1,6 @@
-import './impact.feature.gui.gui';
-import './impact.feature.gui.base.basic-gui';
-import './impact.base.image';
-import './impact.base.lang';
-import './game.feature.gui.hud.right-hud';
-import './game.feature.achievements.achievements';
+// requires impact.feature.gui.gui
+// requires impact.feature.gui.base.basic-gui
+// requires impact.base.image
+// requires impact.base.lang
+// requires game.feature.gui.hud.right-hud
+// requires game.feature.achievements.achievements

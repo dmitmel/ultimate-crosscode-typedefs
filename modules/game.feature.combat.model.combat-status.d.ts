@@ -1,2 +1,2 @@
-import './game.feature.combat.model.combat-params';
-import './impact.feature.effect.effect-sheet';
+// requires game.feature.combat.model.combat-params
+// requires impact.feature.effect.effect-sheet

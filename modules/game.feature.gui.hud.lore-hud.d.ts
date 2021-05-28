@@ -1,2 +1,2 @@
-import './game.feature.gui.hud.right-hud';
-import './game.feature.menu.lore-model';
+// requires game.feature.gui.hud.right-hud
+// requires game.feature.menu.lore-model

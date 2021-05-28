@@ -1,4 +1,4 @@
-import './game.feature.model.base-model';
+// requires game.feature.model.base-model
 
 export {};
 

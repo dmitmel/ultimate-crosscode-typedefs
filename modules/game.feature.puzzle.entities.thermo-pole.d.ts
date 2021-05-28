@@ -1,3 +1,3 @@
-import './impact.base.entity';
-import './impact.feature.effect.effect-sheet';
-import './game.feature.combat.combat-poi';
+// requires impact.base.entity
+// requires impact.feature.effect.effect-sheet
+// requires game.feature.combat.combat-poi

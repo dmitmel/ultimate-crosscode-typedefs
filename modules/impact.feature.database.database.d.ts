@@ -1,5 +1,5 @@
-import './impact.base.loader';
-import './game.config';
+// requires impact.base.loader
+// requires game.config
 
 export {};
 

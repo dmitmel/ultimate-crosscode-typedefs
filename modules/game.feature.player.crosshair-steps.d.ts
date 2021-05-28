@@ -1,3 +1,3 @@
-import './impact.base.animation';
-import './impact.base.action';
-import './impact.base.entity';
+// requires impact.base.animation
+// requires impact.base.action
+// requires impact.base.entity

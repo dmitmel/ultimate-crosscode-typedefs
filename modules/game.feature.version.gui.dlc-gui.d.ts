@@ -1,10 +1,10 @@
-import './impact.base.image';
-import './impact.base.event';
-import './impact.feature.gui.gui';
-import './impact.feature.gui.base.basic-gui';
-import './impact.feature.interact.button-interact';
-import './game.feature.control.control';
-import './game.feature.gui.base.button';
-import './game.feature.gui.base.boxes';
-import './game.feature.gui.base.numbers';
-import './game.feature.menu.gui.menu-misc';
+// requires impact.base.image
+// requires impact.base.event
+// requires impact.feature.gui.gui
+// requires impact.feature.gui.base.basic-gui
+// requires impact.feature.interact.button-interact
+// requires game.feature.control.control
+// requires game.feature.gui.base.button
+// requires game.feature.gui.base.boxes
+// requires game.feature.gui.base.numbers
+// requires game.feature.menu.gui.menu-misc

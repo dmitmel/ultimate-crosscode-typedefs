@@ -1,12 +1,12 @@
-import './dom.ready';
-import './impact.base.image';
-import './impact.base.font';
-import './impact.base.sound';
-import './impact.base.loader';
-import './impact.base.system';
-import './impact.base.input';
-import './impact.base.vars';
-import './impact.base.lang';
+// requires dom.ready
+// requires impact.base.image
+// requires impact.base.font
+// requires impact.base.sound
+// requires impact.base.loader
+// requires impact.base.system
+// requires impact.base.input
+// requires impact.base.vars
+// requires impact.base.lang
 
 export {};
 

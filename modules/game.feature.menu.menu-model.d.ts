@@ -1,32 +1,32 @@
-import './impact.base.game';
-import './impact.feature.interact.button-interact';
-import './impact.feature.storage.storage';
-import './game.feature.model.base-model';
-import './game.feature.menu.area-loadable';
-import './game.feature.menu.gui.start-menu';
-import './game.feature.menu.gui.equip.equip-menu';
-import './game.feature.menu.gui.circuit.circuit-menu';
-import './game.feature.menu.gui.item.item-menu';
-import './game.feature.menu.gui.map.map-menu';
-import './game.feature.menu.gui.save.save-menu';
-import './game.feature.menu.gui.options.options-menu';
-import './game.feature.menu.gui.shop.shop-menu';
-import './game.feature.menu.gui.synop.synop-menu';
-import './game.feature.menu.gui.quests.quest-menu';
-import './game.feature.menu.gui.quest-hub.quest-hub-menu';
-import './game.feature.menu.gui.enemies.enemy-menu';
-import './game.feature.menu.gui.lore.lore-menu';
-import './game.feature.menu.gui.status.status-menu';
-import './game.feature.menu.gui.help.help-menu';
-import './game.feature.menu.gui.museum.museum-menu';
-import './game.feature.menu.gui.stats.stats-menu';
-import './game.feature.menu.gui.trophy.trophy-menu';
-import './game.feature.menu.gui.social.social-menu';
-import './game.feature.menu.gui.trade.trader-menu';
-import './game.feature.menu.gui.botanics.botanics-menu';
-import './game.feature.menu.gui.arena.arena-menu';
-import './game.feature.menu.gui.new-game.new-game-menu';
-import './game.feature.menu.map-model';
+// requires impact.base.game
+// requires impact.feature.interact.button-interact
+// requires impact.feature.storage.storage
+// requires game.feature.model.base-model
+// requires game.feature.menu.area-loadable
+// requires game.feature.menu.gui.start-menu
+// requires game.feature.menu.gui.equip.equip-menu
+// requires game.feature.menu.gui.circuit.circuit-menu
+// requires game.feature.menu.gui.item.item-menu
+// requires game.feature.menu.gui.map.map-menu
+// requires game.feature.menu.gui.save.save-menu
+// requires game.feature.menu.gui.options.options-menu
+// requires game.feature.menu.gui.shop.shop-menu
+// requires game.feature.menu.gui.synop.synop-menu
+// requires game.feature.menu.gui.quests.quest-menu
+// requires game.feature.menu.gui.quest-hub.quest-hub-menu
+// requires game.feature.menu.gui.enemies.enemy-menu
+// requires game.feature.menu.gui.lore.lore-menu
+// requires game.feature.menu.gui.status.status-menu
+// requires game.feature.menu.gui.help.help-menu
+// requires game.feature.menu.gui.museum.museum-menu
+// requires game.feature.menu.gui.stats.stats-menu
+// requires game.feature.menu.gui.trophy.trophy-menu
+// requires game.feature.menu.gui.social.social-menu
+// requires game.feature.menu.gui.trade.trader-menu
+// requires game.feature.menu.gui.botanics.botanics-menu
+// requires game.feature.menu.gui.arena.arena-menu
+// requires game.feature.menu.gui.new-game.new-game-menu
+// requires game.feature.menu.map-model
 
 export {};
 

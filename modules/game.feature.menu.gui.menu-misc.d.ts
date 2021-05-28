@@ -1,9 +1,9 @@
-import './impact.feature.gui.gui';
-import './impact.feature.gui.base.basic-gui';
-import './impact.feature.interact.gui.focus-gui';
-import './impact.feature.gui.base.box';
-import './game.feature.gui.base.button';
-import './game.feature.combat.stat-change';
+// requires impact.feature.gui.gui
+// requires impact.feature.gui.base.basic-gui
+// requires impact.feature.interact.gui.focus-gui
+// requires impact.feature.gui.base.box
+// requires game.feature.gui.base.button
+// requires game.feature.combat.stat-change
 
 export {};
 

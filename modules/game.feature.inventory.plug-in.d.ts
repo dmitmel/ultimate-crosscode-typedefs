@@ -1,3 +1,3 @@
-import './game.feature.inventory.inventory';
-import './game.feature.inventory.detectors';
-import './game.feature.inventory.item-level-scaling';
+// requires game.feature.inventory.inventory
+// requires game.feature.inventory.detectors
+// requires game.feature.inventory.item-level-scaling

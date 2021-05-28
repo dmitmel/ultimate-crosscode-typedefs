@@ -1,6 +1,6 @@
-import './impact.base.animation';
-import './impact.base.coll-entry';
-import './impact.base.impact';
+// requires impact.base.animation
+// requires impact.base.coll-entry
+// requires impact.base.impact
 
 export {};
 

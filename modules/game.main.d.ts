@@ -1,7 +1,7 @@
-import './impact.base.game';
-import './game.config';
-import './game.features';
-import './game.beta';
+// requires impact.base.game
+// requires game.config
+// requires game.features
+// requires game.beta
 
 export {};
 

@@ -1,5 +1,5 @@
-import './impact.feature.light.light';
-import './impact.base.map';
-import './impact.base.game';
-import './impact.base.image';
-import './game.config';
+// requires impact.feature.light.light
+// requires impact.base.map
+// requires impact.base.game
+// requires impact.base.image
+// requires game.config

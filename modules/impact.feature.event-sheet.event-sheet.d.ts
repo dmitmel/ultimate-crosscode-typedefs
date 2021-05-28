@@ -1,1 +1,1 @@
-import './impact.base.event';
+// requires impact.base.event

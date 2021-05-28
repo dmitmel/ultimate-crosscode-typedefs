@@ -1,6 +1,6 @@
-import './impact.base.loader';
-import './game.config';
-import './game.feature.inventory.item-level-scaling';
+// requires impact.base.loader
+// requires game.config
+// requires game.feature.inventory.item-level-scaling
 
 export {};
 

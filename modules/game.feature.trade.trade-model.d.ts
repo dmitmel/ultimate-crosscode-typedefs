@@ -1,9 +1,9 @@
-import './impact.base.game';
-import './impact.base.loader';
-import './impact.feature.interact.button-interact';
-import './impact.feature.database.database';
-import './impact.feature.storage.storage';
-import './game.feature.model.base-model';
+// requires impact.base.game
+// requires impact.base.loader
+// requires impact.feature.interact.button-interact
+// requires impact.feature.database.database
+// requires impact.feature.storage.storage
+// requires game.feature.model.base-model
 
 export {};
 

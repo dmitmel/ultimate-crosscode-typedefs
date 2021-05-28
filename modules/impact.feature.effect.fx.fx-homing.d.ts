@@ -1,2 +1,2 @@
-import './impact.feature.effect.effect-sheet';
-import './impact.feature.effect.entities.effect-particle';
+// requires impact.feature.effect.effect-sheet
+// requires impact.feature.effect.entities.effect-particle

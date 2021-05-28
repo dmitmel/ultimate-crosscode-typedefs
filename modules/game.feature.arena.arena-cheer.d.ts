@@ -1,2 +1,2 @@
-import './impact.base.game';
-import './impact.base.sound';
+// requires impact.base.game
+// requires impact.base.sound

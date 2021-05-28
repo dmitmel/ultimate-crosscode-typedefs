@@ -1,2 +1,2 @@
-import './impact.base.game';
-import './game.feature.combat.model.combat-params';
+// requires impact.base.game
+// requires game.feature.combat.model.combat-params

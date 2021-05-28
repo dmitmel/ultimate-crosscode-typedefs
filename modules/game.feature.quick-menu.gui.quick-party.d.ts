@@ -1,7 +1,7 @@
-import './impact.base.image';
-import './impact.feature.gui.gui';
-import './impact.feature.gui.base.basic-gui';
-import './game.feature.interact.button-group';
-import './game.feature.menu.gui.list-boxes';
-import './game.feature.menu.gui.menu-misc';
-import './game.feature.quick-menu.gui.quick-item-menu';
+// requires impact.base.image
+// requires impact.feature.gui.gui
+// requires impact.feature.gui.base.basic-gui
+// requires game.feature.interact.button-group
+// requires game.feature.menu.gui.list-boxes
+// requires game.feature.menu.gui.menu-misc
+// requires game.feature.quick-menu.gui.quick-item-menu

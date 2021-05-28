@@ -1,1 +1,1 @@
-import './game.feature.beta.beta-controls';
+// requires game.feature.beta.beta-controls

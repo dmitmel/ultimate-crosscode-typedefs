@@ -1,8 +1,8 @@
-import './impact.base.animation';
-import './impact.base.action';
-import './impact.base.entity';
-import './game.feature.player.player-config';
-import './game.feature.combat.model.combat-params';
-import './impact.feature.camera.camera';
-import './game.feature.combat.entities.food-icon';
-import './game.feature.party.party';
+// requires impact.base.animation
+// requires impact.base.action
+// requires impact.base.entity
+// requires game.feature.player.player-config
+// requires game.feature.combat.model.combat-params
+// requires impact.feature.camera.camera
+// requires game.feature.combat.entities.food-icon
+// requires game.feature.party.party

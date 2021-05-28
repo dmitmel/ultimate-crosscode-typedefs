@@ -1,5 +1,5 @@
-import './impact.base.actor-entity';
-import './impact.feature.effect.effect-sheet';
+// requires impact.base.actor-entity
+// requires impact.feature.effect.effect-sheet
 
 export {};
 

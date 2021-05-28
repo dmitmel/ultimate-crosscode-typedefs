@@ -1,3 +1,3 @@
-import './game.feature.credits.credit-loadable';
-import './game.feature.credits.gui.credits-gui';
-import './game.feature.credits.credits-steps';
+// requires game.feature.credits.credit-loadable
+// requires game.feature.credits.gui.credits-gui
+// requires game.feature.credits.credits-steps

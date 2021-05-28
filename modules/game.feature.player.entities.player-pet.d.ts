@@ -1,1 +1,1 @@
-import './game.feature.npc.entities.sc-actor';
+// requires game.feature.npc.entities.sc-actor

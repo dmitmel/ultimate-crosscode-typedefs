@@ -1,3 +1,3 @@
-import './game.feature.trade.gui.trade-menu';
-import './game.feature.trade.gui.trade-icon';
-import './game.feature.trade.trade-steps';
+// requires game.feature.trade.gui.trade-menu
+// requires game.feature.trade.gui.trade-icon
+// requires game.feature.trade.trade-steps

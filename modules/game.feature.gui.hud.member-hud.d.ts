@@ -1,2 +1,2 @@
-import './impact.feature.gui.gui';
-import './impact.feature.gui.base.box';
+// requires impact.feature.gui.gui
+// requires impact.feature.gui.base.box

@@ -1,3 +1,3 @@
-import './impact.base.action';
-import './impact.base.event';
-import './game.feature.new-game.new-game-model';
+// requires impact.base.action
+// requires impact.base.event
+// requires game.feature.new-game.new-game-model

@@ -1,5 +1,5 @@
-import './impact.feature.gui.gui';
-import './impact.feature.gui.base.basic-gui';
-import './game.feature.menu.gui.quests.quest-misc';
-import './game.feature.menu.gui.quests.quest-tab-list';
-import './game.feature.menu.gui.quests.quest-details';
+// requires impact.feature.gui.gui
+// requires impact.feature.gui.base.basic-gui
+// requires game.feature.menu.gui.quests.quest-misc
+// requires game.feature.menu.gui.quests.quest-tab-list
+// requires game.feature.menu.gui.quests.quest-details

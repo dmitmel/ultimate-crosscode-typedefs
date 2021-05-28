@@ -1,2 +1,2 @@
-import './impact.base.action';
-import './impact.base.actor-entity';
+// requires impact.base.action
+// requires impact.base.actor-entity

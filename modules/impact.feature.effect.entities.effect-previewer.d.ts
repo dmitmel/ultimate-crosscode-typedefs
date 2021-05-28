@@ -1,1 +1,1 @@
-import './impact.base.actor-entity';
+// requires impact.base.actor-entity

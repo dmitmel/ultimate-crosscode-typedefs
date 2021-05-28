@@ -1,5 +1,5 @@
-import './impact.base.worker';
-import './impact.base.loader';
+// requires impact.base.worker
+// requires impact.base.loader
 
 export {};
 

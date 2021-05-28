@@ -1,14 +1,14 @@
-import './impact.feature.rumble.rumble';
-import './impact.feature.gui.gui';
-import './impact.feature.gui.base.basic-gui';
-import './impact.feature.gui.base.box';
-import './game.feature.gui.base.boxes';
-import './game.feature.arena.arena';
-import './game.feature.gui.hud.right-hud';
-import './game.feature.gui.base.text';
-import './game.feature.menu.gui.menu-misc';
-import './game.feature.menu.gui.arena.arena-misc';
-import './game.feature.arena.gui.arena-effect-display';
-import './game.feature.arena.gui.arena-round-gui';
-import './game.feature.arena.gui.arena-trophy-gui';
-import './game.feature.arena.gui.arena-rush-gui';
+// requires impact.feature.rumble.rumble
+// requires impact.feature.gui.gui
+// requires impact.feature.gui.base.basic-gui
+// requires impact.feature.gui.base.box
+// requires game.feature.gui.base.boxes
+// requires game.feature.arena.arena
+// requires game.feature.gui.hud.right-hud
+// requires game.feature.gui.base.text
+// requires game.feature.menu.gui.menu-misc
+// requires game.feature.menu.gui.arena.arena-misc
+// requires game.feature.arena.gui.arena-effect-display
+// requires game.feature.arena.gui.arena-round-gui
+// requires game.feature.arena.gui.arena-trophy-gui
+// requires game.feature.arena.gui.arena-rush-gui

@@ -1,2 +1,2 @@
-import './impact.feature.height-map.height-map';
-import './impact.feature.height-map.height-map-config';
+// requires impact.feature.height-map.height-map
+// requires impact.feature.height-map.height-map-config

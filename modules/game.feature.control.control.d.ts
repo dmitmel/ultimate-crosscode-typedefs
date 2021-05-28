@@ -1,3 +1,3 @@
-import './impact.base.game';
-import './impact.feature.interact.press-repeater';
-import './impact.feature.gui.gui';
+// requires impact.base.game
+// requires impact.feature.interact.press-repeater
+// requires impact.feature.gui.gui

@@ -1,4 +1,4 @@
-import './game.feature.interact.map-interact';
-import './game.feature.interact.gui.interact-gui';
-import './game.feature.interact.screen-interact';
-import './game.feature.interact.skip-interact';
+// requires game.feature.interact.map-interact
+// requires game.feature.interact.gui.interact-gui
+// requires game.feature.interact.screen-interact
+// requires game.feature.interact.skip-interact

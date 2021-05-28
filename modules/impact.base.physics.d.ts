@@ -1,2 +1,2 @@
-import './impact.base.entity';
-import './impact.base.coll-entry';
+// requires impact.base.entity
+// requires impact.base.coll-entry

@@ -1,4 +1,4 @@
-import './game.feature.character.abstract-face';
+// requires game.feature.character.abstract-face
 
 export {};
 

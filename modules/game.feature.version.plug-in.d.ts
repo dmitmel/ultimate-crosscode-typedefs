@@ -1,3 +1,3 @@
-import './game.feature.version.version';
-import './game.feature.version.gui.changelog-gui';
-import './game.feature.version.gui.dlc-gui';
+// requires game.feature.version.version
+// requires game.feature.version.gui.changelog-gui
+// requires game.feature.version.gui.dlc-gui

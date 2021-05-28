@@ -1,11 +1,11 @@
-import './impact.base.game';
-import './impact.feature.bgm.bgm';
-import './game.feature.model.base-model';
-import './game.feature.player.player-model';
-import './game.feature.msg.message-model';
-import './game.feature.menu.menu-model';
-import './game.feature.model.options-model';
-import './impact.feature.env-particles.env-particles';
+// requires impact.base.game
+// requires impact.feature.bgm.bgm
+// requires game.feature.model.base-model
+// requires game.feature.player.player-model
+// requires game.feature.msg.message-model
+// requires game.feature.menu.menu-model
+// requires game.feature.model.options-model
+// requires impact.feature.env-particles.env-particles
 
 export {};
 

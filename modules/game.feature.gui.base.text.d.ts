@@ -1,6 +1,6 @@
-import './impact.base.font';
-import './impact.feature.gui.gui';
-import './game.feature.font.font-system';
+// requires impact.base.font
+// requires impact.feature.gui.gui
+// requires game.feature.font.font-system
 
 export {};
 

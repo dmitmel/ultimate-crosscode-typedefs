@@ -1,4 +1,4 @@
-import './impact.base.loader';
+// requires impact.base.loader
 
 export {};
 

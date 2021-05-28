@@ -1,7 +1,7 @@
-import './impact.feature.gui.base.box';
-import './game.feature.gui.base.text';
-import './impact.feature.interact.gui.focus-gui';
-import './game.feature.interact.button-group';
+// requires impact.feature.gui.base.box
+// requires game.feature.gui.base.text
+// requires impact.feature.interact.gui.focus-gui
+// requires game.feature.interact.button-group
 
 export {};
 

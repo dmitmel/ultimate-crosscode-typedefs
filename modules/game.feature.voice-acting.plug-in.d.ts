@@ -1,2 +1,2 @@
-import './game.feature.voice-acting.voice-acting';
-import './game.feature.voice-acting.va-config';
+// requires game.feature.voice-acting.voice-acting
+// requires game.feature.voice-acting.va-config

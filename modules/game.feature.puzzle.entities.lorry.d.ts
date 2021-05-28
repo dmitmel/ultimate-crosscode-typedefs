@@ -1,3 +1,3 @@
-import './impact.base.entity';
-import './impact.feature.effect.effect-sheet';
-import './impact.base.actor-entity';
+// requires impact.base.entity
+// requires impact.feature.effect.effect-sheet
+// requires impact.base.actor-entity

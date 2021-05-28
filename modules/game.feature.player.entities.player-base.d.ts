@@ -1,8 +1,8 @@
-import './game.feature.combat.entities.ball';
-import './game.feature.combat.entities.combatant';
-import './game.feature.player.entities.crosshair';
-import './game.feature.player.player-level-notifier';
-import './game.feature.player.item-consumption';
+// requires game.feature.combat.entities.ball
+// requires game.feature.combat.entities.combatant
+// requires game.feature.player.entities.crosshair
+// requires game.feature.player.player-level-notifier
+// requires game.feature.player.item-consumption
 
 export {};
 

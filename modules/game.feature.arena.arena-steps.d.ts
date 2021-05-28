@@ -1,6 +1,6 @@
-import './impact.base.action';
-import './impact.base.entity';
-import './impact.feature.camera.camera';
-import './game.feature.arena.arena';
-import './game.feature.arena.gui.arena-gui';
-import './game.feature.arena.gui.arena-start-gui';
+// requires impact.base.action
+// requires impact.base.entity
+// requires impact.feature.camera.camera
+// requires game.feature.arena.arena
+// requires game.feature.arena.gui.arena-gui
+// requires game.feature.arena.gui.arena-start-gui

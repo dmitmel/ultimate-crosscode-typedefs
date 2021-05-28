@@ -1,42 +1,42 @@
-import './game.feature.puzzle.components.push-pullable';
-import './game.feature.puzzle.entities.block';
-import './game.feature.puzzle.entities.blockers';
-import './game.feature.puzzle.entities.bomb';
-import './game.feature.puzzle.entities.water-bubble';
-import './game.feature.puzzle.entities.compressor';
-import './game.feature.puzzle.entities.water-block';
-import './game.feature.puzzle.entities.ice-disk';
-import './game.feature.puzzle.entities.key-panel';
-import './game.feature.puzzle.entities.ball-changer';
-import './game.feature.puzzle.entities.walls';
-import './game.feature.puzzle.entities.glowing-line';
-import './game.feature.puzzle.entities.lorry';
-import './game.feature.puzzle.entities.ferro';
-import './game.feature.puzzle.entities.one-time-switch';
-import './game.feature.puzzle.entities.element-shield';
-import './game.feature.puzzle.entities.floor-switch';
-import './game.feature.puzzle.entities.magnet';
-import './game.feature.puzzle.entities.multi-hit-switch';
-import './game.feature.puzzle.entities.bounce-switch';
-import './game.feature.puzzle.entities.thermo-pole';
-import './game.feature.puzzle.entities.push-pull-block';
-import './game.feature.puzzle.entities.push-pull-dest';
-import './game.feature.puzzle.entities.sliding-block';
-import './game.feature.puzzle.entities.switch';
-import './game.feature.puzzle.entities.destructible';
-import './game.feature.puzzle.entities.item-destruct';
-import './game.feature.puzzle.entities.regen-destruct';
-import './game.feature.puzzle.entities.extract-platform';
-import './game.feature.puzzle.entities.dynamic-platform';
-import './game.feature.puzzle.entities.ol-platform';
-import './game.feature.puzzle.entities.enemy-counter';
-import './game.feature.puzzle.entities.group-switch';
-import './game.feature.puzzle.entities.chest';
-import './game.feature.puzzle.entities.quick-sand';
-import './game.feature.puzzle.entities.spiderweb';
-import './game.feature.puzzle.entities.steam-pipes';
-import './game.feature.puzzle.entities.tesla-coil';
-import './game.feature.puzzle.entities.wave-teleport';
-import './game.feature.puzzle.puzzle-steps';
-import './game.feature.puzzle.entities.rotate-blocker';
-import './game.feature.puzzle.entities.boss-platform';
+// requires game.feature.puzzle.components.push-pullable
+// requires game.feature.puzzle.entities.block
+// requires game.feature.puzzle.entities.blockers
+// requires game.feature.puzzle.entities.bomb
+// requires game.feature.puzzle.entities.water-bubble
+// requires game.feature.puzzle.entities.compressor
+// requires game.feature.puzzle.entities.water-block
+// requires game.feature.puzzle.entities.ice-disk
+// requires game.feature.puzzle.entities.key-panel
+// requires game.feature.puzzle.entities.ball-changer
+// requires game.feature.puzzle.entities.walls
+// requires game.feature.puzzle.entities.glowing-line
+// requires game.feature.puzzle.entities.lorry
+// requires game.feature.puzzle.entities.ferro
+// requires game.feature.puzzle.entities.one-time-switch
+// requires game.feature.puzzle.entities.element-shield
+// requires game.feature.puzzle.entities.floor-switch
+// requires game.feature.puzzle.entities.magnet
+// requires game.feature.puzzle.entities.multi-hit-switch
+// requires game.feature.puzzle.entities.bounce-switch
+// requires game.feature.puzzle.entities.thermo-pole
+// requires game.feature.puzzle.entities.push-pull-block
+// requires game.feature.puzzle.entities.push-pull-dest
+// requires game.feature.puzzle.entities.sliding-block
+// requires game.feature.puzzle.entities.switch
+// requires game.feature.puzzle.entities.destructible
+// requires game.feature.puzzle.entities.item-destruct
+// requires game.feature.puzzle.entities.regen-destruct
+// requires game.feature.puzzle.entities.extract-platform
+// requires game.feature.puzzle.entities.dynamic-platform
+// requires game.feature.puzzle.entities.ol-platform
+// requires game.feature.puzzle.entities.enemy-counter
+// requires game.feature.puzzle.entities.group-switch
+// requires game.feature.puzzle.entities.chest
+// requires game.feature.puzzle.entities.quick-sand
+// requires game.feature.puzzle.entities.spiderweb
+// requires game.feature.puzzle.entities.steam-pipes
+// requires game.feature.puzzle.entities.tesla-coil
+// requires game.feature.puzzle.entities.wave-teleport
+// requires game.feature.puzzle.puzzle-steps
+// requires game.feature.puzzle.entities.rotate-blocker
+// requires game.feature.puzzle.entities.boss-platform

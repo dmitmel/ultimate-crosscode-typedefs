@@ -1,2 +1,2 @@
-import './impact.base.event';
-import './impact.base.game';
+// requires impact.base.event
+// requires impact.base.game

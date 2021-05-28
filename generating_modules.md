@@ -22,7 +22,7 @@ This will take some time, `nl` is used as a counter. As of 1.4.0 the game has 57
 ```bash
 jq --raw-output 'keys[]' path/to/modules.json | while IFS= read -r module; do
   echo "$module"
-  jq --raw-output --arg id "$module" ".[\$id][] | \"import './\\(.)';\"" \
+  jq --raw-output --arg id "$module" '.[$id][] | "// requires \(.)"' \
     path/to/modules.json > "$module.d.ts"
 done | nl
 ```

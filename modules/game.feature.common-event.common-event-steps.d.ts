@@ -1,3 +1,3 @@
-import './game.feature.common-event.common-event';
-import './impact.base.action';
-import './impact.base.event';
+// requires game.feature.common-event.common-event
+// requires impact.base.action
+// requires impact.base.event

@@ -1,4 +1,4 @@
-import './impact.base.action';
-import './impact.base.event';
-import './game.feature.player.player-model';
-import './game.feature.model.game-model';
+// requires impact.base.action
+// requires impact.base.event
+// requires game.feature.player.player-model
+// requires game.feature.model.game-model

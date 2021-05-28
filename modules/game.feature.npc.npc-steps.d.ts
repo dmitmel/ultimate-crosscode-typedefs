@@ -1,6 +1,6 @@
-import './impact.base.action';
-import './impact.base.event';
-import './game.feature.npc.npc-runners';
+// requires impact.base.action
+// requires impact.base.event
+// requires game.feature.npc.npc-runners
 
 export {};
 

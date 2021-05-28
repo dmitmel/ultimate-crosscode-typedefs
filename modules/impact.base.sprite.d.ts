@@ -1,1 +1,1 @@
-import './impact.base.image';
+// requires impact.base.image

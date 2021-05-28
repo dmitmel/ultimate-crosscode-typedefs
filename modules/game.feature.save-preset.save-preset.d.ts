@@ -1,2 +1,2 @@
-import './impact.base.loader';
-import './impact.base.game';
+// requires impact.base.loader
+// requires impact.base.game

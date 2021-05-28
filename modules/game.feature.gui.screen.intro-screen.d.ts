@@ -1,4 +1,4 @@
-import './impact.feature.gui.gui';
-import './impact.feature.gui.base.basic-gui';
-import './game.feature.gui.base.button';
-import './impact.base.image';
+// requires impact.feature.gui.gui
+// requires impact.feature.gui.base.basic-gui
+// requires game.feature.gui.base.button
+// requires impact.base.image

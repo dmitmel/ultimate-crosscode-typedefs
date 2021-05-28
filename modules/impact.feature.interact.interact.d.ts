@@ -1,4 +1,4 @@
-import './impact.base.game';
+// requires impact.base.game
 
 export {};
 

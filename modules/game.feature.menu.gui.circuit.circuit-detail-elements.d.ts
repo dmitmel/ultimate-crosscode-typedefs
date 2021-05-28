@@ -1,11 +1,11 @@
-import './impact.feature.gui.gui';
-import './impact.feature.gui.base.basic-gui';
-import './impact.feature.interact.interact';
-import './game.feature.font.font-system';
-import './game.feature.menu.gui.circuit.circuit-misc';
-import './game.feature.menu.gui.menu-misc';
-import './game.feature.model.options-model';
-import './game.feature.skills.skills';
+// requires impact.feature.gui.gui
+// requires impact.feature.gui.base.basic-gui
+// requires impact.feature.interact.interact
+// requires game.feature.font.font-system
+// requires game.feature.menu.gui.circuit.circuit-misc
+// requires game.feature.menu.gui.menu-misc
+// requires game.feature.model.options-model
+// requires game.feature.skills.skills
 
 export {};
 

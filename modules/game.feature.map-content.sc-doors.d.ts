@@ -1,1 +1,1 @@
-import './impact.feature.map-content.entities.door';
+// requires impact.feature.map-content.entities.door

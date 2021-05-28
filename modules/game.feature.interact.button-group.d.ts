@@ -1,4 +1,4 @@
-import './impact.feature.interact.button-interact';
+// requires impact.feature.interact.button-interact
 
 export {};
 

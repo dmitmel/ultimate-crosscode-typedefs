@@ -1,3 +1,3 @@
-import './impact.base.game';
-import './game.feature.model.game-model';
-import './impact.feature.effect.effect-sheet';
+// requires impact.base.game
+// requires game.feature.model.game-model
+// requires impact.feature.effect.effect-sheet

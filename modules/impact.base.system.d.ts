@@ -1,6 +1,6 @@
-import './impact.base.timer';
-import './impact.base.image';
-import './impact.base.vars';
+// requires impact.base.timer
+// requires impact.base.image
+// requires impact.base.vars
 
 export {};
 
