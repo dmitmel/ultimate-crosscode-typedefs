@@ -69,6 +69,15 @@ declare global {
         time: number;
         timeFunction: KeySpline;
       }
+
+      interface ScreenCoords {
+        x: number;
+        y: number;
+        w: number;
+        h: number;
+        active: boolean;
+        zIndex: number;
+      }
     }
     interface GuiHook extends ig.Class {
       pos: Vec2;
@@ -78,6 +87,7 @@ declare global {
       gui: ig.GuiElementBase;
       transitions: { [name: string]: ig.GuiHook.Transition };
       currentStateName: string;
+      screenCoords?: ig.GuiHook.ScreenCoords;
 
       removeChildHook(this: this, hook: ig.GuiHook): void;
       removeChildHookByIndex(this: this, index: number): ig.GuiHook;

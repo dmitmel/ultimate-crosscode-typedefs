@@ -18,7 +18,7 @@ declare global {
       addFocusListener(this: this, listener: (focusLost: boolean) => void): void;
       removeFocusListener(this: this, listener: (focusLost: boolean) => void): void;
       getBufferContext(this: this, buffer: HTMLCanvasElement): CanvasRenderingContext2D;
-      error(this: this, error: Error): void;
+      error(this: this, error: Error): never;
       hasFocusLost(this: this): boolean;
     }
     interface SystemConstructor extends ImpactClass<System> {}
