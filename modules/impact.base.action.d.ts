@@ -4,6 +4,12 @@ export {};
 
 declare global {
   namespace ig {
+    namespace ACTION_STEP {}
+
+    type ActionStepBase = StepBase;
+    type ActionStepBaseConstructor = StepBaseConstructor;
+    var ActionStepBase: ActionStepBaseConstructor;
+
     interface Action extends ig.Class {
       name: string;
       parallelMove: boolean;
