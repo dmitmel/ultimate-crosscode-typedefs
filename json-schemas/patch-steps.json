@@ -1,0 +1,203 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "JSON schema for CrossCode PatchSteps files",
+
+  "$ref": "#/definitions/PatchFile",
+
+  "definitions": {
+    "PatchFile": {
+      "oneOf": [
+        { "type": "array", "items": { "$ref": "#/definitions/AnyPatchStep" } },
+        { "type": "object" }
+      ]
+    },
+
+    "Index": {
+      "oneOf": [{ "type": "string" }, { "type": "number" }]
+    },
+
+    "BasePatchStep": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string" },
+        "comment": { "type": "string" }
+      }
+    },
+
+    "AnyPatchStep": {
+      "oneOf": [
+        { "$ref": "#/definitions/PatchStep.ENTER" },
+        { "$ref": "#/definitions/PatchStep.EXIT" },
+        { "$ref": "#/definitions/PatchStep.SET_KEY" },
+        { "$ref": "#/definitions/PatchStep.INIT_KEY" },
+        { "$ref": "#/definitions/PatchStep.REMOVE_ARRAY_ELEMENT" },
+        { "$ref": "#/definitions/PatchStep.ADD_ARRAY_ELEMENT" },
+        { "$ref": "#/definitions/PatchStep.IMPORT" },
+        { "$ref": "#/definitions/PatchStep.INCLUDE" },
+        { "$ref": "#/definitions/PatchStep.FOR_IN" },
+        { "$ref": "#/definitions/PatchStep.COPY" },
+        { "$ref": "#/definitions/PatchStep.PASTE" },
+        { "$ref": "#/definitions/PatchStep.COMMENT" },
+        { "$ref": "#/definitions/PatchStep.DEBUG" }
+      ]
+    },
+
+    "PatchStep.ENTER": {
+      "allOf": [{ "$ref": "#/definitions/BasePatchStep" }],
+      "type": "object",
+      "required": ["type", "index"],
+      "properties": {
+        "type": { "const": "ENTER" },
+        "index": {
+          "oneOf": [
+            { "$ref": "#/definitions/Index" },
+            { "type": "array", "items": { "$ref": "#/definitions/Index" } }
+          ]
+        }
+      }
+    },
+
+    "PatchStep.EXIT": {
+      "allOf": [{ "$ref": "#/definitions/BasePatchStep" }],
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "const": "EXIT" },
+        "count": { "type": "number" }
+      }
+    },
+
+    "PatchStep.SET_KEY": {
+      "allOf": [{ "$ref": "#/definitions/BasePatchStep" }],
+      "type": "object",
+      "required": ["type", "index"],
+      "properties": {
+        "type": { "const": "SET_KEY" },
+        "index": { "$ref": "#/definitions/Index" },
+        "content": {}
+      }
+    },
+
+    "PatchStep.INIT_KEY": {
+      "allOf": [{ "$ref": "#/definitions/BasePatchStep" }],
+      "type": "object",
+      "required": ["type", "index"],
+      "properties": {
+        "type": { "const": "INIT_KEY" },
+        "index": { "$ref": "#/definitions/Index" },
+        "content": {}
+      }
+    },
+
+    "PatchStep.REMOVE_ARRAY_ELEMENT": {
+      "allOf": [{ "$ref": "#/definitions/BasePatchStep" }],
+      "type": "object",
+      "required": ["type", "index"],
+      "properties": {
+        "type": { "const": "REMOVE_ARRAY_ELEMENT" },
+        "index": { "type": "number" }
+      }
+    },
+
+    "PatchStep.ADD_ARRAY_ELEMENT": {
+      "allOf": [{ "$ref": "#/definitions/BasePatchStep" }],
+      "type": "object",
+      "required": ["type", "content"],
+      "properties": {
+        "type": { "const": "ADD_ARRAY_ELEMENT" },
+        "index": { "type": "number" },
+        "content": {}
+      }
+    },
+
+    "PatchStep.IMPORT": {
+      "allOf": [{ "$ref": "#/definitions/BasePatchStep" }],
+      "type": "object",
+      "required": ["type", "src"],
+      "properties": {
+        "type": { "const": "IMPORT" },
+        "src": { "type": "string" },
+        "path": { "type": "array", "items": { "$ref": "#/definitions/Index" } },
+        "index": { "$ref": "#/definitions/Index" }
+      }
+    },
+
+    "PatchStep.INCLUDE": {
+      "allOf": [{ "$ref": "#/definitions/BasePatchStep" }],
+      "type": "object",
+      "required": ["type", "src"],
+      "properties": {
+        "type": { "const": "INCLUDE" },
+        "src": { "type": "string" }
+      }
+    },
+
+    "PatchStep.FOR_IN": {
+      "allOf": [{ "$ref": "#/definitions/BasePatchStep" }],
+      "type": "object",
+      "required": ["type", "body"],
+      "properties": {
+        "type": { "const": "FOR_IN" },
+        "body": { "type": "array", "items": { "$ref": "#/definitions/AnyPatchStep" } }
+      },
+      "oneOf": [
+        {
+          "required": ["values", "keyword"],
+          "properties": {
+            "values": { "type": "array" },
+            "keyword": { "type": "string", "minLength": 1 }
+          }
+        },
+        {
+          "required": ["values", "keyword"],
+          "properties": {
+            "values": { "type": "array", "items": { "type": "object" } },
+            "keyword": { "type": "object", "additionalProperties": { "type": "string" } }
+          }
+        }
+      ]
+    },
+
+    "PatchStep.COPY": {
+      "allOf": [{ "$ref": "#/definitions/BasePatchStep" }],
+      "type": "object",
+      "required": ["type", "alias"],
+      "properties": {
+        "type": { "const": "COPY" },
+        "alias": { "type": "string" }
+      }
+    },
+
+    "PatchStep.PASTE": {
+      "allOf": [{ "$ref": "#/definitions/BasePatchStep" }],
+      "type": "object",
+      "required": ["type", "alias"],
+      "properties": {
+        "type": { "const": "PASTE" },
+        "alias": { "type": "string" },
+        "index": { "$ref": "#/definitions/Index" }
+      }
+    },
+
+    "PatchStep.COMMENT": {
+      "allOf": [{ "$ref": "#/definitions/BasePatchStep" }],
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "const": "COMMENT" },
+        "value": {}
+      }
+    },
+
+    "PatchStep.DEBUG": {
+      "allOf": [{ "$ref": "#/definitions/BasePatchStep" }],
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "DEBUG" },
+        "value": { "type": "boolean" }
+      }
+    }
+  }
+}

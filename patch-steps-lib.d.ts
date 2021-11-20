@@ -1,89 +1,115 @@
 export const version: string;
 
-export type Patch = PatchStep[] | Record<string, unknown>;
+export type PatchFile = AnyPatchStep[] | Record<string, unknown>;
 
 export type Index = string | number;
 
-export type PatchStep = { comment?: string } & unknown;
+export interface BasePatchStep {
+  comment?: string;
+}
+
 export namespace PatchStep {
-  export interface ENTER {
+  export interface ENTER extends BasePatchStep {
     type: 'ENTER';
     index: Index | Index[];
   }
 
-  export interface EXIT {
+  export interface EXIT extends BasePatchStep {
     type: 'EXIT';
     count?: number;
   }
 
-  export interface SET_KEY {
+  export interface SET_KEY extends BasePatchStep {
     type: 'SET_KEY';
     index: Index;
     content?: unknown;
   }
 
-  export interface INIT_KEY {
+  export interface INIT_KEY extends BasePatchStep {
     type: 'INIT_KEY';
     index: Index;
     content: unknown;
   }
 
-  export interface REMOVE_ARRAY_ELEMENT {
+  export interface REMOVE_ARRAY_ELEMENT extends BasePatchStep {
     type: 'REMOVE_ARRAY_ELEMENT';
     index: number;
   }
 
-  export interface ADD_ARRAY_ELEMENT {
+  export interface ADD_ARRAY_ELEMENT extends BasePatchStep {
     type: 'ADD_ARRAY_ELEMENT';
     index?: number;
     content: unknown;
   }
 
-  export interface IMPORT {
+  export interface IMPORT extends BasePatchStep {
     type: 'IMPORT';
     src: string;
     path?: Index[];
     index?: Index;
   }
 
-  export interface INCLUDE {
+  export interface INCLUDE extends BasePatchStep {
     type: 'INCLUDE';
     src: string;
   }
 
-  export interface FOR_IN {
+  export interface FOR_IN extends BasePatchStep {
     type: 'FOR_IN';
-    values: Array<string | Record<string, string>>;
+    values: unknown[] | Array<Record<string, unknown>>;
     keyword: string | Record<string, string>;
-    body: PatchStep[];
+    body: AnyPatchStep[];
   }
 
-  export interface COPY {
+  export interface COPY extends BasePatchStep {
     type: 'COPY';
     alias: string;
   }
 
-  export interface PASTE {
+  export interface PASTE extends BasePatchStep {
     type: 'PASTE';
     alias: string;
     index?: Index;
   }
 
-  export interface COMMENT {
+  export interface COMMENT extends BasePatchStep {
     type: 'COMMENT';
     value: unknown;
   }
 
-  export interface DEBUG {
+  export interface DEBUG extends BasePatchStep {
     type: 'DEBUG';
     value: boolean;
   }
 }
 
+// This is expressed with an interface so that mods can define their own
+// patching steps.
+export interface PatchStepsRegistry {
+  ENTER: PatchStep.ENTER;
+  EXIT: PatchStep.EXIT;
+  SET_KEY: PatchStep.SET_KEY;
+  INIT_KEY: PatchStep.INIT_KEY;
+  REMOVE_ARRAY_ELEMENT: PatchStep.REMOVE_ARRAY_ELEMENT;
+  ADD_ARRAY_ELEMENT: PatchStep.ADD_ARRAY_ELEMENT;
+  IMPORT: PatchStep.IMPORT;
+  INCLUDE: PatchStep.INCLUDE;
+  FOR_IN: PatchStep.FOR_IN;
+  COPY: PatchStep.COPY;
+  PASTE: PatchStep.PASTE;
+  COMMENT: PatchStep.COMMENT;
+  DEBUG: PatchStep.DEBUG;
+}
+export type AnyPatchStep = Extract<PatchStepsRegistry[keyof PatchStepsRegistry], BasePatchStep>;
+
 export function photomerge<A = unknown, B = A>(a: A, b: B): A & B;
 export function photocopy<O = unknown>(o: O): O;
 
-export function diff(a: unknown, b: unknown, settings: Partial<DiffSettings>): PatchStep[] | null;
+export function diff(
+  a: unknown,
+  b: unknown,
+  settings: Partial<DiffSettings>,
+): AnyPatchStep[] | null;
 
 export interface DiffSettings {
   arrayTrulyDifferentThreshold: number;
@@ -100,16 +126,16 @@ export interface DiffSettings {
   optimize: boolean;
 }
 
-export type DiffCore = (a: unknown, b: unknown, settings: DiffSettings) => PatchStep[] | null;
+export type DiffCore = (a: unknown, b: unknown, settings: DiffSettings) => AnyPatchStep[] | null;
 
-export function diffApplyComment(step: PatchStep, settings: DiffSettings): PatchStep;
+export function diffApplyComment<T extends BasePatchStep>(step: T, settings: DiffSettings): T;
 
 export function diffEnterLevel(
   a: unknown,
   b: unknown,
   index: Index,
   settings: DiffSettings,
-): PatchStep[] | null;
+): AnyPatchStep[] | null;
 
 export type ParsedPath = null | [/* fromGame */ boolean | string, /* url */ string];
 
@@ -172,7 +198,7 @@ export interface ApplierState {
 
 export function patch(
   a: unknown,
-  steps: Patch,
+  steps: PatchFile,
   loader: Loader,
   debugState?: DebugState,
 ): Promise<void>;
