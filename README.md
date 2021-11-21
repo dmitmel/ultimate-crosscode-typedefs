@@ -374,4 +374,4 @@ For some reason compiler can't infer types of generics from the signature declar
 
 ## Asking for help or reporting bugs
 
-You can reach me, _dmitmel_, either via the [bug tracker](https://github.com/dmitmel/ultimate-crosscode-typedefs/issues) or the [CrossCode modding Discord server](https://discordapp.com/invite/YbW5S4). Of course, I won't write your mods for you, but you can ask me any questions or request help regarding writing and/or porting CrossCode mods in TypeScript.
+You can reach me, _dmitmel_, either via the [bug tracker](https://github.com/dmitmel/ultimate-crosscode-typedefs/issues) or the [CrossCode modding Discord server](https://c2dl.info/r/md). Of course, I won't write your mods for you, but you can ask me any questions or request help regarding writing and/or porting CrossCode mods in TypeScript.
