@@ -31,37 +31,50 @@ declare namespace ig {
         var SET_PLAYER_INVINCIBLE: SET_PLAYER_INVINCIBLE_CONSTRUCTOR
     }
 
-    interface Vars extends ig.Class {
-        storage: {
-            map: { [key: string]: any }
-            maps: { [key: string]: any }
-            tmp: { [key: string]: any }
-            call: { [key: string]: any }
+    namespace Vars {
+        type CCVar = number | boolean | string | LangLabel.Data | Vec2 | Vec3 | undefined | null
+
+        type VarStorage = {[key: string]: CCVar | VarStorage}
+
+        // a list of known var types 
+        interface KnownVars {
+            map: Vars.VarStorage
+            maps: Vars.VarStorage
+            tmp: Vars.VarStorage
+            call: Vars.VarStorage
             session: {
-                map: { [key: string]: any }
-                maps: { [key: string]: any }
+                map: Vars.VarStorage
+                maps: Vars.VarStorage
             }
-            plot: {
-                line: number
-                [key: string]: any
-            }
-            [key: string]: any
+            plot: Vars.VarStorage & KnownVars.plot 
+            [key: string]: Vars.VarStorage
         }
+
+        namespace KnownVars {
+            interface plot {
+                line?: number
+                metaSpace?: boolean
+            }
+        }
+    }
+
+    interface Vars extends ig.Class {
+        storage: Vars.KnownVars
 
         init(this: this): void
 
-        get(this: this, variable: string): any
+        get(this: this, variable: string): Vars.CCVar
 
-        setDefault(this: this, variable: string, value: any): void
-        set(this: this, variable: string, value: any): void
-        add(this: this, variable: string, value: any): void
-        sub(this: this, variable: string, value: any): void
-        mul(this: this, variable: string, value: any): void
-        div(this: this, variable: string, value: any): void
-        mod(this: this, variable: string, value: any): void
-        and(this: this, variable: string, value: any): void
-        or(this: this, variable: string, value: any): void
-        xor(this: this, variable: string, value: any): void
+        setDefault(this: this, variable: string, value: Vars.CCVar): void
+        set(this: this, variable: string, value: Vars.CCVar): void
+        add(this: this, variable: string, value: Vars.CCVar): void
+        sub(this: this, variable: string, value: Vars.CCVar): void
+        mul(this: this, variable: string, value: Vars.CCVar): void
+        div(this: this, variable: string, value: Vars.CCVar): void
+        mod(this: this, variable: string, value: Vars.CCVar): void
+        and(this: this, variable: string, value: Vars.CCVar): void
+        or(this: this, variable: string, value: Vars.CCVar): void
+        xor(this: this, variable: string, value: Vars.CCVar): void
     }
 
     interface VarsConstructor extends ImpactClass<Vars> { }
@@ -167,6 +180,18 @@ declare namespace ig {
     }
 
     var EffectConfig: EffectConfigConstructor
+
+    namespace SaveSlot {
+        interface Data {
+            vars: Data.Vars
+        }
+
+        namespace Data {
+            interface Vars {
+                storage: Vars.KnownVars
+            }
+        }
+    }
 }
 
 declare namespace sc {
@@ -427,7 +452,7 @@ declare namespace sc {
     interface SaveSlotButton {
         chapter: SaveSlotChapter
 
-        setSave(this: this, a: any, b: any, c: any): void
+        setSave(this: this, a: ig.SaveSlot.Data, b: any, c: any): void
     }
 
     interface SaveSlotChapter extends ig.GuiElementBase {
