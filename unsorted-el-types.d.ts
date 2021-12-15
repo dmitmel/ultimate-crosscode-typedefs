@@ -523,6 +523,17 @@ declare namespace sc {
     var MODIFIERS: { [key: string]: Modifier }
     //#endregion Attacks
 
+    namespace NewGamePlus {
+        interface NewGamePlusOption {
+            set: string
+            cost: number
+            disabled?: boolean
+            needsSaveFile?: boolean
+        }
+    }
+        
+    var NEW_GAME_OPTIONS: { [key: string]: NewGamePlus.NewGamePlusOption };
+
     interface NewGamePlusModel {
         get(this: this, option: string): boolean
     }
@@ -697,4 +708,31 @@ declare namespace sc {
     interface CombatantShieldConnectionConstructor extends ImpactClass<CombatantShieldConnection> {}
 
     var CombatantShieldConnection: CombatantShieldConnectionConstructor
+
+    interface NewUnlockButton extends ButtonGui {}
+
+    interface StartMenu extends BaseMenu {
+        buttons: {
+            quest: ButtonGui,
+            skills: ButtonGui,
+            equipment: ButtonGui,
+            items: ButtonGui,
+            status: ButtonGui,
+            social: ButtonGui,
+            synopsis: NewUnlockButton,
+            save: ButtonGui
+        }
+
+        showMenu(this: this): void
+    }
+
+    interface StartMenuConstructor extends ImpactClass<StartMenu> {
+
+    }
+
+    var StartMenu: StartMenuConstructor
+
+    interface ButtonGui {
+        setActive(this: this, state: boolean): void
+    }
 }
