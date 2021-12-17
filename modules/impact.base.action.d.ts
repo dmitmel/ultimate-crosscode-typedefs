@@ -6,8 +6,14 @@ declare global {
   namespace ig {
     namespace ACTION_STEP {}
 
-    type ActionStepBase = StepBase;
-    type ActionStepBaseConstructor = StepBaseConstructor;
+    interface ActionStepBase extends StepBase {
+
+      run(this: this, target?: ig.ActorEntity): boolean
+      start(this: this, target?: ig.ActorEntity): void
+    }
+    interface ActionStepBaseConstructor extends ImpactClass<ActionStepBase>{
+
+    }
     var ActionStepBase: ActionStepBaseConstructor;
 
     interface Action extends ig.Class {

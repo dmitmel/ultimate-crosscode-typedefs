@@ -8,6 +8,8 @@ declare namespace Vec3 {
 }
 
 declare namespace ig {
+    function error(...data: any[]): void
+
     function getRoundedFaceDir(x: number, y: number, angles: number, d: Vec2): Vec2
 
     interface ActionConstructor {
@@ -19,7 +21,6 @@ declare namespace ig {
     }
 
     namespace ACTION_STEP {
-        //@ts-ignore
         interface SET_PLAYER_INVINCIBLE extends ActionStepBase {
             factor: number
 
@@ -29,6 +30,20 @@ declare namespace ig {
         interface SET_PLAYER_INVINCIBLE_CONSTRUCTOR extends ImpactClass<SET_PLAYER_INVINCIBLE> {}
 
         var SET_PLAYER_INVINCIBLE: SET_PLAYER_INVINCIBLE_CONSTRUCTOR
+
+        
+        interface SHOW_FOOD_ICON extends ActionStepBase {
+            icon: number
+            offset?: number
+
+            init(a: any): void
+
+            start(this: this, target: ig.ENTITY.Combatant): void
+        }
+
+        interface SHOW_FOOD_ICON_CONSTRUCTOR extends ImpactClass<SHOW_FOOD_ICON> {}
+
+        var SHOW_FOOD_ICON: SHOW_FOOD_ICON_CONSTRUCTOR
     }
 
     namespace Vars {
@@ -131,7 +146,17 @@ declare namespace ig {
 
         interface Combatant {
             invincibleTimer: number
+            
+            setTarget(target: Entity | null): void
         }
+    }
+
+    interface Entity {
+        setPos(x: number, y: number, z: number): void
+    }
+
+    interface CollEntry {
+        size: Vec3
     }
 
     interface EffectStepBase extends Omit<StepBase, "start"> {
@@ -192,6 +217,33 @@ declare namespace ig {
             }
         }
     }
+
+    interface CubeSprite extends ig.Class {
+        setImageSrc(image: ig.Image, offsetX: number, offsetY: number): void
+    }
+
+    interface CubeSpriteConstructor extends ImpactClass<CubeSprite> {
+
+    }
+
+    var CubeSprite: CubeSpriteConstructor
+
+    interface TileSheet extends ig.Class {
+        width: number
+        height: number
+        offX: number
+        offY: number
+        xCount: number
+        image: ig.Image
+
+        init(imageSrc: string, width: number, height: number, offX?: number, offY?: number, xCount?: number): void
+    }
+
+    interface TileSheetConstructor extends ImpactClass<TileSheet> {
+        new (imageSrc: string, width: number, height: number, offX?: number, offY?: number, xCount?: number): TileSheet
+    }
+
+    var TileSheet: TileSheetConstructor
 }
 
 declare namespace sc {
@@ -248,6 +300,14 @@ declare namespace sc {
         LOG,
         ARENA
     }
+
+    enum FOOD_ICON_STATE {
+        HOLD = 0,
+        BUBBLE = 1,
+        DONE = 2
+    }
+
+    var FOOD_SPRITE: {[key: string]: number}
 
     interface CrossCode {
         getEntityByName(this: this, name: string): ig.Entity
@@ -445,7 +505,9 @@ declare namespace sc {
         useItem(this: this, a: number): void
     }
 
-    interface PlayerModelContructor extends ImpactClass<PlayerModel> { }
+    interface PlayerModelContructor extends ImpactClass<PlayerModel> {
+        new (): PlayerModel
+    }
 
     var PlayerModel: PlayerModelContructor
 
@@ -760,4 +822,47 @@ declare namespace sc {
     interface ButtonGui {
         setActive(this: this, state: boolean): void
     }
+
+    namespace FoodIconEntity {
+        interface Settings extends ig.Entity.Settings {
+            icon: number
+            combatant: ig.ENTITY.Combatant
+        }
+    }
+
+    interface FoodIconEntity extends ig.Entity {
+        state: sc.FOOD_ICON_STATE
+        sprites: ig.CubeSprite[]
+        icon: number
+
+        init(this: this, a: any, b: any, d: any, g: FoodIconEntity.Settings): void
+        setState(this: this, state: sc.FOOD_ICON_STATE, offset: number): void
+        updateSprites(this: this): void
+    }
+
+    interface FoodIconEntityConstructor extends ImpactClass<FoodIconEntity> {
+        new (x: number, y: number, z: number, settings: FoodIconEntity.Settings): FoodIconEntity
+    }
+
+    var FoodIconEntity: FoodIconEntityConstructor
+
+    interface StatChange extends ig.Class {}
+
+    interface StatChangeConstructor extends ImpactClass<StatChange> {}
+    
+    var StatChange: StatChangeConstructor
+
+    interface ActionBuff extends sc.StatChange{
+        active: boolean
+        name: string
+        hacked: boolean
+
+        init(this: this, statChanges: string[], name: string, hacked: boolean): void
+    }
+
+    interface ActionBuffConstructor extends ImpactClass<ActionBuff> {
+        new (statChanges: string[], name: string, hacked: boolean): ActionBuff
+    }
+
+    var ActionBuff: ActionBuffConstructor
 }
