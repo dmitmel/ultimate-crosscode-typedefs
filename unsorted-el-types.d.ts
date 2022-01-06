@@ -122,6 +122,7 @@ declare namespace ig {
             dashPerfect: boolean
             updateModelStats(this: this, a: any): void
             onPerfectDash(this: this): void
+            updateSkinAura(this: this): void
         }
 
         interface HitNumber extends sc.HitNumberEntityBase {
@@ -315,34 +316,38 @@ declare namespace sc {
     }
 
     //#region Arena
-    interface ArenaCupOptions {
-        order?: number,
-        id?: string
-    }
-
-    interface ArenaCup {
-        order: number
+    namespace Arena {
+        interface CupOptions {
+            order?: number,
+            id?: string
+        }
+        
+        interface Cup {
+            order: number
+            name: ig.LangLabel.Data
+        }
     }
 
     interface Arena extends ig.GameAddon {
         active: boolean
-        cups: { [key: string]: ArenaCup }
+        cups: { [key: string]: Arena.Cup }
 
         init(this: this): void
-        registerCup(this: this, a: string, b: ArenaCupOptions): void
+        registerCup(this: this, a: string, b: Arena.CupOptions): void
         onPreDamageApply(this: this, a: any, b: any, c: any, d: any, e: any): void
-        addScore(this: this, a: string, b: number): void
+        addScore(this: this, scoreType: string, points: number): void
         getTotalArenaCompletion(this: this): number
         getCupCompletion(this: this, cupName: string): number
         getTotalDefaultTrophies(this: this, a: number, c: boolean): number
-        getCupTrophy(this: this, a: string): number
-        isCupUnlocked(this: this, a: string): boolean
-        getTotalDefaultCups(this: this, sorted: boolean): { [key: string]: ArenaCup }
+        getCupTrophy(this: this, cupName: string): number
+        isCupUnlocked(this: this, cupName: string): boolean
+        getTotalDefaultCups(this: this, sorted: boolean): { [key: string]: {order: number} }
         isCupCustom(this: this, cupName: string): boolean
         isEnemyBlocked(this: this, a: any): boolean
         onCombatantHeal(this: this, a: ig.ENTITY.Combatant, b: number): void
         startRound(this: this): void
         endRound(this: this): void
+        initMetaData(this: this, key: string): void
     }
 
     interface ArenaConstructor extends ImpactClass<Arena> { }
@@ -454,6 +459,9 @@ declare namespace sc {
 
     interface MapModel {
         currentArea: sc.MapModel.Area
+        
+        init(this: this): void
+        isValidArea(this: this, areaName: string): boolean
         getChestCount(this: this, key: string): number
         getTotalChestsFound(this: this, asPercent: boolean): number
         getTotalChests(this: this): number,
@@ -503,6 +511,7 @@ declare namespace sc {
         getToggleItemState(this: this, id: number | string): boolean
         getParamAvgLevel(this: this, level: number): number
         useItem(this: this, a: number): void
+        setElementMode(this: this, element: sc.ELEMENT, forceChange: boolean, noEffect: boolean): boolean
     }
 
     interface PlayerModelContructor extends ImpactClass<PlayerModel> {
