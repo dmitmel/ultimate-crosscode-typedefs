@@ -140,7 +140,7 @@ declare namespace ig {
 
         interface Enemy {
             boosterState: sc.ENEMY_BOOSTER_STATE
-            enemyType: sc.EnemyInfo
+            enemyType: sc.EnemyType
             setLevelOverride(this: this, newLevel: number | null): void
         }
 
@@ -691,6 +691,7 @@ declare namespace sc {
 
     interface NewGamePlusModel {
         get(this: this, option: string): boolean
+        getDropRateMultiplier(this: this): number
     }
 
     enum GAME_MODEL_SUBSTATE {
@@ -714,6 +715,7 @@ declare namespace sc {
 
         isAssistMode(this: this): boolean
         enterMenu(this: this, b: boolean): void
+        getCombatRankDropRate(this: this): number
     }
 
     interface EnemyInfo {
@@ -773,18 +775,27 @@ declare namespace sc {
     var EnemyDisplayGui: EnemyDisplayGuiConstructor
 
     interface EnemyPageGeneralInfo extends ig.GuiElementBase {
-        setData(this: this, a: any, b: any, f: any, g: any): void
+        drops: EnemyDrops
+        setData(this: this, enemyName: string, enemyType: sc.EnemyType, f: boolean, boosted: boolean): void
     }
 
     interface EnemyPageGeneralInfoConstructor extends ImpactClass<EnemyPageGeneralInfo> { }
 
     var EnemyPageGeneralInfo: EnemyPageGeneralInfoConstructor
 
+    interface EnemyDrops extends ig.GuiElementBase {
+        setDrops(this: this, dropList: EnemyType.ItemDrop[], d: boolean, boosted: boolean): void
+    }
+
+    interface EnemyDropsConstructor extends ImpactClass<EnemyDrops> {}
+
+    var EnemyDrops: EnemyDropsConstructor
+
     interface Combat extends ig.GameAddon {
-        enemyDataList: { [key: string]: EnemyInfo }
+        enemyDataList: { [key: string]: EnemyType }
         effects: { [key: string]: ig.EffectSheet }
 
-        canShowBoostedEntry(this: this, b: any, isBoss: boolean): boolean
+        canShowBoostedEntry(this: this, enemyName: string, isBoss: boolean): boolean
         showPerfectDashEffect(this: this, target: ig.ActorEntity): void
     }
 
@@ -1005,8 +1016,24 @@ declare namespace sc {
 
     var SUB_MENU_INFO: {[key: string | number]: SubMenuInfo}
 
+    namespace EnemyType {
+        interface ItemDrop {
+            item: sc.Inventory.ItemID
+            prob: number
+            min: number
+            max: number
+            rank: "" | "D" | "C" | "B" | "A" | "S"
+            boosted?: boolean
+            condition?: string
+        }
+    }
+
     interface EnemyType {
-        resolveItemDrops(this: this, entity: ig.ENTITY.Enemy): void
+        level: number
+        boss: boolean
+        boostedLevel: number
+        itemDrops: EnemyType.ItemDrop[]
+        resolveItemDrops(this: this, enemyEntity: ig.ENTITY.Enemy): void
     }
 
     interface ItemDropEntity extends ig.AnimatedEntity {}
