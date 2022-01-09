@@ -540,6 +540,11 @@ declare namespace sc {
         useItem(this: this, a: number): void
         setElementMode(this: this, element: sc.ELEMENT, forceChange: boolean, noEffect: boolean): boolean
         getCore(this: this, core: sc.PLAYER_CORE): boolean
+        getItemAmount(this: this, item: Inventory.ItemID): number
+        hasItem(this: this, item: Inventory.ItemID): boolean
+        getItemAmountWithEquip(this: this, item: Inventory.ItemID): number
+        addItem(this: this, item: Inventory.ItemID, amount: number, hideEffect?: boolean): void
+        removeItem(this: this, item: Inventory.ItemID, amount: number, notifyObservers?: boolean, includeEquip?: boolean): boolean
     }
 
     enum PLAYER_CORE {
