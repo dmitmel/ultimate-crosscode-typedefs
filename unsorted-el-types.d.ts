@@ -12,6 +12,13 @@ declare namespace ig {
 
     function getRoundedFaceDir(x: number, y: number, angles: number, d: Vec2): Vec2
 
+    
+    namespace Database {
+        interface Data {
+            shops: {[key: string]: sc.ShopModel}
+        }
+    }
+
     interface ActionConstructor {
         getVec3(a: Vec3, b: ig.ActorEntity, c: Vec3): Vec3
     }
@@ -245,6 +252,26 @@ declare namespace ig {
     }
 
     var TileSheet: TileSheetConstructor
+
+    namespace EVENT_STEP {
+        namespace EventSettings {
+            interface OPEN_SHOP {
+                shop: string
+            }
+        }
+
+        interface OPEN_SHOP {
+            shop: string
+            init(this: this, settings: EventSettings.OPEN_SHOP): void
+            start(this: this): void
+        }
+
+        interface OPEN_SHOP_CONSTRUCTOR extends ImpactClass<OPEN_SHOP> {
+            new (settings: EventSettings.OPEN_SHOP): OPEN_SHOP
+        }
+
+        var OPEN_SHOP: OPEN_SHOP_CONSTRUCTOR
+    }
 }
 
 declare namespace sc {
@@ -512,7 +539,39 @@ declare namespace sc {
         getParamAvgLevel(this: this, level: number): number
         useItem(this: this, a: number): void
         setElementMode(this: this, element: sc.ELEMENT, forceChange: boolean, noEffect: boolean): boolean
+        getCore(this: this, core: sc.PLAYER_CORE): boolean
     }
+
+    enum PLAYER_CORE {
+        MOVE = 1,
+        CHARGE = 2,
+        DASH = 3,
+        CLOSE_COMBAT = 4,
+        GUARD = 5,
+        CREDITS = 6,
+        MENU = 7,
+        ELEMENT_NEUTRAL = 8,
+        ELEMENT_HEAT = 9,
+        ELEMENT_COLD = 10,
+        ELEMENT_SHOCK = 11,
+        ELEMENT_WAVE = 12,
+        QUICK_MENU = 13,
+        THROWING = 14,
+        ELEMENT_LOAD = 15,
+        ELEMENT_CHANGE = 16,
+        SPECIAL = 17,
+        COMBAT_RANK = 18,
+        QUEST_SWITCH = 19,
+        EXP = 20,
+        MENU_CIRCUIT = 21,
+        MENU_SYNOPSIS = 22,
+        MENU_SOCIAL = 23,
+        MENU_SOCIAL_INVITE = 24,
+        MENU_BOTANICS = 25,
+        ITEMS = 26,
+        MONEY = 27,
+        MODIFIER = 28
+    }   
 
     interface PlayerModelContructor extends ImpactClass<PlayerModel> {
         new (): PlayerModel
@@ -549,7 +608,7 @@ declare namespace sc {
         ribbon: ig.ImageGui
         points: sc.NumberGui
 
-        init(this: this, icon: string, stars: number, points: number, f: any): void
+        init(this: this, icon: string, stars: number, points: number, trophyUnlocked: boolean): void
     }
 
     interface TrophyIconGraphicConstructor extends ImpactClass<TrophyIconGraphic> { }
@@ -634,10 +693,27 @@ declare namespace sc {
         get(this: this, option: string): boolean
     }
 
+    enum GAME_MODEL_SUBSTATE {
+        RUNNING = 0,
+        TELEPORT = 1,
+        LOADING = 2,
+        NEWGAME = 3,
+        RESET = 4,
+        LOADGAME = 5,
+        MENU = 6,
+        PAUSE = 7,
+        LEVELUP = 8,
+        QUICK = 9,
+        ONMAPMENU = 10,
+        QUESTSOLVED = 11,
+    }
+
     interface GameModel {
+        prevSubState: sc.GAME_MODEL_SUBSTATE
         player: PlayerModel
 
         isAssistMode(this: this): boolean
+        enterMenu(this: this, b: boolean): void
     }
 
     interface EnemyInfo {
@@ -748,13 +824,59 @@ declare namespace sc {
 
     var BaseMenu: BaseMenuConstructor
 
+    namespace ShopModel {
+        interface ShopPage {
+            title: ig.LangLabel.Data
+            content: ShopItem[]
+        }
+
+        interface ShopItem {
+            item: sc.Inventory.ItemID
+            condition?: string,
+            price?: number
+        }
+    }
+
+    interface ShopModel {
+        name: ig.LangLabel.Data
+        shopType: sc.MENU_SHOP_TYPES
+        sellScale: number
+        maxOwn?: number
+        content?: any[][]
+        pages: ShopModel.ShopPage[]
+    }
+
+    interface ShopListMenu extends MenuPanel {
+        
+    }
+
+    interface ShopCart extends ig.BoxGui {
+
+    }
+
+    interface ShopCartConstructor extends ImpactClass<ShopCart> {
+        
+    }
+
+    var ShopCart: ShopCartConstructor
+
     interface ShopMenu extends BaseMenu {
+        cart: sc.ShopCart
         init(this: this): void
     }
 
-    interface ShopMenuConstructor extends ShopMenu { }
+    interface ShopMenuConstructor extends ImpactClass<ShopMenu> {
+        new (): ShopMenu
+    }
 
     var ShopMenu: ShopMenuConstructor
+
+    interface MenuModel {
+        shopID: string
+
+        exitMenu(this: this): void
+        setDirectMode(this: this, directMode: boolean, directMenu: sc.MENU_SUBMENU): void
+    }
 
     namespace TradeModel {
         interface TradeItem {
@@ -874,4 +996,35 @@ declare namespace sc {
     }
 
     var ActionBuff: ActionBuffConstructor
+
+    interface SubMenuInfo {
+        Clazz: ImpactClass<sc.BaseMenu>
+        name: string
+        alt?: string
+    }
+
+    var SUB_MENU_INFO: {[key: string | number]: SubMenuInfo}
+
+    interface EnemyType {
+        resolveItemDrops(this: this, entity: ig.ENTITY.Enemy): void
+    }
+
+    interface ItemDropEntity extends ig.AnimatedEntity {}
+
+    interface ItemDropEntityConstructor extends ImpactClass<ItemDropEntity> {
+        spawnDrops(entity: ig.Entity, align: ig.ENTITY_ALIGN, target: ig.Entity, item: sc.Inventory.ItemID, amount: number, dropType: sc.ItemDropType): void
+    }
+
+    var ItemDropEntity: ItemDropEntityConstructor
+
+    interface ItemDropType {
+            preCollect?: boolean
+            fly?: boolean
+    }
+
+    var ITEM_DROP_TYPE: {[key: string]: ItemDropType}
+}
+
+declare namespace itemAPI {
+    var customItemToId: {[itemID: string]: number}
 }
