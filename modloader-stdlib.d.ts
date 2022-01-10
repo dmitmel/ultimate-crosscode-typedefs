@@ -125,25 +125,6 @@ declare global {
   }
 
   namespace sc {
-    namespace OptionDefinitionCommon {
-      interface Icon {
-        path: string;
-        offsetX?: number | null;
-        offsetY?: number | null;
-        sizeX?: number | null;
-        sizeY?: number | null;
-      }
-    }
-    interface OptionDefinitionCommon {
-      icon?: OptionDefinitionCommon.Icon;
-    }
-
-    interface OptionRow {
-      iconSettings: sc.OptionDefinitionCommon.Icon | null | undefined;
-      iconGfx: ig.Image | null | undefined;
-      iconGui: ig.ImageGui;
-    }
-
     namespace OptionDefinition {
       interface CHECKBOX {
         checkboxRightAlign?: boolean;

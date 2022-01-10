@@ -99,6 +99,7 @@ declare global {
         callback?: (() => void) | null,
         initDelay?: number,
       ): void;
+      setScale(this: this, scaleX: number, scaleY: number): void;
     }
     interface GuiHookConstructor extends ImpactClass<GuiHook> {}
     var GuiHook: GuiHookConstructor;
@@ -111,8 +112,24 @@ declare global {
     var GuiDrawable: GuiDrawableConstructor;
 
     interface GuiTransform extends ig.Class {
-      setTranslate(this: this, x: number, y: number): this;
+      translate: Vec2;
+      scale: Vec2;
+      rotate: number;
+      pivot: Vec2;
+      alpha: number;
+      clip: Vec2;
+      prePos: Vec2;
+      preAlpha: number;
+
+      setAlpha(this: this, alpha: number): this;
       setClip(this: this, x: number, y: number): this;
+      setTranslate(this: this, x: number, y: number): this;
+      setScale(this: this, x: number, y: number): this;
+      setRotate(this: this, r: number): this;
+      isComplex(this: this): boolean;
+      transform(this: this, x: number, y: number): void;
+      kill(this: this): void;
+      clear(this: this): void;
     }
     interface GuiTransformConstructor extends ImpactClass<GuiTransform> {}
     var GuiTransform: GuiTransformConstructor;
