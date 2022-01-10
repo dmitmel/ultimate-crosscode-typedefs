@@ -157,6 +157,17 @@ declare namespace ig {
             
             setTarget(target: Entity | null): void
         }
+
+        interface NPC extends sc.ActorEntity {
+            interactIcons: {[key: string]: sc.MapInteractIcon}
+            interactEntry: sc.MapInteractEntry
+            init(this: this, a: any, b: unknown, c: unknown, d: unknown): void
+            setMapInteractIcon(this: this, npcState: sc.NpcState): void
+        }
+
+        interface NPCConstructor extends ImpactClass<NPC> {}
+
+        var NPC: NPCConstructor
     }
 
     interface Entity {
@@ -272,6 +283,16 @@ declare namespace ig {
 
         var OPEN_SHOP: OPEN_SHOP_CONSTRUCTOR
     }
+
+    interface Event extends ig.Class {
+        init(this: this, eventSteps: any): void
+    }
+
+    interface EventConstructor extends ImpactClass<Event> {
+        new (eventSteps: any): ig.Event
+    }
+
+    var Event: EventConstructor
 }
 
 declare namespace sc {
@@ -1055,6 +1076,47 @@ declare namespace sc {
     }
 
     var ITEM_DROP_TYPE: {[key: string]: ItemDropType}
+
+    namespace MapInteractIcon {
+        interface interactOptions {
+            FOCUS: number[]
+            NEAR: number[]
+            AWAY?: number[]
+            RUNNING?: number[]
+        }
+    }
+
+    interface MapInteractIcon extends ig.Class {
+        init(this: this, tiles: ig.TileSheet, options: MapInteractIcon.interactOptions, frameTime: number): void
+    }
+
+    interface MapInteractIconConstructor extends ImpactClass<MapInteractIcon> {
+        new (tiles: ig.TileSheet, options: MapInteractIcon.interactOptions, frameTime: number): MapInteractIcon
+    }
+
+    var MapInteractIcon: MapInteractIconConstructor
+
+    enum NPC_EVENT_TYPE {
+        SIMPLE = 0,
+        TRADE = 1,
+        QUEST = 2,
+        SHOP = 3,
+        ARENA = 4
+    }
+
+    interface NpcState {
+        npcEventType: sc.NPC_EVENT_TYPE,
+        npcEventObj: ig.Event
+        init(this: this, a: any, b: any): void
+    }
+
+    interface NpcStateConstructor extends ImpactClass<NpcState> {}
+
+    var NpcState: NpcStateConstructor
+
+    interface MapInteractEntry extends ig.Class {
+        setIcon(this: this, icon: sc.MapInteractIcon): void
+    }
 }
 
 declare namespace itemAPI {
