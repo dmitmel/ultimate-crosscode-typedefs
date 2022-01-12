@@ -17,6 +17,7 @@ declare global {
     }
     interface ButtonGui extends ig.FocusGui {
       text: sc.TextLike;
+      buttonType: sc.ButtonGui.Type;
       textChild: sc.TextGui;
 
       setWidth(this: this, width: number): void;
