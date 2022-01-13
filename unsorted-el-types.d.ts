@@ -199,6 +199,7 @@ declare namespace ig {
 
     interface EffectSheet extends ig.JsonLoadable {
         spawnOnTarget(this: this, key: string, a: ig.ActorEntity, effectConfig: any): ENTITY.Effect
+        spawnFixed(this: this, effectName: string, x: number, y: number, z: number, target: ig.Entity, effectSettings?: ig.EFFECT_ENTRY.EffectSettings): ig.ENTITY.Effect | null
     }
 
     interface EffectSheetConstructor extends ImpactClass<EffectSheet> {
@@ -556,7 +557,7 @@ declare namespace sc {
         items: number[]
 
         onVarAccess(this: this, a: any, b: string[]): any
-        getToggleItemState(this: this, id: number | string): boolean
+        getToggleItemState(this: this, id: sc.Inventory.ItemID): boolean
         getParamAvgLevel(this: this, level: number): number
         useItem(this: this, a: number): void
         setElementMode(this: this, element: sc.ELEMENT, forceChange: boolean, noEffect: boolean): boolean
