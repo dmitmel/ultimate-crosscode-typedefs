@@ -14,6 +14,13 @@ declare global {
   namespace ig.ENTITY {
     interface Player extends sc.PlayerBaseEntity {
       proxies: Record<string, sc.ProxySpawnerBase>;
+      perfectGuardCooldown: number;
+      dashPerfect: boolean;
+      stunEscapeDash: boolean
+      regenFactor: number
+      updateModelStats(this: this, a: boolean): void;
+      onPerfectDash(this: this): void;
+      updateSkinAura(this: this): void;
     }
     interface PlayerConstructor extends ImpactClass<Player> {}
     var Player: PlayerConstructor;

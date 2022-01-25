@@ -8,7 +8,16 @@ export {};
 
 declare global {
   namespace sc {
-    interface PlayerBaseEntity extends ig.ENTITY.Combatant {}
+    namespace PlayerBaseEntity {
+      interface Guard {
+        damage: number;
+        timer: number;
+      }
+    }
+    interface PlayerBaseEntity extends ig.ENTITY.Combatant {
+      guard: PlayerBaseEntity.Guard
+      damageShield(this: this, damage: number): boolean 
+    }
     interface PlayerBaseEntityConstructor extends ImpactClass<PlayerBaseEntity> {}
     var PlayerBaseEntity: PlayerBaseEntityConstructor;
   }

@@ -123,15 +123,6 @@ declare namespace ig {
     }
 
     namespace ENTITY {
-        interface Player extends sc.PlayerBaseEntity {
-            stunEscapeDash: boolean
-            regenFactor: number
-            dashPerfect: boolean
-            updateModelStats(this: this, a: any): void
-            onPerfectDash(this: this): void
-            updateSkinAura(this: this): void
-        }
-
         interface HitNumber extends sc.HitNumberEntityBase {
             spawnHealingNumber(this: this, pos: Vec3, entity: ig.Entity, healAmount: any): void
         }
@@ -294,6 +285,30 @@ declare namespace ig {
     }
 
     var Event: EventConstructor
+
+    namespace NinePatch {
+        interface TileSettings {
+            width: number
+            height: number
+            top: number
+            bottom: number
+            right: number
+            left: number
+            offsets: {
+                [key: string]: {x: number, y: number}
+            }
+        }
+    }
+
+    interface NinePatch extends ig.Class {
+        init(this: this, tilesheet: string, tilesettings: NinePatch.TileSettings): void
+    }
+
+    interface NinePatchConstructor extends ImpactClass<NinePatch> {
+        new (tilesheet: string, tilesettings: NinePatch.TileSettings): ig.NinePatch
+    }
+
+    var NinePatch: NinePatchConstructor
 }
 
 declare namespace sc {
@@ -849,7 +864,7 @@ declare namespace sc {
 
     interface BaseMenu extends ig.GuiElementBase {
         visible: boolean
-        transitions: ig.GuiHook.Transition
+        transitions: {[key: string]: ig.GuiHook.Transition}
         init(this: this): void
         addObservers(this: this): void
         removeObservers(this: this): void
@@ -957,8 +972,8 @@ declare namespace sc {
 
     interface CombatantShieldConnection extends ig.Class {
         perfectGuardTime: number
-
         init(this: this, a: ig.ENTITY.Combatant, b: unknown, e: number): void
+        resetPerfectGuardTime(this: this): void
     }
 
     interface CombatantShieldConnectionConstructor extends ImpactClass<CombatantShieldConnection> {}

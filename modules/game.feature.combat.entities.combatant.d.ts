@@ -21,6 +21,8 @@ declare global {
   namespace ig.ENTITY {
     interface Combatant extends sc.BasicCombatant {
       params: sc.CombatParams;
+      shieldsConnections: sc.CombatantShieldConnection[];
+      onPreDamageModification(this: this, a: unknown, b: unknown, c: unknown, d: unknown, e: unknown, shieldResult: sc.SHIELD_RESULT): boolean;
     }
     interface CombatantConstructor extends ImpactClass<Combatant> {}
     var Combatant: CombatantConstructor;
