@@ -28,16 +28,29 @@ declare global {
         statusInflict: number[];
         statusEffect: number[];
       }
+
+      interface HealAmount {
+        value: number
+        absolute?: boolean
+      }
     }
     interface CombatParams extends ig.Class {
       baseparams: sc.CombatParams.BaseParams;
       currentHp: number;
+      defeated: boolean;
 
       getStat<K extends keyof sc.CombatParams.BaseParams>(
         this: this,
         key: K,
         noHack?: boolean | null,
       ): sc.CombatParams.BaseParams[K];
+      getModifier<K extends keyof typeof sc.Modifiers.KnownModifiers>(this: this, modifier: K): number;
+      getModifier(this: this, modifier: string): number;
+      update(this: this, a: unknown): void;
+      getHpFactor(this: this): number;
+      getRelativeSp(this: this): number;
+      getHealAmount(this: this, amount: CombatParams.HealAmount): number;
+      increaseHp(this: this, amount: number): void;
     }
     interface CombatParamsConstructor extends ImpactClass<CombatParams> {}
     var CombatParams: CombatParamsConstructor;

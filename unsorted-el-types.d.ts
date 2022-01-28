@@ -380,67 +380,7 @@ declare namespace sc {
     }
 
     //#region Arena
-    namespace Arena {
-        interface CupOptions {
-            order?: number,
-            id?: string
-        }
-        
-        interface Cup {
-            order: number
-            name: ig.LangLabel.Data
-        }
-    }
 
-    interface Arena extends ig.GameAddon {
-        active: boolean
-        cups: { [key: string]: Arena.Cup }
-
-        init(this: this): void
-        registerCup(this: this, a: string, b: Arena.CupOptions): void
-        onPreDamageApply(this: this, a: any, b: any, c: any, d: any, e: any): void
-        addScore(this: this, scoreType: string, points: number): void
-        getTotalArenaCompletion(this: this): number
-        getCupCompletion(this: this, cupName: string): number
-        getTotalDefaultTrophies(this: this, a: number, c: boolean): number
-        getCupTrophy(this: this, cupName: string): number
-        isCupUnlocked(this: this, cupName: string): boolean
-        getTotalDefaultCups(this: this, sorted: boolean): { [key: string]: {order: number} }
-        isCupCustom(this: this, cupName: string): boolean
-        isEnemyBlocked(this: this, a: any): boolean
-        onCombatantHeal(this: this, a: ig.ENTITY.Combatant, b: number): void
-        startRound(this: this): void
-        endRound(this: this): void
-        initMetaData(this: this, key: string): void
-    }
-
-    interface ArenaConstructor extends ImpactClass<Arena> { }
-
-    var Arena: ArenaConstructor
-    var arena: Arena
-    namespace Arena {
-        interface ArenaBonusObjective {
-            _type: "Integer" | "EMPTY",
-            _prefix?: "seconds" | "value" | "target"
-            order: number,
-            displayRangePoints: boolean,
-
-            init(a: any, b: any): void
-            check(a: any): boolean
-            getText(a: string, b: any, c: boolean): string
-            getPoints?(a: any, b: any): number
-        }
-
-        interface ArenaScoreType {
-            order: number,
-            staticMultiplier?: number
-            static?: boolean
-            asBonus?: boolean
-        }
-    }
-
-    var ARENA_BONUS_OBJECTIVE: { [key: string]: Arena.ArenaBonusObjective }
-    var ARENA_SCORE_TYPES: { [key: string]: Arena.ArenaScoreType }
     //#endregion Arena
 
     //#region Stats
@@ -681,23 +621,6 @@ declare namespace sc {
 
     var AttackInfo: AttackInfoConstructor
 
-    namespace CombatParams {
-        interface HealAmount {
-            value: number
-            absolute?: boolean
-        }
-    }
-
-    interface CombatParams extends ig.Class {
-        getModifier(this: this, modifier: string): number
-        update(this: this, a: any): void
-        getHpFactor(this: this): number
-        getRelativeSp(this: this): number
-
-        getHealAmount(this: this, amount: CombatParams.HealAmount): number
-        increaseHp(this: this, amount: number): void
-    }
-
     interface HitNumberEntityBase extends ig.Entity {
 
     }
@@ -708,16 +631,7 @@ declare namespace sc {
             { attackInfo: AttackInfo, damageFactor: number, applyDamageCallback: (() => void) | null }
     }
 
-    interface Modifier {
-        altSheet?: string
-        offX?: number
-        offY?: number
-        icon: number
-        order: number
-        noPercent: boolean
-    }
-
-    var MODIFIERS: { [key: string]: Modifier }
+    
     //#endregion Attacks
 
     namespace NewGamePlus {
