@@ -79,7 +79,7 @@ declare global {
 			cups: Record<string, Arena.Cup>
 
 			init(this: this): void
-			registerCup(this: this, a: string, b: Arena.CupOptions): void
+			registerCup(this: this, cupName: string, cupOptions: Arena.CupOptions, isExtension?: boolean): void
 			onPreDamageApply(this: this, a: any, b: any, c: any, d: any, e: any): void
 			addScore<K extends keyof typeof sc.ArenaScoreTypes.KnownScoreTypes>(this: this, scoreType: K, points: number): void
 			addScore(this: this, scoreType: string, points: number): void

@@ -12,15 +12,42 @@ export {};
 
 declare global {
   namespace ig.ENTITY {
+    namespace Player {
+      interface PlayerState {
+        startState: number;
+        guarding: boolean;
+        applyCharge: boolean;
+        isCharging: boolean;
+        redashReady: boolean;
+      }
+
+      interface PlayerInput {
+        thrown: boolean;
+        melee: boolean;
+        aim: boolean;
+        autoThrow: false;
+        attack: boolean;
+        guard: boolean;
+        charge: boolean;
+        dashX: number;
+        dashY: number;
+        switchMode: false;
+        relativeVel: number;
+        moveDir: Vec2;
+      }
+    }
     interface Player extends sc.PlayerBaseEntity {
       proxies: Record<string, sc.ProxySpawnerBase>;
       perfectGuardCooldown: number;
       dashPerfect: boolean;
-      stunEscapeDash: boolean
-      regenFactor: number
+      stunEscapeDash: boolean;
+      regenFactor: number;
+      model: sc.PlayerModel;
+      attackCounter: number;
       updateModelStats(this: this, a: boolean): void;
       onPerfectDash(this: this): void;
       updateSkinAura(this: this): void;
+      handleStateStart(this: this, playerState: Player.PlayerState, inputState: Player.PlayerInput): void;
     }
     interface PlayerConstructor extends ImpactClass<Player> {}
     var Player: PlayerConstructor;
