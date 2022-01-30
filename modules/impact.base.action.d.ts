@@ -10,6 +10,7 @@ declare global {
 
       run(this: this, target?: ig.ActorEntity): boolean
       start(this: this, target?: ig.ActorEntity): void
+      getNext(this: this, target?: ig.ActorEntity): ig.ActionStepBase
     }
     interface ActionStepBaseConstructor extends ImpactClass<ActionStepBase>{
 

@@ -349,12 +349,6 @@ declare namespace sc {
         NEUTRALIZE
     }
 
-    enum COMBATANT_PARTY {
-        PLAYER,
-        ENEMY,
-        OTHER
-    }
-
     enum STATS_CATEGORY {
         GENERAL,
         COMBAT,
@@ -692,33 +686,8 @@ declare namespace sc {
 
     var EnemyDrops: EnemyDropsConstructor
 
-    interface Combat extends ig.GameAddon {
-        enemyDataList: { [key: string]: EnemyType }
-        effects: { [key: string]: ig.EffectSheet }
-
-        canShowBoostedEntry(this: this, enemyName: string, isBoss: boolean): boolean
-        showPerfectDashEffect(this: this, target: ig.ActorEntity): void
-    }
-
-    interface CombatConstructor extends ImpactClass<Combat> { }
-
-    var Combat: CombatConstructor
-    var combat: Combat
-
     interface BasicCombatant {
         isPlayer?: boolean
-    }
-
-    interface Inventory {
-        items: Inventory.Item[]
-        scalable: number[]
-
-        init(this: this): void
-        updateScaledEquipment(this: this, newLevel: number): void
-        getRaritySuffix(this: this, rarity: ITEMS_RARITY): string
-        getItemName(this: this, id: Inventory.ItemID): string
-        getItemIcon(this: this, id: Inventory.ItemID): string
-        getItemNameWithIcon(this: this, id: Inventory.ItemID): string
     }
 
     interface BaseMenu extends ig.GuiElementBase {
