@@ -10,10 +10,14 @@ declare global {
       : (this: This2, ...args: Args) => Return
     : T;
 
-  type ImpactClassMethodThis<K extends keyof Proto, Ctor, Proto, ParentProto> =
-    K extends keyof ParentProto
-      ? Proto & { constructor: Ctor; parent: ParentProto[K] }
-      : Proto & { constructor: Ctor };
+  type ImpactClassMethodThis<
+    K extends keyof Proto,
+    Ctor,
+    Proto,
+    ParentProto,
+  > = K extends keyof ParentProto
+    ? Proto & { constructor: Ctor; parent: ParentProto[K] }
+    : Proto & { constructor: Ctor };
 
   type ImpactClassMember<K extends keyof Proto, Ctor, Proto, ParentProto> = ReplaceThisParameter<
     Proto[K],

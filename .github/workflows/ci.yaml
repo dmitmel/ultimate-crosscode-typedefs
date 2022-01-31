@@ -16,7 +16,7 @@ jobs:
       - name: install node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '15.x'
+          node-version: '16.x'
 
       - name: get Yarn cache dir
         id: yarn_cache_dir

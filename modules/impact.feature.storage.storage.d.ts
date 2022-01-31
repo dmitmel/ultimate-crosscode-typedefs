@@ -78,8 +78,7 @@ declare global {
       namespace GlobalsData {
         type Options = {
           [K in keyof sc.OPTIONS_DEFINITION.KnownTypesMap]: sc.OPTIONS_DEFINITION.KnownTypesMap[K]['init'];
-        } &
-          Record<string, unknown>;
+        } & Record<string, unknown>;
       }
       interface GlobalsData {
         featVersion: number;
