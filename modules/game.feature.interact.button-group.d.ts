@@ -4,8 +4,13 @@ export {};
 
 declare global {
   namespace sc {
-    interface ButtonGroup extends ig.ButtonGroup {}
-    interface ButtonGroupConstructor extends ImpactClass<ButtonGroup> {}
+    interface ButtonGroup extends ig.ButtonGroup {
+      init(this: this): void;
+      isActive(this: this): boolean;
+    }
+    interface ButtonGroupConstructor extends ImpactClass<ButtonGroup> {
+      new (): sc.ButtonGroup;
+    }
     var ButtonGroup: ButtonGroupConstructor;
 
     interface RowButtonGroup extends sc.ButtonGroup {

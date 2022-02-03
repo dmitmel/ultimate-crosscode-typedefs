@@ -147,6 +147,12 @@ declare global {
     interface MenuModel extends ig.GameAddon, sc.Model {
       statusElement: sc.ELEMENT;
       statusDiff: boolean;
+      buttonInteract: ig.ButtonInteractEntry;
+
+      moveLeaSprite(this: this, x: number, y: number, leaState: sc.MENU_LEA_STATE): void;
+      popBackCallback(this: this): void;
+      pushBackCallback(this: this, callback: () => void): void;
+      popMenu(this: this): void;
     }
     interface MenuModelConstructor extends ImpactClass<MenuModel> {}
     var MenuModel: MenuModelConstructor;

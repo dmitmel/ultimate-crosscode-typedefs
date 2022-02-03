@@ -88,6 +88,9 @@ declare global {
       transitions: { [name: string]: ig.GuiHook.Transition };
       currentStateName: string;
       screenCoords?: ig.GuiHook.ScreenCoords;
+      localAlpha: number;
+      pauseGui: boolean;
+      zIndex: number;
 
       removeChildHook(this: this, hook: ig.GuiHook): void;
       removeChildHookByIndex(this: this, index: number): ig.GuiHook;

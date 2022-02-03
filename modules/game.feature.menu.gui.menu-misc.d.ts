@@ -9,6 +9,12 @@ export {};
 
 declare global {
   namespace sc {
+    enum ScrollType {
+      BOTH = 0,
+      Y_ONLY = 1,
+      X_ONLY = 2
+    }
+
     var MODIFIER_ICON_DRAW: {
       X: number;
       Y: number;
@@ -119,8 +125,21 @@ declare global {
     interface MenuScanLinesConstructor extends ImpactClass<MenuScanLines> {}
     var MenuScanLines: MenuScanLinesConstructor;
 
-    interface ScrollPane extends ig.GuiElementBase {}
-    interface ScrollPaneConstructor extends ImpactClass<ScrollPane> {}
+    namespace ScrollPane {
+      interface Container extends ig.GuiElementBase {}
+      interface ContainerConstructor extends ImpactClass<Container> {}
+    }
+    interface ScrollPane extends ig.GuiElementBase {
+      box: sc.ScrollPane.Container;
+      setContent(this: this, content: ig.GuiElementBase): void;
+      recalculateScrollBars(this: this, a?: boolean): void;
+      setScrollY(this: this, posY: number, instant: boolean, time: number, keySpline: KeySpline): void;
+      scrollY(this: this, amount: number): void;
+    }
+    interface ScrollPaneConstructor extends ImpactClass<ScrollPane> {
+      new (scrollType: sc.ScrollType): sc.ScrollPane;
+      Container: sc.ScrollPane.ContainerConstructor
+    }
     var ScrollPane: ScrollPaneConstructor;
 
     interface TimeAndMoneyGUI extends sc.MenuPanel {

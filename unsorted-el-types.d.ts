@@ -15,7 +15,7 @@ declare namespace ig {
     
     namespace Database {
         interface Data {
-            shops: {[key: string]: sc.ShopModel}
+            shops: Record<string, sc.ShopModel>
         }
     }
 
@@ -86,6 +86,7 @@ declare namespace ig {
         init(this: this): void
 
         get(this: this, variable: string): Vars.CCVar
+        get<K extends Vars.CCVar>(this: this, variable: string): K
 
         setDefault(this: this, variable: string, value: Vars.CCVar): void
         set(this: this, variable: string, value: Vars.CCVar): void
@@ -109,8 +110,8 @@ declare namespace ig {
     }
 
     interface ExtensionManager {
-        enabled: { [key: string]: boolean }
-        init(this: this): void
+        enabled: Record<string, boolean>;
+        init(this: this): void;
     }
 
     interface ExtensionManagerConstructor extends ImpactClass<ExtensionManager> { }
@@ -150,7 +151,7 @@ declare namespace ig {
         }
 
         interface NPC extends sc.ActorEntity {
-            interactIcons: {[key: string]: sc.MapInteractIcon}
+            interactIcons: Record<string, sc.MapInteractIcon>;
             interactEntry: sc.MapInteractEntry
             init(this: this, a: any, b: unknown, c: unknown, d: unknown): void
             setMapInteractIcon(this: this, npcState: sc.NpcState): void
@@ -294,9 +295,7 @@ declare namespace ig {
             bottom: number
             right: number
             left: number
-            offsets: {
-                [key: string]: {x: number, y: number}
-            }
+            offsets: Record<string, Vec2>;
         }
     }
 
@@ -366,7 +365,7 @@ declare namespace sc {
         DONE = 2
     }
 
-    var FOOD_SPRITE: {[key: string]: number}
+    var FOOD_SPRITE: Record<string, number>
 
     interface CrossCode {
         getEntityByName(this: this, name: string): ig.Entity
@@ -411,13 +410,11 @@ declare namespace sc {
             group?: string
             stat?: string
             map?: string
-            max(): number
+            max?(): number
             getSettings?(a: string): StatItem | null
         }
     }
-    interface StatCategory {
-        [key: string]: Stats.StatItem
-    }
+    type StatCategory = Record<string, Stats.StatItem>
 
     var STATS_BUILD: StatCategory[]
 
@@ -432,9 +429,7 @@ declare namespace sc {
         index?: number
     }
 
-    var STAT_PARAM_TYPE: {
-        [key: string]: StatParamType
-    }
+    var STAT_PARAM_TYPE: Record<string, StatParamType>;
 
     interface StatChangeSetting {
         change: STAT_CHANGE_TYPE
@@ -444,7 +439,7 @@ declare namespace sc {
         grade: string
     }
 
-    var STAT_CHANGE_SETTINGS: { [key: string]: StatChangeSetting }
+    var STAT_CHANGE_SETTINGS: Record<string, StatChangeSetting>
     //#endregion Stats
 
     //#region Map
@@ -522,7 +517,7 @@ declare namespace sc {
         hidden?: boolean
     }
 
-    var TROPHY_ICONS: { [key: string]: TrophyIcon }
+    var TROPHY_ICONS: Record<string, TrophyIcon>
 
     interface TrophyIconGraphic extends ig.GuiElementBase {
         icon: ig.ImageGui
@@ -563,12 +558,12 @@ declare namespace sc {
     interface HitNumberEntityBase extends ig.Entity {
 
     }
-
-    var DAMAGE_MODIFIER_FUNCS: {
-        [key: string]: (attackInfo: AttackInfo, damageFactor: number, combatantRoot: ig.ENTITY.Combatant,
+    namespace DAMAGE_MODIFIER_FUNCS {
+        type DamageModifierFunction = (attackInfo: AttackInfo, damageFactor: number, combatantRoot: ig.ENTITY.Combatant,
             shieldResult: SHIELD_RESULT, hitIgnore: boolean, params: sc.CombatParams) =>
             { attackInfo: AttackInfo, damageFactor: number, applyDamageCallback: (() => void) | null }
     }
+    var DAMAGE_MODIFIER_FUNCS: Record<string, DAMAGE_MODIFIER_FUNCS.DamageModifierFunction>;
 
     
     //#endregion Attacks
@@ -582,7 +577,7 @@ declare namespace sc {
         }
     }
         
-    var NEW_GAME_OPTIONS: { [key: string]: NewGamePlus.NewGamePlusOption };
+    var NEW_GAME_OPTIONS: Record<string, NewGamePlus.NewGamePlusOption>;
 
     interface NewGamePlusModel {
         get(this: this, option: string): boolean
@@ -602,15 +597,6 @@ declare namespace sc {
         QUICK = 9,
         ONMAPMENU = 10,
         QUESTSOLVED = 11,
-    }
-
-    interface GameModel {
-        prevSubState: sc.GAME_MODEL_SUBSTATE
-        player: PlayerModel
-
-        isAssistMode(this: this): boolean
-        enterMenu(this: this, b: boolean): void
-        getCombatRankDropRate(this: this): number
     }
 
     interface EnemyInfo {
@@ -692,7 +678,7 @@ declare namespace sc {
 
     interface BaseMenu extends ig.GuiElementBase {
         visible: boolean
-        transitions: {[key: string]: ig.GuiHook.Transition}
+        transitions: Record<string, ig.GuiHook.Transition>
         init(this: this): void
         addObservers(this: this): void
         removeObservers(this: this): void
@@ -784,13 +770,15 @@ declare namespace sc {
     }
 
     interface TradeModel {
-        traders: { [key: string]: TradeModel.Trader }
+        traders: Record<string, TradeModel.Trader>
 
         init(this: this): void
     }
 
     interface Control extends ig.Class {
-        moveDir(this: this, b: Vec2, d: number, f?: number): number
+        moveDir(this: this, b: Vec2, d: number, f?: number): number;
+        menuScrollUp(this: this): boolean;
+        menuScrollDown(this: this): boolean;
     }
 
     interface ControlConstructor extends ImpactClass<Control> {}
@@ -884,7 +872,7 @@ declare namespace sc {
         alt?: string
     }
 
-    var SUB_MENU_INFO: {[key: string | number]: SubMenuInfo}
+    var SUB_MENU_INFO: Record<string | number, SubMenuInfo>;
 
     namespace EnemyType {
         interface ItemDrop {
@@ -919,7 +907,7 @@ declare namespace sc {
             fly?: boolean
     }
 
-    var ITEM_DROP_TYPE: {[key: string]: ItemDropType}
+    var ITEM_DROP_TYPE: Record<string, ItemDropType>
 
     namespace MapInteractIcon {
         interface interactOptions {

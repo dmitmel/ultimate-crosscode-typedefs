@@ -18,6 +18,8 @@ declare global {
     interface ButtonGui extends ig.FocusGui {
       text: sc.TextLike;
       textChild: sc.TextGui;
+      data?: any;
+      submitSound: ig.Sound;
 
       setWidth(this: this, width: number): void;
       setText(this: this, text: sc.TextLike, ignoreWidth?: boolean): void;
@@ -26,7 +28,7 @@ declare global {
     interface ButtonGuiConstructor extends ImpactClass<ButtonGui> {
       new (
         text: sc.TextLike,
-        width: number,
+        width?: number,
         active?: boolean,
         type?: sc.ButtonGui.Type,
         submitSound?: ig.Sound,

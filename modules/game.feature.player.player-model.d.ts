@@ -46,6 +46,7 @@ declare global {
             level: number
             params: CombatParams
             items: number[]
+            credit: number;
     
             onVarAccess(this: this, varString: string, varParts: string[]): ig.Vars.CCVar
             getToggleItemState(this: this, id: sc.Inventory.ItemID): boolean
@@ -58,7 +59,9 @@ declare global {
             getItemAmountWithEquip(this: this, item: Inventory.ItemID): number
             addItem(this: this, item: Inventory.ItemID, amount: number, hideEffect?: boolean): void
             removeItem(this: this, item: Inventory.ItemID, amount: number, notifyObservers?: boolean, includeEquip?: boolean): boolean
-            getAction(this: this, action: sc.PLAYER_ACTION): sc.PlayerAction
+            getAction(this: this, action: sc.PLAYER_ACTION): sc.PlayerAction;
+            addCredit(this: this, amount: number): void;
+            removeCredit(this: this, amount: number): void;
         }
         interface PlayerModelContructor extends ImpactClass<PlayerModel> {
             new (): PlayerModel

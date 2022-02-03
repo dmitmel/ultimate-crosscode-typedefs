@@ -42,7 +42,9 @@ declare global {
         mime: string;
       }
     }
-    interface SoundCommon {}
+    interface SoundCommon {
+      play(this: this): void;
+    }
 
     namespace Sound$FORMAT {
       var MP3: ig.Sound.FORMAT;
@@ -52,6 +54,7 @@ declare global {
       var CAF: ig.Sound.FORMAT;
     }
     interface SoundConstructorCommon {
+      new (path: string, volume?: number, variance?: number, group?: string): ig.Sound;
       FORMAT: typeof Sound$FORMAT;
       use: ig.Sound.FORMAT[];
     }
