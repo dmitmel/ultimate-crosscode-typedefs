@@ -1,13 +1,16 @@
-declare namespace Vec2 {
+export {}
+
+declare global {
+namespace Vec2 {
     function create(): Vec2
     function clockangle(a: Vec2): Vec2
 }
 
-declare namespace Vec3 {
+namespace Vec3 {
     function create(): Vec3
 }
 
-declare namespace ig {
+namespace ig {
     function error(...data: any[]): void
 
     function getRoundedFaceDir(x: number, y: number, angles: number, d: Vec2): Vec2
@@ -52,59 +55,6 @@ declare namespace ig {
 
         var SHOW_FOOD_ICON: SHOW_FOOD_ICON_CONSTRUCTOR
     }
-
-    namespace Vars {
-        type CCVar = number | boolean | string | LangLabel.Data | Vec2 | Vec3 | undefined | null
-
-        type VarStorage = {[key: string]: CCVar | VarStorage}
-
-        // a list of known var types 
-        interface KnownVars {
-            map: Vars.VarStorage
-            maps: Vars.VarStorage
-            tmp: Vars.VarStorage
-            call: Vars.VarStorage
-            session: {
-                map: Vars.VarStorage
-                maps: Vars.VarStorage
-            }
-            plot: Vars.VarStorage & KnownVars.plot 
-            [key: string]: Vars.VarStorage
-        }
-
-        namespace KnownVars {
-            interface plot {
-                line?: number
-                metaSpace?: boolean
-            }
-        }
-    }
-
-    interface Vars extends ig.Class {
-        storage: Vars.KnownVars
-
-        init(this: this): void
-
-        get(this: this, variable: string): Vars.CCVar
-        get<K extends Vars.CCVar>(this: this, variable: string): K
-
-        setDefault(this: this, variable: string, value: Vars.CCVar): void
-        set(this: this, variable: string, value: Vars.CCVar): void
-        add(this: this, variable: string, value: Vars.CCVar): void
-        sub(this: this, variable: string, value: Vars.CCVar): void
-        mul(this: this, variable: string, value: Vars.CCVar): void
-        div(this: this, variable: string, value: Vars.CCVar): void
-        mod(this: this, variable: string, value: Vars.CCVar): void
-        and(this: this, variable: string, value: Vars.CCVar): void
-        or(this: this, variable: string, value: Vars.CCVar): void
-        xor(this: this, variable: string, value: Vars.CCVar): void
-    }
-
-    interface VarsConstructor extends ImpactClass<Vars> { }
-
-    var vars: Vars
-    var Vars: VarsConstructor
-
     interface ExtensionList extends SingleLoadable {
 
     }
@@ -310,7 +260,7 @@ declare namespace ig {
     var NinePatch: NinePatchConstructor
 }
 
-declare namespace sc {
+namespace sc {
     interface ModelMessage { }
     namespace ModelMessage {
         interface PlayerMessage extends ModelMessage {
@@ -951,6 +901,7 @@ declare namespace sc {
     }
 }
 
-declare namespace itemAPI {
+namespace itemAPI {
     var customItemToId: {[itemID: string]: number}
+}
 }
