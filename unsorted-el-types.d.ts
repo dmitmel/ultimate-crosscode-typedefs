@@ -726,7 +726,9 @@ namespace sc {
     }
 
     interface Control extends ig.Class {
+        autoControl: any;
         moveDir(this: this, b: Vec2, d: number, f?: number): number;
+        autoThrown(this: this): boolean;
         menuScrollUp(this: this): boolean;
         menuScrollDown(this: this): boolean;
     }
