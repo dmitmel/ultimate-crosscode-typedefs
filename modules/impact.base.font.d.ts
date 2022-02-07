@@ -28,9 +28,9 @@ declare global {
       new (
         path: string,
         charHeight: number,
-        firstChar?: number,
-        sizeIndex?: number,
-        color?: string,
+        firstChar?: number, // can't be null
+        sizeIndex?: number | null,
+        color?: string | null,
       ): Font;
 
       ALIGN: typeof Font$ALIGN;
@@ -78,10 +78,10 @@ declare global {
 
     namespace TextBlock {
       interface Settings {
-        speed?: ig.TextBlock.SPEED;
-        textAlign?: ig.Font.ALIGN;
-        maxWidth?: number;
-        bestRatio?: number;
+        speed?: ig.TextBlock.SPEED | null;
+        textAlign?: ig.Font.ALIGN | null;
+        maxWidth?: number | null;
+        bestRatio?: number | null;
         linePadding?: number;
       }
 
@@ -98,15 +98,23 @@ declare global {
     }
     interface TextBlock extends ig.Class {
       font: ig.MultiFont;
-      maxWidth?: number;
+      maxWidth?: number | null;
       parsedText: string;
       commands: ig.TextCommand[];
       speed: ig.TextBlock.SPEED;
       align: ig.Font.ALIGN;
       size: ig.TextBlock.Size;
-      bestRatio?: number;
-      linePadding: number;
+      currentLine: number;
+      currentIndex: number;
+      currentCmd: number;
+      currentSpeed: number;
+      timer: number;
+      onFinish: (() => void) | null | undefined;
+      prerendered: boolean;
       drawCallback: ig.TextBlock.DrawCallback | null | undefined;
+      buffer: ig.ImageAtlasFragment;
+      bestRatio?: number | null;
+      linePadding: number;
 
       setText(this: this, text: sc.TextLike): void;
       setDrawCallback(this: this, drawCallback: ig.TextBlock.DrawCallback): void;
@@ -130,7 +138,7 @@ declare global {
         text: string,
         commands: ig.TextCommand[] | null,
         font: ig.MultiFont,
-        ignoreCommands?: boolean,
+        ignoreCommands?: boolean | null,
       ): string;
     }
     var TextParser: TextParser;

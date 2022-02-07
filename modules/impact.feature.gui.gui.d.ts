@@ -70,6 +70,16 @@ declare global {
         timeFunction: KeySpline;
       }
 
+      interface SizeTransition {
+        startWidth: number;
+        width: number;
+        startHeight: number;
+        height: number;
+        time: number;
+        timeFunction: KeySpline;
+        timer: number;
+      }
+
       interface ScreenCoords {
         x: number;
         y: number;
