@@ -44,7 +44,7 @@ declare global {
         key: K,
         noHack?: boolean | null,
       ): sc.CombatParams.BaseParams[K];
-      getModifier<K extends keyof typeof sc.Modifiers.KnownModifiers>(this: this, modifier: K): number;
+      getModifier<K extends keyof sc.Modifiers.KnownModifiers>(this: this, modifier: K): number;
       getModifier(this: this, modifier: string): number;
       update(this: this, a: unknown): void;
       getHpFactor(this: this): number;

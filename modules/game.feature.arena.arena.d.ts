@@ -19,7 +19,7 @@ declare global {
 			PLATIN = 4,
 			TRUE_PLATIN = 5,
 		}
-    enum ARENA_BASE_TYPE {
+    	enum ARENA_BASE_TYPE {
 			SOLO_CUP = "SOLO_CUP",
 			TEAM_CUP = "TEAM_CUP",
 			SOLO_CUSTOM = "SOLO_CUSTOM",
@@ -50,8 +50,50 @@ declare global {
 			}
 
 			interface Cup {
-				order: number
-				name: ig.LangLabel.Data
+				order: number;
+				name: ig.LangLabel.Data;
+				condition?: string;
+				noRush?: boolean;
+				progress: Arena.CupProgress;
+			}
+
+			namespace CupData {
+				interface CupCore {
+					name: ig.LangLabel.Data;
+					info: ig.LangLabel.Data;
+					difficulty: number;
+					level: number;
+					creator: ig.LangLabel.Data;
+					music: string;
+					rushMusic: string;
+					noRush?: boolean;
+					condition?: string;
+					type: sc.ARENA_BASE_TYPE;
+				}
+
+				interface ArenaRound {
+
+				}
+			}
+
+			interface CupData {
+				core: CupData.CupCore
+			}
+
+			interface CupProgress {
+				rush: RushProgress;
+				rounds: RoundProgress[];
+			}
+
+			interface RoundProgress {
+				medal: number;
+				points: number;
+				time: number;
+				cleared: number;
+			}
+			
+			interface RushProgress extends RoundProgress {
+				chain: number;
 			}
 
 			interface ArenaBonusObjective {
@@ -72,6 +114,36 @@ declare global {
 				static?: boolean
 				asBonus?: boolean
 			}
+
+			interface KnownScoreTypes {
+				DAMAGE_DONE: true;
+				DAMAGE_DONE_EFFECTIVE: true;
+				DAMAGE_TAKEN: true;
+				KILL: true;
+				BOSS_KILL: true;
+				TARGET_KILL: true;
+				MULTI_KILL: true;
+				ENVIRONMENT_KILL: true;
+				ONE_HIT_KILL: true;
+				LOCK_FINISH: true;
+				LOCK_FINISH_3: true;
+				ELEMENT_OVERLOAD: true;
+				PERFECT_SHIELD: true;
+				PERFECT_DODGE: true;
+				ENEMY_BREAK: true;
+				GUARD_COUNTER: true;
+				STATUS_INFLICT: true;
+				PVP_ROUND_WON: true;
+				PVP_ROUND_LOST: true;
+				ENEMY_HEAL: true;
+			}
+
+			interface KnownCupAttributes {
+				noRush: boolean;
+				name: ig.LangLabel.Data;
+				condition: string;
+				type: ARENA_BASE_TYPE;
+			}
 		}
 
 		interface Arena extends ig.GameAddon {
@@ -81,7 +153,7 @@ declare global {
 			init(this: this): void
 			registerCup(this: this, cupName: string, cupOptions: Arena.CupOptions, isExtension?: boolean): void
 			onPreDamageApply(this: this, a: any, b: any, c: any, d: any, e: any): void
-			addScore<K extends keyof typeof sc.ArenaScoreTypes.KnownScoreTypes>(this: this, scoreType: K, points: number): void
+			addScore<K extends keyof Arena.KnownScoreTypes>(this: this, scoreType: K, points: number): void
 			addScore(this: this, scoreType: string, points: number): void
 			getTotalArenaCompletion(this: this): number
 			getCupCompletion(this: this, cupName: string): number
@@ -94,7 +166,12 @@ declare global {
 			onCombatantHeal(this: this, entity: ig.ENTITY.Combatant, healAmount: number): void
 			startRound(this: this): void
 			endRound(this: this): void
-			initMetaData(this: this, key: string): void
+			initMetaData(this: this, key: string): void;
+			onLevelLoadStart(this: this): void;
+			getCupRounds(this: this, key: string): sc.Arena.CupData.ArenaRound[];
+			getCupCoreAttrib(this: this, key: string, attribute: string): any;
+			getCupCoreAttrib<K extends keyof Arena.KnownCupAttributes>(this: this, key: string, attribute: K): Arena.KnownCupAttributes[K];
+			onVarAccess(this: this, varString: string, varParts: string[]): ig.Vars.CCVar;
 		}
 
 		interface ArenaConstructor extends ImpactClass<Arena> { }
@@ -102,32 +179,13 @@ declare global {
 		var Arena: ArenaConstructor
 		var arena: Arena
 
-		namespace ArenaScoreTypes {
-			enum KnownScoreTypes {
-				DAMAGE_DONE = "DAMAGE_DONE",
-				DAMAGE_DONE_EFFECTIVE = "DAMAGE_DONE_EFFECTIVE",
-				DAMAGE_TAKEN = "DAMAGE_TAKEN",
-				KILL = "KILL",
-				BOSS_KILL = "BOSS_KILL",
-				TARGET_KILL = "TARGET_KILL",
-				MULTI_KILL = "MULTI_KILL",
-				ENVIRONMENT_KILL = "ENVIRONMENT_KILL",
-				ONE_HIT_KILL = "ONE_HIT_KILL",
-				LOCK_FINISH = "LOCK_FINISH",
-				LOCK_FINISH_3 = "LOCK_FINISH_3",
-				ELEMENT_OVERLOAD = "ELEMENT_OVERLOAD",
-				PERFECT_SHIELD = "PERFECT_SHIELD",
-				PERFECT_DODGE = "PERFECT_DODGE",
-				ENEMY_BREAK = "ENEMY_BREAK",
-				GUARD_COUNTER = "GUARD_COUNTER",
-				STATUS_INFLICT = "STATUS_INFLICT",
-				PVP_ROUND_WON = "PVP_ROUND_WON",
-				PVP_ROUND_LOST = "PVP_ROUND_LOST",
-				ENEMY_HEAL = "ENEMY_HEAL",
-			}
-		}
-
 		var ARENA_BONUS_OBJECTIVE: { [key: string]: Arena.ArenaBonusObjective }
-		var ARENA_SCORE_TYPES: { [key: string]: Arena.ArenaScoreType }
+		var ARENA_SCORE_TYPES: Record<keyof Arena.KnownScoreTypes, Arena.ArenaScoreType>
+	}
+
+	namespace ig.Vars {
+		interface KnownVarStrings {
+			"arena.active": boolean
+		}
 	}
 }
