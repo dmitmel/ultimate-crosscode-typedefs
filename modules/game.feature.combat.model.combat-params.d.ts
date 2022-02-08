@@ -19,11 +19,15 @@ declare global {
     var HP_LOW_WARNING: number;
 
     namespace CombatParams {
-      interface BaseParams {
+      interface Params {
         hp: number;
         attack: number;
         defense: number;
         focus: number;
+      }
+      type ParamName = keyof sc.CombatParams.Params;
+
+      interface BaseParams extends Params {
         elemFactor: number[];
         statusInflict: number[];
         statusEffect: number[];
@@ -33,11 +37,11 @@ declare global {
       baseparams: sc.CombatParams.BaseParams;
       currentHp: number;
 
-      getStat<K extends keyof sc.CombatParams.BaseParams>(
+      getStat<K extends sc.CombatParams.ParamName>(
         this: this,
         key: K,
         noHack?: boolean | null,
-      ): sc.CombatParams.BaseParams[K];
+      ): sc.CombatParams.Params[K];
     }
     interface CombatParamsConstructor extends ImpactClass<CombatParams> {}
     var CombatParams: CombatParamsConstructor;
