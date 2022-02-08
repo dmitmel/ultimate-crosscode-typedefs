@@ -93,11 +93,21 @@ declare global {
       pos: Vec2;
       size: Vec2;
       align: { x: ig.GUI_ALIGN; y: ig.GUI_ALIGN };
+      parentHook: ig.GuiHook | null | undefined;
       children: ig.GuiHook[];
-      gui: ig.GuiElementBase;
-      transitions: { [name: string]: ig.GuiHook.Transition };
-      currentStateName: string;
       screenCoords?: ig.GuiHook.ScreenCoords;
+      localAlpha: number;
+      zIndex: number;
+      pauseGui: boolean;
+      invisibleUpdate: boolean;
+      screenBlocking: boolean;
+      clip: boolean;
+      temporary: boolean;
+      transitions: { [name: string]: ig.GuiHook.Transition };
+      gui: ig.GuiElementBase;
+      currentStateName: string;
+      removeAfterTransition: boolean;
+      _visible: boolean;
 
       removeChildHook(this: this, hook: ig.GuiHook): void;
       removeChildHookByIndex(this: this, index: number): ig.GuiHook;
@@ -158,7 +168,7 @@ declare global {
       removeAllChildren(this: this): void;
       update(this: this): void;
       updateDrawables(this: this, renderer: ig.GuiRenderer): void;
-      onAttach(this: this, parentHook: ig.GuiHook): void;
+      onAttach(this: this): void;
       onDetach(this: this): void;
       doStateTransition(
         this: this,
