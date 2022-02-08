@@ -8,8 +8,16 @@ export {};
 
 declare global {
   namespace sc {
-    interface QuestBaseBox extends ig.BoxGui {}
-    interface QuestBaseBoxConstructor extends ImpactClass<QuestBaseBox> {}
+    interface QuestBaseBox extends ig.BoxGui {
+      levelGui: sc.NumberGui;
+      elite: number;
+
+      setLevel(this: this, level: number): void;
+      setElite(this: this, isElite: boolean, isSolved: boolean): void;
+    }
+    interface QuestBaseBoxConstructor extends ImpactClass<QuestBaseBox> {
+      new (width?: number | null, height?: number | null, level?: number | null): QuestBaseBox;
+    }
     var QuestBaseBox: QuestBaseBoxConstructor;
 
     interface QuestInfoBox extends sc.QuestBaseBox {
