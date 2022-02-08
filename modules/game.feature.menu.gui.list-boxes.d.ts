@@ -22,9 +22,19 @@ declare global {
         xOffset?: number | null,
         yOffset?: number | null,
       ): void;
-      clear(skipFirst?: boolean | null): void;
+      clear(this: this, skipFirst?: boolean | null): void;
+      scrollToY(this: this, y: number, b: boolean): void;
     }
     interface ButtonListBoxConstructor extends ImpactClass<ButtonListBox> {}
     var ButtonListBox: ButtonListBoxConstructor;
+
+    interface ItemListBox extends ig.GuiElementBase {
+      list: sc.ButtonListBox;
+      clear(this: this, skipFirst?: boolean): void;
+      addButton(this: this, gui: ig.FocusGui): void;
+      getChildren(this: this): ig.FocusGui[];
+    }
+    interface ItemListBoxConstructor extends ImpactClass<ItemListBox> {}
+    var ItemListBox: ItemListBoxConstructor;
   }
 }

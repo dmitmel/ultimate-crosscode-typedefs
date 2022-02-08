@@ -38,28 +38,28 @@ declare global {
     
             init(this: this): void;
     
-            get(this: this, variable: string): Vars.CCVar;
             get<K extends keyof Vars.KnownVarStrings>(this: this, variable: K): Vars.KnownVarStrings[K];
+            get(this: this, variable: string): Vars.CCVar;
     
             setDefault(this: this, variable: string, value: Vars.CCVar): void;
-            set(this: this, variable: string, value: Vars.CCVar): void;
             set<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
-            add(this: this, variable: string, value: Vars.CCVar): void;
+            set(this: this, variable: string, value: Vars.CCVar): void;
             add<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
-            sub(this: this, variable: string, value: Vars.CCVar): void;
+            add(this: this, variable: string, value: Vars.CCVar): void;
             sub<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
-            mul(this: this, variable: string, value: Vars.CCVar): void;
+            sub(this: this, variable: string, value: Vars.CCVar): void;
             mul<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
-            div(this: this, variable: string, value: Vars.CCVar): void;
+            mul(this: this, variable: string, value: Vars.CCVar): void;
             div<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
-            mod(this: this, variable: string, value: Vars.CCVar): void;
+            div(this: this, variable: string, value: Vars.CCVar): void;
             mod<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
-            and(this: this, variable: string, value: Vars.CCVar): void;
+            mod(this: this, variable: string, value: Vars.CCVar): void;
             and<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
-            or(this: this, variable: string, value: Vars.CCVar): void;
+            and(this: this, variable: string, value: Vars.CCVar): void;
             or<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
-            xor(this: this, variable: string, value: Vars.CCVar): void;
+            or(this: this, variable: string, value: Vars.CCVar): void;
             xor<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
+            xor(this: this, variable: string, value: Vars.CCVar): void;
 
         }
     
@@ -79,7 +79,7 @@ declare global {
             toString(this: this): string;
         }
         interface VarConditionConstructor extends ImpactClass<VarCondition> {
-            new (condition: string): ig.VarCondition;
+            new (condition: string | undefined): ig.VarCondition;
         }
         var VarCondition: ig.VarConditionConstructor;
     }

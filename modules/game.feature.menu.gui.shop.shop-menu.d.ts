@@ -9,3 +9,21 @@
 // requires game.feature.menu.gui.shop.shop-quantity
 // requires game.feature.menu.gui.shop.shop-confirm
 // requires game.feature.control.control
+
+export {}
+
+declare global {
+    namespace sc {
+        interface ShopMenu extends sc.BaseMenu {
+            cart: sc.ShopCart;
+            init(this: this): void;
+            buyItems(this: this): boolean;
+            sellItems(this: this): boolean;
+        }
+        interface ShopMenuConstructor extends ImpactClass<ShopMenu> {
+            new (): ShopMenu
+        }
+    
+        var ShopMenu: ShopMenuConstructor
+    }
+}

@@ -656,7 +656,7 @@ namespace sc {
 
     interface ShopModel {
         name: ig.LangLabel.Data
-        shopType: sc.MENU_SHOP_TYPES
+        shopType: keyof typeof sc.MENU_SHOP_TYPES
         sellScale: number
         maxOwn?: number
         content?: any[][]
@@ -666,27 +666,6 @@ namespace sc {
     interface ShopListMenu extends MenuPanel {
         
     }
-
-    interface ShopCart extends ig.BoxGui {
-
-    }
-
-    interface ShopCartConstructor extends ImpactClass<ShopCart> {
-        
-    }
-
-    var ShopCart: ShopCartConstructor
-
-    interface ShopMenu extends BaseMenu {
-        cart: sc.ShopCart
-        init(this: this): void
-    }
-
-    interface ShopMenuConstructor extends ImpactClass<ShopMenu> {
-        new (): ShopMenu
-    }
-
-    var ShopMenu: ShopMenuConstructor
 
     interface MenuModel {
         shopID: string

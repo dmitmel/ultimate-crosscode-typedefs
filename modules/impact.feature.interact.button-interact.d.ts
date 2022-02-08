@@ -11,6 +11,7 @@ declare global {
 
       addFocusGui(this: this, gui: ig.FocusGui, x: number, y: number, asBackButton?: boolean): void;
       addPressCallback(this: this, callback: (button?: ig.FocusGui, fromMouse?: boolean) => void): void;
+      clear(this: this): void;
     }
     interface ButtonGroupConstructor extends ImpactClass<ButtonGroup> {}
     var ButtonGroup: ButtonGroupConstructor;

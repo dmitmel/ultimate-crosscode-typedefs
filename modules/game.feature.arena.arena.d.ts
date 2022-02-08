@@ -166,11 +166,11 @@ declare global {
 			onCombatantHeal(this: this, entity: ig.ENTITY.Combatant, healAmount: number): void
 			startRound(this: this): void
 			endRound(this: this): void
-			initMetaData(this: this, key: string): void;
+			initMetaData(this: this, cupName: string): void;
 			onLevelLoadStart(this: this): void;
-			getCupRounds(this: this, key: string): sc.Arena.CupData.ArenaRound[];
-			getCupCoreAttrib(this: this, key: string, attribute: string): any;
-			getCupCoreAttrib<K extends keyof Arena.KnownCupAttributes>(this: this, key: string, attribute: K): Arena.KnownCupAttributes[K];
+			getCupRounds(this: this, cupName: string): sc.Arena.CupData.ArenaRound[];
+			getCupCoreAttrib(this: this, cupName: string, attribute: string): any;
+			getCupCoreAttrib<K extends keyof Arena.KnownCupAttributes>(this: this, cupName: string, attribute: K): Arena.KnownCupAttributes[K];
 			onVarAccess(this: this, varString: string, varParts: string[]): ig.Vars.CCVar;
 		}
 

@@ -144,15 +144,29 @@ declare global {
       MULTI = 'MULTI',
     }
 
+    namespace MenuModel {
+      interface ShopCartEntry {
+        id: sc.Inventory.ItemID;
+        amount: number;
+        price: number;
+      }
+    }
+
     interface MenuModel extends ig.GameAddon, sc.Model {
       statusElement: sc.ELEMENT;
       statusDiff: boolean;
       buttonInteract: ig.ButtonInteractEntry;
+      shopCart: MenuModel.ShopCartEntry[];
+      shopSellMode: boolean;
+      shopPage: number;
 
       moveLeaSprite(this: this, x: number, y: number, leaState: sc.MENU_LEA_STATE): void;
       popBackCallback(this: this): void;
       pushBackCallback(this: this, callback: () => void): void;
       popMenu(this: this): void;
+      getTotalCost(this: this): number;
+      getItemQuantity(this: this, id: sc.Inventory.ItemID, price: number): number;
+      updateCart(this: this, id: sc.Inventory.ItemID, amount: number, price: number): void;
     }
     interface MenuModelConstructor extends ImpactClass<MenuModel> {}
     var MenuModel: MenuModelConstructor;

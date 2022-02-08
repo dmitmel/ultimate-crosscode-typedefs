@@ -58,14 +58,22 @@ declare global {
     }
     var InfoBar: InfoBarConstructor;
 
+    namespace ListBoxButton {
+      interface Data {
+        id: string | number;
+        description: string;
+      }
+    }
+
     interface ListBoxButton extends ig.FocusGui {
       button: sc.ButtonGui;
-      data: { id: string | number; description: string };
+      data: ListBoxButton.Data;
       _width: number;
 
       setButtonText(this: this, text: sc.TextLike): void;
       setWidth(this: this, buttonWidth?: number, lineWidth?: number): void;
       setText(this: this, text: sc.TextLike): void;
+      setActive(this: this, active: boolean): void;
     }
     interface ListBoxButtonConstructor extends ImpactClass<ListBoxButton> {
       new (

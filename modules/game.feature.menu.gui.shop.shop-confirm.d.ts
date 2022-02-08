@@ -20,5 +20,12 @@ declare global {
       new (name: string, amount: number, price: number): ShopConfirmEntry;
     }
     var ShopConfirmEntry: ShopConfirmEntryConstructor;
+    interface ShopConfirmDialog extends sc.ModalButtonInteract {
+      buttons: sc.ButtonGui[];
+      notifyRaritySell: boolean;
+      createList(this: this): void;
+    }
+    interface ShopConfirmDialogConstructor extends ImpactClass<ShopConfirmDialog> {}
+    var ShopConfirmDialog: ShopConfirmDialogConstructor;
   }
 }
