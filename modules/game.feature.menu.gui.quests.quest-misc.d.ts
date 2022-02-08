@@ -37,5 +37,22 @@ declare global {
     }
     interface QuestDialogConstructor extends ImpactClass<QuestDialog> {}
     var QuestDialog: QuestDialogConstructor;
+
+    interface QuestStartDialogButtonBox extends ig.BoxGui {
+      acceptButton: sc.ButtonGui;
+      declineButton: sc.ButtonGui;
+      acceptMode: boolean;
+
+      setAcceptMode(this: this, buttonGroup: sc.ButtonGroup): void;
+    }
+    interface QuestStartDialogButtonBoxConstructor extends ImpactClass<QuestStartDialogButtonBox> {
+      new (
+        buttonGroup: sc.ButtonGroup,
+        finished: boolean,
+        mandatory: boolean,
+        parentQuest: boolean,
+      ): QuestStartDialogButtonBox;
+    }
+    var QuestStartDialogButtonBox: QuestStartDialogButtonBoxConstructor;
   }
 }
