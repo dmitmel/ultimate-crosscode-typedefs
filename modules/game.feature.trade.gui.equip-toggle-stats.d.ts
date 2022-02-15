@@ -11,6 +11,7 @@ declare global {
     interface TradeToggleStats extends ig.BoxGui {
       compareItem: sc.TextGui;
       compareHelpText: sc.TextGui;
+      baseParams: Record<keyof sc.StatusViewMainParameters.BaseParams, sc.SimpleStatusDisplay>;
       _createContent(this: this): void;
     }
     interface TradeToggleStatsConstructor extends ImpactClass<TradeToggleStats> {}

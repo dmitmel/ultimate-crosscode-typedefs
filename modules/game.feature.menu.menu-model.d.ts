@@ -167,6 +167,7 @@ declare global {
       getTotalCost(this: this): number;
       getItemQuantity(this: this, id: sc.Inventory.ItemID, price: number): number;
       updateCart(this: this, id: sc.Inventory.ItemID, amount: number, price: number): void;
+      addHotkey(this: this, a: () => sc.ButtonGui): void;
     }
     interface MenuModelConstructor extends ImpactClass<MenuModel> {}
     var MenuModel: MenuModelConstructor;

@@ -9,6 +9,7 @@ declare global {
       isActive(this: this): boolean;
       setCurrentFocus(this: this, x: number, y: number): void;
       focusCurrentButton(this: this, x: number, y: number, a: boolean, b: boolean): void;
+      addSelectionCallback(this: this, callback: (focusGui: ig.FocusGui) => void): void;
     }
     interface ButtonGroupConstructor extends ImpactClass<ButtonGroup> {
       new (): sc.ButtonGroup;

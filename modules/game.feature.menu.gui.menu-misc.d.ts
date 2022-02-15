@@ -89,8 +89,38 @@ declare global {
     }
     var ListBoxButton: ListBoxButtonConstructor;
 
-    interface ItemBoxButton extends sc.ListBoxButton {}
-    interface ItemBoxButtonConstructor extends ImpactClass<ItemBoxButton> {}
+    interface ItemBoxButton extends sc.ListBoxButton {
+      amount: sc.NumberGui;
+
+      init(this: this, 
+        text: sc.TextLike,
+        buttonWidth: number,
+        lineWidth: number,
+        amount: number,
+        id?: string | number,
+        description?: string,
+        noLine?: boolean,
+        alignCenter?: boolean,
+        sound?: ig.Sound,
+        maxValue?: number,
+        level?: number
+      ): void
+    }
+    interface ItemBoxButtonConstructor extends ImpactClass<ItemBoxButton> {
+      new (
+        text: sc.TextLike,
+        buttonWidth: number,
+        lineWidth: number,
+        amount: number,
+        id?: string | number,
+        description?: string,
+        noLine?: boolean,
+        alignCenter?: boolean,
+        sound?: ig.Sound,
+        maxValue?: number,
+        level?: number
+      ): sc.ItemBoxButton;
+    }
     var ItemBoxButton: ItemBoxButtonConstructor;
 
     interface SimpleStatusDisplay extends ig.GuiElementBase {
@@ -98,6 +128,7 @@ declare global {
       lineID: number;
       iconIndex: Vec2;
       currentValueGui: sc.NumberGui;
+      changeValueGui: sc.NumberGui;
       arrowGui: ig.ImageGui;
       percentCurrentGui: sc.PercentChar;
       simpleMode: boolean;

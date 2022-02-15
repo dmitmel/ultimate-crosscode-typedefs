@@ -12,6 +12,18 @@ declare global {
       WAVE = 4,
     }
 
+    enum COMBAT_PARAM_MSG {
+      HP_CHANGED = 1,
+      SP_CHANGED = 2,
+      STATS_CHANGED = 3,
+      BUFF_ADDED = 4,
+      BUFF_REMOVED = 5,
+      RESET_STATS = 6,
+      MAX_SP_CHANGED = 7,
+      SP_CONSUME = 8,
+      BUFFS_CLEARED = 9,
+    
+    }
     var ELEMENT_MAX: number;
     var ELEMENT_COUNTER: Record<ELEMENT, ELEMENT>;
     var SP_REGEN_SPEED: { [maxSp: number]: number };
@@ -34,7 +46,7 @@ declare global {
         absolute?: boolean
       }
     }
-    interface CombatParams extends ig.Class {
+    interface CombatParams extends ig.Class, sc.Model {
       baseparams: sc.CombatParams.BaseParams;
       currentHp: number;
       defeated: boolean;

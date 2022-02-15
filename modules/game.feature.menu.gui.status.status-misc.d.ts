@@ -12,11 +12,18 @@ declare global {
       usePercent: boolean;
       iconIndex: Vec2;
       skipVertLine: boolean;
+      base: sc.NumberGui;
+      equip: sc.NumberGui;
+      skills: sc.NumberGui;
+      equipAdd: sc.NumberGui;
+      skillAdd: sc.NumberGui;
       _baseRed: boolean;
       _equipRed: boolean;
       _skillsRed: boolean;
       _hideAll: boolean;
       _skillHidden: boolean;
+
+      init(this: this, name: string, description: string, size: number, lineID: number, iconID: number, usePercent: boolean, skillHidden: boolean, noPercent: boolean, longNumber: boolean): void
     }
     interface StatusParamBarConstructor extends ImpactClass<StatusParamBar> {}
     var StatusParamBar: StatusParamBarConstructor;

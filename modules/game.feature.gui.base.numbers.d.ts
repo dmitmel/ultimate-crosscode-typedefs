@@ -47,8 +47,10 @@ declare global {
     }
     interface NumberGui extends ig.GuiElementBase {
       showPlus: boolean;
+      maxNumber: number;
       init(this: this, maxValue: number, settings?: sc.NumberGui.Settings): void
       setNumber(this: this, number: number, skipTransition?: boolean | null): void;
+      setMaxNumber(this: this, number: number): void;
       setColor(this: this, color: sc.GUI_NUMBER_COLOR): void;
     }
     interface NumberGuiConstructor extends ImpactClass<NumberGui> {

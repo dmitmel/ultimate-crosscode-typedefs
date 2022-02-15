@@ -5,6 +5,10 @@ export {};
 
 declare global {
   namespace sc {
+    enum LIST_COLUMNS {
+      ONE = 1,
+      TWO = 2
+    }
     interface ButtonListBox extends sc.ScrollPane {
       buttonGroup: sc.ButtonGroup;
       contentPane: ig.GuiElementBase;
@@ -36,5 +40,13 @@ declare global {
     }
     interface ItemListBoxConstructor extends ImpactClass<ItemListBox> {}
     var ItemListBox: ItemListBoxConstructor;
+
+    interface MultiColumnItemListBox extends ig.GuiElementBase {
+      buttonGroup(this: this): sc.ButtonGroup;
+    }
+    interface MultiColumnItemListBoxConstructor extends ImpactClass<MultiColumnItemListBox> {
+      new (b: number, a: number, columns: sc.LIST_COLUMNS, c: number): sc.MultiColumnItemListBox;
+    }
+    var MultiColumnItemListBox: MultiColumnItemListBoxConstructor;
   }
 }
