@@ -143,7 +143,7 @@ export class Tray {
 
 export namespace Menu {
   export interface Options {
-    type?: 'menubar' | 'contextmenu';
+    type: 'menubar' | 'contextmenu';
   }
 
   export interface CreateMacBuiltinOptions {
