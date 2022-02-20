@@ -34,6 +34,7 @@ declare global {
       reset(this: this, x: number, y: number, z: number, settings: ig.Entity.Settings): void;
       getAlignedPos(this: this, alignment: ig.ENTITY_ALIGN, dest?: Vec3 | null): Vec3;
       kill(levelChange?: boolean | null): void;
+      update(this: this): void;
     }
     interface EntityConstructor extends ImpactClass<Entity> {
       new (x: number, y: number, z: number, settings: ig.Entity.Settings): Entity;

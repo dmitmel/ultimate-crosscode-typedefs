@@ -39,6 +39,7 @@ declare global {
             init(this: this): void;
     
             get<K extends keyof Vars.KnownVarStrings>(this: this, variable: K): Vars.KnownVarStrings[K];
+            get<K extends ig.Vars.CCVar>(this: this, variable: string): K;
             get(this: this, variable: string): Vars.CCVar;
     
             setDefault(this: this, variable: string, value: Vars.CCVar): void;

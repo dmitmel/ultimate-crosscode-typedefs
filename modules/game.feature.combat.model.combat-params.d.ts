@@ -47,7 +47,7 @@ declare global {
       }
     }
     interface CombatParams extends ig.Class, sc.Model {
-      baseparams: sc.CombatParams.BaseParams;
+      baseParams: sc.CombatParams.BaseParams;
       currentHp: number;
       defeated: boolean;
 

@@ -35,6 +35,22 @@ declare global {
         relativeVel: number;
         moveDir: Vec2;
       }
+
+      namespace Charging {
+        interface Type {
+          actionKey: string
+        }
+      }
+
+      interface Charging {
+        time: number;
+        cancelTime: number;
+        swapped: boolean;
+        maxLevel: number;
+        block: number;
+        prefDir: Vec2;
+        type: Charging.Type;
+      }
     }
     interface Player extends sc.PlayerBaseEntity {
       proxies: Record<string, sc.ProxySpawnerBase>;

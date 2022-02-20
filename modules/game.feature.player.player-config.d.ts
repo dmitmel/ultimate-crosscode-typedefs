@@ -2,6 +2,16 @@ export {};
 
 declare global {
     namespace sc {
+        var PLAYER: unknown;
+        enum PLAYER_CLASSES {
+            SPHEROMANCER = 0,
+            TRIBLADER = 1,
+            QUADROGUARD = 2,
+            PENTAFIST = 3,
+            HEXACAST = 4,
+            UNKNOWN = 5,
+        }
+
         enum PLAYER_ACTION {
             AIM_START = 1,
             THROW_NORMAL = 2,
@@ -30,9 +40,23 @@ declare global {
             GUARD_SPECIAL3 = 32,
             DASH_LONG = 33
         }
+        var PLAYER_SP_COST: number[];
+
+        interface PlayerConfig extends ig.JsonLoadable {
+            name: string;
+            elementConfigs: Record<sc.ELEMENT, sc.PlayerSubConfig>;
+        }
+        interface PlayerConfigConstructor extends ImpactClass<PlayerConfig> {}
+        var PlayerConfig: PlayerConfigConstructor;
 
         interface PlayerAction extends ig.Class {}
         interface PlayerActionConstructor extends ImpactClass<PlayerAction> {}
         var PlayerAction: PlayerActionConstructor
+
+        interface PlayerSubConfig extends ig.Class {
+            actions: Record<string, sc.PlayerAction>;
+        }
+        interface PlayerSubConfigConstructor extends ImpactClass<PlayerSubConfig> {}
+        var PlayerSubConfig: PlayerSubConfigConstructor;
     }
 }
