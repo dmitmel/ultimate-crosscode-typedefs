@@ -146,7 +146,7 @@ declare global {
 			}
 		}
 
-		interface Arena extends ig.GameAddon {
+		interface Arena extends ig.GameAddon, ig.Vars.VarAccessor {
 			active: boolean
 			cups: Record<string, Arena.Cup>
 
@@ -171,7 +171,6 @@ declare global {
 			getCupRounds(this: this, cupName: string): sc.Arena.CupData.ArenaRound[];
 			getCupCoreAttrib(this: this, cupName: string, attribute: string): any;
 			getCupCoreAttrib<K extends keyof Arena.KnownCupAttributes>(this: this, cupName: string, attribute: K): Arena.KnownCupAttributes[K];
-			onVarAccess(this: this, varString: string, varParts: string[]): ig.Vars.CCVar;
 		}
 
 		interface ArenaConstructor extends ImpactClass<Arena> { }

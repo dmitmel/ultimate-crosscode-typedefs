@@ -31,6 +31,10 @@ declare global {
                 "plot.line": number
                 "plot.metaSpace": boolean
             }
+
+            interface VarAccessor {
+                onVarAccess(this: this, varString: string, varParts: string[]): CCVar;
+            }
         }
     
         interface Vars extends ig.Class {

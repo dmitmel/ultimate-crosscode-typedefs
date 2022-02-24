@@ -41,14 +41,13 @@ declare global {
             MODIFIER = 28
         }
 
-        interface PlayerModel extends ig.Class {
+        interface PlayerModel extends ig.Class, ig.Vars.VarAccessor {
             skillPointsExtra: number[]
             level: number
             params: CombatParams
             items: number[]
             credit: number;
     
-            onVarAccess(this: this, varString: string, varParts: string[]): ig.Vars.CCVar
             getToggleItemState(this: this, id: sc.Inventory.ItemID): boolean
             getParamAvgLevel(this: this, level: number): number
             useItem(this: this, a: number): void
