@@ -15,6 +15,8 @@ declare global {
         keepState?: boolean | null,
         noStateReset?: boolean | null,
       ): void;
+      getTarget(this: this): ig.ActorEntity;
+      setAttribute(this: this, attribute: string, value: any): void;
     }
     interface ActorEntityConstructor extends ImpactClass<ActorEntity> {}
     var ActorEntity: ActorEntityConstructor;

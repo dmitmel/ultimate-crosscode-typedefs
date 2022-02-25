@@ -31,6 +31,13 @@ namespace ig {
     }
 
     namespace ACTION_STEP {
+        namespace ActionSettings {
+            interface SET_TEMP_TARGET {
+                kind: string;
+                key: string;
+            }
+        }
+
         interface SET_PLAYER_INVINCIBLE extends ActionStepBase {
             factor: number
 
@@ -54,6 +61,14 @@ namespace ig {
         interface SHOW_FOOD_ICON_CONSTRUCTOR extends ImpactClass<SHOW_FOOD_ICON> {}
 
         var SHOW_FOOD_ICON: SHOW_FOOD_ICON_CONSTRUCTOR
+
+        interface SET_TEMP_TARGET extends ig.ActionStepBase {
+            kind(combatant: sc.BasicCombatant, key?: string): sc.BasicCombatant; //the lack of 'this' is intentional
+
+            init(this: this, settings: ig.ACTION_STEP.ActionSettings.SET_TEMP_TARGET): void;
+        }
+        interface SET_TEMP_TARGET_CONSTRUCTOR extends ImpactClass<SET_TEMP_TARGET> {}
+        var SET_TEMP_TARGET: SET_TEMP_TARGET_CONSTRUCTOR;
     }
     interface ExtensionList extends SingleLoadable {
 

@@ -11,7 +11,13 @@ export {};
 
 declare global {
   namespace sc {
+    namespace BasicCombatant {
+      interface Combo {
+        hitCombatants: sc.BasicCombatant[];
+      }
+    }
     interface BasicCombatant extends sc.ActorEntity {
+      combo: BasicCombatant.Combo;
       getCombatantRoot(this: this): sc.BasicCombatant;
     }
     interface BasicCombatantConstructor extends ImpactClass<BasicCombatant> {}
