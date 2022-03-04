@@ -48,8 +48,26 @@ declare global {
         }
         interface PlayerConfigConstructor extends ImpactClass<PlayerConfig> {}
         var PlayerConfig: PlayerConfigConstructor;
-
-        interface PlayerAction extends ig.Class {}
+        
+        enum ACTION_DMG_TYPE {
+            MELEE = 1,
+            RANGED = 2,
+            NONE = 3,
+            MIXED = 4,
+        }
+        enum ACTION_STUN_TYPE {
+            INTERRUPT = 1,
+            LOCK = 2,
+        }
+        interface PlayerAction extends ig.Class {
+            action: ig.Action;
+            key: string;
+            name?: ig.LangLabel;
+            description?: ig.LangLabel;
+            dmgType?: sc.ACTION_DMG_TYPE | null;
+            stunType?: sc.ACTION_STUN_TYPE | false;
+            icon?: ig.Image;
+        }
         interface PlayerActionConstructor extends ImpactClass<PlayerAction> {}
         var PlayerAction: PlayerActionConstructor
 

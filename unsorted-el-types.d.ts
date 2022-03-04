@@ -26,10 +26,6 @@ namespace ig {
         getVec3(a: Vec3, b: ig.ActorEntity, c: Vec3): Vec3
     }
 
-    interface ActorEntity {
-        getTarget(): ig.ActorEntity
-    }
-
     namespace ACTION_STEP {
         namespace ActionSettings {
             interface SET_TEMP_TARGET {

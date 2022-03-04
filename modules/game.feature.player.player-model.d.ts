@@ -47,6 +47,7 @@ declare global {
             params: CombatParams
             items: number[]
             credit: number;
+            currentElementMode: sc.ELEMENT;
     
             getToggleItemState(this: this, id: sc.Inventory.ItemID): boolean
             getParamAvgLevel(this: this, level: number): number
