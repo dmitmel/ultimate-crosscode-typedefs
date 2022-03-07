@@ -47,9 +47,22 @@ declare global {
       }
     }
     interface CombatParams extends ig.Class, sc.Model {
+      combatant: ig.ENTITY.Combatant;
+      modifiers: Record<keyof sc.Modifiers.KnownModifiers, number>;
       baseParams: sc.CombatParams.BaseParams;
       currentHp: number;
+      maxSp: number;
+      spHoldTimer: number;
+      currentItemBuffs: number;
+      tmpElemFactor: number[];
+      tmpStatusInflict: number[];
+      damageFactor: number;
+      ballFactor: number;
       defeated: boolean;
+      statusStates: sc.CombatStatusBase[];
+      hpRegTime: number;
+      hpHealTimer: number;
+      criticalDmgFactor: number;
 
       getStat<K extends keyof sc.CombatParams.BaseParams>(
         this: this,
