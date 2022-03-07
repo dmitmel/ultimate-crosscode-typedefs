@@ -4,65 +4,59 @@ export {};
 
 declare global {
   namespace sc {
-    namespace Modifiers {
-      interface Modifier {
-        icon: number;
-        order?: number;
-        noPercent?: boolean;
-        altSheet?: string;
-        offX?: number;
-        offY?: number;
-      }
-
-      interface KnownModifiers {
-        AIM_SPEED: true;
-        AIM_STABILITY: true;
-        AIMING_MOVEMENT: true;
-        KNOCKBACK: true;
-        RANGED_DMG: true;
-        MELEE_DMG: true;
-        CRITICAL_DMG: true;
-        BREAK_DMG: true;
-        SPIKE_DMG: true;
-        ASSAULT: true;
-        CROSS_COUNTER: true;
-        BERSERK: true;
-        MOMENTUM: true;
-        DASH_INVINC: true;
-        DASH_STEP: true;
-        GUARD_STRENGTH: true;
-        GUARD_SP: true;
-        GUARD_AREA: true;
-        PERFECT_GUARD_WINDOW: true;
-        PERFECT_GUARD_RESET: true;
-        STUN_THRESHOLD: true;
-        OVERHEAT_REDUCTION: true;
-        HP_REGEN: true;
-        SP_REGEN: true;
-        ITEM_GUARD: true;
-        ONCE_MORE: true;
-        XP_PLUS: true;
-        DROP_CHANCE: true;
-        MONEY_PLUS: true;
-        XP_ZERO: true;
-        RANK_PLANTS: true;
-        ITEM_BOOST: true;
-        APPETITE: true;
-        COND_HEALING: true;
-        COND_EFFECT_HEAT: true;
-        COND_EFFECT_COLD: true;
-        COND_EFFECT_SHOCK: true;
-        COND_EFFECT_WAVE: true;
-        COND_EFFECT_ALL: true;
-        COND_GUARD_HEAT: true;
-        COND_GUARD_COLD: true;
-        COND_GUARD_SHOCK: true;
-        COND_GUARD_WAVE: true;
-        SPIDER_SLOW_DOWN_GUARD: true;
-        BEGONE_ICE: true;
-      }
+    interface Modifier {
+      icon: number;
+      order: number;
+      noPercent?: boolean;
     }
 
-    var MODIFIERS: Record<keyof sc.Modifiers.KnownModifiers, sc.Modifiers.Modifier>;
+    interface MODIFIERS {
+      AIM_SPEED: Modifier;
+      AIM_STABILITY: Modifier;
+      AIMING_MOVEMENT: Modifier;
+      KNOCKBACK: Modifier;
+      RANGED_DMG: Modifier;
+      MELEE_DMG: Modifier;
+      CRITICAL_DMG: Modifier;
+      BREAK_DMG: Modifier;
+      SPIKE_DMG: Modifier;
+      ASSAULT: Modifier;
+      CROSS_COUNTER: Modifier;
+      BERSERK: Modifier;
+      MOMENTUM: Modifier;
+      DASH_INVINC: Modifier;
+      DASH_STEP: Modifier;
+      GUARD_STRENGTH: Modifier;
+      GUARD_SP: Modifier;
+      GUARD_AREA: Modifier;
+      PERFECT_GUARD_WINDOW: Modifier;
+      PERFECT_GUARD_RESET: Modifier;
+      STUN_THRESHOLD: Modifier;
+      OVERHEAT_REDUCTION: Modifier;
+      HP_REGEN: Modifier;
+      SP_REGEN: Modifier;
+      ITEM_GUARD: Modifier;
+      ONCE_MORE: Modifier;
+      XP_PLUS: Modifier;
+      DROP_CHANCE: Modifier;
+      MONEY_PLUS: Modifier;
+      XP_ZERO: Modifier;
+      RANK_PLANTS: Modifier;
+      ITEM_BOOST: Modifier;
+      APPETITE: Modifier;
+      COND_HEALING: Modifier;
+      COND_EFFECT_HEAT: Modifier;
+      COND_EFFECT_COLD: Modifier;
+      COND_EFFECT_SHOCK: Modifier;
+      COND_EFFECT_WAVE: Modifier;
+      COND_EFFECT_ALL: Modifier;
+      COND_GUARD_HEAT: Modifier;
+      COND_GUARD_COLD: Modifier;
+      COND_GUARD_SHOCK: Modifier;
+      COND_GUARD_WAVE: Modifier;
+      SPIDER_SLOW_DOWN_GUARD: Modifier;
+      BEGONE_ICE: Modifier;
+    }
+    var MODIFIERS: MODIFIERS;
   }
 }

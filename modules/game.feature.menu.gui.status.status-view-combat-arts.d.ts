@@ -18,10 +18,11 @@ declare global {
       name: sc.TextGui;
       description: sc.TextGui;
 
-      init(this: this, artLevel: number, action: sc.PlayerAction): void;
       getConditionType(this: this): string;
     }
-    interface StatusViewCombatArtsEntryConstructor extends ImpactClass<StatusViewCombatArtsEntry> {}
+    interface StatusViewCombatArtsEntryConstructor extends ImpactClass<StatusViewCombatArtsEntry> {
+      new (artLevel: number, action: sc.PlayerAction): void;
+    }
     var StatusViewCombatArtsEntry: StatusViewCombatArtsEntryConstructor;
   }
 }

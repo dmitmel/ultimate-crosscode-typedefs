@@ -13,15 +13,16 @@ declare global {
   namespace sc {
     interface GameModel extends ig.GameAddon, sc.Model {
       message: sc.MessageModel;
+      currentSubState: sc.GAME_MODEL_SUBSTATE;
       prevSubState: sc.GAME_MODEL_SUBSTATE;
-      player: PlayerModel;
+      player: sc.PlayerModel;
 
-      enterPrevSubState(this: this): void;
       addChoiceGui(this: this, choiceGui: ig.GuiElementBase): void;
       removeChoiceGui(this: this, choiceGui: ig.GuiElementBase): void;
       isAssistMode(this: this): boolean;
-      enterMenu(this: this, b: boolean): void;
       getCombatRankDropRate(this: this): number;
+      enterPrevSubState(this: this): void;
+      enterMenu(this: this, force?: boolean | null): void;
     }
     interface GameModelConstructor extends ImpactClass<GameModel> {}
     var GameModel: GameModelConstructor;

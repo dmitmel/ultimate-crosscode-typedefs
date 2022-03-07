@@ -12,22 +12,22 @@ declare global {
       SP = 2,
       BUFF = 3,
     }
-    interface ItemStatusDefaultBar extends ig.GuiElementBase {
-      maxNumber: sc.NumberGui;
-      currentNumber: sc.NumberGui;
-      type: sc.MENU_BAR_TYPE;
 
-      init(
-        this: this,
+    interface ItemStatusDefaultBar extends ig.GuiElementBase {
+      type: sc.MENU_BAR_TYPE;
+      currentNumber: sc.NumberGui;
+      maxNumber: sc.NumberGui;
+    }
+    interface ItemStatusDefaultBarConstructor extends ImpactClass<ItemStatusDefaultBar> {
+      new (
         text: sc.TextLike,
         type: sc.MENU_BAR_TYPE,
         buff: unknown,
         width: number,
         barHeight: number,
         position: number,
-      ): void;
+      ): ItemStatusDefaultBar;
     }
-    interface ItemStatusDefaultBarConstructor extends ImpactClass<ItemStatusDefaultBar> {}
     var ItemStatusDefaultBar: ItemStatusDefaultBarConstructor;
   }
 }

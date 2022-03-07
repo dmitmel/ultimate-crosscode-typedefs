@@ -155,6 +155,7 @@ declare global {
     var GuiTransform: GuiTransformConstructor;
 
     interface GuiElementBase extends ig.Class {
+      transitions: { [name: string]: ig.GuiHook.Transition };
       hook: ig.GuiHook;
 
       setPos(this: this, x: number, y: number): void;

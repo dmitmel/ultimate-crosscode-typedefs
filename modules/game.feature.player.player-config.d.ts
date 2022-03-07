@@ -2,7 +2,8 @@ export {};
 
 declare global {
   namespace sc {
-    var PLAYER: unknown;
+    namespace PLAYER {}
+
     enum PLAYER_CLASSES {
       SPHEROMANCER = 0,
       TRIBLADER = 1,
@@ -55,10 +56,12 @@ declare global {
       NONE = 3,
       MIXED = 4,
     }
+
     enum ACTION_STUN_TYPE {
       INTERRUPT = 1,
       LOCK = 2,
     }
+
     interface PlayerAction extends ig.Class {
       action: ig.Action;
       key: string;

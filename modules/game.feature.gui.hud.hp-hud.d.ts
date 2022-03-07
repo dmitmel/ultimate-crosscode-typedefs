@@ -8,10 +8,10 @@ declare global {
   namespace sc {
     interface HpHudGui extends ig.GuiElementBase {
       hpNumber: sc.NumberGui;
-
-      init(this: this, b: unknown): void;
     }
-    interface HpHudGuiConstructor extends ImpactClass<HpHudGui> {}
+    interface HpHudGuiConstructor extends ImpactClass<HpHudGui> {
+      new (params: sc.CombatParams): HpHudGui;
+    }
     var HpHudGui: HpHudGuiConstructor;
   }
 }

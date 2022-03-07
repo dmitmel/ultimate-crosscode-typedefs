@@ -13,7 +13,6 @@ declare global {
       def: sc.ParamHudGui.Param;
       foc: sc.ParamHudGui.Param;
 
-      init(this: this): void;
       showParams(this: this, isInMenu?: boolean): void;
       hideParams(this: this, skipTransition?: boolean): void;
     }

@@ -669,8 +669,7 @@ declare global {
 
     interface BaseMenu extends ig.GuiElementBase {
       visible: boolean;
-      transitions: Record<string, ig.GuiHook.Transition>;
-      init(this: this): void;
+
       addObservers(this: this): void;
       removeObservers(this: this): void;
       showMenu(this: this): void;
@@ -678,7 +677,9 @@ declare global {
       exitMenu(this: this): void;
     }
 
-    interface BaseMenuConstructor extends ImpactClass<BaseMenu> {}
+    interface BaseMenuConstructor extends ImpactClass<BaseMenu> {
+      new (): BaseMenu;
+    }
 
     var BaseMenu: BaseMenuConstructor;
 
@@ -923,11 +924,10 @@ declare global {
     interface NpcState {
       npcEventType: sc.NPC_EVENT_TYPE;
       npcEventObj: ig.Event;
-      init(this: this, a: any, b: any): void;
     }
-
-    interface NpcStateConstructor extends ImpactClass<NpcState> {}
-
+    interface NpcStateConstructor extends ImpactClass<NpcState> {
+      new (a: any, b: any): NpcState;
+    }
     var NpcState: NpcStateConstructor;
 
     interface MapInteractEntry extends ig.Class {

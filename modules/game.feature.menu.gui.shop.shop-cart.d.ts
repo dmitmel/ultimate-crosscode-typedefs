@@ -8,16 +8,18 @@ export {};
 declare global {
   namespace sc {
     interface ShopCart extends ig.BoxGui {
-      checkout: sc.ButtonGui;
       credits: sc.ShopCartEntry;
       value: sc.ShopCartEntry;
       rest: sc.ShopCartEntry;
+      checkout: sc.ButtonGui;
       enabled: boolean;
-      init(this: this): void;
-      resetNumbers(this: this, b: boolean): void;
-      updateValue(this: this, b: number): void;
+
+      resetNumbers(this: this, skipTransition?: boolean): void;
+      updateValue(this: this, skipTransition?: boolean): void;
     }
-    interface ShopCartConstructor extends ImpactClass<ShopCart> {}
+    interface ShopCartConstructor extends ImpactClass<ShopCart> {
+      new (): ShopCart;
+    }
 
     var ShopCart: ShopCartConstructor;
 
@@ -27,10 +29,11 @@ declare global {
       number: sc.NumberGui;
       hideSymbol: boolean;
 
-      init(this: this, text: string): void;
-      setNumber(this: this, value: number, b?: boolean): void;
+      setNumber(this: this, value: number, skipTransition?: boolean): void;
     }
-    interface ShopCartEntryConstructor extends ImpactClass<ShopCartEntry> {}
+    interface ShopCartEntryConstructor extends ImpactClass<ShopCartEntry> {
+      new (text: string): ShopCartEntry;
+    }
     var ShopCartEntry: ShopCartEntryConstructor;
   }
 }

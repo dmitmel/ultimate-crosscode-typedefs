@@ -16,7 +16,7 @@ declare global {
   namespace sc {
     interface ShopMenu extends sc.BaseMenu {
       cart: sc.ShopCart;
-      init(this: this): void;
+
       buyItems(this: this): boolean;
       sellItems(this: this): boolean;
     }

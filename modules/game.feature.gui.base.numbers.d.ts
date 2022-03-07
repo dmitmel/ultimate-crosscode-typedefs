@@ -4,27 +4,25 @@ export {};
 
 declare global {
   namespace sc {
-    namespace NumberSize {
-      interface SizeSettings {
-        x: number;
-        y: number;
-        width: number;
-        height: number;
-        dotX?: number;
-        commaOffset?: number;
-        dotSize?: number;
-      }
-      enum KnownSizes {
-        NORMAL,
-        TINY,
-        LARGE,
-        TEXT,
-        SMALL,
-        CHAIN,
-      }
+    interface NumberSize {
+      x: number;
+      y: number;
+      width: number;
+      height: number;
+      dotX?: number;
+      commaOffset?: number;
+      dotSize?: number;
     }
 
-    var NUMBER_SIZE: Record<keyof typeof NumberSize.KnownSizes, NumberSize.SizeSettings>;
+    interface NUMBER_SIZE {
+      NORMAL: NumberSize;
+      TINY: NumberSize;
+      LARGE: NumberSize;
+      TEXT: NumberSize;
+      SMALL: NumberSize;
+      CHAIN: NumberSize;
+    }
+    var NUMBER_SIZE: NUMBER_SIZE;
 
     enum GUI_NUMBER_COLOR {
       WHITE = 0,
@@ -37,18 +35,18 @@ declare global {
 
     namespace NumberGui {
       interface Settings {
-        size?: NumberSize.SizeSettings;
-        color?: sc.GUI_NUMBER_COLOR;
-        signed?: boolean;
-        transitionTime?: number;
-        transitionScale?: number;
-        zeroAsGrey?: boolean;
+        size?: sc.NumberSize | null;
+        color?: sc.GUI_NUMBER_COLOR | null;
+        signed?: boolean | null;
+        transitionTime?: number | null;
+        transitionScale?: number | null;
+        zeroAsGrey?: boolean | null;
       }
     }
     interface NumberGui extends ig.GuiElementBase {
       showPlus: boolean;
       maxNumber: number;
-      init(this: this, maxValue: number, settings?: sc.NumberGui.Settings): void;
+
       setNumber(this: this, number: number, skipTransition?: boolean | null): void;
       setMaxNumber(this: this, number: number): void;
       setColor(this: this, color: sc.GUI_NUMBER_COLOR): void;

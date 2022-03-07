@@ -9,21 +9,22 @@ declare global {
   namespace sc {
     namespace EquipStatusContainer {
       interface BaseParams {
-        hp: true;
-        atk: true;
-        def: true;
-        foc: true;
-        fire: true;
-        cold: true;
-        shock: true;
-        wave: true;
+        hp: sc.SimpleStatusDisplay;
+        atk: sc.SimpleStatusDisplay;
+        def: sc.SimpleStatusDisplay;
+        foc: sc.SimpleStatusDisplay;
+        fire: sc.SimpleStatusDisplay;
+        cold: sc.SimpleStatusDisplay;
+        shock: sc.SimpleStatusDisplay;
+        wave: sc.SimpleStatusDisplay;
       }
     }
     interface EquipStatusContainer extends ig.GuiElementBase {
-      baseParams: Record<keyof EquipStatusContainer.BaseParams, sc.SimpleStatusDisplay>;
-      init(this: this): void;
+      baseParams: sc.EquipStatusContainer.BaseParams;
     }
-    interface EquipStatusContainerConstructor extends ImpactClass<EquipStatusContainer> {}
+    interface EquipStatusContainerConstructor extends ImpactClass<EquipStatusContainer> {
+      new (): EquipStatusContainer;
+    }
     var EquipStatusContainer: EquipStatusContainerConstructor;
   }
 }

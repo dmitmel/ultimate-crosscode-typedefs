@@ -19,10 +19,7 @@ declare global {
 
     namespace ProxyTools {
       function getProxy(src: sc.ProxySpawnerBase): sc.ProxySpawnerBase;
-      function getProxy(
-        src: string,
-        entity: { getCombatantRoot(): sc.BasicCombatant },
-      ): sc.ProxySpawnerBase;
+      function getProxy(src: string, entity: sc.GetCombatantRoot): sc.ProxySpawnerBase;
     }
   }
 }

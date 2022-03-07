@@ -67,7 +67,7 @@ declare global {
 
     interface ListBoxButton extends ig.FocusGui {
       button: sc.ButtonGui;
-      data: ListBoxButton.Data;
+      data: sc.ListBoxButton.Data;
       _width: number;
 
       setButtonText(this: this, text: sc.TextLike): void;
@@ -91,21 +91,6 @@ declare global {
 
     interface ItemBoxButton extends sc.ListBoxButton {
       amount: sc.NumberGui;
-
-      init(
-        this: this,
-        text: sc.TextLike,
-        buttonWidth: number,
-        lineWidth: number,
-        amount: number,
-        id?: string | number,
-        description?: string,
-        noLine?: boolean,
-        alignCenter?: boolean,
-        sound?: ig.Sound,
-        maxValue?: number,
-        level?: number,
-      ): void;
     }
     interface ItemBoxButtonConstructor extends ImpactClass<ItemBoxButton> {
       new (
@@ -166,21 +151,29 @@ declare global {
     var MenuScanLines: MenuScanLinesConstructor;
 
     namespace ScrollPane {
-      interface Container extends ig.GuiElementBase {}
-      interface ContainerConstructor extends ImpactClass<Container> {}
+      interface Container extends ig.GuiElementBase {
+        scrollIndex: number;
+
+        getContentWidth(this: this): number;
+        getContentHeight(this: this): number;
+      }
+      interface ContainerConstructor extends ImpactClass<Container> {
+        new (): Container;
+      }
     }
     interface ScrollPane extends ig.GuiElementBase {
       box: sc.ScrollPane.Container;
+
       setContent(this: this, content: ig.GuiElementBase): void;
-      recalculateScrollBars(this: this, a?: boolean): void;
+      scrollY(this: this, amount: number): void;
       setScrollY(
         this: this,
-        posY: number,
-        instant: boolean,
-        time: number,
-        keySpline: KeySpline,
+        value: number,
+        skipTransition?: boolean | null,
+        time?: number | null,
+        timeFunction?: KeySpline | null,
       ): void;
-      scrollY(this: this, amount: number): void;
+      recalculateScrollBars(this: this, skipTransition?: boolean): void;
     }
     interface ScrollPaneConstructor extends ImpactClass<ScrollPane> {
       new (scrollType: sc.ScrollType): sc.ScrollPane;

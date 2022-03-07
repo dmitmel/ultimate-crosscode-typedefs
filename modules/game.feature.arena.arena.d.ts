@@ -20,29 +20,35 @@ declare global {
       PLATIN = 4,
       TRUE_PLATIN = 5,
     }
+
     enum ARENA_BASE_TYPE {
       SOLO_CUP = 'SOLO_CUP',
       TEAM_CUP = 'TEAM_CUP',
       SOLO_CUSTOM = 'SOLO_CUSTOM',
       TEAM_CUSTOM = 'TEAM_CUSTOM',
     }
+
     enum ARENA_ROUND_MODE {
       DEFAULT = 'DEFAULT',
     }
+
+    var ARENA_CHAIN_MAX_TIME: number;
+
     enum ARENA_SORT_TYPES {
       ORDER = 0,
     }
-    enum ARENA_PAUSE_ACTIONS {
-      NONE = 0,
-      RESTART = 1,
-      LOBBY = 2,
-    }
-    var ARENA_CHAIN_MAX_TIME: number;
+
     var ARENA_SILVER_MEDAL_QUOTA: number;
     var ARENA_RUSH_COIN_QUOTA: number;
     var ARENA_TROPHY_QUOTA: number;
     var ARENA_MAX_CHAIN_HITS: number;
     var ARENA_MAX_CHAIN_MULTIPLIER: number;
+
+    enum ARENA_PAUSE_ACTIONS {
+      NONE = 0,
+      RESTART = 1,
+      LOBBY = 2,
+    }
 
     namespace Arena {
       interface CupOptions {
@@ -107,36 +113,6 @@ declare global {
         getPoints?(a: any, b: any): number;
       }
 
-      interface ArenaScoreType {
-        order: number;
-        staticMultiplier?: number;
-        static?: boolean;
-        asBonus?: boolean;
-      }
-
-      interface KnownScoreTypes {
-        DAMAGE_DONE: true;
-        DAMAGE_DONE_EFFECTIVE: true;
-        DAMAGE_TAKEN: true;
-        KILL: true;
-        BOSS_KILL: true;
-        TARGET_KILL: true;
-        MULTI_KILL: true;
-        ENVIRONMENT_KILL: true;
-        ONE_HIT_KILL: true;
-        LOCK_FINISH: true;
-        LOCK_FINISH_3: true;
-        ELEMENT_OVERLOAD: true;
-        PERFECT_SHIELD: true;
-        PERFECT_DODGE: true;
-        ENEMY_BREAK: true;
-        GUARD_COUNTER: true;
-        STATUS_INFLICT: true;
-        PVP_ROUND_WON: true;
-        PVP_ROUND_LOST: true;
-        ENEMY_HEAL: true;
-      }
-
       interface KnownCupAttributes {
         noRush: boolean;
         name: ig.LangLabel.Data;
@@ -149,7 +125,6 @@ declare global {
       active: boolean;
       cups: Record<string, Arena.Cup>;
 
-      init(this: this): void;
       registerCup(
         this: this,
         cupName: string,
@@ -157,12 +132,11 @@ declare global {
         isExtension?: boolean,
       ): void;
       onPreDamageApply(this: this, a: any, b: any, c: any, d: any, e: any): void;
-      addScore<K extends keyof Arena.KnownScoreTypes>(
+      addScore<K extends keyof sc.ARENA_SCORE_TYPES>(
         this: this,
         scoreType: K,
         points: number,
       ): void;
-      addScore(this: this, scoreType: string, points: number): void;
       getTotalArenaCompletion(this: this): number;
       getCupCompletion(this: this, cupName: string): number;
       getTotalDefaultTrophies(this: this, a: number, c: boolean): number;
@@ -177,21 +151,20 @@ declare global {
       initMetaData(this: this, cupName: string): void;
       onLevelLoadStart(this: this): void;
       getCupRounds(this: this, cupName: string): sc.Arena.CupData.ArenaRound[];
-      getCupCoreAttrib(this: this, cupName: string, attribute: string): any;
       getCupCoreAttrib<K extends keyof Arena.KnownCupAttributes>(
         this: this,
         cupName: string,
         attribute: K,
       ): Arena.KnownCupAttributes[K];
     }
-
-    interface ArenaConstructor extends ImpactClass<Arena> {}
+    interface ArenaConstructor extends ImpactClass<Arena> {
+      new (): Arena;
+    }
 
     var Arena: ArenaConstructor;
     var arena: Arena;
 
     var ARENA_BONUS_OBJECTIVE: { [key: string]: Arena.ArenaBonusObjective };
-    var ARENA_SCORE_TYPES: Record<keyof Arena.KnownScoreTypes, Arena.ArenaScoreType>;
   }
 
   namespace ig.Vars {

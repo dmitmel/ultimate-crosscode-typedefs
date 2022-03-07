@@ -22,9 +22,9 @@ declare global {
       _skillsRed: boolean;
       _hideAll: boolean;
       _skillHidden: boolean;
-
-      init(
-        this: this,
+    }
+    interface StatusParamBarConstructor extends ImpactClass<StatusParamBar> {
+      new (
         name: string,
         description: string,
         size: number,
@@ -34,9 +34,8 @@ declare global {
         skillHidden: boolean,
         noPercent: boolean,
         longNumber: boolean,
-      ): void;
+      ): StatusParamBar;
     }
-    interface StatusParamBarConstructor extends ImpactClass<StatusParamBar> {}
     var StatusParamBar: StatusParamBarConstructor;
   }
 }

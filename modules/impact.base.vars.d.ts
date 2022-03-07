@@ -5,7 +5,9 @@ declare global {
     namespace Vars {
       type CCVar = number | boolean | string | LangLabel.Data | Vec2 | Vec3 | undefined | null;
 
-      type VarStorage = { [key: string]: CCVar | VarStorage };
+      interface VarStorage {
+        [key: string]: CCVar | VarStorage;
+      }
 
       // a list of known var types
       interface KnownVars {
@@ -39,8 +41,6 @@ declare global {
 
     interface Vars extends ig.Class {
       storage: Vars.KnownVars;
-
-      init(this: this): void;
 
       get<K extends keyof Vars.KnownVarStrings>(this: this, variable: K): Vars.KnownVarStrings[K];
       get<K extends ig.Vars.CCVar>(this: this, variable: string): K;
@@ -102,8 +102,9 @@ declare global {
       ): void;
       xor(this: this, variable: string, value: Vars.CCVar): void;
     }
-
-    interface VarsConstructor extends ImpactClass<Vars> {}
+    interface VarsConstructor extends ImpactClass<Vars> {
+      new (): Vars;
+    }
     var vars: Vars;
     var Vars: VarsConstructor;
 
@@ -113,7 +114,6 @@ declare global {
       vars: string[];
       condition: () => any;
 
-      init(this: this, condition: string): void;
       setCondition(this: this, condition: string): void;
       evaluate(this: this): boolean;
       toString(this: this): string;

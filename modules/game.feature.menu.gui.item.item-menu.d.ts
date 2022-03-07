@@ -12,10 +12,11 @@ export {};
 declare global {
   namespace sc {
     interface ItemMenu extends sc.BaseMenu {
-      init(this: this): void;
-      commitHotKeysToTopBar(this: this, a: unknown): void;
+      commitHotKeysToTopBar(this: this, longTransition?: boolean): void;
     }
-    interface ItemMenuConstructor extends ImpactClass<ItemMenu> {}
+    interface ItemMenuConstructor extends ImpactClass<ItemMenu> {
+      new (): ItemMenu;
+    }
     var ItemMenu: ItemMenuConstructor;
   }
 }

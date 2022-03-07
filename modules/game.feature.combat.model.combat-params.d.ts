@@ -23,6 +23,7 @@ declare global {
       SP_CONSUME = 8,
       BUFFS_CLEARED = 9,
     }
+
     var ELEMENT_MAX: number;
     var ELEMENT_COUNTER: Record<ELEMENT, ELEMENT>;
     var SP_REGEN_SPEED: { [maxSp: number]: number };
@@ -48,11 +49,22 @@ declare global {
         value: number;
         absolute?: boolean;
       }
+
+      interface DamageResult {
+        damage: number;
+        defReduced: number;
+        offensiveFactor: number;
+        baseOffensiveFactor: number;
+        elementalDef: number;
+        defensiveFactor: number;
+        critical: number;
+        status: number;
+      }
     }
     interface CombatParams extends ig.Class, sc.Model {
       combatant: ig.ENTITY.Combatant;
-      modifiers: Record<keyof sc.Modifiers.KnownModifiers, number>;
       baseParams: sc.CombatParams.BaseParams;
+      modifiers: Record<keyof sc.MODIFIERS, number>;
       currentHp: number;
       maxSp: number;
       spHoldTimer: number;
@@ -72,13 +84,12 @@ declare global {
         key: K,
         noHack?: boolean | null,
       ): sc.CombatParams.Params[K];
-      getModifier<K extends keyof sc.Modifiers.KnownModifiers>(this: this, modifier: K): number;
-      getModifier(this: this, modifier: string): number;
-      update(this: this, a: unknown): void;
-      getHpFactor(this: this): number;
-      getRelativeSp(this: this): number;
+      getModifier<K extends keyof sc.MODIFIERS>(this: this, modifier: K): number;
       getHealAmount(this: this, amount: CombatParams.HealAmount): number;
       increaseHp(this: this, amount: number): void;
+      getHpFactor(this: this): number;
+      getRelativeSp(this: this): number;
+      update(this: this, inCombat: boolean): void;
     }
     interface CombatParamsConstructor extends ImpactClass<CombatParams> {}
     var CombatParams: CombatParamsConstructor;

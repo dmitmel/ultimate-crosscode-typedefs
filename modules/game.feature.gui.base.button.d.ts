@@ -19,7 +19,7 @@ declare global {
       text: sc.TextLike;
       buttonType: sc.ButtonGui.Type;
       textChild: sc.TextGui;
-      data?: any;
+      data?: unknown;
       submitSound: ig.Sound;
 
       setWidth(this: this, width: number): void;

@@ -12,10 +12,14 @@ declare global {
       interface Guard {
         damage: number;
         timer: number;
+        fxSheet: ig.EffectSheet;
+        fxHandle: ig.ENTITY.Effect;
+        currentKey: string;
       }
     }
     interface PlayerBaseEntity extends ig.ENTITY.Combatant {
       guard: PlayerBaseEntity.Guard;
+
       damageShield(this: this, damage: number): boolean;
     }
     interface PlayerBaseEntityConstructor extends ImpactClass<PlayerBaseEntity> {}

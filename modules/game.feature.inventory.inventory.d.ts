@@ -83,15 +83,16 @@ declare global {
       items: Inventory.Item[];
       scalable: number[];
 
-      init(this: this): void;
-      getItem(id: sc.Inventory.ItemID): sc.Inventory.Item | null | undefined;
       updateScaledEquipment(this: this, newLevel: number): void;
-      getRaritySuffix(this: this, rarity: ITEMS_RARITY): string;
-      getItemName(this: this, id: Inventory.ItemID): string;
-      getItemIcon(this: this, id: Inventory.ItemID): string;
-      getItemNameWithIcon(this: this, id: Inventory.ItemID): string;
+      getItem(id: sc.Inventory.ItemID): sc.Inventory.Item | null | undefined;
+      getItemName(this: this, id: sc.Inventory.ItemID): string;
+      getRaritySuffix(this: this, rarity: sc.ITEMS_RARITY): string;
+      getItemNameWithIcon(this: this, id: sc.Inventory.ItemID): string;
+      getItemIcon(this: this, id: sc.Inventory.ItemID): string;
     }
-    interface InventoryConstructor extends ImpactClass<Inventory> {}
+    interface InventoryConstructor extends ImpactClass<Inventory> {
+      new (): Inventory;
+    }
     var Inventory: InventoryConstructor;
     var inventory: Inventory;
   }
