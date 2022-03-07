@@ -17,12 +17,12 @@ declare global {
       modIconFallbackGfx: ig.Image;
       modIconPosX: number;
       modIconPosY: number;
+      modVersionGui: sc.TextGui;
       slopeGui: ig.ImageGui;
       lineGui: ig.ColorGui;
     }
     interface OptionDefinitionCommon {
       mod?: modloader.Mod | null;
-      modIcon?: boolean | null;
     }
 
     namespace OPTIONS_DEFINITION {
