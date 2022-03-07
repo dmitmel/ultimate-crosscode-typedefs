@@ -34,7 +34,7 @@ declare global {
       }
     }
     interface MapModel extends ig.GameAddon, sc.Model {
-      areas: {[key: string]: sc.MapModel.Area};
+      areas: { [key: string]: sc.MapModel.Area };
 
       onLevelLoadStart(this: this, data: sc.MapModel.Map): void;
       validateCurrentPlayerFloor(this: this): void;

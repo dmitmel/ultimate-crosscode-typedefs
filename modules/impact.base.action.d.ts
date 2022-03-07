@@ -7,14 +7,11 @@ declare global {
     namespace ACTION_STEP {}
 
     interface ActionStepBase extends StepBase {
-
-      run(this: this, target?: ig.ActorEntity): boolean
-      start(this: this, target?: ig.ActorEntity): void
-      getNext(this: this, target?: ig.ActorEntity): ig.ActionStepBase
+      run(this: this, target?: ig.ActorEntity): boolean;
+      start(this: this, target?: ig.ActorEntity): void;
+      getNext(this: this, target?: ig.ActorEntity): ig.ActionStepBase;
     }
-    interface ActionStepBaseConstructor extends ImpactClass<ActionStepBase>{
-
-    }
+    interface ActionStepBaseConstructor extends ImpactClass<ActionStepBase> {}
     var ActionStepBase: ActionStepBaseConstructor;
 
     interface Action extends ig.Class {

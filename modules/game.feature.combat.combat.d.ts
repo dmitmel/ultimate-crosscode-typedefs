@@ -7,25 +7,25 @@
 export {};
 
 declare global {
-    namespace sc {
-        enum COMBATANT_PARTY {
-            PLAYER,
-            ENEMY,
-            OTHER
-        }
-        
-        interface Combat extends ig.GameAddon {
-            enemyDataList: Record<string, sc.EnemyType>;
-            effects: Record<string, ig.EffectSheet>;
-            active: true;
-
-            canShowBoostedEntry(this: this, enemyName: string, isBoss: boolean): boolean
-            showPerfectDashEffect(this: this, target: ig.ActorEntity): void
-            getElementMode(this: this, combatant: ig.ENTITY.Combatant): sc.ELEMENT;
-            isInCombat(this: this, combatant: ig.ENTITY.Combatant): boolean;
-        }
-        interface CombatConstructor extends ImpactClass<Combat> { }
-        var Combat: CombatConstructor;
-        var combat: Combat;
+  namespace sc {
+    enum COMBATANT_PARTY {
+      PLAYER,
+      ENEMY,
+      OTHER,
     }
+
+    interface Combat extends ig.GameAddon {
+      enemyDataList: Record<string, sc.EnemyType>;
+      effects: Record<string, ig.EffectSheet>;
+      active: true;
+
+      canShowBoostedEntry(this: this, enemyName: string, isBoss: boolean): boolean;
+      showPerfectDashEffect(this: this, target: ig.ActorEntity): void;
+      getElementMode(this: this, combatant: ig.ENTITY.Combatant): sc.ELEMENT;
+      isInCombat(this: this, combatant: ig.ENTITY.Combatant): boolean;
+    }
+    interface CombatConstructor extends ImpactClass<Combat> {}
+    var Combat: CombatConstructor;
+    var combat: Combat;
+  }
 }

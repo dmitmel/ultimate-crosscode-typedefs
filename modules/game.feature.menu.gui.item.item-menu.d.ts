@@ -7,15 +7,15 @@
 // requires game.feature.menu.gui.item.item-status-trade
 // requires game.feature.menu.gui.item.item-list
 
-export {}
+export {};
 
 declare global {
-    namespace sc {
-        interface ItemMenu extends sc.BaseMenu {
-            init(this: this): void;
-            commitHotKeysToTopBar(this: this, a: unknown): void;
-        }
-        interface ItemMenuConstructor extends ImpactClass<ItemMenu> {}
-        var ItemMenu: ItemMenuConstructor
+  namespace sc {
+    interface ItemMenu extends sc.BaseMenu {
+      init(this: this): void;
+      commitHotKeysToTopBar(this: this, a: unknown): void;
     }
+    interface ItemMenuConstructor extends ImpactClass<ItemMenu> {}
+    var ItemMenu: ItemMenuConstructor;
+  }
 }

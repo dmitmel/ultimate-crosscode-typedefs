@@ -7,7 +7,7 @@ declare global {
   namespace sc {
     enum LIST_COLUMNS {
       ONE = 1,
-      TWO = 2
+      TWO = 2,
     }
     interface ButtonListBox extends sc.ScrollPane {
       buttonGroup: sc.ButtonGroup;

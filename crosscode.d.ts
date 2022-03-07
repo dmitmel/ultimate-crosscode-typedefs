@@ -9,4 +9,4 @@ import './impact-core';
 import './crosscode-external-scripts';
 import './modules/__all__';
 
-import './unsorted-el-types'
+import './unsorted-el-types';

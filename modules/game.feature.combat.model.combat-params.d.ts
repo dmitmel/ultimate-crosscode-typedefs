@@ -22,7 +22,6 @@ declare global {
       MAX_SP_CHANGED = 7,
       SP_CONSUME = 8,
       BUFFS_CLEARED = 9,
-    
     }
     var ELEMENT_MAX: number;
     var ELEMENT_COUNTER: Record<ELEMENT, ELEMENT>;
@@ -46,8 +45,8 @@ declare global {
       }
 
       interface HealAmount {
-        value: number
-        absolute?: boolean
+        value: number;
+        absolute?: boolean;
       }
     }
     interface CombatParams extends ig.Class, sc.Model {

@@ -34,6 +34,6 @@ declare global {
       init(this: this): void;
     }
     interface StatusViewMainParametersConstructor extends ImpactClass<StatusViewMainParameters> {}
-    var StatusViewMainParameters: StatusViewMainParametersConstructor
+    var StatusViewMainParameters: StatusViewMainParametersConstructor;
   }
 }

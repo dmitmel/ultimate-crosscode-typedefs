@@ -21,9 +21,9 @@ declare global {
     interface SaveSlotChapter extends ig.GuiElementBase {
       textGui: sc.TextGui;
       chapterGui: sc.NumberGui;
-      metaMarker: ig.ImageGui
+      metaMarker: ig.ImageGui;
 
-      init(this: this): void
+      init(this: this): void;
     }
     interface SaveSlotLocationConstructor extends ImpactClass<SaveSlotChapter> {
       new (): SaveSlotChapter;

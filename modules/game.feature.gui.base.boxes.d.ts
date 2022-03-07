@@ -14,7 +14,7 @@ declare global {
       resize(this: this): void;
     }
     interface CenterBoxGuiConstructor extends ImpactClass<CenterBoxGui> {
-      new (content: ig.GuiElementBase): CenterBoxGui
+      new (content: ig.GuiElementBase): CenterBoxGui;
     }
     var CenterBoxGui: CenterBoxGuiConstructor;
   }

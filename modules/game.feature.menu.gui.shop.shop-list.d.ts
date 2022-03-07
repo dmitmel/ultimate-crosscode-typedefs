@@ -15,11 +15,26 @@ declare global {
     interface ShopItemButton extends sc.ListBoxButton {
       price: number;
       owned: sc.NumberGui;
-      init(this: this, itemName: string, itemID: sc.Inventory.ItemID, itemDescription:string, itemAmount: number, cost: number, itemEquipLevel: number): void;
+      init(
+        this: this,
+        itemName: string,
+        itemID: sc.Inventory.ItemID,
+        itemDescription: string,
+        itemAmount: number,
+        cost: number,
+        itemEquipLevel: number,
+      ): void;
       setCountNumber(this: this, value: number, b: boolean): void;
     }
     interface ShopItemButtonConstructor extends ImpactClass<ShopItemButton> {
-      new (itemName: string, itemID: sc.Inventory.ItemID, itemDescription:string, itemAmount: number, cost: number, itemEquipLevel: number): sc.ShopItemButton
+      new (
+        itemName: string,
+        itemID: sc.Inventory.ItemID,
+        itemDescription: string,
+        itemAmount: number,
+        cost: number,
+        itemEquipLevel: number,
+      ): sc.ShopItemButton;
     }
     var ShopItemButton: ShopItemButtonConstructor;
 

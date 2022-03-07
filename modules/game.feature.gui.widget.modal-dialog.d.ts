@@ -23,7 +23,13 @@ declare global {
       content: ig.GuiElementBase;
       buttonInteract: ig.ButtonInteractEntry;
       buttongroup: sc.ButtonGroup;
-      init(this: this, textValue: string, icon: sc.DIALOG_INFO_ICON | null, responseButtons: string[], callback: (button: sc.ButtonGui) => void): void;
+      init(
+        this: this,
+        textValue: string,
+        icon: sc.DIALOG_INFO_ICON | null,
+        responseButtons: string[],
+        callback: (button: sc.ButtonGui) => void,
+      ): void;
       show(this: this): void;
       hide(this: this): void;
     }

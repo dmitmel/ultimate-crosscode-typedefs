@@ -12,7 +12,7 @@ declare global {
     enum ScrollType {
       BOTH = 0,
       Y_ONLY = 1,
-      X_ONLY = 2
+      X_ONLY = 2,
     }
 
     var MODIFIER_ICON_DRAW: {
@@ -92,7 +92,8 @@ declare global {
     interface ItemBoxButton extends sc.ListBoxButton {
       amount: sc.NumberGui;
 
-      init(this: this, 
+      init(
+        this: this,
         text: sc.TextLike,
         buttonWidth: number,
         lineWidth: number,
@@ -103,8 +104,8 @@ declare global {
         alignCenter?: boolean,
         sound?: ig.Sound,
         maxValue?: number,
-        level?: number
-      ): void
+        level?: number,
+      ): void;
     }
     interface ItemBoxButtonConstructor extends ImpactClass<ItemBoxButton> {
       new (
@@ -118,7 +119,7 @@ declare global {
         alignCenter?: boolean,
         sound?: ig.Sound,
         maxValue?: number,
-        level?: number
+        level?: number,
       ): sc.ItemBoxButton;
     }
     var ItemBoxButton: ItemBoxButtonConstructor;
@@ -172,12 +173,18 @@ declare global {
       box: sc.ScrollPane.Container;
       setContent(this: this, content: ig.GuiElementBase): void;
       recalculateScrollBars(this: this, a?: boolean): void;
-      setScrollY(this: this, posY: number, instant: boolean, time: number, keySpline: KeySpline): void;
+      setScrollY(
+        this: this,
+        posY: number,
+        instant: boolean,
+        time: number,
+        keySpline: KeySpline,
+      ): void;
       scrollY(this: this, amount: number): void;
     }
     interface ScrollPaneConstructor extends ImpactClass<ScrollPane> {
       new (scrollType: sc.ScrollType): sc.ScrollPane;
-      Container: sc.ScrollPane.ContainerConstructor
+      Container: sc.ScrollPane.ContainerConstructor;
     }
     var ScrollPane: ScrollPaneConstructor;
 

@@ -10,7 +10,10 @@ declare global {
       largestIndex: Vec2;
 
       addFocusGui(this: this, gui: ig.FocusGui, x: number, y: number, asBackButton?: boolean): void;
-      addPressCallback(this: this, callback: (button?: ig.FocusGui, fromMouse?: boolean) => void): void;
+      addPressCallback(
+        this: this,
+        callback: (button?: ig.FocusGui, fromMouse?: boolean) => void,
+      ): void;
       clear(this: this): void;
     }
     interface ButtonGroupConstructor extends ImpactClass<ButtonGroup> {}
@@ -18,7 +21,12 @@ declare global {
 
     interface ButtonInteractEntry extends ig.InteractEntry {
       pushButtonGroup(this: this, buttonGroup: ig.ButtonGroup): void;
-      addGlobalButton(this: this, button: sc.ButtonGui, hotkeyCallback: () => boolean, d?: unknown): void;
+      addGlobalButton(
+        this: this,
+        button: sc.ButtonGui,
+        hotkeyCallback: () => boolean,
+        d?: unknown,
+      ): void;
       removeGlobalButton(this: this, button: sc.ButtonGui): void;
     }
     interface ButtonInteractEntryConstructor extends ImpactClass<ButtonInteractEntry> {

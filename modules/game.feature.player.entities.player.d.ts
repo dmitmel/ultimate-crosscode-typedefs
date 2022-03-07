@@ -38,7 +38,7 @@ declare global {
 
       namespace Charging {
         interface Type {
-          actionKey: string
+          actionKey: string;
         }
       }
 
@@ -52,7 +52,9 @@ declare global {
         type: Charging.Type;
       }
 
-      type ActionKey = {actionKey: "ATTACK_SPECIAL" | "THROW_SPECIAL" | "GUARD_SPECIAL" | "DASH_SPECIAL"}
+      type ActionKey = {
+        actionKey: 'ATTACK_SPECIAL' | 'THROW_SPECIAL' | 'GUARD_SPECIAL' | 'DASH_SPECIAL';
+      };
     }
     interface Player extends sc.PlayerBaseEntity {
       proxies: Record<string, sc.ProxySpawnerBase>;
@@ -65,7 +67,11 @@ declare global {
       updateModelStats(this: this, a: boolean): void;
       onPerfectDash(this: this): void;
       updateSkinAura(this: this): void;
-      handleStateStart(this: this, playerState: Player.PlayerState, inputState: Player.PlayerInput): void;
+      handleStateStart(
+        this: this,
+        playerState: Player.PlayerState,
+        inputState: Player.PlayerInput,
+      ): void;
       getMaxChargeLevel(this: this, actionKey: Player.ActionKey): number;
     }
     interface PlayerConstructor extends ImpactClass<Player> {}

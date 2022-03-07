@@ -32,8 +32,8 @@ declare global {
       GREEN = 2,
       GREY = 3,
       ORANGE = 4,
-      NO_SHADOW = 5
-  }
+      NO_SHADOW = 5,
+    }
 
     namespace NumberGui {
       interface Settings {
@@ -48,13 +48,13 @@ declare global {
     interface NumberGui extends ig.GuiElementBase {
       showPlus: boolean;
       maxNumber: number;
-      init(this: this, maxValue: number, settings?: sc.NumberGui.Settings): void
+      init(this: this, maxValue: number, settings?: sc.NumberGui.Settings): void;
       setNumber(this: this, number: number, skipTransition?: boolean | null): void;
       setMaxNumber(this: this, number: number): void;
       setColor(this: this, color: sc.GUI_NUMBER_COLOR): void;
     }
     interface NumberGuiConstructor extends ImpactClass<NumberGui> {
-      new (maxValue: number, settings?: sc.NumberGui.Settings): sc.NumberGui
+      new (maxValue: number, settings?: sc.NumberGui.Settings): sc.NumberGui;
     }
     var NumberGui: NumberGuiConstructor;
   }
