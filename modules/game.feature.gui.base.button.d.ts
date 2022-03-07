@@ -17,6 +17,7 @@ declare global {
     }
     interface ButtonGui extends ig.FocusGui {
       text: sc.TextLike;
+      buttonType: sc.ButtonGui.Type;
       textChild: sc.TextGui;
       data?: any;
       submitSound: ig.Sound;

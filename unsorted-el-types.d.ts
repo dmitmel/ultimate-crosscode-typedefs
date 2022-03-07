@@ -462,15 +462,9 @@ namespace sc {
         setSave(this: this, a: ig.SaveSlot.Data, b: any, c: any): void
     }
 
-    interface SaveSlotChapter extends ig.GuiElementBase {
-        metaMarker: ig.ImageGui
 
-        init(this: this): void
-    }
 
     interface SaveSlotChapterConstructor extends ImpactClass<SaveSlotChapter> { }
-
-    var SaveSlotChapter: SaveSlotChapterConstructor
 
     interface TrophyIcon {
         index: number

@@ -70,6 +70,16 @@ declare global {
         timeFunction: KeySpline;
       }
 
+      interface SizeTransition {
+        startWidth: number;
+        width: number;
+        startHeight: number;
+        height: number;
+        time: number;
+        timeFunction: KeySpline;
+        timer: number;
+      }
+
       interface ScreenCoords {
         x: number;
         y: number;
@@ -83,14 +93,21 @@ declare global {
       pos: Vec2;
       size: Vec2;
       align: { x: ig.GUI_ALIGN; y: ig.GUI_ALIGN };
+      parentHook: ig.GuiHook | null | undefined;
       children: ig.GuiHook[];
-      gui: ig.GuiElementBase;
-      transitions: { [name: string]: ig.GuiHook.Transition };
-      currentStateName: string;
       screenCoords?: ig.GuiHook.ScreenCoords;
       localAlpha: number;
-      pauseGui: boolean;
       zIndex: number;
+      pauseGui: boolean;
+      invisibleUpdate: boolean;
+      screenBlocking: boolean;
+      clip: boolean;
+      temporary: boolean;
+      transitions: { [name: string]: ig.GuiHook.Transition };
+      gui: ig.GuiElementBase;
+      currentStateName: string;
+      removeAfterTransition: boolean;
+      _visible: boolean;
 
       removeChildHook(this: this, hook: ig.GuiHook): void;
       removeChildHookByIndex(this: this, index: number): ig.GuiHook;
@@ -102,6 +119,7 @@ declare global {
         callback?: (() => void) | null,
         initDelay?: number,
       ): void;
+      setScale(this: this, scaleX: number, scaleY: number): void;
     }
     interface GuiHookConstructor extends ImpactClass<GuiHook> {}
     var GuiHook: GuiHookConstructor;
@@ -114,8 +132,24 @@ declare global {
     var GuiDrawable: GuiDrawableConstructor;
 
     interface GuiTransform extends ig.Class {
-      setTranslate(this: this, x: number, y: number): this;
+      translate: Vec2;
+      scale: Vec2;
+      rotate: number;
+      pivot: Vec2;
+      alpha: number;
+      clip: Vec2;
+      prePos: Vec2;
+      preAlpha: number;
+
+      setAlpha(this: this, alpha: number): this;
       setClip(this: this, x: number, y: number): this;
+      setTranslate(this: this, x: number, y: number): this;
+      setScale(this: this, x: number, y: number): this;
+      setRotate(this: this, r: number): this;
+      isComplex(this: this): boolean;
+      transform(this: this, x: number, y: number): void;
+      kill(this: this): void;
+      clear(this: this): void;
     }
     interface GuiTransformConstructor extends ImpactClass<GuiTransform> {}
     var GuiTransform: GuiTransformConstructor;
@@ -134,7 +168,7 @@ declare global {
       removeAllChildren(this: this): void;
       update(this: this): void;
       updateDrawables(this: this, renderer: ig.GuiRenderer): void;
-      onAttach(this: this, parentHook: ig.GuiHook): void;
+      onAttach(this: this): void;
       onDetach(this: this): void;
       doStateTransition(
         this: this,

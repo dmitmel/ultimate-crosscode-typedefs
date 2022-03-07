@@ -21,8 +21,8 @@ declare global {
         this: this,
         list: sc.ButtonListBox,
         buttonGroup: sc.ButtonGroup,
-        type: any, // TODO
-        sort: any, // TODO
+        type: number,
+        sort: number,
       ): void;
     }
     interface ListTabbedPaneConstructor extends ImpactClass<ListTabbedPane> {}

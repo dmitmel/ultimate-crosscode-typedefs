@@ -17,5 +17,17 @@ declare global {
       new (save?: ig.SaveSlot.Data, slot?: number): SaveSlotButton;
     }
     var SaveSlotButton: SaveSlotButtonConstructor;
+
+    interface SaveSlotChapter extends ig.GuiElementBase {
+      textGui: sc.TextGui;
+      chapterGui: sc.NumberGui;
+      metaMarker: ig.ImageGui
+
+      init(this: this): void
+    }
+    interface SaveSlotLocationConstructor extends ImpactClass<SaveSlotChapter> {
+      new (): SaveSlotChapter;
+    }
+    var SaveSlotChapter: SaveSlotLocationConstructor;
   }
 }

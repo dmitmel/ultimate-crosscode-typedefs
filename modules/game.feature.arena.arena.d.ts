@@ -8,11 +8,12 @@
 // requires game.feature.arena.arena-score-types
 // requires game.feature.arena.arena-challenges
 // requires game.feature.arena.arena-cheer
+
 export { };
 
 declare global {
 	namespace sc {
-		enum ARENA_MEDAL_TROPHIES {
+		enum ARENA_MEDALS_TROPHIES {
 			BRONZE = 1,
 			SILVER = 2,
 			GOLD = 3,

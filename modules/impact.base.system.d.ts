@@ -9,6 +9,16 @@ declare global {
     interface System extends ig.Class {
       width: number;
       height: number;
+      contextWidth: number;
+      contextHeight: number;
+      realWidth: number;
+      realHeight: number;
+      screenWidth: number;
+      screenHeight: number;
+      zoom: number;
+      scale: number;
+      contextScale: number;
+      systemFontScale: number;
       tick: number;
       actualTick: number;
       context: CanvasRenderingContext2D;

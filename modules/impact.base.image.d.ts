@@ -48,7 +48,34 @@ declare global {
     }
     var ImagePattern: ImagePatternConstructor;
 
-    interface ImageAtlasFragment extends ig.Class {}
+    interface ImageAtlas extends ig.Class {
+      scale: number;
+
+      getFragment(
+        this: this,
+        width: number,
+        height: number,
+        fillCallback: () => void,
+      ): ig.ImageAtlasFragment;
+      _getFragment(
+        this: this,
+        width: number,
+        height: number,
+        fillCallback: () => void,
+      ): ig.ImageAtlasFragment;
+    }
+    interface ImageAtlasConstructor extends ImpactClass<ImageAtlas> {
+      new (): ImageAtlas;
+    }
+    var ImageAtlas: ImageAtlasConstructor;
+    var imageAtlas: ig.ImageAtlas;
+
+    interface ImageAtlasFragment extends ig.Class {
+      offX: number;
+      offY: number;
+      width: number;
+      height: number;
+    }
     interface ImageAtlasFragmentConstructor extends ImpactClass<ImageAtlasFragment> {}
     var ImageAtlasFragment: ImageAtlasFragmentConstructor;
   }

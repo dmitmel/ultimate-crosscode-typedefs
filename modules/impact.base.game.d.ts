@@ -17,16 +17,14 @@ declare global {
   namespace ig {
     namespace Game {
       namespace Addons {
-        type EventHandlersArr<Name extends keyof ig.GameAddon> = Array<
-          {
-            [K in Name]: ig.GameAddon[K] extends
-              | ((...args: infer Args) => infer Ret)
-              | null
-              | undefined
-              ? (...args: Args) => Ret
-              : never;
-          }
-        >;
+        type EventHandlersArr<Name extends keyof ig.GameAddon> = Array<{
+          [K in Name]: ig.GameAddon[K] extends
+            | ((...args: infer Args) => infer Ret)
+            | null
+            | undefined
+            ? (...args: Args) => Ret
+            : never;
+        }>;
       }
       interface Addons {
         all: ig.GameAddon[];

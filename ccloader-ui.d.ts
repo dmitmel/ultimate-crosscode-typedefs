@@ -12,6 +12,19 @@ declare global {
       }
     }
 
+    interface OptionRow {
+      modIconGfx: ig.Image | null | undefined;
+      modIconFallbackGfx: ig.Image;
+      modIconPosX: number;
+      modIconPosY: number;
+      modVersionGui: sc.TextGui;
+      slopeGui: ig.ImageGui;
+      lineGui: ig.ColorGui;
+    }
+    interface OptionDefinitionCommon {
+      mod?: modloader.Mod | null;
+    }
+
     namespace OPTIONS_DEFINITION {
       interface KnownTypesMap {
         'logLevel-log': sc.OptionDefinition.CHECKBOX;
