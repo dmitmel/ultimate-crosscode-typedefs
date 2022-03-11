@@ -43,9 +43,9 @@ declare global {
       LEVEL = 8,
     }
 
-    namespace Inventory {
-      type ItemID = string | number;
+    type ItemID = string | number;
 
+    namespace Inventory {
       interface Item {
         name: ig.LangLabel.Data;
         description: ig.LangLabel.Data;
@@ -84,11 +84,11 @@ declare global {
       scalable: number[];
 
       updateScaledEquipment(this: this, newLevel: number): void;
-      getItem(id: sc.Inventory.ItemID): sc.Inventory.Item | null | undefined;
-      getItemName(this: this, id: sc.Inventory.ItemID): string;
+      getItem(id: sc.ItemID): sc.Inventory.Item | null | undefined;
+      getItemName(this: this, id: sc.ItemID): string;
       getRaritySuffix(this: this, rarity: sc.ITEMS_RARITY): string;
-      getItemNameWithIcon(this: this, id: sc.Inventory.ItemID): string;
-      getItemIcon(this: this, id: sc.Inventory.ItemID): string;
+      getItemNameWithIcon(this: this, id: sc.ItemID): string;
+      getItemIcon(this: this, id: sc.ItemID): string;
     }
     interface InventoryConstructor extends ImpactClass<Inventory> {
       new (): Inventory;

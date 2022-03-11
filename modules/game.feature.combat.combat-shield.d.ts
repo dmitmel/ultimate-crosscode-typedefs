@@ -17,6 +17,20 @@ declare global {
     interface CombatShieldConstructor extends ImpactClass<CombatShield> {}
     var CombatShield: CombatShieldConstructor;
 
+    interface CombatantShieldConnection extends ig.Class {
+      perfectGuardTime: number;
+
+      resetPerfectGuardTime(this: this): void;
+    }
+    interface CombatantShieldConnectionConstructor extends ImpactClass<CombatantShieldConnection> {
+      new (
+        combatant: ig.ENTITY.Combatant,
+        shield: sc.CombatShield,
+        perfectGuardTime?: number | null,
+      ): CombatantShieldConnection;
+    }
+    var CombatantShieldConnection: CombatantShieldConnectionConstructor;
+
     namespace COMBAT_SHIELDS {
       interface DIRECTIONAL extends sc.CombatShield {}
       interface DIRECTIONAL_CONSTRUCTOR extends ImpactClass<DIRECTIONAL> {}

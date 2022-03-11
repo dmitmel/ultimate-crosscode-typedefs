@@ -107,6 +107,7 @@ declare global {
         order: number;
         displayRangePoints: boolean;
 
+        // TODO
         init(a: any, b: any): void;
         check(a: any): boolean;
         getText(a: string, b: any, c: boolean): string;
@@ -121,9 +122,9 @@ declare global {
       }
     }
 
-    interface Arena extends ig.GameAddon, ig.Vars.VarAccessor {
+    interface Arena extends ig.GameAddon, ig.Vars.Accessor {
       active: boolean;
-      cups: Record<string, Arena.Cup>;
+      cups: Record<string, sc.Arena.Cup>;
 
       registerCup(
         this: this,
@@ -131,7 +132,15 @@ declare global {
         cupOptions: Arena.CupOptions,
         isExtension?: boolean,
       ): void;
-      onPreDamageApply(this: this, a: any, b: any, c: any, d: any, e: any): void;
+      onPreDamageApply(
+        this: this,
+        // TODO
+        a: sc.BasicCombatant,
+        b: sc.CombatParams.DamageResult,
+        c: sc.SHIELD_RESULT,
+        d: sc.CombatParams,
+        e: sc.AttackInfo,
+      ): void;
       addScore<K extends keyof sc.ARENA_SCORE_TYPES>(
         this: this,
         scoreType: K,
@@ -160,16 +169,20 @@ declare global {
     interface ArenaConstructor extends ImpactClass<Arena> {
       new (): Arena;
     }
-
     var Arena: ArenaConstructor;
     var arena: Arena;
 
-    var ARENA_BONUS_OBJECTIVE: { [key: string]: Arena.ArenaBonusObjective };
-  }
-
-  namespace ig.Vars {
-    interface KnownVarStrings {
-      'arena.active': boolean;
+    interface ARENA_BONUS_OBJECTIVE {
+      NO_DAMAGE_TAKEN: sc.Arena.ArenaBonusObjective;
+      NO_ITEMS_USED: sc.Arena.ArenaBonusObjective;
+      PVP_FLAWLESS: sc.Arena.ArenaBonusObjective;
+      EFFECTIVE_DAMAGE: sc.Arena.ArenaBonusObjective;
+      HIT_COUNTER: sc.Arena.ArenaBonusObjective;
+      TIME: sc.Arena.ArenaBonusObjective;
+      COMBAT_ARTS_USED: sc.Arena.ArenaBonusObjective;
+      CHAIN: sc.Arena.ArenaBonusObjective;
+      ITEMS_USED: sc.Arena.ArenaBonusObjective;
     }
+    var ARENA_BONUS_OBJECTIVE: ARENA_BONUS_OBJECTIVE;
   }
 }

@@ -9,12 +9,15 @@ declare global {
       interface Data {
         areas: { [name: string]: sc.MapModel.Area };
         enemies: { [id: string]: EnemyData };
+        shops: { [id: string]: sc.ShopModel };
       }
 
       interface EnemyData {
         name: ig.LangLabel.Data;
         species: ig.LangLabel.Data;
         descriptions: EnemyDescriptionBlock[];
+        boostedLevel: number;
+        boss: boolean;
       }
 
       interface EnemyDescriptionBlock {

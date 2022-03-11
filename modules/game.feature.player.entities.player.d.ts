@@ -25,13 +25,13 @@ declare global {
         thrown: boolean;
         melee: boolean;
         aim: boolean;
-        autoThrow: false;
+        autoThrow: boolean;
         attack: boolean;
         guard: boolean;
         charge: boolean;
         dashX: number;
         dashY: number;
-        switchMode: false;
+        switchMode: boolean;
         relativeVel: number;
         moveDir: Vec2;
       }
@@ -52,9 +52,9 @@ declare global {
         type: Charging.Type;
       }
 
-      type ActionKey = {
+      interface ActionKey {
         actionKey: 'ATTACK_SPECIAL' | 'THROW_SPECIAL' | 'GUARD_SPECIAL' | 'DASH_SPECIAL';
-      };
+      }
     }
     interface Player extends sc.PlayerBaseEntity {
       proxies: Record<string, sc.ProxySpawnerBase>;
@@ -64,15 +64,17 @@ declare global {
       regenFactor: number;
       model: sc.PlayerModel;
       attackCounter: number;
-      updateModelStats(this: this, a: boolean): void;
-      onPerfectDash(this: this): void;
+
       updateSkinAura(this: this): void;
+      updateModelStats(this: this, a: boolean): void;
+      getMaxChargeLevel(this: this, actionKey: Player.ActionKey): number;
+      gatherInput(this: this): ig.ENTITY.Player.PlayerInput;
       handleStateStart(
         this: this,
-        playerState: Player.PlayerState,
-        inputState: Player.PlayerInput,
+        playerState: ig.ENTITY.Player.PlayerState,
+        inputState: ig.ENTITY.Player.PlayerInput,
       ): void;
-      getMaxChargeLevel(this: this, actionKey: Player.ActionKey): number;
+      onPerfectDash(this: this): void;
     }
     interface PlayerConstructor extends ImpactClass<Player> {}
     var Player: PlayerConstructor;

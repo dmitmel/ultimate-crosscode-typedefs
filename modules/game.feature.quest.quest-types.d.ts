@@ -19,7 +19,7 @@ declare global {
       }
 
       interface ItemReward {
-        id: sc.Inventory.ItemID;
+        id: sc.ItemID;
         amount: number;
       }
     }

@@ -7,7 +7,7 @@ declare global {
     interface ShopHelper {
       getMaxBuyable(
         this: this,
-        itemID: sc.Inventory.ItemID,
+        itemID: sc.ItemID,
         cartAmount: number,
         price: number,
         maxOwn: number,

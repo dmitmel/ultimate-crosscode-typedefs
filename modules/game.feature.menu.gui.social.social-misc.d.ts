@@ -16,7 +16,7 @@ declare global {
       setCharacter(this: this, id: string): void;
       createEquipEntry(
         this: this,
-        itemID: sc.Inventory.ItemID,
+        itemID: sc.ItemID,
         y: number,
         bodypart: sc.MENU_EQUIP_BODYPART_STR,
       ): number;

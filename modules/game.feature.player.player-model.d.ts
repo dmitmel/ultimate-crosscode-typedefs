@@ -41,34 +41,34 @@ declare global {
       MODIFIER = 28,
     }
 
-    interface PlayerModel extends ig.Class, ig.Vars.VarAccessor {
-      skillPointsExtra: number[];
-      level: number;
-      params: CombatParams;
+    interface PlayerModel extends ig.Class, ig.Vars.Accessor {
       items: number[];
+      params: sc.CombatParams;
       credit: number;
+      level: number;
+      skillPointsExtra: Record<sc.ELEMENT, number>;
       currentElementMode: sc.ELEMENT;
 
-      getToggleItemState(this: this, id: sc.Inventory.ItemID): boolean;
+      getToggleItemState(this: this, id: sc.ItemID): boolean;
       getParamAvgLevel(this: this, level: number): number;
-      useItem(this: this, a: number): void;
+      useItem(this: this, id: number): void;
       setElementMode(
         this: this,
         element: sc.ELEMENT,
-        forceChange: boolean,
-        noEffect: boolean,
+        force?: boolean | null,
+        skipEffect?: boolean | null,
       ): boolean;
       getCore(this: this, core: sc.PLAYER_CORE): boolean;
-      getItemAmount(this: this, item: Inventory.ItemID): number;
-      hasItem(this: this, item: Inventory.ItemID): boolean;
-      getItemAmountWithEquip(this: this, item: Inventory.ItemID): number;
-      addItem(this: this, item: Inventory.ItemID, amount: number, hideEffect?: boolean): void;
+      getItemAmount(this: this, item: sc.ItemID): number;
+      hasItem(this: this, item: sc.ItemID): boolean;
+      getItemAmountWithEquip(this: this, item: sc.ItemID): number;
+      addItem(this: this, item: sc.ItemID, amount: number, hideEffect?: boolean): void;
       removeItem(
         this: this,
-        item: Inventory.ItemID,
+        item: sc.ItemID,
         amount: number,
-        notifyObservers?: boolean,
-        includeEquip?: boolean,
+        skipNotification?: boolean | null,
+        includeEquip?: boolean | null,
       ): boolean;
       getAction(this: this, action: sc.PLAYER_ACTION): sc.PlayerAction;
       addCredit(this: this, amount: number): void;

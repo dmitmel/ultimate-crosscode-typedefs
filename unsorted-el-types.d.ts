@@ -1,140 +1,7 @@
 export {};
 
 declare global {
-  namespace Vec2 {
-    function create(): Vec2;
-    function clockangle(a: Vec2): Vec2;
-  }
-
-  namespace Vec3 {
-    function create(): Vec3;
-  }
-
   namespace ig {
-    function error(...data: any[]): void;
-
-    function getRoundedFaceDir(x: number, y: number, angles: number, d: Vec2): Vec2;
-
-    namespace Database {
-      interface Data {
-        shops: Record<string, sc.ShopModel>;
-      }
-    }
-
-    interface ActionConstructor {
-      getVec3(a: Vec3, b: ig.ActorEntity, c: Vec3): Vec3;
-    }
-
-    namespace ACTION_STEP {
-      namespace ActionSettings {
-        interface SET_TEMP_TARGET {
-          kind: string;
-          key: string;
-        }
-      }
-
-      interface SET_PLAYER_INVINCIBLE extends ActionStepBase {
-        factor: number;
-
-        run(this: this, target: ig.ENTITY.Player): boolean;
-      }
-
-      interface SET_PLAYER_INVINCIBLE_CONSTRUCTOR extends ImpactClass<SET_PLAYER_INVINCIBLE> {}
-
-      var SET_PLAYER_INVINCIBLE: SET_PLAYER_INVINCIBLE_CONSTRUCTOR;
-
-      interface SHOW_FOOD_ICON extends ActionStepBase {
-        icon: number;
-        offset?: number;
-
-        init(a: any): void;
-
-        start(this: this, target: ig.ENTITY.Combatant): void;
-      }
-
-      interface SHOW_FOOD_ICON_CONSTRUCTOR extends ImpactClass<SHOW_FOOD_ICON> {}
-
-      var SHOW_FOOD_ICON: SHOW_FOOD_ICON_CONSTRUCTOR;
-
-      interface SET_TEMP_TARGET extends ig.ActionStepBase {
-        kind(combatant: sc.BasicCombatant, key?: string): sc.BasicCombatant; //the lack of 'this' is intentional
-
-        init(this: this, settings: ig.ACTION_STEP.ActionSettings.SET_TEMP_TARGET): void;
-      }
-      interface SET_TEMP_TARGET_CONSTRUCTOR extends ImpactClass<SET_TEMP_TARGET> {}
-      var SET_TEMP_TARGET: SET_TEMP_TARGET_CONSTRUCTOR;
-    }
-    interface ExtensionList extends SingleLoadable {}
-
-    interface ExtensionManager {
-      enabled: Record<string, boolean>;
-      init(this: this): void;
-    }
-
-    interface ExtensionManagerConstructor extends ImpactClass<ExtensionManager> {}
-
-    var ExtensionManager: ExtensionManagerConstructor;
-    var extensions: ExtensionManager;
-
-    interface System {
-      ingameTick: number;
-    }
-
-    namespace ENTITY {
-      interface HitNumber extends sc.HitNumberEntityBase {
-        spawnHealingNumber(this: this, pos: Vec3, entity: ig.Entity, healAmount: any): void;
-      }
-
-      var HitNumber: HitNumber;
-
-      interface Enemy {
-        boosterState: sc.ENEMY_BOOSTER_STATE;
-        enemyType: sc.EnemyType;
-        setLevelOverride(this: this, newLevel: number | null): void;
-      }
-
-      interface Effect {
-        target: any;
-        spriteFilter: any;
-
-        spawnParticle(this: this, a: ImpactClass<ig.Entity>, b: any, e: any, f?: any): void;
-        setIgnoreSlowdown(this: this): void;
-      }
-
-      interface Combatant {
-        invincibleTimer: number;
-
-        setTarget(target: Entity | null): void;
-      }
-
-      interface NPC extends sc.ActorEntity {
-        interactIcons: Record<string, sc.MapInteractIcon>;
-        interactEntry: sc.MapInteractEntry;
-        init(this: this, a: any, b: unknown, c: unknown, d: unknown): void;
-        setMapInteractIcon(this: this, npcState: sc.NpcState): void;
-      }
-
-      interface NPCConstructor extends ImpactClass<NPC> {}
-
-      var NPC: NPCConstructor;
-    }
-
-    interface Entity {
-      setPos(x: number, y: number, z: number): void;
-    }
-
-    interface CollEntry {
-      size: Vec3;
-    }
-
-    interface EffectStepBase extends Omit<StepBase, 'start'> {
-      particleData: EFFECT_ENTRY.EffectSettings;
-
-      start(this: this, entity: ig.ENTITY.Effect): void;
-    }
-    type EffectStepBaseConstructor = StepBaseConstructor;
-    var EffectStepBase: EffectStepBaseConstructor;
-
     namespace EFFECT_ENTRY {
       interface EffectSettings {
         particleDuration: number;
@@ -158,26 +25,14 @@ declare global {
         effectSettings?: ig.EFFECT_ENTRY.EffectSettings,
       ): ig.ENTITY.Effect | null;
     }
-
     interface EffectSheetConstructor extends ImpactClass<EffectSheet> {
       new (sheet: string): EffectSheet;
     }
-
     var EffectSheet: EffectSheetConstructor;
 
-    interface Config extends ig.Class {
-      _data: any;
-      init(this: this, a: any): void;
-      copy(this: this): Config;
-    }
-
-    interface ConfigConstructor extends ImpactClass<Config> {}
-
-    interface EffectConfig extends ig.Config {
-      init(this: this, c: any): void;
-    }
-
+    interface EffectConfig extends ig.Config {}
     interface EffectConfigConstructor extends ImpactClass<EffectConfig> {
+      new (c: any): EffectConfig;
       loadParticleData(
         this: this,
         a: any,
@@ -185,111 +40,7 @@ declare global {
         d: any,
       ): ig.EFFECT_ENTRY.EffectSettings;
     }
-
     var EffectConfig: EffectConfigConstructor;
-
-    namespace SaveSlot {
-      interface Data {
-        vars: Data.Vars;
-      }
-
-      namespace Data {
-        interface Vars {
-          storage: Vars.KnownVars;
-        }
-      }
-    }
-
-    interface CubeSprite extends ig.Class {
-      setImageSrc(image: ig.Image, offsetX: number, offsetY: number): void;
-    }
-
-    interface CubeSpriteConstructor extends ImpactClass<CubeSprite> {}
-
-    var CubeSprite: CubeSpriteConstructor;
-
-    interface TileSheet extends ig.Class {
-      width: number;
-      height: number;
-      offX: number;
-      offY: number;
-      xCount: number;
-      image: ig.Image;
-
-      init(
-        imageSrc: string,
-        width: number,
-        height: number,
-        offX?: number,
-        offY?: number,
-        xCount?: number,
-      ): void;
-    }
-
-    interface TileSheetConstructor extends ImpactClass<TileSheet> {
-      new (
-        imageSrc: string,
-        width: number,
-        height: number,
-        offX?: number,
-        offY?: number,
-        xCount?: number,
-      ): TileSheet;
-    }
-
-    var TileSheet: TileSheetConstructor;
-
-    namespace EVENT_STEP {
-      namespace EventSettings {
-        interface OPEN_SHOP {
-          shop: string;
-        }
-      }
-
-      interface OPEN_SHOP {
-        shop: string;
-        init(this: this, settings: EventSettings.OPEN_SHOP): void;
-        start(this: this): void;
-      }
-
-      interface OPEN_SHOP_CONSTRUCTOR extends ImpactClass<OPEN_SHOP> {
-        new (settings: EventSettings.OPEN_SHOP): OPEN_SHOP;
-      }
-
-      var OPEN_SHOP: OPEN_SHOP_CONSTRUCTOR;
-    }
-
-    interface Event extends ig.Class {
-      init(this: this, eventSteps: any): void;
-    }
-
-    interface EventConstructor extends ImpactClass<Event> {
-      new (eventSteps: any): ig.Event;
-    }
-
-    var Event: EventConstructor;
-
-    namespace NinePatch {
-      interface TileSettings {
-        width: number;
-        height: number;
-        top: number;
-        bottom: number;
-        right: number;
-        left: number;
-        offsets: Record<string, Vec2>;
-      }
-    }
-
-    interface NinePatch extends ig.Class {
-      init(this: this, tilesheet: string, tilesettings: NinePatch.TileSettings): void;
-    }
-
-    interface NinePatchConstructor extends ImpactClass<NinePatch> {
-      new (tilesheet: string, tilesettings: NinePatch.TileSettings): ig.NinePatch;
-    }
-
-    var NinePatch: NinePatchConstructor;
   }
 
   namespace sc {
@@ -372,13 +123,12 @@ declare global {
       addMap(this: this, map: string, stat: string, value: number): void;
       subMap(this: this, map: string, stat: string, value: number): void;
     }
-    var stats: StatsModel;
-
     interface StatsModelConstructor extends ImpactClass<StatsModel> {
       new (): StatsModel;
     }
-
     var StatsModel: StatsModelConstructor;
+    var stats: StatsModel;
+
     namespace Stats {
       type StatItemType =
         | 'Percent'
@@ -409,28 +159,6 @@ declare global {
 
     var STATS_BUILD: StatCategory[];
 
-    enum STAT_CHANGE_TYPE {
-      STATS,
-      MODIFIER,
-      HEAL,
-    }
-
-    interface StatParamType {
-      key: string;
-      index?: number;
-    }
-
-    var STAT_PARAM_TYPE: Record<string, StatParamType>;
-
-    interface StatChangeSetting {
-      change: STAT_CHANGE_TYPE;
-      type: StatParamType;
-      value: number;
-      icon: string;
-      grade: string;
-    }
-
-    var STAT_CHANGE_SETTINGS: Record<string, StatChangeSetting>;
     //#endregion Stats
 
     //#region Map
@@ -440,11 +168,9 @@ declare global {
         chests: number;
       }
     }
-
     interface MapModel {
       currentArea: sc.MapModel.Area;
 
-      init(this: this): void;
       isValidArea(this: this, areaName: string): boolean;
       getChestCount(this: this, key: string): number;
       getTotalChestsFound(this: this, asPercent: boolean): number;
@@ -466,8 +192,8 @@ declare global {
       areaName: WorldmapAreaName;
       _setAreaName(this: this, a: any): void;
     }
-
     interface MapWorldMapConstructor extends ImpactClass<MapWorldMap> {}
+    var MapWorldMap: MapWorldMapConstructor;
 
     interface MapChestDisplay {
       max: sc.NumberGui;
@@ -476,11 +202,8 @@ declare global {
       _oldCount: number;
       update(this: this): void;
     }
-
     interface MapChestDisplayConstructor extends ImpactClass<MapChestDisplay> {}
-
     var MapChestDisplay: MapChestDisplayConstructor;
-    var MapWorldMap: MapWorldMapConstructor;
     //#endregion Map
 
     interface SaveSlotButton {
@@ -488,8 +211,6 @@ declare global {
 
       setSave(this: this, a: ig.SaveSlot.Data, b: any, c: any): void;
     }
-
-    interface SaveSlotChapterConstructor extends ImpactClass<SaveSlotChapter> {}
 
     interface TrophyIcon {
       index: number;
@@ -503,12 +224,10 @@ declare global {
       icon: ig.ImageGui;
       ribbon: ig.ImageGui;
       points: sc.NumberGui;
-
-      init(this: this, icon: string, stars: number, points: number, trophyUnlocked: boolean): void;
     }
-
-    interface TrophyIconGraphicConstructor extends ImpactClass<TrophyIconGraphic> {}
-
+    interface TrophyIconGraphicConstructor extends ImpactClass<TrophyIconGraphic> {
+      new (icon: string, stars: number, points: number, trophyUnlocked: boolean): TrophyIconGraphic;
+    }
     var TrophyIconGraphic: TrophyIconGraphicConstructor;
 
     //#region Attacks
@@ -529,9 +248,7 @@ declare global {
       element: sc.ELEMENT;
       critFactor: number;
     }
-
     interface AttackInfoConstructor extends ImpactClass<AttackInfo> {}
-
     var AttackInfo: AttackInfoConstructor;
 
     interface HitNumberEntityBase extends ig.Entity {}
@@ -584,11 +301,6 @@ declare global {
       QUESTSOLVED = 11,
     }
 
-    interface EnemyInfo {
-      boostedLevel: number;
-      boss: true;
-    }
-
     var MIN_BOOSTER_LEVEL: number;
 
     interface EnemyBooster extends ig.GameAddon {
@@ -599,9 +311,7 @@ declare global {
 
       modelChanged(this: this, source: any, message: ModelMessage): void;
     }
-
     interface EnemyBoosterConstructor extends ImpactClass<EnemyBooster> {}
-
     var enemyBooster: EnemyBooster;
     var EnemyBooster: EnemyBoosterConstructor;
 
@@ -613,31 +323,25 @@ declare global {
 
     interface EnemyInfoBox extends ig.BoxGui {
       level: sc.NumberGui;
-      enemy: EnemyInfo;
+      enemy: ig.Database.EnemyData;
       setEnemy(this: this, b: any): void;
     }
-
     interface EnemyInfoBoxConstructor extends ImpactClass<EnemyInfoBox> {}
-
     var EnemyInfoBox: EnemyInfoBoxConstructor;
 
     interface EnemyEntryButton extends sc.ListBoxButton {
       key: any;
       level: sc.NumberGui;
-
-      init(this: this, b: any, enemyKey: string, d: any): void;
     }
-
-    interface EnemyEntryButtonConstructor extends ImpactClass<EnemyEntryButton> {}
-
+    interface EnemyEntryButtonConstructor extends ImpactClass<EnemyEntryButton> {
+      new (b: any, enemyKey: string, d: any): EnemyEntryButton;
+    }
     var EnemyEntryButton: EnemyEntryButtonConstructor;
 
-    interface EnemyDisplayGui extends ig.GuiElementBase {
-      init(this: this, b: any, a: any, d: any, c: any, e: any, isBoosted: boolean): void;
+    interface EnemyDisplayGui extends ig.GuiElementBase {}
+    interface EnemyDisplayGuiConstructor extends ImpactClass<EnemyDisplayGui> {
+      new (b: any, a: any, d: any, c: any, e: any, isBoosted: boolean): EnemyDisplayGui;
     }
-
-    interface EnemyDisplayGuiConstructor extends ImpactClass<EnemyDisplayGui> {}
-
     var EnemyDisplayGui: EnemyDisplayGuiConstructor;
 
     interface EnemyPageGeneralInfo extends ig.GuiElementBase {
@@ -658,30 +362,12 @@ declare global {
     interface EnemyDrops extends ig.GuiElementBase {
       setDrops(this: this, dropList: EnemyType.ItemDrop[], d: boolean, boosted: boolean): void;
     }
-
     interface EnemyDropsConstructor extends ImpactClass<EnemyDrops> {}
-
     var EnemyDrops: EnemyDropsConstructor;
 
     interface BasicCombatant {
       isPlayer?: boolean;
     }
-
-    interface BaseMenu extends ig.GuiElementBase {
-      visible: boolean;
-
-      addObservers(this: this): void;
-      removeObservers(this: this): void;
-      showMenu(this: this): void;
-      hideMenu(this: this): void;
-      exitMenu(this: this): void;
-    }
-
-    interface BaseMenuConstructor extends ImpactClass<BaseMenu> {
-      new (): BaseMenu;
-    }
-
-    var BaseMenu: BaseMenuConstructor;
 
     namespace ShopModel {
       interface ShopPage {
@@ -690,7 +376,7 @@ declare global {
       }
 
       interface ShopItem {
-        item: sc.Inventory.ItemID;
+        item: sc.ItemID;
         condition?: string;
         price?: number;
       }
@@ -705,18 +391,9 @@ declare global {
       pages: ShopModel.ShopPage[];
     }
 
-    interface ShopListMenu extends MenuPanel {}
-
-    interface MenuModel {
-      shopID: string;
-
-      exitMenu(this: this): void;
-      setDirectMode(this: this, directMode: boolean, directMenu: sc.MENU_SUBMENU): void;
-    }
-
     namespace TradeModel {
       interface TradeItem {
-        id: Inventory.ItemID;
+        id: sc.ItemID;
         amount: number;
       }
 
@@ -737,205 +414,5 @@ declare global {
         child?: string;
       }
     }
-
-    interface TradeModel {
-      traders: Record<string, TradeModel.Trader>;
-
-      init(this: this): void;
-    }
-
-    interface Control extends ig.Class {
-      autoControl: any;
-      moveDir(this: this, b: Vec2, d: number, f?: number): number;
-      autoThrown(this: this): boolean;
-      menuScrollUp(this: this): boolean;
-      menuScrollDown(this: this): boolean;
-    }
-
-    interface ControlConstructor extends ImpactClass<Control> {}
-
-    var Control: ControlConstructor;
-    var control: Control;
-
-    interface CombatantShieldConnection extends ig.Class {
-      perfectGuardTime: number;
-      init(this: this, a: ig.ENTITY.Combatant, b: unknown, e: number): void;
-      resetPerfectGuardTime(this: this): void;
-    }
-
-    interface CombatantShieldConnectionConstructor extends ImpactClass<CombatantShieldConnection> {}
-
-    var CombatantShieldConnection: CombatantShieldConnectionConstructor;
-
-    interface NewUnlockButton extends ButtonGui {}
-
-    interface StartMenu extends BaseMenu {
-      buttons: {
-        quest: ButtonGui;
-        skills: ButtonGui;
-        equipment: ButtonGui;
-        items: ButtonGui;
-        status: ButtonGui;
-        social: ButtonGui;
-        synopsis: NewUnlockButton;
-        save: ButtonGui;
-      };
-
-      showMenu(this: this): void;
-    }
-
-    interface StartMenuConstructor extends ImpactClass<StartMenu> {}
-
-    var StartMenu: StartMenuConstructor;
-
-    interface ButtonGui {
-      setActive(this: this, state: boolean): void;
-    }
-
-    namespace FoodIconEntity {
-      interface Settings extends ig.Entity.Settings {
-        icon: number;
-        combatant: ig.ENTITY.Combatant;
-      }
-    }
-
-    interface FoodIconEntity extends ig.Entity {
-      state: sc.FOOD_ICON_STATE;
-      sprites: ig.CubeSprite[];
-      icon: number;
-
-      init(this: this, a: any, b: any, d: any, g: FoodIconEntity.Settings): void;
-      setState(this: this, state: sc.FOOD_ICON_STATE, offset: number): void;
-      updateSprites(this: this): void;
-    }
-
-    interface FoodIconEntityConstructor extends ImpactClass<FoodIconEntity> {
-      new (x: number, y: number, z: number, settings: FoodIconEntity.Settings): FoodIconEntity;
-    }
-
-    var FoodIconEntity: FoodIconEntityConstructor;
-
-    interface StatChange extends ig.Class {}
-
-    interface StatChangeConstructor extends ImpactClass<StatChange> {}
-
-    var StatChange: StatChangeConstructor;
-
-    interface ActionBuff extends sc.StatChange {
-      active: boolean;
-      name: string;
-      hacked: boolean;
-
-      init(this: this, statChanges: string[], name: string, hacked: boolean): void;
-    }
-
-    interface ActionBuffConstructor extends ImpactClass<ActionBuff> {
-      new (statChanges: string[], name: string, hacked: boolean): ActionBuff;
-    }
-
-    var ActionBuff: ActionBuffConstructor;
-
-    interface SubMenuInfo {
-      Clazz: ImpactClass<sc.BaseMenu>;
-      name: string;
-      alt?: string;
-    }
-
-    var SUB_MENU_INFO: Record<string | number, SubMenuInfo>;
-
-    namespace EnemyType {
-      interface ItemDrop {
-        item: sc.Inventory.ItemID;
-        prob: number;
-        min: number;
-        max: number;
-        rank: '' | 'D' | 'C' | 'B' | 'A' | 'S';
-        boosted?: boolean;
-        condition?: string;
-      }
-    }
-
-    interface EnemyType {
-      level: number;
-      boss: boolean;
-      boostedLevel: number;
-      itemDrops: EnemyType.ItemDrop[];
-      resolveItemDrops(this: this, enemyEntity: ig.ENTITY.Enemy): void;
-    }
-
-    interface ItemDropEntity extends ig.AnimatedEntity {}
-
-    interface ItemDropEntityConstructor extends ImpactClass<ItemDropEntity> {
-      spawnDrops(
-        entity: ig.Entity,
-        align: ig.ENTITY_ALIGN,
-        target: ig.Entity,
-        item: sc.Inventory.ItemID,
-        amount: number,
-        dropType: sc.ItemDropType,
-      ): void;
-    }
-
-    var ItemDropEntity: ItemDropEntityConstructor;
-
-    interface ItemDropType {
-      preCollect?: boolean;
-      fly?: boolean;
-    }
-
-    var ITEM_DROP_TYPE: Record<string, ItemDropType>;
-
-    namespace MapInteractIcon {
-      interface interactOptions {
-        FOCUS: number[];
-        NEAR: number[];
-        AWAY?: number[];
-        RUNNING?: number[];
-      }
-    }
-
-    interface MapInteractIcon extends ig.Class {
-      init(
-        this: this,
-        tiles: ig.TileSheet,
-        options: MapInteractIcon.interactOptions,
-        frameTime: number,
-      ): void;
-    }
-
-    interface MapInteractIconConstructor extends ImpactClass<MapInteractIcon> {
-      new (
-        tiles: ig.TileSheet,
-        options: MapInteractIcon.interactOptions,
-        frameTime: number,
-      ): MapInteractIcon;
-    }
-
-    var MapInteractIcon: MapInteractIconConstructor;
-
-    enum NPC_EVENT_TYPE {
-      SIMPLE = 0,
-      TRADE = 1,
-      QUEST = 2,
-      SHOP = 3,
-      ARENA = 4,
-    }
-
-    interface NpcState {
-      npcEventType: sc.NPC_EVENT_TYPE;
-      npcEventObj: ig.Event;
-    }
-    interface NpcStateConstructor extends ImpactClass<NpcState> {
-      new (a: any, b: any): NpcState;
-    }
-    var NpcState: NpcStateConstructor;
-
-    interface MapInteractEntry extends ig.Class {
-      setIcon(this: this, icon: sc.MapInteractIcon): void;
-    }
-  }
-
-  namespace itemAPI {
-    var customItemToId: { [itemID: string]: number };
   }
 }

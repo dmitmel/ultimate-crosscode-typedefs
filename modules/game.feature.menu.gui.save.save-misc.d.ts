@@ -23,9 +23,9 @@ declare global {
       chapterGui: sc.NumberGui;
       metaMarker: ig.ImageGui;
     }
-    interface SaveSlotLocationConstructor extends ImpactClass<SaveSlotChapter> {
+    interface SaveSlotChapterConstructor extends ImpactClass<SaveSlotChapter> {
       new (): SaveSlotChapter;
     }
-    var SaveSlotChapter: SaveSlotLocationConstructor;
+    var SaveSlotChapter: SaveSlotChapterConstructor;
   }
 }

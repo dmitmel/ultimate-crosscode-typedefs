@@ -21,6 +21,7 @@ declare global {
       systemFontScale: number;
       tick: number;
       actualTick: number;
+      ingameTick: number;
       context: CanvasRenderingContext2D;
 
       setFocusLost(this: this): void;

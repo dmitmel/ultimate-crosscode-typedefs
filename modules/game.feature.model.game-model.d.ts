@@ -11,6 +11,8 @@ export {};
 
 declare global {
   namespace sc {
+    type CombatRankLabel = 'D' | 'C' | 'B' | 'A' | 'S';
+
     interface GameModel extends ig.GameAddon, sc.Model {
       message: sc.MessageModel;
       currentSubState: sc.GAME_MODEL_SUBSTATE;

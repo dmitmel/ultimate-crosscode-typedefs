@@ -7,9 +7,9 @@ declare global {
       _cacheIsCleared: boolean;
       branches: Record<string, ig.StepBase> | null | undefined;
 
-      start(this: this): void;
-      run(this: this): boolean;
-      getNext(this: this): ig.StepBase;
+      start(this: this, ...args: unknown[]): void;
+      run(this: this, ...args: unknown[]): boolean;
+      getNext(this: this, ...args: unknown[]): ig.StepBase;
     }
     interface StepBaseConstructor extends ImpactClass<StepBase> {
       new (settings: unknown): StepBase;

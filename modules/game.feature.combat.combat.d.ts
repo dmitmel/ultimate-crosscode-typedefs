@@ -38,6 +38,6 @@ declare global {
     }
     interface CombatConstructor extends ImpactClass<Combat> {}
     var Combat: CombatConstructor;
-    var combat: sc.Combat;
+    var combat: Combat;
   }
 }

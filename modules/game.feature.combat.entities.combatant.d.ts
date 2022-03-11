@@ -42,8 +42,10 @@ declare global {
   namespace ig.ENTITY {
     interface Combatant extends sc.BasicCombatant {
       params: sc.CombatParams;
+      invincibleTimer: number;
       shieldsConnections: sc.CombatantShieldConnection[];
 
+      setTarget(this: this, combatant: sc.BasicCombatant, fixed?: boolean | null): void;
       onPreDamageModification(
         this: this,
         modifications: unknown,

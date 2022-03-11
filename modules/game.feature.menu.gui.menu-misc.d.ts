@@ -15,12 +15,16 @@ declare global {
       X_ONLY = 2,
     }
 
-    var MODIFIER_ICON_DRAW: {
-      X: number;
-      Y: number;
-      SIZE: number;
-      MAX_PER_ROW: number;
-    };
+    namespace MODIFIER_ICON_DRAW {
+      var X: number;
+      var Y: number;
+      var SIZE: number;
+      var MAX_PER_ROW: number;
+    }
+
+    interface NewUnlockButton extends sc.ButtonGui {}
+    interface NewUnlockButtonConstructor extends ImpactClass<NewUnlockButton> {}
+    var NewUnlockButton: NewUnlockButtonConstructor;
 
     interface BuffInfo extends ig.GuiElementBase {
       _width: number;

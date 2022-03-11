@@ -21,7 +21,12 @@ declare global {
         this: this,
         path: string,
         channelCount: number,
-        loadCallback: (path: string, channelCount: number, success: boolean, event?: Event) => void,
+        loadCallback: (
+          path: string,
+          channelCount: number,
+          success: boolean,
+          event?: globalThis.Event,
+        ) => void,
       ): void;
     }
     interface SoundManagerConstructor extends ImpactClass<SoundManager> {}

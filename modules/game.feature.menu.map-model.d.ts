@@ -41,7 +41,9 @@ declare global {
       getLandmark(this: this, landmark: string, area: string): sc.MapModel.Area.Landmark;
       getCurrentAreaLandmark(this: this, landmark: string): sc.MapModel.Area.Landmark;
     }
-    interface MapModelConstructor extends ImpactClass<MapModel> {}
+    interface MapModelConstructor extends ImpactClass<MapModel> {
+      new (): MapModel;
+    }
     var MapModel: MapModelConstructor;
     var map: sc.MapModel;
   }

@@ -21,7 +21,7 @@ declare global {
     interface ShopItemButtonConstructor extends ImpactClass<ShopItemButton> {
       new (
         itemName: string,
-        itemID: sc.Inventory.ItemID,
+        itemID: sc.ItemID,
         itemDescription: string,
         itemAmount: number,
         cost: number,
@@ -47,7 +47,7 @@ declare global {
         skipSounds?: boolean | null,
         sortType?: sc.SORT_TYPE | null,
       ): void;
-      scrapSellList(this: this, shopItems: sc.Inventory.ItemID[]): void;
+      scrapSellList(this: this, shopItems: sc.ItemID[]): void;
       scrapBuyList(this: this, shopItems: sc.ShopModel.ShopItem[]): void;
     }
     interface ShopListMenuConstructor extends ImpactClass<ShopListMenu> {}
