@@ -5,7 +5,7 @@ export {}
 declare global {
     namespace ig.EFFECT_ENTRY {
         namespace EffectSettings {
-            interface COPY_SPRITE extends EffectSettings {
+            interface COPY_SPRITE {
 
             }
         }

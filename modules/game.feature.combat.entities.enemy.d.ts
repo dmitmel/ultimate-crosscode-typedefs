@@ -23,7 +23,9 @@ declare global {
       setLevelOverride(this: this, newLevel?: number | null): void;
       changeState(this: this, state: string, immediate?: boolean | null): void;
     }
-    interface EnemyConstructor extends ImpactClass<Enemy> {}
+    interface EnemyConstructor extends ImpactClass<Enemy> {
+      new (x: number, y: number, z: number, settings: ig.Entity.Settings): ig.ENTITY.Enemy
+    }
     var Enemy: EnemyConstructor;
   }
 }

@@ -87,6 +87,7 @@ declare global {
       hpRegTime: number;
       hpHealTimer: number;
       criticalDmgFactor: number;
+      buffs: sc.StatChange[];
 
       getStat<K extends sc.CombatParams.ParamName>(
         this: this,

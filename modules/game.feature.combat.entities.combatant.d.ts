@@ -48,6 +48,7 @@ declare global {
 
   namespace ig.ENTITY {
     interface Combatant extends sc.BasicCombatant {
+      party: sc.COMBATANT_PARTY
       params: sc.CombatParams;
       invincibleTimer: number;
       shieldsConnections: sc.CombatantShieldConnection[];

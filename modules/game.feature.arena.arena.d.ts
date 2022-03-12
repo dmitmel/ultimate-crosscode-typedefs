@@ -138,7 +138,7 @@ declare global {
         a: sc.BasicCombatant,
         b: sc.CombatParams.DamageResult,
         c: sc.SHIELD_RESULT,
-        d: sc.CombatParams,
+        d: ig.ENTITY.Combatant,
         e: sc.AttackInfo,
       ): void;
       addScore<K extends keyof sc.ARENA_SCORE_TYPES>(
