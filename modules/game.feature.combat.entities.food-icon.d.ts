@@ -5,6 +5,12 @@ export {};
 
 declare global {
   namespace sc {
+    enum FOOD_ICON_STATE {
+      HOLD = 0,
+      BUBBLE = 1,
+      DONE = 2,
+    }
+
     var FOOD_SPRITE: Record<string, number>;
 
     namespace FoodIconEntity {

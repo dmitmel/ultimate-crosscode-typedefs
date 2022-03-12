@@ -29,5 +29,20 @@ declare global {
     interface GameModelConstructor extends ImpactClass<GameModel> {}
     var GameModel: GameModelConstructor;
     var model: sc.GameModel;
+
+    enum GAME_MODEL_SUBSTATE {
+      RUNNING = 0,
+      TELEPORT = 1,
+      LOADING = 2,
+      NEWGAME = 3,
+      RESET = 4,
+      LOADGAME = 5,
+      MENU = 6,
+      PAUSE = 7,
+      LEVELUP = 8,
+      QUICK = 9,
+      ONMAPMENU = 10,
+      QUESTSOLVED = 11,
+    }
   }
 }

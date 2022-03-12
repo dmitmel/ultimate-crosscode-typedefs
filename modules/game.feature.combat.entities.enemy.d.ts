@@ -6,6 +6,14 @@
 export {};
 
 declare global {
+  namespace sc {
+    enum ENEMY_BOOSTER_STATE {
+      NONE = 0,
+      BOOSTABLE = 1,
+      BOOSTED = 2,
+    }
+  }
+
   namespace ig.ENTITY {
     interface Enemy extends ig.ENTITY.Combatant {
       enemyType: sc.EnemyType;

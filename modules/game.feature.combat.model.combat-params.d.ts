@@ -24,6 +24,15 @@ declare global {
       BUFFS_CLEARED = 9,
     }
 
+    enum ATTACK_TYPE {
+      NONE = 0,
+      LIGHT = 1,
+      MEDIUM = 2,
+      HEAVY = 3,
+      MASSIVE = 4,
+      BREAK = 5,
+    }
+
     var ELEMENT_MAX: number;
     var ELEMENT_COUNTER: Record<ELEMENT, ELEMENT>;
     var SP_REGEN_SPEED: { [maxSp: number]: number };
@@ -93,5 +102,16 @@ declare global {
     }
     interface CombatParamsConstructor extends ImpactClass<CombatParams> {}
     var CombatParams: CombatParamsConstructor;
+
+    interface AttackInfo extends ig.Class {
+      type: sc.ATTACK_TYPE;
+      attackerParams: sc.CombatParams;
+      damageFactor: number;
+      defenseFactor: number;
+      element: sc.ELEMENT;
+      critFactor: number;
+    }
+    interface AttackInfoConstructor extends ImpactClass<AttackInfo> {}
+    var AttackInfo: AttackInfoConstructor;
   }
 }

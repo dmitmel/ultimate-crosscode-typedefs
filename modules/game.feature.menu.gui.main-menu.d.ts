@@ -12,13 +12,13 @@ declare global {
         text: sc.TextGui;
       }
       interface SubMenuBoxConstructor extends ImpactClass<SubMenuBox> {
-        new (text: sc.TextLike): SubMenuBox;
+        new (text: string): SubMenuBox;
       }
 
       interface CurrentMenuDisplay extends ig.GuiElementBase {
         boxes: sc.MainMenu.SubMenuBox[];
 
-        pushMenuDisplay(this: this, name: sc.TextLike): void;
+        pushMenuDisplay(this: this, name: string): void;
       }
       interface CurrentMenuDisplayConstructor extends ImpactClass<CurrentMenuDisplay> {
         new (): CurrentMenuDisplay;

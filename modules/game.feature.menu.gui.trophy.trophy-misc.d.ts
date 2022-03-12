@@ -18,5 +18,20 @@ declare global {
       new (key: string, groupID: string, sectionID: string, showProgress: boolean): TrophyListEntry;
     }
     var TrophyListEntry: TrophyListEntryConstructor;
+
+    interface TrophyIconGraphic extends ig.GuiElementBase {
+      ribbon: ig.ImageGui;
+      icon: ig.ImageGui;
+      points: sc.NumberGui;
+    }
+    interface TrophyIconGraphicConstructor extends ImpactClass<TrophyIconGraphic> {
+      new (
+        icon: keyof typeof sc.TROPHY_ICONS,
+        stars: number,
+        points: number,
+        trophyUnlocked: boolean,
+      ): TrophyIconGraphic;
+    }
+    var TrophyIconGraphic: TrophyIconGraphicConstructor;
   }
 }

@@ -64,6 +64,7 @@ declare global {
       regenFactor: number;
       model: sc.PlayerModel;
       attackCounter: number;
+      isPlayer: true;
 
       updateSkinAura(this: this): void;
       updateModelStats(this: this, a: boolean): void;

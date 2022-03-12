@@ -11,6 +11,13 @@ export {};
 
 declare global {
   namespace sc {
+    enum SHIELD_RESULT {
+      NONE = 0,
+      REGULAR = 1,
+      PERFECT = 2,
+      NEUTRALIZE = 3,
+    }
+
     // TODO: What is the difference between getCombatant and getCombatantRoot?
     interface GetCombatant {
       // This can return an sc.CombatProxyEntity, the type must be more general.

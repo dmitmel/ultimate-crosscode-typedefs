@@ -29,7 +29,7 @@ declare global {
     interface BuffInfo extends ig.GuiElementBase {
       _width: number;
 
-      setText(this: this, text: sc.TextLike, initDelay: number): void;
+      setText(this: this, text: string, initDelay: number): void;
     }
     interface BuffInfoConstructor extends ImpactClass<BuffInfo> {
       new (): BuffInfo;

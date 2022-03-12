@@ -30,7 +30,7 @@ declare global {
     }
     interface ArenaEntryButtonConstructor extends ImpactClass<ArenaEntryButton> {
       new (
-        text: sc.TextLike,
+        text: string,
         key: string | null | undefined,
         description: string | null | undefined,
         medal: sc.ARENA_MEDALS_TROPHIES | null | undefined,
@@ -45,7 +45,7 @@ declare global {
     }
     interface ArenaRoundEntryButtonConstructor extends ImpactClass<ArenaRoundEntryButton> {
       new (
-        text: sc.TextLike,
+        text: string,
         key: string | null | undefined,
         index: number,
         description: string | null | undefined,

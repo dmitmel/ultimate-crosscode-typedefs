@@ -20,7 +20,7 @@ declare global {
     }
     interface ItemStatusDefaultBarConstructor extends ImpactClass<ItemStatusDefaultBar> {
       new (
-        text: sc.TextLike,
+        text: string,
         type: sc.MENU_BAR_TYPE,
         buff: unknown,
         width: number,

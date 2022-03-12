@@ -14,7 +14,7 @@ declare global {
     interface NewGameOptionButton extends sc.ListBoxButton {
       data: { id: string; description: string };
 
-      set: sc.NewGameToggleSet.SetOptions;
+      set: sc.NewGameSet;
 
       updateToggleState(this: this): void;
     }
@@ -25,7 +25,7 @@ declare global {
         id: string,
         description: string,
         setKey: string,
-        setOptions: sc.NewGameToggleSet.SetOptions,
+        setOptions: sc.NewGameSet,
         setGui: sc.NewGameToggleSet,
       ): NewGameOptionButton;
     }
