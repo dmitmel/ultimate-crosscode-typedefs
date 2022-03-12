@@ -10,6 +10,31 @@ export {};
 
 declare global {
   namespace sc {
+    enum PLAYER_MSG {
+      ELEMENT_MODE_CHANGE = 1,
+      CREDIT_CHANGE = 2,
+      EXP_CHANGE = 3,
+      LEVEL_CHANGE = 4,
+      EQUIP_CHANGE = 5,
+      CP_CHANGE = 6,
+      SKILL_CHANGED = 7,
+      SKILL_BRANCH_SWAP = 8,
+      RESET_PLAYER = 9,
+      ITEM_OBTAINED = 10,
+      SET_PARAMS = 11,
+      CONFIG_CHANGED = 12,
+      ITEM_USED = 13,
+      STATS_CHANGED = 14,
+      ITEM_REMOVED = 15,
+      ITEM_BLOCK_FINISH = 16,
+      ITEM_FAVORITES_CHANGED = 17,
+      ITEM_EQUIP_UPDATE = 18,
+      ITEM_CONSUME_START = 19,
+      ITEM_CONSUME_END = 20,
+      CORE_CHANGED = 21,
+      ITEM_TOGGLED = 22,
+    }
+
     enum PLAYER_CORE {
       MOVE = 1,
       CHARGE = 2,

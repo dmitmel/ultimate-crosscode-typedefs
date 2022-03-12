@@ -14,25 +14,16 @@ declare global {
     }
 
     namespace Stats {
-      type StatItemType =
-        | 'Percent'
-        | 'Separator'
-        | 'Time'
-        | 'KeyValue'
-        | 'KeyCurMax'
-        | 'List'
-        | 'Logs';
-
       interface StatItem {
-        type?: StatItemType;
-        subtype?: StatItemType;
+        type?: keyof typeof sc.STATS_ENTRY_TYPE;
+        subtype?: keyof typeof sc.STATS_ENTRY_TYPE;
         displayName?: string;
         highlight?: { min: number } | boolean;
         group?: string;
         stat?: string;
         map?: string;
-        max?(): number;
-        getSettings?(a: string): StatItem | null;
+        max?: () => number;
+        getSettings?: (key: string) => StatItem | null;
       }
     }
     var STATS_BUILD: Record<sc.STATS_CATEGORY, Record<string, Stats.StatItem>>;

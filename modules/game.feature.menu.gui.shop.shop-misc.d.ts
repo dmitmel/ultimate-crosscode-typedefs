@@ -14,9 +14,9 @@ declare global {
       ): number;
       sortList(
         this: this,
-        items: sc.ShopModel.ShopItem[],
+        items: ig.Database.ShopItem[],
         sortType: sc.SORT_TYPE,
-      ): sc.ShopModel.ShopItem[];
+      ): ig.Database.ShopItem[];
     }
     var ShopHelper: ShopHelper;
   }

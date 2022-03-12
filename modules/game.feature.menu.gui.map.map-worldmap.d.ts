@@ -6,7 +6,10 @@ export {};
 
 declare global {
   namespace sc {
-    interface AreaButton extends ig.FocusGui {}
+    interface AreaButton extends ig.FocusGui {
+      key: string;
+      area: sc.MapModel.Area;
+    }
     interface AreaButtonConstructor extends ImpactClass<AreaButton> {}
     var AreaButton: AreaButtonConstructor;
 

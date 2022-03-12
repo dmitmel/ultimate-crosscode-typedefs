@@ -39,6 +39,23 @@ declare global {
     }
     var AnimationState: AnimationStateConstructor;
 
+    // A virtual interface, common methods should go here.
+    interface BaseAnimationSet extends ig.Class {}
+
+    interface SingleDirAnimationSet extends ig.BaseAnimationSet {}
+    interface SingleDirAnimationSetConstructor extends ImpactClass<SingleDirAnimationSet> {}
+    var SingleDirAnimationSet: SingleDirAnimationSetConstructor;
+
+    interface MultiDirAnimationSet extends ig.BaseAnimationSet {}
+    interface MultiDirAnimationSetConstructor extends ImpactClass<MultiDirAnimationSet> {}
+    var MultiDirAnimationSet: MultiDirAnimationSetConstructor;
+
     function getRoundedFaceDir(faceX: number, faceY: number, numDirs: number, dest: Vec2): Vec2;
+
+    interface AnimationSheet extends ig.JsonLoadable {
+      anims: Array<ig.MultiDirAnimationSet | ig.SingleDirAnimationSet>;
+    }
+    interface AnimationSheetConstructor extends ImpactClass<AnimationSheet> {}
+    var AnimationSheet: AnimationSheetConstructor;
   }
 }

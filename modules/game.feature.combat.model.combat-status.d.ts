@@ -9,7 +9,7 @@ declare global {
       id: number;
       statusBarEntry: string;
       offenseModifier: string;
-      defenseModifier: string;
+      defenseModifier: keyof typeof sc.MODIFIERS;
       effects: ig.EffectSheet;
       duration: number;
       charge: number;

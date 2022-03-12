@@ -48,7 +48,7 @@ declare global {
         sortType?: sc.SORT_TYPE | null,
       ): void;
       scrapSellList(this: this, shopItems: sc.ItemID[]): void;
-      scrapBuyList(this: this, shopItems: sc.ShopModel.ShopItem[]): void;
+      scrapBuyList(this: this, shopItems: ig.Database.ShopItem[]): void;
     }
     interface ShopListMenuConstructor extends ImpactClass<ShopListMenu> {}
     var ShopListMenu: ShopListMenuConstructor;

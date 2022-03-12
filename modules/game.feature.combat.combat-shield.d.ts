@@ -7,7 +7,7 @@ declare global {
     interface CombatShield extends ig.Class {
       isActive(
         this: this,
-        combatant: sc.BasicCombatant,
+        combatant: sc.PlayerBaseEntity,
         attackingEntity: sc.BasicCombatant.DamagingEntity,
         attackInfo: sc.AttackInfo,
         receivingPart: sc.BasicCombatant.DamagingEntity | null | undefined,

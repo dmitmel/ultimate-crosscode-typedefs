@@ -21,7 +21,7 @@ declare global {
       getConditionType(this: this): string;
     }
     interface StatusViewCombatArtsEntryConstructor extends ImpactClass<StatusViewCombatArtsEntry> {
-      new (artLevel: number, action: sc.PlayerAction): void;
+      new (artLevel: number, action: sc.PlayerAction): StatusViewCombatArtsEntry;
     }
     var StatusViewCombatArtsEntry: StatusViewCombatArtsEntryConstructor;
   }

@@ -11,7 +11,7 @@ export {};
 
 declare global {
   namespace ig {
-    namespace EVENT_STEP {
+    namespace ACTION_STEP {
       namespace SET_TEMP_TARGET {
         interface Settings {
           kind:

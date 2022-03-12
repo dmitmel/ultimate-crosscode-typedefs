@@ -22,5 +22,6 @@ declare global {
       new (): StatsModel;
     }
     var StatsModel: StatsModelConstructor;
+    var stats: StatsModel;
   }
 }
