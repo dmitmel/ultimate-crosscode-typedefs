@@ -7,8 +7,10 @@ declare global {
   }
 
   namespace Vec2 {
-    function assign(a: Vec2, b: Vec2): Vec2;
+    function create(): Vec2;
     function createC(x?: number | null, y?: number | null): Vec2;
+    function assign(a: Vec2, b: Vec2): Vec2;
+    function clockangle(a: Vec2): Vec2;
   }
 
   interface Vec3 {
@@ -18,6 +20,7 @@ declare global {
   }
 
   namespace Vec3 {
+    function create(): Vec3;
     function createC(x?: number | null, y?: number | null, z?: number | null): Vec3;
   }
 
@@ -101,6 +104,24 @@ declare global {
     var Class: ClassConstructor;
 
     var langFileList: string[];
+
+    function log(...args: unknown[]): void;
+    function blog(arg: string): string;
+    function debug(...args: unknown[]): void;
+    function warn(...args: unknown[]): void;
+    function info(...args: unknown[]): void;
+
+    function error(...args: unknown[]): void;
+
+    interface Config<T = unknown> extends ig.Class {
+      _data: T;
+
+      copy(this: this): this;
+    }
+    interface ConfigConstructor<T = unknown> extends ImpactClass<Config<T>> {
+      new (data: T): Config<T>;
+    }
+    var Config: ConfigConstructor;
 
     enum PLATFORM_TYPES {
       UNKNOWN = 0,

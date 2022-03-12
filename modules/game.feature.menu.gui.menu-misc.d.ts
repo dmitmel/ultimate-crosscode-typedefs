@@ -12,20 +12,24 @@ declare global {
     enum ScrollType {
       BOTH = 0,
       Y_ONLY = 1,
-      X_ONLY = 2
+      X_ONLY = 2,
     }
 
-    var MODIFIER_ICON_DRAW: {
-      X: number;
-      Y: number;
-      SIZE: number;
-      MAX_PER_ROW: number;
-    };
+    namespace MODIFIER_ICON_DRAW {
+      var X: number;
+      var Y: number;
+      var SIZE: number;
+      var MAX_PER_ROW: number;
+    }
+
+    interface NewUnlockButton extends sc.ButtonGui {}
+    interface NewUnlockButtonConstructor extends ImpactClass<NewUnlockButton> {}
+    var NewUnlockButton: NewUnlockButtonConstructor;
 
     interface BuffInfo extends ig.GuiElementBase {
       _width: number;
 
-      setText(this: this, text: sc.TextLike, initDelay: number): void;
+      setText(this: this, text: string, initDelay: number): void;
     }
     interface BuffInfoConstructor extends ImpactClass<BuffInfo> {
       new (): BuffInfo;
@@ -67,7 +71,7 @@ declare global {
 
     interface ListBoxButton extends ig.FocusGui {
       button: sc.ButtonGui;
-      data: ListBoxButton.Data;
+      data: sc.ListBoxButton.Data;
       _width: number;
 
       setButtonText(this: this, text: sc.TextLike): void;
@@ -91,20 +95,6 @@ declare global {
 
     interface ItemBoxButton extends sc.ListBoxButton {
       amount: sc.NumberGui;
-
-      init(this: this, 
-        text: sc.TextLike,
-        buttonWidth: number,
-        lineWidth: number,
-        amount: number,
-        id?: string | number,
-        description?: string,
-        noLine?: boolean,
-        alignCenter?: boolean,
-        sound?: ig.Sound,
-        maxValue?: number,
-        level?: number
-      ): void
     }
     interface ItemBoxButtonConstructor extends ImpactClass<ItemBoxButton> {
       new (
@@ -118,7 +108,7 @@ declare global {
         alignCenter?: boolean,
         sound?: ig.Sound,
         maxValue?: number,
-        level?: number
+        level?: number,
       ): sc.ItemBoxButton;
     }
     var ItemBoxButton: ItemBoxButtonConstructor;
@@ -165,19 +155,33 @@ declare global {
     var MenuScanLines: MenuScanLinesConstructor;
 
     namespace ScrollPane {
-      interface Container extends ig.GuiElementBase {}
-      interface ContainerConstructor extends ImpactClass<Container> {}
+      interface Container extends ig.GuiElementBase {
+        scrollIndex: number;
+
+        getContentWidth(this: this): number;
+        getContentHeight(this: this): number;
+      }
+      interface ContainerConstructor extends ImpactClass<Container> {
+        new (): Container;
+      }
     }
     interface ScrollPane extends ig.GuiElementBase {
       box: sc.ScrollPane.Container;
+
       setContent(this: this, content: ig.GuiElementBase): void;
-      recalculateScrollBars(this: this, a?: boolean): void;
-      setScrollY(this: this, posY: number, instant: boolean, time: number, keySpline: KeySpline): void;
       scrollY(this: this, amount: number): void;
+      setScrollY(
+        this: this,
+        value: number,
+        skipTransition?: boolean | null,
+        time?: number | null,
+        timeFunction?: KeySpline | null,
+      ): void;
+      recalculateScrollBars(this: this, skipTransition?: boolean): void;
     }
     interface ScrollPaneConstructor extends ImpactClass<ScrollPane> {
       new (scrollType: sc.ScrollType): sc.ScrollPane;
-      Container: sc.ScrollPane.ContainerConstructor
+      Container: sc.ScrollPane.ContainerConstructor;
     }
     var ScrollPane: ScrollPaneConstructor;
 

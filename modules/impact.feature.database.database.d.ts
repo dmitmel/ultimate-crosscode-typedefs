@@ -9,17 +9,41 @@ declare global {
       interface Data {
         areas: { [name: string]: sc.MapModel.Area };
         enemies: { [id: string]: EnemyData };
+        shops: { [id: string]: ShopData };
+        traders: { [id: string]: sc.TradeModel.Trader };
       }
 
       interface EnemyData {
         name: ig.LangLabel.Data;
         species: ig.LangLabel.Data;
         descriptions: EnemyDescriptionBlock[];
+        boostedLevel: number;
+        boss: boolean;
       }
 
       interface EnemyDescriptionBlock {
         text: ig.LangLabel.Data;
         condition?: string | null;
+      }
+
+      interface ShopData {
+        name: ig.LangLabel.Data;
+        shopType: keyof typeof sc.MENU_SHOP_TYPES;
+        sellScale: number;
+        maxOwn?: number;
+        content?: unknown[][];
+        pages: ShopPage[];
+      }
+
+      interface ShopPage {
+        title: ig.LangLabel.Data;
+        content: ShopItem[];
+      }
+
+      interface ShopItem {
+        item: sc.ItemID;
+        condition?: string;
+        price?: number;
       }
     }
     interface Database extends ig.SingleLoadable {

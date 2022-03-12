@@ -19,6 +19,7 @@ declare global {
       }
       interface Area {
         name: ig.LangLabel.Data;
+        path: string;
         description: ig.LangLabel.Data;
         areaType: 'PATH' | 'TOWN' | 'DUNGEON';
         order: number;
@@ -34,14 +35,23 @@ declare global {
       }
     }
     interface MapModel extends ig.GameAddon, sc.Model {
-      areas: {[key: string]: sc.MapModel.Area};
+      areas: { [name: string]: sc.MapModel.Area };
+      currentArea: sc.AreaLoadable;
 
+      isValidArea(this: this, key: string): boolean;
+      getTotalChestsFound(this: this, asPercent: boolean): number;
+      getTotalChests(this: this): number;
       onLevelLoadStart(this: this, data: sc.MapModel.Map): void;
       validateCurrentPlayerFloor(this: this): void;
       getLandmark(this: this, landmark: string, area: string): sc.MapModel.Area.Landmark;
       getCurrentAreaLandmark(this: this, landmark: string): sc.MapModel.Area.Landmark;
+      getAreaName(this: this, a?: string, b?: boolean, c?: boolean): string;
+      getVisitedArea(this: this, area: string): boolean;
+      getChestCount(this: this, key: string): number;
     }
-    interface MapModelConstructor extends ImpactClass<MapModel> {}
+    interface MapModelConstructor extends ImpactClass<MapModel> {
+      new (): MapModel;
+    }
     var MapModel: MapModelConstructor;
     var map: sc.MapModel;
   }

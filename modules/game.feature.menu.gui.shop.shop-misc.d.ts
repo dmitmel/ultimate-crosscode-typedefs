@@ -1,13 +1,23 @@
 // requires game.feature.inventory.inventory
 
-export {}
+export {};
 
 declare global {
-    namespace sc {
-        interface ShopHelper {
-            getMaxBuyable(itemID: sc.Inventory.ItemID, a: number, d: number, c: number): number;
-            sortList(items: sc.ShopModel.ShopItem[], sortType: sc.SORT_TYPE): sc.ShopModel.ShopItem[];
-        }
-        var ShopHelper: ShopHelper
+  namespace sc {
+    interface ShopHelper {
+      getMaxBuyable(
+        this: this,
+        itemID: sc.ItemID,
+        cartAmount: number,
+        price: number,
+        maxOwn: number,
+      ): number;
+      sortList(
+        this: this,
+        items: ig.Database.ShopItem[],
+        sortType: sc.SORT_TYPE,
+      ): ig.Database.ShopItem[];
     }
+    var ShopHelper: ShopHelper;
+  }
 }

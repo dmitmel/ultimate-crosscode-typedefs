@@ -2,16 +2,16 @@
 // requires game.feature.gui.base.numbers
 // requires game.feature.model.options-model
 
-export {}
+export {};
 
 declare global {
-    namespace sc {
-        interface HpHudGui extends ig.GuiElementBase {
-            hpNumber: sc.NumberGui;
-
-            init(this: this, b: unknown): void;
-        }
-        interface HpHudGuiConstructor extends ImpactClass<HpHudGui> {}
-        var HpHudGui: HpHudGuiConstructor;
+  namespace sc {
+    interface HpHudGui extends ig.GuiElementBase {
+      hpNumber: sc.NumberGui;
     }
+    interface HpHudGuiConstructor extends ImpactClass<HpHudGui> {
+      new (params: sc.CombatParams): HpHudGui;
+    }
+    var HpHudGui: HpHudGuiConstructor;
+  }
 }

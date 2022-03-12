@@ -9,25 +9,33 @@ export {};
 declare global {
   namespace sc {
     enum DIALOG_INFO_ICON {
-      NONE,
-      INFO,
-      WARNING,
-      ERROR,
-      QUESTION,
+      NONE = 0,
+      INFO = 1,
+      WARNING = 2,
+      ERROR = 3,
+      QUESTION = 4,
     }
 
     interface ModalButtonInteract extends ig.GuiElementBase {
-      transitions: Record<string, ig.GuiHook.Transition>;
       msgBox: sc.CenterBoxGui;
       textGui: sc.TextGui;
       content: ig.GuiElementBase;
+      buttons: sc.ButtonGui[];
       buttonInteract: ig.ButtonInteractEntry;
       buttongroup: sc.ButtonGroup;
-      init(this: this, textValue: string, icon: sc.DIALOG_INFO_ICON | null, responseButtons: string[], callback: (button: sc.ButtonGui) => void): void;
+
       show(this: this): void;
       hide(this: this): void;
     }
-    interface ModalButtonInteractConstructor extends ImpactClass<ModalButtonInteract> {}
+    interface ModalButtonInteractConstructor extends ImpactClass<ModalButtonInteract> {
+      new (
+        text: sc.TextLike,
+        icon: sc.DIALOG_INFO_ICON | null | undefined,
+        options: sc.TextLike[],
+        callback: (button: sc.ButtonGui) => void,
+        disableSubmitSound?: boolean | null,
+      ): ModalButtonInteract;
+    }
     var ModalButtonInteract: ModalButtonInteractConstructor;
 
     interface Dialogs {

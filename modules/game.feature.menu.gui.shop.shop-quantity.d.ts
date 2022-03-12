@@ -4,17 +4,27 @@
 // requires impact.feature.gui.base.box
 // requires impact.feature.interact.gui.focus-gui
 
-export {}
+export {};
 
 declare global {
-    namespace sc {
-        interface ShopQuantitySelect extends ig.BoxGui {
-            _max: number;
-            active: boolean;
-            _button: sc.ShopItemButton;
-            show(this: this, a: sc.ShopItemButton, b: number, c: number): void;
-        }
-        interface ShopQuantitySelectConstructor extends ImpactClass<ShopQuantitySelect> {}
-        var ShopQuantitySelect: ShopQuantitySelectConstructor
+  namespace sc {
+    namespace ShopQuantitySelect {
+      type SubmitCallback = (button: sc.ShopItemButton, number: number) => void;
+      type CancelCallback = (button: sc.ShopItemButton) => void;
     }
+    interface ShopQuantitySelect extends ig.BoxGui {
+      active: boolean;
+      _max: number;
+      _button: sc.ShopItemButton;
+
+      show(
+        this: this,
+        button: sc.ShopItemButton,
+        submitCallback: sc.ShopQuantitySelect.SubmitCallback,
+        cancelCallback: sc.ShopQuantitySelect.CancelCallback,
+      ): void;
+    }
+    interface ShopQuantitySelectConstructor extends ImpactClass<ShopQuantitySelect> {}
+    var ShopQuantitySelect: ShopQuantitySelectConstructor;
+  }
 }

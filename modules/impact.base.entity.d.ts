@@ -30,8 +30,10 @@ declare global {
     interface Entity extends ig.Class {
       settings: unknown; // an empty object, appears to be unused
       coll: ig.CollEntry;
+      isPlayer: boolean | undefined;
 
       reset(this: this, x: number, y: number, z: number, settings: ig.Entity.Settings): void;
+      setPos(this: this, x: number, y: number, z: number, moveDelta?: boolean | null): void;
       getAlignedPos(this: this, alignment: ig.ENTITY_ALIGN, dest?: Vec3 | null): Vec3;
       kill(levelChange?: boolean | null): void;
       update(this: this): void;

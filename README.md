@@ -42,7 +42,7 @@ Alright, alright, enough talking and epic speech, let's get to the coding part. 
   "prestart": "dist/prestart.js",
   "ccmodDependencies": {},
   "devDependencies": {
-    "typescript": "^3.9.0",
+    "typescript": "^4.6.2",
     "ultimate-crosscode-typedefs": "dmitmel/ultimate-crosscode-typedefs"
   },
   "scripts": {
@@ -58,7 +58,7 @@ This is the most basic package manifest that is just enough to get our example m
 - `prestart` is used just as an example here, of course you are not required to use only it and there are no incompatibilities between TypeScript and other mod loading stages.
 - An empty `ccmodDependencies` object is included in case you need npm dependencies because if `ccmodDependencies` isn't present CCLoader tries to read `dependencies` which conflicts with npm.
 - Inclusion of developer-only metadata such as `devDependencies` and `scripts` is actually fine. It doesn't crash any existing tools (because the standard allows extra fields in the manifest) and greatly simplifies the mod development because there is no need to handle two separate copies of `package.json`, then copy one of them (the mod manifest, not the Node.js package manifest) into the directory for compiled code, then somehow set up symbolic links and do other unnecessary crap that can be avoided by simply keeping a single `package.json` (In short - I'm waiting for the new manifest, the `ccmod.json`, to be implemented).
-- There are some problems with TypeScript versions below v3.9.x [described here](#important-typescript-versions-below-390-are-unsupported).
+- The version of TypeScript doesn't need to be locked to 4.6.2 as in the example above, it just happened to be the latest version as of writing. However, There are some problems with TypeScript versions below v3.9.x [described here](#important-typescript-versions-below-390-are-unsupported).
 - `ultimate-crosscode-typedefs` is included as a Git dependency because I have no plans about publishing it to npm (this would slow down the development as I would have to release a new version on every commit) and it is easier to update it with with `npm update` than use Git submodules.
 
 **TIP:** A good example of `package.json` in an existing TS mod can be found [here](https://github.com/dmitmel/crosscode-readable-saves/blob/master/package.json).

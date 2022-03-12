@@ -10,8 +10,11 @@ export {};
 declare global {
   namespace sc {
     interface SaveSlotButton extends ig.FocusGui {
+      chapter: sc.SaveSlotChapter;
       autoSlotMiss: sc.TextGui;
       content: ig.GuiElementBase;
+
+      setSave(this: this, save: ig.SaveSlot.Data, slot?: number, skip?: boolean): void;
     }
     interface SaveSlotButtonConstructor extends ImpactClass<SaveSlotButton> {
       new (save?: ig.SaveSlot.Data, slot?: number): SaveSlotButton;
@@ -21,13 +24,11 @@ declare global {
     interface SaveSlotChapter extends ig.GuiElementBase {
       textGui: sc.TextGui;
       chapterGui: sc.NumberGui;
-      metaMarker: ig.ImageGui
-
-      init(this: this): void
+      metaMarker: ig.ImageGui;
     }
-    interface SaveSlotLocationConstructor extends ImpactClass<SaveSlotChapter> {
+    interface SaveSlotChapterConstructor extends ImpactClass<SaveSlotChapter> {
       new (): SaveSlotChapter;
     }
-    var SaveSlotChapter: SaveSlotLocationConstructor;
+    var SaveSlotChapter: SaveSlotChapterConstructor;
   }
 }

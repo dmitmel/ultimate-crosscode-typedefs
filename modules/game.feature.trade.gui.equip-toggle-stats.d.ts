@@ -8,10 +8,23 @@ export {};
 
 declare global {
   namespace sc {
+    namespace TradeToggleStats {
+      interface BaseParams {
+        hp: sc.SimpleStatusDisplay;
+        atk: sc.SimpleStatusDisplay;
+        def: sc.SimpleStatusDisplay;
+        foc: sc.SimpleStatusDisplay;
+        fire: sc.SimpleStatusDisplay;
+        cold: sc.SimpleStatusDisplay;
+        shock: sc.SimpleStatusDisplay;
+        wave: sc.SimpleStatusDisplay;
+      }
+    }
     interface TradeToggleStats extends ig.BoxGui {
+      baseParams: sc.TradeToggleStats.BaseParams;
       compareItem: sc.TextGui;
       compareHelpText: sc.TextGui;
-      baseParams: Record<keyof sc.StatusViewMainParameters.BaseParams, sc.SimpleStatusDisplay>;
+
       _createContent(this: this): void;
     }
     interface TradeToggleStatsConstructor extends ImpactClass<TradeToggleStats> {}

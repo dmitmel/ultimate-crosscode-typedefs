@@ -19,21 +19,22 @@ declare global {
 
     namespace StatusViewMainParameters {
       interface BaseParams {
-        hp: true;
-        atk: true;
-        def: true;
-        foc: true;
-        fire: true;
-        cold: true;
-        shock: true;
-        wave: true;
+        hp: sc.SimpleStatusDisplay;
+        atk: sc.SimpleStatusDisplay;
+        def: sc.SimpleStatusDisplay;
+        foc: sc.SimpleStatusDisplay;
+        fire: sc.SimpleStatusDisplay;
+        cold: sc.SimpleStatusDisplay;
+        shock: sc.SimpleStatusDisplay;
+        wave: sc.SimpleStatusDisplay;
       }
     }
     interface StatusViewMainParameters extends sc.MenuPanel {
-      baseParams: Record<keyof StatusViewMainParameters.BaseParams, sc.SimpleStatusDisplay>;
-      init(this: this): void;
+      baseParams: sc.StatusViewMainParameters.BaseParams;
     }
-    interface StatusViewMainParametersConstructor extends ImpactClass<StatusViewMainParameters> {}
-    var StatusViewMainParameters: StatusViewMainParametersConstructor
+    interface StatusViewMainParametersConstructor extends ImpactClass<StatusViewMainParameters> {
+      new (): StatusViewMainParameters;
+    }
+    var StatusViewMainParameters: StatusViewMainParametersConstructor;
   }
 }

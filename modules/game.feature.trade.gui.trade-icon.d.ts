@@ -7,22 +7,25 @@ export {};
 
 declare global {
   namespace sc {
+    namespace TradeIconGui {
+      interface Entry {
+        require: sc.TradeItem[];
+        gui: sc.TextGui & { tradeName: string } & sc.TextGui.LevelDrawData;
+      }
+    }
     interface TradeIconGui extends ig.BoxGui {
       numberGfx: ig.Image;
-      tradeInfo: any; // TODO
+      tradeInfo: sc.TradeModel.Trader;
       tradeIcon: unknown;
       lineGui: ig.ColorGui;
-      entries: Array<{
-        require: any; // TODO
-        gui: sc.TextGui & { tradeName: string } & sc.TextGui.LevelDrawData;
-      }>;
+      entries: sc.TradeIconGui.Entry[];
 
       setIconState(this: this, state: sc.INTERACT_ENTRY_STATE): void;
       isActive(this: this, state: sc.INTERACT_ENTRY_STATE): boolean;
       _createContent(this: this): void;
       _createStatic(this: this): void;
       _updateTexts(this: this): void;
-      _hasMissingItem(this: this, require: any): boolean | undefined;
+      _hasMissingItem(this: this, require: sc.TradeModel.TradeItem): boolean | undefined;
       remove(this: this): void;
     }
     interface TradeIconGuiConstructor extends ImpactClass<TradeIconGui> {

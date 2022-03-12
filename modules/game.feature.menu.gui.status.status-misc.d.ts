@@ -22,10 +22,20 @@ declare global {
       _skillsRed: boolean;
       _hideAll: boolean;
       _skillHidden: boolean;
-
-      init(this: this, name: string, description: string, size: number, lineID: number, iconID: number, usePercent: boolean, skillHidden: boolean, noPercent: boolean, longNumber: boolean): void
     }
-    interface StatusParamBarConstructor extends ImpactClass<StatusParamBar> {}
+    interface StatusParamBarConstructor extends ImpactClass<StatusParamBar> {
+      new (
+        name: string,
+        description: string,
+        size: number,
+        lineID: number,
+        iconID: number,
+        usePercent: boolean,
+        skillHidden: boolean,
+        noPercent: boolean,
+        longNumber: boolean,
+      ): StatusParamBar;
+    }
     var StatusParamBar: StatusParamBarConstructor;
   }
 }

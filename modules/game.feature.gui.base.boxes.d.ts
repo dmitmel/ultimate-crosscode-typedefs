@@ -11,10 +11,11 @@ declare global {
 
     interface CenterBoxGui extends ig.GuiElementBase {
       centerBox: sc.BlackWhiteBox;
+
       resize(this: this): void;
     }
     interface CenterBoxGuiConstructor extends ImpactClass<CenterBoxGui> {
-      new (content: ig.GuiElementBase): CenterBoxGui
+      new (content: ig.GuiElementBase): CenterBoxGui;
     }
     var CenterBoxGui: CenterBoxGuiConstructor;
   }

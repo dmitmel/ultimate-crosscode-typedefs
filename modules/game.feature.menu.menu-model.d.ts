@@ -57,6 +57,13 @@ declare global {
       NEW_GAME = 21,
     }
 
+    interface SubMenuInfo {
+      Clazz: new () => sc.BaseMenu;
+      name: string;
+      alt?: string;
+    }
+    var SUB_MENU_INFO: Record<sc.MENU_SUBMENU, sc.SubMenuInfo>;
+
     enum MENU_LEA_STATE {
       LARGE = 0,
       SMALL = 1,
@@ -146,30 +153,41 @@ declare global {
 
     namespace MenuModel {
       interface ShopCartEntry {
-        id: sc.Inventory.ItemID;
+        id: sc.ItemID;
         amount: number;
         price: number;
       }
     }
-
+    namespace MenuModel {
+      type BackCallback = () => void;
+      type HotkeyCallback = () => sc.ButtonGui;
+    }
     interface MenuModel extends ig.GameAddon, sc.Model {
+      backCallbackStack: sc.MenuModel.BackCallback[];
+      hotkeysCallbacks: sc.MenuModel.HotkeyCallback;
+      currentBackCallback: sc.MenuModel.BackCallback;
+      buttonInteract: ig.ButtonInteractEntry;
+      shopID: string | null | undefined;
+      shopPage: number;
+      shopCart: sc.MenuModel.ShopCartEntry[];
+      shopSellMode: boolean;
       statusElement: sc.ELEMENT;
       statusDiff: boolean;
-      buttonInteract: ig.ButtonInteractEntry;
-      shopCart: MenuModel.ShopCartEntry[];
-      shopSellMode: boolean;
-      shopPage: number;
 
-      moveLeaSprite(this: this, x: number, y: number, leaState: sc.MENU_LEA_STATE): void;
+      pushBackCallback(this: this, callback: sc.MenuModel.BackCallback): void;
       popBackCallback(this: this): void;
-      pushBackCallback(this: this, callback: () => void): void;
+      addHotkey(this: this, callback: sc.MenuModel.HotkeyCallback, commit?: boolean | null): void;
       popMenu(this: this): void;
+      setDirectMode(direct?: boolean | null, menu?: sc.MENU_SUBMENU | null): void;
+      exitMenu(this: this): void;
+      moveLeaSprite(this: this, x: number, y: number, state: sc.MENU_LEA_STATE): void;
+      updateCart(this: this, itemID: sc.ItemID, amount: number, price: number): void;
       getTotalCost(this: this): number;
-      getItemQuantity(this: this, id: sc.Inventory.ItemID, price: number): number;
-      updateCart(this: this, id: sc.Inventory.ItemID, amount: number, price: number): void;
-      addHotkey(this: this, a: () => sc.ButtonGui): void;
+      getItemQuantity(this: this, itemID: sc.ItemID, price: number): number;
     }
-    interface MenuModelConstructor extends ImpactClass<MenuModel> {}
+    interface MenuModelConstructor extends ImpactClass<MenuModel> {
+      new (): MenuModel;
+    }
     var MenuModel: MenuModelConstructor;
     var menu: sc.MenuModel;
 

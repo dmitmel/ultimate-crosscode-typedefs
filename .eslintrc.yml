@@ -8,6 +8,10 @@ rules:
     - ignores:
         - modules
         - dynamicImport
+  node/no-unsupported-features/es-builtins:
+    - error
+    - ignores:
+        - globalThis
 
 overrides:
   - files: '**/*.ts'

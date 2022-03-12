@@ -16,12 +16,38 @@ declare global {
         area: ig.LangLabel;
         time: number;
       }
+
+      interface TradeItem {
+        id: sc.ItemID;
+        amount: number;
+      }
+
+      interface TradeOption {
+        get: TradeItem[];
+        require: TradeItem[];
+        scale?: number;
+        cost?: number;
+      }
+
+      interface Trader {
+        name: ig.LangLabel.Data;
+        order: number;
+        area: string;
+        noTrack?: boolean;
+        options: TradeOption[];
+        upgradeTo?: string;
+        child?: string;
+      }
     }
 
     interface TradeModel extends ig.GameAddon, sc.Model {
+      traders: Record<string, sc.TradeModel.Trader>;
+
       getFoundTrader(this: this, key: string): sc.TradeModel.FoundTrader;
     }
-    interface TradeModelConstructor extends ImpactClass<TradeModel> {}
+    interface TradeModelConstructor extends ImpactClass<TradeModel> {
+      new (): TradeModel;
+    }
     var TradeModel: TradeModelConstructor;
     var trade: sc.TradeModel;
   }

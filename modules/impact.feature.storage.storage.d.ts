@@ -12,6 +12,7 @@ declare global {
         specialMap: ig.LangLabel.Data;
         tradersFound: { [id: string]: Data.TraderFound };
         quests: Data.Quests;
+        vars: Data.Vars;
       }
 
       namespace Data {
@@ -39,6 +40,12 @@ declare global {
               map: ig.LangLabel.Data;
             }
           }
+        }
+
+        interface Vars {
+          levelName: string;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          storage: any;
         }
       }
     }

@@ -1,91 +1,67 @@
 export {};
 
 declare global {
-    namespace ig {
-        namespace Vars {
-            type CCVar = number | boolean | string | LangLabel.Data | Vec2 | Vec3 | undefined | null
-    
-            type VarStorage = {[key: string]: CCVar | VarStorage}
-    
-            // a list of known var types 
-            interface KnownVars {
-                map: Vars.VarStorage
-                maps: Vars.VarStorage
-                tmp: Vars.VarStorage
-                call: Vars.VarStorage
-                session: {
-                    map: Vars.VarStorage
-                    maps: Vars.VarStorage
-                }
-                plot: Vars.VarStorage & KnownVars.plot 
-                [key: string]: Vars.VarStorage
-            }
-    
-            namespace KnownVars {
-                interface plot {
-                    line?: number
-                    metaSpace?: boolean
-                }
-            }
-            interface KnownVarStrings {
-                "plot.line": number
-                "plot.metaSpace": boolean
-            }
+  namespace ig {
+    type VarValue = number | boolean | string | LangLabel.Data | Vec2 | Vec3 | undefined | null;
 
-            interface VarAccessor {
-                onVarAccess(this: this, varString: string, varParts: string[]): CCVar;
-            }
-        }
-    
-        interface Vars extends ig.Class {
-            storage: Vars.KnownVars;
-    
-            init(this: this): void;
-    
-            get<K extends keyof Vars.KnownVarStrings>(this: this, variable: K): Vars.KnownVarStrings[K];
-            get<K extends ig.Vars.CCVar>(this: this, variable: string): K;
-            get(this: this, variable: string): Vars.CCVar;
-    
-            setDefault(this: this, variable: string, value: Vars.CCVar): void;
-            set<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
-            set(this: this, variable: string, value: Vars.CCVar): void;
-            add<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
-            add(this: this, variable: string, value: Vars.CCVar): void;
-            sub<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
-            sub(this: this, variable: string, value: Vars.CCVar): void;
-            mul<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
-            mul(this: this, variable: string, value: Vars.CCVar): void;
-            div<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
-            div(this: this, variable: string, value: Vars.CCVar): void;
-            mod<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
-            mod(this: this, variable: string, value: Vars.CCVar): void;
-            and<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
-            and(this: this, variable: string, value: Vars.CCVar): void;
-            or<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
-            or(this: this, variable: string, value: Vars.CCVar): void;
-            xor<K extends keyof Vars.KnownVarStrings>(this: this, variable: K, value: Vars.KnownVarStrings[K]): void;
-            xor(this: this, variable: string, value: Vars.CCVar): void;
-
-        }
-    
-        interface VarsConstructor extends ImpactClass<Vars> {}
-        var vars: Vars;
-        var Vars: VarsConstructor;
-        
-        interface VarCondition extends ig.Class {
-            code: string;
-            pretty: string;
-            vars: string[];
-            condition: () => any;
-            
-            init(this: this, condition: string): void;
-            setCondition(this: this, condition: string): void;
-            evaluate(this: this): boolean;
-            toString(this: this): string;
-        }
-        interface VarConditionConstructor extends ImpactClass<VarCondition> {
-            new (condition: string | undefined): ig.VarCondition;
-        }
-        var VarCondition: ig.VarConditionConstructor;
+    interface KnownVars {
+      'arena.active': boolean;
+      'plot.line': number;
+      'plot.metaSpace': boolean;
     }
+
+    namespace Vars {
+      interface Accessor {
+        onVarAccess(this: this, varString: string, varParts: string[]): VarValue;
+      }
+    }
+
+    interface Vars extends ig.Class {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      storage: any;
+
+      get<K extends keyof ig.KnownVars>(this: this, path: K): ig.KnownVars[K];
+      get<T extends ig.VarValue = ig.VarValue>(this: this, path: string): T;
+      setDefault<K extends keyof ig.KnownVars>(this: this, path: K, value: ig.KnownVars[K]): void;
+      setDefault(this: this, path: string, value: ig.VarValue): void;
+      set<K extends keyof ig.KnownVars>(this: this, path: K, value: ig.KnownVars[K]): void;
+      set(this: this, path: string, value: ig.VarValue): void;
+      add<K extends keyof ig.KnownVars>(this: this, path: K, value: ig.KnownVars[K]): void;
+      add(this: this, path: string, value: ig.VarValue): void;
+      sub<K extends keyof ig.KnownVars>(this: this, path: K, value: ig.KnownVars[K]): void;
+      sub(this: this, path: string, value: ig.VarValue): void;
+      mul<K extends keyof ig.KnownVars>(this: this, path: K, value: ig.KnownVars[K]): void;
+      mul(this: this, path: string, value: ig.VarValue): void;
+      div<K extends keyof ig.KnownVars>(this: this, path: K, value: ig.KnownVars[K]): void;
+      div(this: this, path: string, value: ig.VarValue): void;
+      mod<K extends keyof ig.KnownVars>(this: this, path: K, value: ig.KnownVars[K]): void;
+      mod(this: this, path: string, value: ig.VarValue): void;
+      and<K extends keyof ig.KnownVars>(this: this, path: K, value: ig.KnownVars[K]): void;
+      and(this: this, path: string, value: ig.VarValue): void;
+      or<K extends keyof ig.KnownVars>(this: this, path: K, value: ig.KnownVars[K]): void;
+      or(this: this, path: string, value: ig.VarValue): void;
+      xor<K extends keyof ig.KnownVars>(this: this, path: K, value: ig.KnownVars[K]): void;
+      xor(this: this, path: string, value: ig.VarValue): void;
+    }
+    interface VarsConstructor extends ImpactClass<Vars> {
+      new (): Vars;
+    }
+    var Vars: VarsConstructor;
+    var vars: Vars;
+
+    interface VarCondition extends ig.Class {
+      code: string;
+      pretty: string;
+      vars: string[];
+      condition: () => unknown;
+
+      setCondition(this: this, condition: string): void;
+      evaluate(this: this): boolean;
+      toString(this: this): string;
+    }
+    interface VarConditionConstructor extends ImpactClass<VarCondition> {
+      new (condition: string | undefined): ig.VarCondition;
+    }
+    var VarCondition: ig.VarConditionConstructor;
+  }
 }

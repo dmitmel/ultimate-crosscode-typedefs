@@ -11,14 +11,36 @@ export {};
 
 declare global {
   namespace sc {
+    enum SHIELD_RESULT {
+      NONE = 0,
+      REGULAR = 1,
+      PERFECT = 2,
+      NEUTRALIZE = 3,
+    }
+
+    // TODO: What is the difference between getCombatant and getCombatantRoot?
+    interface GetCombatant {
+      // This can return an sc.CombatProxyEntity, the type must be more general.
+      getCombatant(this: this): sc.BasicCombatant;
+    }
+
+    interface GetCombatantRoot {
+      // This cannot return an sc.CombatProxyEntity, so the type can be more specific.
+      getCombatantRoot(this: this): ig.ENTITY.Combatant;
+    }
+
     namespace BasicCombatant {
       interface Combo {
         hitCombatants: sc.BasicCombatant[];
       }
+
+      interface DamagingEntity extends sc.GetCombatant, sc.GetCombatantRoot {
+        getHitCenter(this: this, entity: ig.Entity, dest: Vec3): Vec3;
+        getHitVel(this: this, entity: ig.Entity, dest: Vec2): Vec2;
+      }
     }
-    interface BasicCombatant extends sc.ActorEntity {
-      combo: BasicCombatant.Combo;
-      getCombatantRoot(this: this): sc.BasicCombatant;
+    interface BasicCombatant extends sc.ActorEntity, sc.GetCombatant, sc.GetCombatantRoot {
+      combo: sc.BasicCombatant.Combo;
     }
     interface BasicCombatantConstructor extends ImpactClass<BasicCombatant> {}
     var BasicCombatant: BasicCombatantConstructor;
@@ -27,8 +49,19 @@ declare global {
   namespace ig.ENTITY {
     interface Combatant extends sc.BasicCombatant {
       params: sc.CombatParams;
+      invincibleTimer: number;
       shieldsConnections: sc.CombatantShieldConnection[];
-      onPreDamageModification(this: this, a: unknown, b: unknown, c: unknown, d: unknown, e: unknown, shieldResult: sc.SHIELD_RESULT): boolean;
+
+      setTarget(this: this, combatant: sc.BasicCombatant, fixed?: boolean | null): void;
+      onPreDamageModification(
+        this: this,
+        modifications: unknown,
+        damagingEntity: sc.BasicCombatant.DamagingEntity,
+        attackInfo: sc.AttackInfo,
+        partEntity: sc.BasicCombatant.DamagingEntity | null | undefined,
+        damageResult: sc.CombatParams.DamageResult,
+        shieldResult: sc.SHIELD_RESULT,
+      ): boolean;
     }
     interface CombatantConstructor extends ImpactClass<Combatant> {}
     var Combatant: CombatantConstructor;

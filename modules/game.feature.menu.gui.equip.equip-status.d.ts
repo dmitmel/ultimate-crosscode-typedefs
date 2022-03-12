@@ -3,27 +3,28 @@
 // requires game.feature.gui.plug-in
 // requires game.feature.menu.gui.menu-misc
 
-export {}
+export {};
 
 declare global {
-    namespace sc {
-        namespace EquipStatusContainer {
-            interface BaseParams {
-                hp: true;
-                atk: true;
-                def: true;
-                foc: true;
-                fire: true;
-                cold: true;
-                shock: true;
-                wave: true;
-            }
-        }
-        interface EquipStatusContainer extends ig.GuiElementBase {
-            baseParams: Record<keyof EquipStatusContainer.BaseParams, sc.SimpleStatusDisplay>;
-            init(this: this): void;
-        }
-        interface EquipStatusContainerConstructor extends ImpactClass<EquipStatusContainer> {}
-        var EquipStatusContainer: EquipStatusContainerConstructor;
+  namespace sc {
+    namespace EquipStatusContainer {
+      interface BaseParams {
+        hp: sc.SimpleStatusDisplay;
+        atk: sc.SimpleStatusDisplay;
+        def: sc.SimpleStatusDisplay;
+        foc: sc.SimpleStatusDisplay;
+        fire: sc.SimpleStatusDisplay;
+        cold: sc.SimpleStatusDisplay;
+        shock: sc.SimpleStatusDisplay;
+        wave: sc.SimpleStatusDisplay;
+      }
     }
+    interface EquipStatusContainer extends ig.GuiElementBase {
+      baseParams: sc.EquipStatusContainer.BaseParams;
+    }
+    interface EquipStatusContainerConstructor extends ImpactClass<EquipStatusContainer> {
+      new (): EquipStatusContainer;
+    }
+    var EquipStatusContainer: EquipStatusContainerConstructor;
+  }
 }

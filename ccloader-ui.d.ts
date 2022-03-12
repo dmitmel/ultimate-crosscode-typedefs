@@ -34,10 +34,11 @@ declare global {
       }
     }
 
-    interface CCLoaderVersionGuiMixin {
+    interface TitleScreenGui {
       ccloaderVersionGui: sc.TextGui;
     }
-    interface TitleScreenGui extends CCLoaderVersionGuiMixin {}
-    interface PauseScreenGui extends CCLoaderVersionGuiMixin {}
+    interface PauseScreenGui {
+      ccloaderVersionGui: sc.TextGui;
+    }
   }
 }
