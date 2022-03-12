@@ -93,7 +93,7 @@ declare global {
         key: K,
         noHack?: boolean | null,
       ): sc.CombatParams.Params[K];
-      getModifier<K extends keyof sc.MODIFIERS>(this: this, modifier: K): number;
+      getModifier(this: this, modifier: keyof sc.MODIFIERS): number;
       getHealAmount(this: this, amount: CombatParams.HealAmount): number;
       increaseHp(this: this, amount: number): void;
       getHpFactor(this: this): number;

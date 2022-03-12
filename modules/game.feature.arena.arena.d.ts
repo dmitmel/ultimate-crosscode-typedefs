@@ -118,7 +118,7 @@ declare global {
         noRush: boolean;
         name: ig.LangLabel.Data;
         condition: string;
-        type: ARENA_BASE_TYPE;
+        type: sc.ARENA_BASE_TYPE;
       }
     }
 
@@ -141,11 +141,7 @@ declare global {
         d: sc.CombatParams,
         e: sc.AttackInfo,
       ): void;
-      addScore<K extends keyof sc.ARENA_SCORE_TYPES>(
-        this: this,
-        scoreType: K,
-        points: number,
-      ): void;
+      addScore(this: this, scoreType: keyof sc.ARENA_SCORE_TYPES, points: number): void;
       getTotalArenaCompletion(this: this): number;
       getCupCompletion(this: this, cupName: string): number;
       getTotalDefaultTrophies(this: this, a: number, c: boolean): number;
