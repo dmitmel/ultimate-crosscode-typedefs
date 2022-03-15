@@ -50,6 +50,7 @@ declare global {
         block: number;
         prefDir: Vec2;
         type: Charging.Type;
+        executeLevel: number;
       }
 
       interface ActionKey {
@@ -65,10 +66,11 @@ declare global {
       model: sc.PlayerModel;
       attackCounter: number;
       isPlayer: true;
+      charging: ig.ENTITY.Player.Charging;
 
       updateSkinAura(this: this): void;
       updateModelStats(this: this, a: boolean): void;
-      getMaxChargeLevel(this: this, actionKey: Player.ActionKey): number;
+      getMaxChargeLevel(this: this, actionKey: Player.ActionKey): 0 | 1 | 2 | 3;
       gatherInput(this: this): ig.ENTITY.Player.PlayerInput;
       handleStateStart(
         this: this,
@@ -76,6 +78,8 @@ declare global {
         inputState: ig.ENTITY.Player.PlayerInput,
       ): void;
       onPerfectDash(this: this): void;
+      showChargeEffect(this: this, level: number): void;
+      getChargeAction(this: this, chargeType: ig.ENTITY.Player.Charging.Type, level: number): string;
     }
     interface PlayerConstructor extends ImpactClass<Player> {}
     var Player: PlayerConstructor;

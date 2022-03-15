@@ -98,6 +98,7 @@ declare global {
       getAction(this: this, action: sc.PLAYER_ACTION): sc.PlayerAction;
       addCredit(this: this, amount: number): void;
       removeCredit(this: this, amount: number): void;
+      getActiveCombatArt(this: this, element: sc.ELEMENT, actionKey: keyof typeof sc.PLAYER_ACTION): ig.Action;
     }
     interface PlayerModelContructor extends ImpactClass<PlayerModel> {
       new (): PlayerModel;

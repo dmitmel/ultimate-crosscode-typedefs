@@ -46,6 +46,28 @@ declare global {
         new (settings: SET_TEMP_TARGET.Settings): SET_TEMP_TARGET;
       }
       var SET_TEMP_TARGET: SET_TEMP_TARGET_CONSTRUCTOR;
+
+      namespace SET_CLOSE_TEMP_TARGET {
+        interface Settings {
+          searchType?: string;
+          distance?: number;
+          ignoreCurrentTarget?: boolean;
+          prevHitBehavior?: string;
+        }
+
+        interface SearchType {
+          angle: number;
+          radius: number;
+          facePriority?: boolean;
+        }
+      }
+      interface SET_CLOSE_TEMP_TARGET extends ig.ActionStepBase {
+        searchType: SET_CLOSE_TEMP_TARGET.SearchType;
+      }
+      interface SET_CLOSE_TEMP_TARGET_CONSTRUCTOR extends ImpactClass<SET_CLOSE_TEMP_TARGET> {
+        new (settings: SET_CLOSE_TEMP_TARGET.Settings): SET_CLOSE_TEMP_TARGET;
+      }
+      var SET_CLOSE_TEMP_TARGET: SET_CLOSE_TEMP_TARGET_CONSTRUCTOR
     }
   }
 }

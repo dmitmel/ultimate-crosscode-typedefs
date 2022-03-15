@@ -100,6 +100,9 @@ declare global {
       getHpFactor(this: this): number;
       getRelativeSp(this: this): number;
       update(this: this, inCombat: boolean): void;
+      getSp(this: this): number;
+      notifySpConsume(this: this, sp: number): void;
+      consumeSp(this: this, sp: number): void;
     }
     interface CombatParamsConstructor extends ImpactClass<CombatParams> {}
     var CombatParams: CombatParamsConstructor;
