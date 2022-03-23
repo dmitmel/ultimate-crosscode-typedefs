@@ -9,7 +9,7 @@ declare global {
   namespace sc {
     namespace TradeIconGui {
       interface Entry {
-        require: sc.TradeItem[];
+        require: sc.TradeModel.TradeItem[];
         gui: sc.TextGui & { tradeName: string } & sc.TextGui.LevelDrawData;
       }
     }
@@ -25,7 +25,7 @@ declare global {
       _createContent(this: this): void;
       _createStatic(this: this): void;
       _updateTexts(this: this): void;
-      _hasMissingItem(this: this, require: sc.TradeModel.TradeItem): boolean | undefined;
+      _hasMissingItem(this: this, require: sc.TradeModel.TradeItem[]): boolean | undefined;
       remove(this: this): void;
     }
     interface TradeIconGuiConstructor extends ImpactClass<TradeIconGui> {
