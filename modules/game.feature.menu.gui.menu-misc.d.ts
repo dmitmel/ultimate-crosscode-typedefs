@@ -123,6 +123,7 @@ declare global {
       percentCurrentGui: sc.PercentChar;
       simpleMode: boolean;
       noPercentMode: boolean;
+      width: number;
     }
     interface SimpleStatusDisplayConstructor extends ImpactClass<SimpleStatusDisplay> {
       new (

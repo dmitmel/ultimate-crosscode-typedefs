@@ -18,7 +18,7 @@ declare global {
         sizeY: number,
         flipX?: boolean,
         flipY?: boolean,
-      ): void;
+      ): ig.GuiDrawable;
       addColor(
         this: this,
         color: string,
