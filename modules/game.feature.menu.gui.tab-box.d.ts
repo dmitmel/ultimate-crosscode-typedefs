@@ -10,8 +10,17 @@ declare global {
   namespace sc {
     interface TabbedPane extends ig.GuiElementBase {
       setPanelSize(this: this, width: number, height: number): void;
+
+      onTabButtonCreation(
+        this: this,
+        key: string,
+        index: number,
+        settings: unknown,
+      ): sc.ItemTabbedBox.TabButton;
     }
-    interface TabbedPaneConstructor extends ImpactClass<TabbedPane> {}
+    interface TabbedPaneConstructor extends ImpactClass<TabbedPane> {
+      new (cacheContent?: boolean): TabbedPane;
+    }
     var TabbedPane: TabbedPaneConstructor;
 
     interface ListTabbedPane extends sc.TabbedPane {

@@ -11,6 +11,12 @@ export {};
 
 declare global {
   namespace sc {
+    enum QUEST_LIST_TYPE {
+      ACTIVE = 0,
+      SOLVED = 1,
+      ALL = 2,
+    }
+
     interface QuestModel extends ig.GameAddon, sc.Model, ig.Storage.Listener {
       isQuestSolved(this: this, id: string): boolean;
     }

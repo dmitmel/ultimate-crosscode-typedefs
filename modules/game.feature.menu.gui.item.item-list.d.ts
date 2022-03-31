@@ -15,7 +15,22 @@ declare global {
         _largeWidth: number;
       }
       interface TabButtonConstructor extends ImpactClass<TabButton> {}
-      var TabButton: TabButtonConstructor;
     }
+
+    interface ItemTabbedBox extends ig.GuiElementBase {
+      _createTabButton(
+        this: this,
+        name: string,
+        icon: string,
+        x: number,
+        type: sc.ITEMS_TYPES,
+        subType?: sc.ITEMS_EQUIP_TYPES | null,
+      ): sc.ItemTabbedBox.TabButton;
+    }
+    interface ItemTabbedBoxConstructor extends ImpactClass<ItemTabbedBox> {
+      new (): ItemTabbedBox;
+      TabButton: ItemTabbedBox.TabButtonConstructor;
+    }
+    var ItemTabbedBox: ItemTabbedBoxConstructor;
   }
 }

@@ -10,7 +10,15 @@ export {};
 
 declare global {
   namespace sc {
-    interface QuestListBox extends ig.GuiElementBase {}
+    interface QuestListBox extends ig.GuiElementBase {
+      _createTabButton(
+        this: this,
+        name: string,
+        x: number,
+        type: sc.QUEST_LIST_TYPE,
+        icon: string,
+      ): sc.ItemTabbedBox.TabButton;
+    }
     interface QuestListBoxConstructor extends ImpactClass<QuestListBox> {}
     var QuestListBox: QuestListBoxConstructor;
   }
