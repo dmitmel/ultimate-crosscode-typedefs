@@ -9,7 +9,13 @@ export {};
 declare global {
   namespace sc {
     interface TabbedPane extends ig.GuiElementBase {
+      keys: string[];
+      tabs: { [key: string]: sc.ItemTabbedBox.TabButton };
+      tabArray: sc.ItemTabbedBox.TabButton[];
+
       setPanelSize(this: this, width: number, height: number): void;
+      addTab(this: this, key: string, index: number, settings: unknown): void;
+      rearrangeTabs(this: this): void;
 
       onTabButtonCreation(
         this: this,

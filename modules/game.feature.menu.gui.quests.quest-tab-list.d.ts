@@ -11,6 +11,8 @@ export {};
 declare global {
   namespace sc {
     interface QuestListBox extends ig.GuiElementBase {
+      tabArray: sc.ItemTabbedBox.TabButton[];
+
       _createTabButton(
         this: this,
         name: string,

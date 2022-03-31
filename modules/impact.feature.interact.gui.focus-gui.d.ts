@@ -15,6 +15,7 @@ declare global {
       invokeButtonPress(this: this): void;
       onButtonPress(this: this): void;
       canPlayFocusSounds(this: this): boolean;
+      setPressed(this: this, pressed: boolean): void;
       setActive(this: this, active: boolean): void;
     }
     interface FocusGuiConstructor extends ImpactClass<FocusGui> {}

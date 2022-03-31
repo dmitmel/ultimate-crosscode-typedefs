@@ -12,12 +12,34 @@ declare global {
   namespace sc {
     namespace ItemTabbedBox {
       interface TabButton extends ig.FocusGui {
+        ninepatch: ig.NinePatch;
+        text: sc.TextLike;
+        icon: string;
+        data: unknown;
+        noIcon: boolean;
+        textChild: sc.TextGui;
+        _smallWidth: number;
         _largeWidth: number;
+
+        setData(this: this, data: unknown): void;
+        getButtonText(this: this): sc.TextLike;
+        setText(this: this, text: sc.TextLike): void;
+        setWidthToTextSize(this: this): void;
       }
-      interface TabButtonConstructor extends ImpactClass<TabButton> {}
+      interface TabButtonConstructor extends ImpactClass<TabButton> {
+        new (
+          text?: sc.TextLike | null,
+          icon?: string | null,
+          largeWidth?: number | null,
+          smallWidth?: number | null,
+          noIcon?: boolean | null,
+        ): TabButton;
+      }
     }
 
     interface ItemTabbedBox extends ig.GuiElementBase {
+      tabArray: sc.ItemTabbedBox.TabButton[];
+
       _createTabButton(
         this: this,
         name: string,
