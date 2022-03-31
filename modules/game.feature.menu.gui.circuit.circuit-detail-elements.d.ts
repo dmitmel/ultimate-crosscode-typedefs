@@ -20,6 +20,7 @@ declare global {
     var CircuitNodeMenu: CircuitNodeMenuConstructor;
 
     interface CircuitInfoBox extends sc.MenuPanel {
+      header: sc.TextGui;
       special: sc.TextGui;
     }
     interface CircuitInfoBoxConstructor extends ImpactClass<CircuitInfoBox> {
