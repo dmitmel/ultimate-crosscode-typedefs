@@ -13,7 +13,7 @@ declare global {
       selectionCallbacks: ig.ButtonGroup.SelectionCallback[];
       largestIndex: Vec2;
 
-      addFocusGui(this: this, gui: ig.FocusGui, x: number, y: number, asBackButton?: boolean): void;
+      addFocusGui(this: this, gui: ig.FocusGui, x?: number, y?: number, asBackButton?: boolean): void;
       addPressCallback(this: this, callback: ig.ButtonGroup.PressCallback): void;
       clear(this: this): void;
     }
@@ -29,6 +29,8 @@ declare global {
         noDoubles?: boolean | null,
       ): void;
       removeGlobalButton(this: this, button: sc.ButtonGui): void;
+      addParallelGroup(this: this, buttongroup: sc.ButtonGroup): void;
+      removeButtonGroup(this: this, buttongroup: sc.ButtonGroup): void;
     }
     interface ButtonInteractEntryConstructor extends ImpactClass<ButtonInteractEntry> {
       new (): ButtonInteractEntry;

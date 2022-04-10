@@ -99,6 +99,7 @@ declare global {
       addCredit(this: this, amount: number): void;
       removeCredit(this: this, amount: number): void;
       getActiveCombatArt(this: this, element: sc.ELEMENT, actionKey: keyof typeof sc.PLAYER_ACTION): ig.Action;
+      sortItemList(this: this, list: sc.ItemID[], sortType: sc.SORT_TYPE, includeFavorites?: boolean): sc.ItemID[]; 
     }
     interface PlayerModelContructor extends ImpactClass<PlayerModel> {
       new (): PlayerModel;

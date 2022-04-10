@@ -18,5 +18,13 @@ declare global {
       new (content: ig.GuiElementBase): CenterBoxGui;
     }
     var CenterBoxGui: CenterBoxGuiConstructor;
+
+    interface LineGui extends ig.BoxGui {
+      ninepatch: ig.NinePatch;
+    }
+    interface LineGuiConstructor extends ImpactClass<LineGui> {
+      new (width: number): sc.LineGui
+    }
+    var LineGui: LineGuiConstructor;
   }
 }

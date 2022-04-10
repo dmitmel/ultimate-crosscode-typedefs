@@ -184,6 +184,8 @@ declare global {
       updateCart(this: this, itemID: sc.ItemID, amount: number, price: number): void;
       getTotalCost(this: this): number;
       getItemQuantity(this: this, itemID: sc.ItemID, price: number): number;
+      setInfoText(this: this, text: sc.TextLike, fade?: boolean): void;
+      setBuffText(this: this, text: sc.TextLike, fade?: boolean, id?: sc.ItemID): void;
     }
     interface MenuModelConstructor extends ImpactClass<MenuModel> {
       new (): MenuModel;

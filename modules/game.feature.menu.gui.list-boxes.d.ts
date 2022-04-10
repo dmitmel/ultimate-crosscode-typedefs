@@ -44,7 +44,11 @@ declare global {
     var ItemListBox: ItemListBoxConstructor;
 
     interface MultiColumnItemListBox extends ig.GuiElementBase {
+      list: sc.ButtonListBox;
+
+      addButton(this: this, button: sc.ListBoxButton): void;
       buttonGroup(this: this): sc.ButtonGroup;
+      clear(this: this, refocus: boolean): void;
     }
     interface MultiColumnItemListBoxConstructor extends ImpactClass<MultiColumnItemListBox> {
       new (b: number, a: number, columns: sc.LIST_COLUMNS, c: number): sc.MultiColumnItemListBox;

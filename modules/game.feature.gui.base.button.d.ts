@@ -39,8 +39,12 @@ declare global {
     }
     var ButtonGui: ButtonGuiConstructor;
 
-    interface CheckboxGui extends sc.ButtonGui {}
-    interface CheckboxGuiConstructor extends ImpactClass<CheckboxGui> {}
+    interface CheckboxGui extends sc.ButtonGui {
+      hookGui: ig.ImageGui;
+    }
+    interface CheckboxGuiConstructor extends ImpactClass<CheckboxGui> {
+      new (initValue: boolean, width?: number, active?: boolean): sc.CheckboxGui
+    }
     var CheckboxGui: CheckboxGuiConstructor;
 
     var BUTTON_TYPE: { [type: string]: ButtonGui.Type };
