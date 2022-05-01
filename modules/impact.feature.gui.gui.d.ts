@@ -159,11 +159,17 @@ declare global {
       hook: ig.GuiHook;
 
       setPos(this: this, x: number, y: number): void;
+      getDestPos(this: this): Vec2;
+      setScroll(this: this, x: number, y: number): void;
+      getDestScroll(this: this): Vec2;
       setSize(this: this, w: number, h: number): void;
       setPivot(this: this, x: number, y: number): void;
       setAlign(this: this, x: ig.GUI_ALIGN, y: ig.GUI_ALIGN): void;
       isVisible(this: this): boolean;
+      getChildGuiIndex(this: this, gui: ig.GuiElementBase): number;
+      getChildGuiByIndex(this: this, index: number): ig.GuiElementBase;
       addChildGui(this: this, guiElement: ig.GuiElementBase): void;
+      insertChildGui(this: this, guiElement: ig.GuiElementBase, index: number): void;
       removeChildGui(this: this, guiElement: ig.GuiElementBase): void;
       removeChildGuiByIndex(this: this, index: number): ig.GuiElementBase;
       removeAllChildren(this: this): void;

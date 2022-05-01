@@ -67,7 +67,14 @@ declare global {
       attackCounter: number;
       isPlayer: true;
       charging: ig.ENTITY.Player.Charging;
-
+      dashCount: number;
+      dashAttackCount: number;
+      maxDash: number;
+      jumpPoint: Vec2;
+      jumpForwardDir: Vec2;
+      dashTimer: number;
+      dashBlock: number;
+      
       updateSkinAura(this: this): void;
       updateModelStats(this: this, a: boolean): void;
       getMaxChargeLevel(this: this, actionKey: Player.ActionKey): 0 | 1 | 2 | 3;
