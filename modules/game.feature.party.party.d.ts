@@ -22,6 +22,7 @@ declare global {
     }
     interface PartyModel extends ig.GameAddon, sc.Model {
       contacts: { [name: string]: sc.PartyModel.Contact };
+      models: Record<string, sc.PartyMemberModel>;
       isPartyMember(this: this, name: string): boolean;
     }
     interface PartyModelConstructor extends ImpactClass<PartyModel> {}

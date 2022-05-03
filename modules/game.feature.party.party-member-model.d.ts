@@ -8,7 +8,9 @@ export {};
 
 declare global {
   namespace sc {
-    interface PartyMemberModel extends ig.Class {}
+    interface PartyMemberModel extends ig.Class {
+      config: sc.PlayerConfig;
+    }
     interface PartyMemberModelConstructor extends ImpactClass<PartyMemberModel> {}
     var PartyMemberModel: PartyMemberModelConstructor;
   }

@@ -47,7 +47,9 @@ declare global {
       name: string;
       elementConfigs: Record<sc.ELEMENT, sc.PlayerSubConfig>;
     }
-    interface PlayerConfigConstructor extends ImpactClass<PlayerConfig> {}
+    interface PlayerConfigConstructor extends ImpactClass<PlayerConfig> {
+      new (name: string): sc.PlayerConfig
+    }
     var PlayerConfig: PlayerConfigConstructor;
 
     enum ACTION_DMG_TYPE {

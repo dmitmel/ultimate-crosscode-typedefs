@@ -65,6 +65,16 @@ declare global {
       MONEY = 27,
       MODIFIER = 28,
     }
+    namespace PlayerModel {
+      interface LevelUpDelta {
+        level: number;
+        cp: number;
+        hp: number;
+        attack: number;
+        defense: number;
+        focus: number;
+      }
+    }
 
     interface PlayerModel extends ig.Class, ig.Vars.Accessor {
       items: number[];
@@ -72,7 +82,16 @@ declare global {
       credit: number;
       level: number;
       skillPointsExtra: Record<sc.ELEMENT, number>;
+      name: string;
+      exp: number;
+      chapter: number;
+      spLevel: number;
+      levelUpDelta: PlayerModel.LevelUpDelta;
       currentElementMode: sc.ELEMENT;
+      elementLoad: number;
+      elementLoadTimer: number;
+      hasOverload: boolean;
+      itemBlockTimer: number;
 
       getToggleItemState(this: this, id: sc.ItemID): boolean;
       getParamAvgLevel(this: this, level: number): number;
@@ -99,7 +118,8 @@ declare global {
       addCredit(this: this, amount: number): void;
       removeCredit(this: this, amount: number): void;
       getActiveCombatArt(this: this, element: sc.ELEMENT, actionKey: keyof typeof sc.PLAYER_ACTION): ig.Action;
-      sortItemList(this: this, list: sc.ItemID[], sortType: sc.SORT_TYPE, includeFavorites?: boolean): sc.ItemID[]; 
+      sortItemList(this: this, list: sc.ItemID[], sortType: sc.SORT_TYPE, includeFavorites?: boolean): sc.ItemID[];
+      setConfig(this: this, config: sc.PlayerConfig): void;
     }
     interface PlayerModelContructor extends ImpactClass<PlayerModel> {
       new (): PlayerModel;
