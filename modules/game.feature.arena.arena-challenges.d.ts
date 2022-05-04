@@ -22,7 +22,7 @@ declare global {
         interface ArenaChallengePlayerBaseConstructor extends ImpactClass<ArenaChallengePlayerBase> {
             new (core: keyof typeof sc.PLAYER_CORE, icon: number): ArenaChallengePlayerBase;
         }
-        var ArenaChallengePlayerBase: sc.ArenaChallengePlayerBase;
+        var ArenaChallengePlayerBase: sc.ArenaChallengePlayerBaseConstructor;
 
         interface ARENA_CHALLENGES {
             NO_MELEE: sc.ArenaChallengePlayerBase;
@@ -38,5 +38,7 @@ declare global {
             PVP_BATTLE: sc.ArenaChallengeBase;
             WEAPON_ADJUST: sc.ArenaChallengeBase;
         }
+
+        var ARENA_CHALLENGES: ARENA_CHALLENGES;
     }
 }
