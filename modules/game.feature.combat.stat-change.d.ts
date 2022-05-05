@@ -40,10 +40,10 @@ declare global {
 
     interface StatChangeSettings {
       change: sc.STAT_CHANGE_TYPE;
-      type: keyof typeof sc.STAT_PARAM_TYPE;
+      type: sc.StatParamType;
       value: number;
       icon: string;
-      grade: string;
+      grade?: string;
     }
     var STAT_CHANGE_SETTINGS: Record<string, StatChangeSettings>;
   }
