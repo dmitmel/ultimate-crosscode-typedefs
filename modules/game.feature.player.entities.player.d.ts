@@ -87,6 +87,7 @@ declare global {
       onPerfectDash(this: this): void;
       showChargeEffect(this: this, level: number): void;
       getChargeAction(this: this, chargeType: ig.ENTITY.Player.Charging.Type, level: number): string;
+      onHeal(this: this, healInfo: sc.HealInfo.Settings | sc.HealInfo, amount: number): void
     }
     interface PlayerConstructor extends ImpactClass<Player> {}
     var Player: PlayerConstructor;

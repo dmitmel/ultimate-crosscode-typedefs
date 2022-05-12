@@ -1,5 +1,7 @@
 // requires game.feature.model.base-model
 
+import { HeapProfiler } from "inspector";
+
 export {};
 
 declare global {
@@ -54,11 +56,6 @@ declare global {
         statusEffect: number[];
       }
 
-      interface HealAmount {
-        value: number;
-        absolute?: boolean;
-      }
-
       interface DamageResult {
         damage: number;
         defReduced: number;
@@ -95,7 +92,8 @@ declare global {
         noHack?: boolean | null,
       ): sc.CombatParams.Params[K];
       getModifier<K extends keyof sc.MODIFIERS>(this: this, modifier: K): number;
-      getHealAmount(this: this, amount: CombatParams.HealAmount): number;
+      // the game actually uses *both* sc.HealInfo and an ordinary object with the two relevant properties.
+      getHealAmount(this: this, healInfo: sc.HealInfo | sc.HealInfo.Settings): number;
       increaseHp(this: this, amount: number): void;
       getHpFactor(this: this): number;
       getRelativeSp(this: this): number;
@@ -118,5 +116,22 @@ declare global {
     }
     interface AttackInfoConstructor extends ImpactClass<AttackInfo> {}
     var AttackInfo: AttackInfoConstructor;
+
+    namespace HealInfo {
+      interface Settings {
+        value: number,
+        absolute?: boolean
+      }
+    }
+    interface HealInfo extends ig.Class {
+      healerParams: sc.CombatParams;
+      value: number;
+      absolute: boolean;
+      clone (this: this): sc.HealInfo;
+    }
+    interface HealInfoConstructor extends ImpactClass<HealInfo> {
+      new (params: sc.CombatParams, settings: HealInfo.Settings): sc.HealInfo;
+    }
+    var HealInfo: HealInfoConstructor;
   }
 }

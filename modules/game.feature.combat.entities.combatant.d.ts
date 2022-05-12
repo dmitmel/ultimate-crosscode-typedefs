@@ -52,6 +52,7 @@ declare global {
       params: sc.CombatParams;
       invincibleTimer: number;
       shieldsConnections: sc.CombatantShieldConnection[];
+      effects: Record<string, ig.EffectSheet>;
 
       setTarget(this: this, combatant: sc.BasicCombatant, fixed?: boolean | null): void;
       onPreDamageModification(
@@ -63,6 +64,8 @@ declare global {
         damageResult: sc.CombatParams.DamageResult,
         shieldResult: sc.SHIELD_RESULT,
       ): boolean;
+      // only natively exists on ig.ENTITY.Player, but a function of this signature is expected.
+      onHeal?(this: this, healInfo: sc.HealInfo | sc.HealInfo.Settings, amount: number): void;
     }
     interface CombatantConstructor extends ImpactClass<Combatant> {}
     var Combatant: CombatantConstructor;

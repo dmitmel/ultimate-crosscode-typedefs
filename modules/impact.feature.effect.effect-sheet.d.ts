@@ -60,7 +60,9 @@ declare global {
         settings?: ig.EffectSheet.SpawnSettings | null,
       ): ig.ENTITY.Effect | null;
     }
-    interface EffectSheetConstructor extends ImpactClass<EffectSheet> {}
+    interface EffectSheetConstructor extends ImpactClass<EffectSheet> {
+      cache: Record<string, ig.EffectSheet>;
+    }
     var EffectSheet: EffectSheetConstructor;
 
     namespace EffectStepBase {
