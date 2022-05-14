@@ -102,6 +102,12 @@ declare global {
       notifySpConsume(this: this, sp: number): void;
       consumeSp(this: this, sp: number): void;
       getDamage(this: this, attackInfo: sc.AttackInfo, damageFactorMod: number, combatant: ig.ENTITY.Combatant, shieldResult: sc.SHIELD_RESULT, j: boolean): CombatParams.DamageResult;
+      isDefeated(this: this): boolean;
+      setCritical(this: this): void;
+      setRelativeHp(this: this, ratio: number): void;
+      addSp(this: this, spAdd: number, maxSp?: number): void;
+      setCombatant(this: this, combatant: ig.ENTITY.Combatant): void;
+      setModifiers(this: this, modifiers: Record<keyof sc.MODIFIERS, number>): void;
     }
     interface CombatParamsConstructor extends ImpactClass<CombatParams> {}
     var CombatParams: CombatParamsConstructor;

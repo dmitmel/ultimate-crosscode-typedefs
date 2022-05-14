@@ -64,6 +64,7 @@ declare global {
         damageResult: sc.CombatParams.DamageResult,
         shieldResult: sc.SHIELD_RESULT,
       ): boolean;
+      heal(this: this, healInfo: sc.HealInfo | sc.HealInfo.Settings, hideNumbers?: boolean): void;
       // only natively exists on ig.ENTITY.Player, but a function of this signature is expected.
       onHeal?(this: this, healInfo: sc.HealInfo | sc.HealInfo.Settings, amount: number): void;
     }

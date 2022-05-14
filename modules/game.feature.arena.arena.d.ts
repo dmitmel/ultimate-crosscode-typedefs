@@ -120,11 +120,28 @@ declare global {
         condition: string;
         type: ARENA_BASE_TYPE;
       }
+
+      interface Runtime {
+        score: number;
+        prevScore: number;
+        timer: number;
+        chain: number;
+        rushChain: number;
+        rushChainMax: number;
+        chainTimer: number;
+        roundKills: number;
+        currentWave: number;
+        waveKillsNeeded: number;
+        rush: boolean;
+        roundStarted: boolean;
+        currentRound: number;
+      }
     }
 
     interface Arena extends ig.GameAddon, ig.Vars.Accessor {
       active: boolean;
       cups: Record<string, sc.Arena.Cup>;
+      runtime: sc.Arena.Runtime
 
       registerCup(
         this: this,
@@ -165,6 +182,7 @@ declare global {
         cupName: string,
         attribute: K,
       ): Arena.KnownCupAttributes[K];
+      hasChallenge(this: this, challenge: keyof sc.ARENA_CHALLENGES): boolean;
     }
     interface ArenaConstructor extends ImpactClass<Arena> {
       new (): Arena;
