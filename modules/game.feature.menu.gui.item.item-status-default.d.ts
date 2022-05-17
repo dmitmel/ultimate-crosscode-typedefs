@@ -17,6 +17,10 @@ declare global {
       type: sc.MENU_BAR_TYPE;
       currentNumber: sc.NumberGui;
       maxNumber: sc.NumberGui;
+      currentValue: number;
+      maxValue: number;
+      targetValue: number;
+      barHeight: number;
     }
     interface ItemStatusDefaultBarConstructor extends ImpactClass<ItemStatusDefaultBar> {
       new (
