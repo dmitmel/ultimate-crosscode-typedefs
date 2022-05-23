@@ -110,6 +110,7 @@ declare global {
       setModifiers(this: this, modifiers: Record<keyof sc.MODIFIERS, number>): void;
       addBuff(this: this, buff: sc.StatChange): true;
       removeBuff(this: this, buff: sc.StatChange): void;
+      removeAllBuffs(this: this): void;
       reset(this: this, maxSp: number): void;
     }
     interface CombatParamsConstructor extends ImpactClass<CombatParams> {}
