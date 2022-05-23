@@ -108,6 +108,9 @@ declare global {
       addSp(this: this, spAdd: number, maxSp?: number): void;
       setCombatant(this: this, combatant: ig.ENTITY.Combatant): void;
       setModifiers(this: this, modifiers: Record<keyof sc.MODIFIERS, number>): void;
+      addBuff(this: this, buff: sc.StatChange): true;
+      removeBuff(this: this, buff: sc.StatChange): void;
+      reset(this: this, maxSp: number): void;
     }
     interface CombatParamsConstructor extends ImpactClass<CombatParams> {}
     var CombatParams: CombatParamsConstructor;

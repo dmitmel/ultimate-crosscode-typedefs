@@ -9,8 +9,21 @@ declare global {
 
     namespace StatChange {
       type StatName = keyof typeof sc.STAT_CHANGE_SETTINGS;
+      type Params = sc.CombatParams.Params & {elemFactor: number[]}
     }
-    interface StatChange extends ig.Class {}
+    interface StatChange extends ig.Class {
+      params: StatChange.Params;
+      modifiers: Partial<Record<keyof sc.MODIFIERS, number>>;
+      iconString: string;
+      hasTimer: boolean;
+
+      update(this: this): boolean;
+      onActionEndDetach(this: this): void;
+      onEntityKillDetach(this: this): void;
+      clear(this: this): void;
+      reset(this: this, time: number): void;
+      getTimeFactor(this: this): number;
+    }
     interface StatChangeConstructor extends ImpactClass<StatChange> {
       new (stats: sc.StatChange.StatName[]): StatChange;
     }
