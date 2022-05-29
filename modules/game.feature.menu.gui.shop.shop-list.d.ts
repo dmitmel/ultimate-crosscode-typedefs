@@ -59,6 +59,7 @@ declare global {
       cycleRight: sc.ButtonGui;
 
       show(this: this): void;
+      cycleSellPages(this: this, dir: number): void;
     }
     interface ShopPageCounterConstructor extends ImpactClass<ShopPageCounter> {}
     var ShopPageCounter: ShopPageCounterConstructor;

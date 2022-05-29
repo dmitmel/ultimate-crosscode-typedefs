@@ -120,6 +120,8 @@ declare global {
       getActiveCombatArt(this: this, element: sc.ELEMENT, actionKey: keyof typeof sc.PLAYER_ACTION): ig.Action;
       sortItemList(this: this, list: sc.ItemID[], sortType: sc.SORT_TYPE, includeFavorites?: boolean): sc.ItemID[];
       setConfig(this: this, config: sc.PlayerConfig): void;
+      getItemSubList(this: this, type: keyof typeof sc.ITEMS_TYPES, sort: sc.SORT_TYPE, includeFavs?: boolean): number[];
+      getEquipSubList(this: this, equipType: keyof typeof sc.ITEMS_EQUIP_TYPES, addEquipped: boolean, sort: sc.SORT_TYPE): number[];
     }
     interface PlayerModelContructor extends ImpactClass<PlayerModel> {
       new (): PlayerModel;
