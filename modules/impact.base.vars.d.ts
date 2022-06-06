@@ -14,6 +14,11 @@ declare global {
       interface Accessor {
         onVarAccess(this: this, varString: string, varParts: string[]): VarValue;
       }
+
+      interface VarObject {
+        indirect?: string;
+        varName?: string;
+      }
     }
 
     interface Vars extends ig.Class {
