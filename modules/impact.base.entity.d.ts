@@ -27,7 +27,7 @@ declare global {
         mapId?: number;
       }
     }
-    interface Entity extends ig.Class {
+    interface Entity extends ig.Class, ig.Vars.Accessor {
       settings: unknown; // an empty object, appears to be unused
       coll: ig.CollEntry;
       isPlayer: boolean | undefined;

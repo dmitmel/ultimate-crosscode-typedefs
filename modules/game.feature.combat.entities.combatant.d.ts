@@ -41,6 +41,7 @@ declare global {
     }
     interface BasicCombatant extends sc.ActorEntity, sc.GetCombatant, sc.GetCombatantRoot {
       combo: sc.BasicCombatant.Combo;
+      tmpTarget: sc.BasicCombatant;
     }
     interface BasicCombatantConstructor extends ImpactClass<BasicCombatant> {}
     var BasicCombatant: BasicCombatantConstructor;

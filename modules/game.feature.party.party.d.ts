@@ -25,6 +25,7 @@ declare global {
       models: Record<string, sc.PartyMemberModel>;
       currentParty: string[];
       isPartyMember(this: this, name: string): boolean;
+      getPartyMemberEntityByIndex(this: this, index: number): sc.PartyMemberEntity;
     }
     interface PartyModelConstructor extends ImpactClass<PartyModel> {}
     var PartyModel: PartyModelConstructor;
