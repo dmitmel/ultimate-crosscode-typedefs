@@ -39,7 +39,9 @@
         { "$ref": "#/definitions/PatchStep.COPY" },
         { "$ref": "#/definitions/PatchStep.PASTE" },
         { "$ref": "#/definitions/PatchStep.COMMENT" },
-        { "$ref": "#/definitions/PatchStep.DEBUG" }
+        { "$ref": "#/definitions/PatchStep.DEBUG" },
+        { "$ref": "#/definitions/PatchStep.MERGE_CONTENT" },
+        { "$ref": "#/definitions/PatchStep.CALL" }
       ]
     },
 
@@ -197,6 +199,27 @@
       "properties": {
         "type": { "const": "DEBUG" },
         "value": { "type": "boolean" }
+      }
+    },
+
+    "PatchStep.MERGE_CONTENT": {
+      "allOf": [{ "$ref": "#/definitions/BasePatchStep" }],
+      "type": "object",
+      "required": ["type", "content"],
+      "properties": {
+        "type": { "const": "MERGE_CONTENT" },
+        "content": {}
+      }
+    },
+
+    "PatchStep.CALL": {
+      "allOf": [{ "$ref": "#/definitions/BasePatchStep" }],
+      "type": "object",
+      "required": ["type", "id", "args"],
+      "properties": {
+        "type": { "const": "CALL" },
+        "id": { "type": "string" },
+        "args": {}
       }
     }
   }
