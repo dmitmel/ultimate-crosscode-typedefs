@@ -41,5 +41,14 @@ declare global {
       new (color: string, width: number, height: number): ColorGui;
     }
     var ColorGui: ColorGuiConstructor;
+
+    interface SimpleGui extends ig.GuiElementBase {
+      hide(this: this, skip?: boolean, initDelay?: number): void;
+      show(this: this, skip?: boolean, initDelay?: number): void;
+    }
+    interface SimpleGuiConstructor extends ImpactClass<SimpleGui> {
+      new (): SimpleGui;
+    }
+    var SimpleGui: SimpleGuiConstructor;
   }
 }

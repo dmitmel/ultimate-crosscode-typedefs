@@ -11,6 +11,7 @@ declare global {
         exp: ExpReward;
         items: ItemReward[];
         money: number;
+        cp: number;
       }
 
       interface ExpReward {
