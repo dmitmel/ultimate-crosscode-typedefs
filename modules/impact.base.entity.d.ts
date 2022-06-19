@@ -46,6 +46,8 @@ declare global {
     interface AnimatedEntity extends ig.Entity {
       animState: ig.AnimationState;
       currentAnim: string;
+
+      setCurrentAnim(this: this, name: string, reset: boolean, followUp?: string | null, force?: boolean, callbackOnFinish?: boolean): void;
     }
     interface AnimatedEntityConstructor extends ImpactClass<AnimatedEntity> {}
     var AnimatedEntity: AnimatedEntityConstructor;

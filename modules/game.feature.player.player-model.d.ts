@@ -76,7 +76,7 @@ declare global {
       }
     }
 
-    interface PlayerModel extends ig.Class, ig.Vars.Accessor {
+    interface PlayerModel extends ig.Class, ig.Vars.Accessor, sc.Model {
       items: number[];
       params: sc.CombatParams;
       credit: number;
@@ -92,6 +92,8 @@ declare global {
       elementLoadTimer: number;
       hasOverload: boolean;
       itemBlockTimer: number;
+      config: sc.PlayerConfig;
+      chapters: ig.Database.Chapter[];
 
       getToggleItemState(this: this, id: sc.ItemID): boolean;
       getParamAvgLevel(this: this, level: number): number;

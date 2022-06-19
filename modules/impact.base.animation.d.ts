@@ -55,7 +55,9 @@ declare global {
     interface AnimationSheet extends ig.JsonLoadable {
       anims: Array<ig.MultiDirAnimationSet | ig.SingleDirAnimationSet>;
     }
-    interface AnimationSheetConstructor extends ImpactClass<AnimationSheet> {}
+    interface AnimationSheetConstructor extends ImpactClass<AnimationSheet> {
+      new (pathOrData: string | unknown): ig.AnimationSheet;
+    }
     var AnimationSheet: AnimationSheetConstructor;
   }
 }

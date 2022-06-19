@@ -67,7 +67,28 @@ declare global {
       interface SET_CLOSE_TEMP_TARGET_CONSTRUCTOR extends ImpactClass<SET_CLOSE_TEMP_TARGET> {
         new (settings: SET_CLOSE_TEMP_TARGET.Settings): SET_CLOSE_TEMP_TARGET;
       }
-      var SET_CLOSE_TEMP_TARGET: SET_CLOSE_TEMP_TARGET_CONSTRUCTOR
+      var SET_CLOSE_TEMP_TARGET: SET_CLOSE_TEMP_TARGET_CONSTRUCTOR;
+
+      type TargetFunction = (entity: ig.ENTITY.Combatant) => ig.ENTITY.Combatant | null;
+
+      namespace ADD_ACTION_BUFF {
+        interface Settings {
+          target: string;
+          stats: string[];
+          name?: string;
+          hacked?: boolean;
+        }
+      }
+      interface ADD_ACTION_BUFF extends ig.ActionStepBase {
+        target: TargetFunction;
+        stats: string[];
+        name?: string;
+        hacked?: boolean;
+      }
+      interface ADD_ACTION_BUFF_CONSTRUCTOR extends ImpactClass<ADD_ACTION_BUFF> {
+        new (settings: ADD_ACTION_BUFF.Settings): ADD_ACTION_BUFF;
+      }
+      var ADD_ACTION_BUFF: ADD_ACTION_BUFF_CONSTRUCTOR;
     }
   }
 }
