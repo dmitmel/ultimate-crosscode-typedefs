@@ -157,18 +157,11 @@ declare global {
     interface Input extends ig.Class {
       bindings: Record<ig.KEY, ig.Input.KnownAction> & Record<ig.KEY, string>;
 
-      // `ig.Input.KnownAction | string` kills autocompletion
-      /* eslint-disable @typescript-eslint/unified-signatures */
-      bind(this: this, key: ig.KEY, action: ig.Input.KnownAction): void;
-      bind(this: this, key: ig.KEY, action: string): void;
+      bind(this: this, key: ig.KEY, action: LiteralUnion<ig.Input.KnownAction>): void;
       unbind(this: this, key: ig.KEY): void;
-      state(this: this, action: ig.Input.KnownAction): boolean;
-      state(this: this, action: string): boolean;
-      pressed(this: this, action: ig.Input.KnownAction): boolean;
-      pressed(this: this, action: string): boolean;
-      keyupd(this: this, action: ig.Input.KnownAction): boolean;
-      keyupd(this: this, action: string): boolean;
-      /* eslint-enable @typescript-eslint/unified-signatures */
+      state(this: this, action: LiteralUnion<ig.Input.KnownAction>): boolean;
+      pressed(this: this, action: LiteralUnion<ig.Input.KnownAction>): boolean;
+      keyupd(this: this, action: LiteralUnion<ig.Input.KnownAction>): boolean;
     }
     interface InputConstructor extends ImpactClass<Input> {}
     var Input: InputConstructor;
