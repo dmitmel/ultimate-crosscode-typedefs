@@ -138,10 +138,21 @@ declare global {
       }
     }
 
-    interface Arena extends ig.GameAddon, ig.Vars.Accessor {
+    interface Arena extends ig.GameAddon, ig.Vars.Accessor, sc.Model.Observer {
       active: boolean;
-      cups: Record<string, sc.Arena.Cup>;
       runtime: sc.Arena.Runtime
+      coins: number;
+      coinsSpend: number;
+      cups: Record<string, sc.Arena.Cup>;
+      partyStash: string[];
+      effects: ig.EffectSheet;
+      _pauseBlock: boolean;
+      _endRoundEnd: boolean;
+      _exitCup: boolean;
+      _pauseAction: number;
+      _isFinalHit: boolean;
+      _partySettingBehaviour: null | keyof sc.PARTY_STRATEGY.BehaviourStrategies;
+      _hasCustomCups: boolean;
 
       registerCup(
         this: this,
@@ -166,7 +177,7 @@ declare global {
       getTotalArenaCompletion(this: this): number;
       getCupCompletion(this: this, cupName: string): number;
       getTotalDefaultTrophies(this: this, a: number, c: boolean): number;
-      getCupTrophy(this: this, cupName: string): number;
+      getCupTrophy(this: this, cupName: string): sc.ARENA_MEDALS_TROPHIES | -1;
       isCupUnlocked(this: this, cupName: string): boolean;
       getTotalDefaultCups(this: this, sorted: boolean): { [key: string]: { order: number } };
       isCupCustom(this: this, cupName: string): boolean;

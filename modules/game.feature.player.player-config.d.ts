@@ -43,9 +43,35 @@ declare global {
     }
     var PLAYER_SP_COST: number[];
 
+    namespace PlayerConfig {
+      interface Stat {
+        base: number;
+        increase: number;
+        variance: number;
+      }
+      interface Stats {
+        hp: Stat;
+        attack: Stat;
+        defense: Stat;
+        focus: Stat;
+      }
+
+      interface AutoEquipEntry {
+        level: number;
+        HEAD: number;
+        LEFT_ARM: number;
+        RIGHT_ARM: number;
+        TORSO: number;
+        FEET: number;
+        condition?: ig.VarCondition;
+      }
+      type AutoEquip = AutoEquipEntry[];
+    }
     interface PlayerConfig extends ig.JsonLoadable {
       name: string;
       elementConfigs: Record<sc.ELEMENT, sc.PlayerSubConfig>;
+      stats: PlayerConfig.Stats;
+      autoequip: PlayerConfig.AutoEquip;
     }
     interface PlayerConfigConstructor extends ImpactClass<PlayerConfig> {
       new (name: string): sc.PlayerConfig

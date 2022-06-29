@@ -61,6 +61,7 @@ declare global {
       ): ig.ENTITY.Effect | null;
     }
     interface EffectSheetConstructor extends ImpactClass<EffectSheet> {
+      new (pathOrData: string | unknown): ig.EffectSheet;
       cache: Record<string, ig.EffectSheet>;
     }
     var EffectSheet: EffectSheetConstructor;

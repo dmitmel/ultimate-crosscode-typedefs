@@ -10,6 +10,9 @@ export {};
 
 declare global {
   namespace sc {
+    var ITEM_USE_TIMER: number;
+    var ITEM_MAX_FAVS: number;
+
     enum PLAYER_MSG {
       ELEMENT_MODE_CHANGE = 1,
       CREDIT_CHANGE = 2,
@@ -65,6 +68,12 @@ declare global {
       MONEY = 27,
       MODIFIER = 28,
     }
+
+    var EXP_PER_LEVEL: number;
+    var EXP_MAX_LEVEL: number;
+    var MAX_SP: number;
+    var SP_LEVEL: number[];
+
     namespace PlayerModel {
       interface LevelUpDelta {
         level: number;
@@ -73,6 +82,13 @@ declare global {
         attack: number;
         defense: number;
         focus: number;
+      }
+      interface Equip {
+        head: number;
+        leftArm: number;
+        rightArm: number;
+        torso: number;
+        feet: number;
       }
     }
 
@@ -94,6 +110,7 @@ declare global {
       itemBlockTimer: number;
       config: sc.PlayerConfig;
       chapters: ig.Database.Chapter[];
+      equip: PlayerModel.Equip;
 
       getToggleItemState(this: this, id: sc.ItemID): boolean;
       getParamAvgLevel(this: this, level: number): number;
