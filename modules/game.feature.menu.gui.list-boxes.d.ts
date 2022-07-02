@@ -40,7 +40,9 @@ declare global {
       addButton(this: this, gui: ig.FocusGui): void;
       getChildren(this: this): ig.FocusGui[];
     }
-    interface ItemListBoxConstructor extends ImpactClass<ItemListBox> {}
+    interface ItemListBoxConstructor extends ImpactClass<ItemListBox> {
+      new (topPadding: number, noHeader: boolean, buttonInteract: ig.ButtonInteractEntry): ItemListBox;
+    }
     var ItemListBox: ItemListBoxConstructor;
 
     interface MultiColumnItemListBox extends ig.GuiElementBase {

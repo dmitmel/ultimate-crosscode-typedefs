@@ -173,6 +173,7 @@ declare global {
       shopSellMode: boolean;
       statusElement: sc.ELEMENT;
       statusDiff: boolean;
+      previousMenu: sc.MENU_SUBMENU;
 
       pushBackCallback(this: this, callback: sc.MenuModel.BackCallback): void;
       popBackCallback(this: this): void;
@@ -180,13 +181,15 @@ declare global {
       popMenu(this: this): void;
       setDirectMode(direct?: boolean | null, menu?: sc.MENU_SUBMENU | null): void;
       exitMenu(this: this): void;
-      moveLeaSprite(this: this, x: number, y: number, state: sc.MENU_LEA_STATE): void;
+      moveLeaSprite(this: this, x: number, y: number, state: sc.MENU_LEA_STATE, skip?: boolean): void;
       updateCart(this: this, itemID: sc.ItemID, amount: number, price: number): void;
       getTotalCost(this: this): number;
       getItemQuantity(this: this, itemID: sc.ItemID, price: number): number;
       setInfoText(this: this, text: sc.TextLike, fade?: boolean): void;
       setBuffText(this: this, text: sc.TextLike, fade?: boolean, id?: sc.ItemID): void;
       setShopPage(this: this, page: number): void;
+      pushMenu(this: this, menu: sc.MENU_SUBMENU): void;
+      popMenu(this: this): void;
     }
     interface MenuModelConstructor extends ImpactClass<MenuModel> {
       new (): MenuModel;

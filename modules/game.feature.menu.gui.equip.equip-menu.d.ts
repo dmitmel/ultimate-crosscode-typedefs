@@ -6,3 +6,25 @@
 // requires game.feature.menu.gui.equip.equip-bodypart
 // requires game.feature.inventory.inventory
 // requires game.feature.menu.gui.help.help-menu
+
+export {};
+
+declare global {
+    namespace sc {
+        namespace EquipMenu {
+            interface GlobalButtons {
+                head: sc.BodyPartMouseButton;
+                rightArm: sc.BodyPartMouseButton;
+                leftArm: sc.BodyPartMouseButton;
+                torso: sc.BodyPartMouseButton;
+                feet: sc.BodyPartMouseButton;
+            }
+        }
+        interface EquipMenu extends sc.BaseMenu{
+        }
+        interface EquipMenuConstructor extends ImpactClass<EquipMenu> {
+            new (): sc.EquipMenu;
+        }
+        var EquipMenu: EquipMenuConstructor;
+    }
+}

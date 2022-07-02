@@ -14,6 +14,16 @@ declare global {
       Y_ONLY = 1,
       X_ONLY = 2,
     }
+    enum MenuPanelType {
+      TOP_LEFT_EDGE = 0,
+      TOP_RIGHT_EDGE = 1,
+      TOP_LEFT_EDGE_DARK = 2,
+      TOP_RIGHT_EDGE_DARK = 3,
+      SQUARE = 4,
+      BOTTOM_LEFT_EDGE = 5,
+      TOP_RIGHT_EDGE_DARKER = 6,
+      BOTTOM_RIGHT_EDGE = 7,
+    }
 
     namespace MODIFIER_ICON_DRAW {
       var X: number;
@@ -143,7 +153,9 @@ declare global {
     var PercentChar: PercentCharConstructor;
 
     interface MenuPanel extends ig.BoxGui {}
-    interface MenuPanelConstructor extends ImpactClass<MenuPanel> {}
+    interface MenuPanelConstructor extends ImpactClass<MenuPanel> {
+      new (panelType?: sc.MenuPanelType): sc.MenuPanel;
+    }
     var MenuPanel: MenuPanelConstructor;
 
     interface HeaderMenuPanel extends sc.MenuPanel {}

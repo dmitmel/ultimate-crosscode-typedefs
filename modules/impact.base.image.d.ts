@@ -24,6 +24,22 @@ declare global {
         height: number,
         optimization: ig.ImagePattern.OPT,
       ): ig.ImagePattern;
+      draw(
+        this: this,
+        targetX: number,
+        targetY: number,
+        sourceX?: number,
+        sourceY?: number,
+        width?: number,
+        height?: number,
+        flipX?: boolean,
+        flipY?: boolean,
+        offsetY?: number,
+        offsetHeight?: number,
+        fragment?: unknown,
+        fragmentAlpha?: number,
+        filtered?: unknown
+      ): void;
     }
     interface ImageConstructor extends ImpactClass<Image> {
       new (pathOrData: string): Image;

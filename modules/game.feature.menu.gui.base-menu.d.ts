@@ -9,7 +9,7 @@ declare global {
 
       addObservers(this: this): void;
       removeObservers(this: this): void;
-      showMenu(this: this): void;
+      showMenu(this: this, previousMenu?: sc.BaseMenu, prevSubmenu?: sc.MENU_SUBMENU): void;
       hideMenu(this: this): void;
       exitMenu(this: this): void;
     }

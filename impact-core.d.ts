@@ -132,6 +132,34 @@ declare global {
     }
 
     var platform: ig.PLATFORM_TYPES;
+
+    interface Perf {
+        update: boolean;
+        deferredUpdate: boolean;
+        draw: boolean;
+        drawSprites: boolean;
+        spriteFilter: boolean;
+        spriteShadow: boolean;
+        spriteOverlapSolver: boolean;
+        smoothMapRendering: boolean;
+        showImageAtlas: boolean;
+        showHitBoxes: boolean;
+        gui: boolean;
+        lighting: boolean;
+        weather: boolean;
+        navigationMarker: boolean;
+        overlay: boolean;
+        envParticles: boolean;
+        fullEnemyFibula: boolean;
+        fullLoreList: boolean;
+        hitNumberFactors: boolean;
+        aiSmart: boolean;
+        grantArenaBonus: boolean;
+        enableArenaRound: boolean;
+        gameSense: boolean;
+        skipDmgModifiers: boolean;
+    }
+    var perf: Perf;
   }
 
   namespace sc {}

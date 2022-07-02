@@ -101,7 +101,7 @@ declare global {
       getSp(this: this): number;
       notifySpConsume(this: this, sp: number): void;
       consumeSp(this: this, sp: number): void;
-      getDamage(this: this, attackInfo: sc.AttackInfo, damageFactorMod: number, combatant: ig.ENTITY.Combatant, shieldResult: sc.SHIELD_RESULT, j: boolean): CombatParams.DamageResult;
+      getDamage(this: this, attackInfo: sc.AttackInfo, damageFactorMod: number, combatant: ig.ENTITY.Combatant, shieldResult?: sc.SHIELD_RESULT, hitIgnore?: boolean): CombatParams.DamageResult;
       isDefeated(this: this): boolean;
       setCritical(this: this): void;
       setRelativeHp(this: this, ratio: number): void;
