@@ -9,7 +9,13 @@ declare global {
 
     namespace StatChange {
       type StatName = keyof typeof sc.STAT_CHANGE_SETTINGS;
-      type Params = sc.CombatParams.Params & {elemFactor: number[]}
+      interface Params {
+        hp: number;
+        attack: number;
+        defense: number;
+        focus: number;
+        elemFactor: number[]
+      }
     }
     interface StatChange extends ig.Class {
       params: StatChange.Params;

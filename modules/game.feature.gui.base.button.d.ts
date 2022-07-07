@@ -13,6 +13,7 @@ declare global {
     namespace ButtonGui {
       interface Type {
         alignXPadding?: number;
+        height: number;
       }
     }
     interface ButtonGui extends ig.FocusGui {

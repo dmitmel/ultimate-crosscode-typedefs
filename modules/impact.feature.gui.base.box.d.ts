@@ -42,6 +42,7 @@ declare global {
         width: number,
         height: number,
         tileOffset: string,
+        composite: string,
         offX?: number | null,
         offY?: number | null,
       ): void;

@@ -47,13 +47,14 @@ declare global {
         attack: number;
         defense: number;
         focus: number;
+        
+        elemFactor: number[];
+        statusInflict: number[];
+        statusEffect: number[];
       }
       type ParamName = keyof sc.CombatParams.Params;
 
       interface BaseParams extends Params {
-        elemFactor: number[];
-        statusInflict: number[];
-        statusEffect: number[];
       }
 
       interface DamageResult {
