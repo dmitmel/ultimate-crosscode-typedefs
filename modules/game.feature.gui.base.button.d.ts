@@ -21,7 +21,7 @@ declare global {
       buttonType: sc.ButtonGui.Type;
       textChild: sc.TextGui;
       data?: unknown;
-      submitSound: ig.Sound;
+      submitSound?: ig.Sound;
 
       setWidth(this: this, width: number): void;
       setText(this: this, text: sc.TextLike, ignoreWidth?: boolean): void;
