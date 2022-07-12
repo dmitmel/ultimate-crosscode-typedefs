@@ -10,6 +10,10 @@ declare global {
     var BUTTON_DEFAULT_WIDTH: number;
     var BUTTON_SOUND: { [name: string]: ig.Sound };
 
+    interface ButtonBgGui extends ig.BoxGui {}
+    interface ButtonBgGuiConstructor extends ImpactClass<ButtonBgGui> {}
+    var ButtonBgGui: ButtonBgGuiConstructor;
+
     namespace ButtonGui {
       interface Type {
         alignXPadding?: number;
@@ -20,6 +24,7 @@ declare global {
       text: sc.TextLike;
       buttonType: sc.ButtonGui.Type;
       textChild: sc.TextGui;
+      bgGui: sc.ButtonBgGui;
       data?: unknown;
       submitSound?: ig.Sound;
 

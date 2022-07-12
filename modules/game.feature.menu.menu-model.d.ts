@@ -190,6 +190,9 @@ declare global {
       setShopPage(this: this, page: number): void;
       pushMenu(this: this, menu: sc.MENU_SUBMENU): void;
       popMenu(this: this): void;
+      sortList(this: this, button: ig.FocusGui): void;
+      commitHotkeys(this: this, a?: boolean): void;
+      updateHotkeys(this: this): void;
     }
     interface MenuModelConstructor extends ImpactClass<MenuModel> {
       new (): MenuModel;

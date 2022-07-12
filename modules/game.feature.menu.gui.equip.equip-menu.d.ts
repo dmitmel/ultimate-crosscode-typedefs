@@ -21,6 +21,7 @@ declare global {
             }
         }
         interface EquipMenu extends sc.BaseMenu{
+            exitMenu(this: this, nextMenu?: sc.MENU_SUBMENU): void;
         }
         interface EquipMenuConstructor extends ImpactClass<EquipMenu> {
             new (): sc.EquipMenu;

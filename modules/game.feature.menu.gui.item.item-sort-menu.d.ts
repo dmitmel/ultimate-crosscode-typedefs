@@ -12,7 +12,10 @@ declare global {
             active: boolean;
             buttongroup: sc.ButtonGroup;
 
-            addButton(key: string, enumIndex: sc.SORT_TYPE, buttonIndex: number): void
+            //enumIndex is normally referring to an sc.SORT_TYPE, but it does not have to be (i.e. sc.QUEST_SORT_TYPE)
+            addButton(key: string, enumIndex: number, buttonIndex: number): void;
+            hideSortMenu(this: this): void;
+            showSortMenu(this: this, referenceGUI: ig.GuiElementBase): void;
         }
         interface SortMenuConstructor extends ImpactClass<SortMenu> {
             new (
