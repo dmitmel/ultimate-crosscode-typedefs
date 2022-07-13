@@ -193,6 +193,7 @@ declare global {
       sortList(this: this, button: ig.FocusGui): void;
       commitHotkeys(this: this, a?: boolean): void;
       updateHotkeys(this: this): void;
+      removeHotkeys(this: this): void;
     }
     interface MenuModelConstructor extends ImpactClass<MenuModel> {
       new (): MenuModel;

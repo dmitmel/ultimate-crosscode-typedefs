@@ -92,6 +92,8 @@ declare global {
     interface GuiHook extends ig.Class {
       pos: Vec2;
       size: Vec2;
+      pivot: Vec2;
+      scroll: Vec2;
       align: { x: ig.GUI_ALIGN; y: ig.GUI_ALIGN };
       parentHook: ig.GuiHook | null | undefined;
       children: ig.GuiHook[];
@@ -154,9 +156,43 @@ declare global {
     interface GuiTransformConstructor extends ImpactClass<GuiTransform> {}
     var GuiTransform: GuiTransformConstructor;
 
+    namespace GuiElementBase {
+      namespace Annotation {
+        interface Content {
+          title: string;
+          description: string;
+        }
+
+        interface Offset {
+          x: number;
+          y: number;
+        }
+
+        interface Size {
+          x: number | "dyn";
+          y: number | "dyn";
+          offX?: number;
+          offY?: number;
+        }
+
+        interface Index {
+          x: number;
+          y: number;
+        }
+      }
+      interface Annotation {
+        content: Annotation.Content;
+        offset?: Annotation.Offset;
+        size?: Annotation.Size;
+        index?: Annotation.Index;
+        type?: keyof sc.HELP_ANNO_TYPE;
+      }
+    }
+
     interface GuiElementBase extends ig.Class {
       transitions: { [name: string]: ig.GuiHook.Transition };
       hook: ig.GuiHook;
+      annotation?: GuiElementBase.Annotation;
 
       setPos(this: this, x: number, y: number): void;
       getDestPos(this: this): Vec2;

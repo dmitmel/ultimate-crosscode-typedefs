@@ -5,6 +5,7 @@ export {};
 declare global {
   namespace sc {
     interface ButtonGroup extends ig.ButtonGroup {
+      current: Vec2;
       isActive(this: this): boolean;
       setCurrentFocus(this: this, x: number, y: number): void;
       focusCurrentButton(
