@@ -35,7 +35,7 @@ declare global {
       reset(this: this, x: number, y: number, z: number, settings: ig.Entity.Settings): void;
       setPos(this: this, x: number, y: number, z: number, moveDelta?: boolean | null): void;
       getAlignedPos(this: this, alignment: ig.ENTITY_ALIGN, dest?: Vec3 | null): Vec3;
-      kill(levelChange?: boolean | null): void;
+      kill(this: this, levelChange?: boolean | null): void;
       update(this: this): void;
     }
     interface EntityConstructor extends ImpactClass<Entity> {
@@ -47,7 +47,9 @@ declare global {
       animState: ig.AnimationState;
       currentAnim: string;
     }
-    interface AnimatedEntityConstructor extends ImpactClass<AnimatedEntity> {}
+    interface AnimatedEntityConstructor extends ImpactClass<AnimatedEntity> {
+      new (x: number, y: number, z: number, settings: ig.Entity.Settings): AnimatedEntity;
+    }
     var AnimatedEntity: AnimatedEntityConstructor;
   }
 }
