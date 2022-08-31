@@ -11,6 +11,16 @@ export {};
 
 declare global {
   namespace sc {
+    interface CombatFlyLevel {
+      vel: number;
+      stun: number;
+      jump: number;
+      bounciness?: number;
+      airFriction?: number;
+      far?: boolean;
+    }
+    var COMBAT_FLY_LEVEL: Record<string, CombatFlyLevel>;
+
     enum SHIELD_RESULT {
       NONE = 0,
       REGULAR = 1,

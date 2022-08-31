@@ -172,7 +172,7 @@ declare global {
       addScore<K extends keyof sc.ARENA_SCORE_TYPES>(
         this: this,
         scoreType: K,
-        points: number,
+        points?: number,
       ): void;
       getTotalArenaCompletion(this: this): number;
       getCupCompletion(this: this, cupName: string): number;
