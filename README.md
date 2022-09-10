@@ -10,7 +10,7 @@ Hi! This document serves as the documentation for the _Ultimate CrossCode TypeDe
 
 **NOTE 2:** this tutorial will be updated when work on CCLoader v3 begins.
 
-Alright, alright, enough talking and epic speech, let's get to the coding part. Let's get started by creating the mod manifest:
+Let's get started by creating the mod manifest:
 
 ### `package.json`
 
