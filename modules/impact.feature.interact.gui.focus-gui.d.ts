@@ -18,7 +18,9 @@ declare global {
       setPressed(this: this, pressed: boolean): void;
       setActive(this: this, active: boolean): void;
     }
-    interface FocusGuiConstructor extends ImpactClass<FocusGui> {}
+    interface FocusGuiConstructor extends ImpactClass<FocusGui> {
+      new (active?: boolean, keepPressed?: boolean): FocusGui;
+    }
     var FocusGui: FocusGuiConstructor;
   }
 }
