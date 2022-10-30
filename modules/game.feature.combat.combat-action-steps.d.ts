@@ -38,9 +38,11 @@ declare global {
             | 'PART_TARGET_ROOT';
           key: string;
         }
+
+        type TargetFunction = (combatant: sc.BasicCombatant, key?: string) => sc.BasicCombatant;
       }
       interface SET_TEMP_TARGET extends ig.ActionStepBase {
-        kind: (combatant: sc.BasicCombatant, key?: string) => sc.BasicCombatant;
+        kind: SET_TEMP_TARGET.TargetFunction;
       }
       interface SET_TEMP_TARGET_CONSTRUCTOR extends ImpactClass<SET_TEMP_TARGET> {
         new (settings: SET_TEMP_TARGET.Settings): SET_TEMP_TARGET;

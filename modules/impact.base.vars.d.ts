@@ -12,7 +12,7 @@ declare global {
 
     namespace Vars {
       interface Accessor {
-        onVarAccess(this: this, varString: string, varParts: string[]): VarValue;
+        onVarAccess(this: this, path: string, keys: string[]): VarValue;
       }
 
       interface VarObject {

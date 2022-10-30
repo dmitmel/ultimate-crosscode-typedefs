@@ -79,7 +79,9 @@ declare global {
       // only natively exists on ig.ENTITY.Player, but a function of this signature is expected.
       onHeal?(this: this, healInfo: sc.HealInfo | sc.HealInfo.Settings, amount: number): void;
     }
-    interface CombatantConstructor extends ImpactClass<Combatant> {}
+    interface CombatantConstructor extends ImpactClass<Combatant> {
+      new (x: number, y: number, z: number, settings: ig.Entity.Settings): ig.ENTITY.Combatant
+    }
     var Combatant: CombatantConstructor;
   }
 }

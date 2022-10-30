@@ -54,6 +54,18 @@ declare global {
         this: this,
         type: new (x: number, y: number, z: number, settings: S) => ig.Entity,
       ): E[];
+      getEntitiesInCircle(
+        center: Vec3,
+        radius: number,
+        yScale: number,
+        zHeight: number,
+        dir: Vec2,
+        startAngle: number,
+        endAngle: number,
+        exception?: ig.Entity,
+        moreExceptions?: ig.Entity[],
+        rectangular?: boolean
+      ): ig.Entity[];
       createPlayer(this: this): void;
       getErrorData(this: this, gameInfo: Record<string, unknown>): void;
       spawnEntity<E extends ig.Entity, S extends ig.Entity.Settings>(

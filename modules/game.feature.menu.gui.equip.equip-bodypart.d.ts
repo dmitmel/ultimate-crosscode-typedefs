@@ -38,6 +38,7 @@ declare global {
       
       _moveButtons(this: this, bodypart: sc.MENU_EQUIP_BODYPART): void;
       _pullInAllButtons(this: this, exception: ig.FocusGui): void;
+      showMenu(this: this): void;
     }
     interface EquipBodyPartContainerConstructor extends ImpactClass<EquipBodyPartContainer> {
       new (globalButtons: sc.EquipMenu.GlobalButtons): sc.EquipBodyPartContainer;

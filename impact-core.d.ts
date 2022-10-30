@@ -9,8 +9,21 @@ declare global {
   namespace Vec2 {
     function create(): Vec2;
     function createC(x?: number | null, y?: number | null): Vec2;
-    function assign(a: Vec2, b: Vec2): Vec2;
+    function assign(v1: Vec2, v2: Vec2): Vec2;
+    function assignC(v: Vec2, x?: number, y?: number): Vec2;
+    function add(v1: Vec2, v2: Vec2, dest?: Vec2): Vec2
+    function addMulF(v1: Vec2, v2: Vec2, factor: number, dest?: Vec2): Vec2;
+    function addC(v1: Vec2, x?: number, y?: number, dest?: Vec2): Vec2;
+    function sub(v1: Vec2, v2: Vec2, dest?: Vec2): Vec2
+    function subC(v1: Vec2, x?: number, y?: number, dest?: Vec2): Vec2;
+    function mul(v1: Vec2, v2: Vec2, dest?: Vec2): Vec2;
+    function mulC(v1: Vec2, x?: number, y?: number, dest?: Vec2): Vec2;
+    function mulF(v1: Vec2, f: number, dest?: Vec2): Vec2;
+    function div(v1: Vec2, v2: Vec2, dest?: Vec2): Vec2;
+    function divC(v1: Vec2, x?: number, y?: number, dest?: Vec2): Vec2;
     function clockangle(a: Vec2): Vec2;
+    function angle(v1: Vec2, v2: Vec2): number
+    function length(v: Vec2, newLength?: number, dest?: Vec2): number;
   }
 
   interface Vec3 {
