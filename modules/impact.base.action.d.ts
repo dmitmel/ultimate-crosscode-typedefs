@@ -21,6 +21,7 @@ declare global {
       name: string;
       parallelMove: boolean;
       repeating: boolean;
+      hint?: string;
     }
     interface ActionConstructor extends ImpactClass<Action> {
       new (

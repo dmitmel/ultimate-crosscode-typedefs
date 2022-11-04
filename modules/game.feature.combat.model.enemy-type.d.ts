@@ -24,6 +24,8 @@ declare global {
       itemDrops: sc.EnemyType.ItemDrop[];
       bossLabel: ig.LangLabel.Data | string;
       boostedLevel: number;
+      actions: Record<string, ig.Action>;
+      reactions: Record<string, EnemyReactionBase>;
 
       resolveItemDrops(this: this, enemyEntity: ig.ENTITY.Enemy): void;
     }
