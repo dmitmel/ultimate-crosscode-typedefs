@@ -15,6 +15,12 @@ declare global {
   }
 
   namespace ig.ENTITY {
+    namespace Enemy {
+      interface Settings extends ig.Entity.Settings {
+        enemyInfo: sc.EnemyInfo.Settings;
+      }
+    }
+
     interface Enemy extends ig.ENTITY.Combatant {
       enemyType: sc.EnemyType;
       currentState: string;
@@ -24,7 +30,7 @@ declare global {
       changeState(this: this, state: string, immediate?: boolean | null): void;
     }
     interface EnemyConstructor extends ImpactClass<Enemy> {
-      new (x: number, y: number, z: number, settings: ig.Entity.Settings): ig.ENTITY.Enemy
+      new (x: number, y: number, z: number, settings: ig.ENTITY.Enemy.Settings): ig.ENTITY.Enemy
     }
     var Enemy: EnemyConstructor;
   }
