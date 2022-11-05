@@ -92,7 +92,7 @@ declare global {
         key: K,
         noHack?: boolean | null,
       ): sc.CombatParams.Params[K];
-      getModifier<K extends keyof sc.MODIFIERS>(this: this, modifier: K): number;
+      getModifier(this: this, modifier: keyof sc.MODIFIERS): number;
       // the game actually uses *both* sc.HealInfo and an ordinary object with the two relevant properties.
       getHealAmount(this: this, healInfo: sc.HealInfo | sc.HealInfo.Settings): number;
       increaseHp(this: this, amount: number): void;

@@ -9,3 +9,13 @@
 // requires game.feature.menu.gui.stats.stats-misc
 // requires game.feature.menu.gui.stats.stats-gui-builds
 // requires game.feature.menu.gui.stats.stats-types
+
+export {};
+
+declare global {
+  namespace sc {
+    interface StatsListBox extends sc.TabbedPane {}
+    interface StatsListBoxConstructor extends ImpactClass<StatsListBox> {}
+    var StatsListBox: StatsListBoxConstructor;
+  }
+}

@@ -31,7 +31,7 @@ declare global {
   type ImpactClassPrototype<Constructor, Instance> = Constructor extends new (
     ...args: infer Args
   ) => Instance
-    ? Instance & {
+    ? { [K in keyof Instance]: Instance[K] } & {
         init: (this: Instance, ...args: Args) => void;
         staticInstantiate: (this: Instance, ...args: Args) => Instance | null | undefined;
       }

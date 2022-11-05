@@ -81,6 +81,17 @@ export namespace PatchStep {
     type: 'DEBUG';
     value: boolean;
   }
+
+  export interface MERGE_CONTENT extends BasePatchStep {
+    type: 'MERGE_CONTENT';
+    content: unknown;
+  }
+
+  export interface CALL extends BasePatchStep {
+    type: 'CALL';
+    id: string;
+    args: unknown;
+  }
 }
 
 // This is expressed with an interface so that mods can define their own
@@ -204,3 +215,9 @@ export function patch(
 ): Promise<void>;
 
 type Loader = (fromGame: boolean | string, path: string) => Promise<unknown>;
+
+export namespace callable {
+  export type Callable = (state: ApplierState, args: unknown) => void | Promise<void>;
+
+  export function register(id: string, callable: Callable): void;
+}

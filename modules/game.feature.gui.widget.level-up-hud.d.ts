@@ -7,7 +7,10 @@ export {};
 
 declare global {
   namespace sc {
-    interface LevelUpContentGui extends ig.GuiElementBase {}
+    interface LevelUpContentGui extends ig.GuiElementBase {
+      gfx: ig.Image;
+      arrowTimer: number;
+    }
     interface LevelUpContentGuiConstructor extends ImpactClass<LevelUpContentGui> {}
     var LevelUpContentGui: LevelUpContentGuiConstructor;
   }

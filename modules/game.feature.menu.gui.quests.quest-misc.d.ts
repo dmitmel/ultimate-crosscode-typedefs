@@ -8,11 +8,21 @@ export {};
 
 declare global {
   namespace sc {
+    interface SolvedLine extends ig.SimpleGui {
+      ninepatch: ig.NinePatch;
+      textGui: sc.TextGui;
+    }
+    interface SolvedLineConstructor extends ImpactClass<SolvedLine> {
+      new (): SolvedLine;
+    }
+    var SolvedLine: SolvedLineConstructor;
+
     interface QuestBaseBox extends ig.BoxGui {
+      ninepatch: ig.NinePatch;
       levelGui: sc.NumberGui;
       elite: number;
 
-      setLevel(this: this, level: number): void;
+      setLevel(this: this, level?: number | null): void;
       setElite(this: this, isElite: boolean, isSolved: boolean): void;
     }
     interface QuestBaseBoxConstructor extends ImpactClass<QuestBaseBox> {
@@ -20,10 +30,40 @@ declare global {
     }
     var QuestBaseBox: QuestBaseBoxConstructor;
 
+    interface QuestInfoBoxActive extends ig.SimpleGui {
+      gfx: ig.Image;
+      lineGui: ig.ColorGui;
+      taskContainer: ig.GuiElementBase;
+
+      setTasks(this: this, quest: sc.Quest, currentTask: number): void;
+      _addTask(this: this, index: number, quest: sc.Quest, y: number): number;
+    }
+    interface QuestInfoBoxActiveConstructor extends ImpactClass<QuestInfoBoxActive> {
+      new (): QuestInfoBoxActive;
+    }
+    var QuestInfoBoxActive: QuestInfoBoxActiveConstructor;
+
+    interface QuestInfoBoxSolved extends ig.SimpleGui {
+      solvedGui: sc.SolvedLine;
+      endDescription: sc.TextGui;
+    }
+    interface QuestInfoBoxSolvedConstructor extends ImpactClass<QuestInfoBoxSolved> {
+      new (): QuestInfoBoxSolved;
+    }
+    var QuestInfoBoxSolved: QuestInfoBoxSolvedConstructor;
+
     interface QuestInfoBox extends sc.QuestBaseBox {
       gfx: ig.Image;
+      titleGui: sc.TextGui;
+      descriptionGui: sc.TextGui;
       locationGui: ig.ColorGui;
       locationText: sc.TextGui;
+      activeView: sc.QuestInfoBoxActive;
+      solvedView: sc.QuestInfoBoxSolved;
+
+      setQuest(this: this, quest: sc.Quest): void;
+      show(this: this): void;
+      hide(this: this, skip?: boolean): void;
     }
     interface QuestInfoBoxConstructor extends ImpactClass<QuestInfoBox> {
       new (): QuestInfoBox;
@@ -31,11 +71,24 @@ declare global {
     var QuestInfoBox: QuestInfoBoxConstructor;
 
     interface QuestDialog extends sc.QuestBaseBox {
+      gfx: ig.Image;
+      titleGui: sc.TextGui;
+      descriptionGui: sc.TextGui;
+      endDescriptionGui: sc.TextGui | undefined | null;
+      firstTaskGui: sc.TextGui | undefined | null;
+      expGui: sc.TextGui;
+      creditGui: sc.TextGui;
+      cpGui: sc.TextGui;
       itemsGui: ig.GuiElementBase;
+      solvedGui: sc.SolvedLine | undefined | null;
+      quest: sc.Quest;
 
+      setQuest(this: this, quest?: sc.Quest | null): void;
       setQuestRewards(this: this, quest: sc.Quest, hideRewards: boolean, finished: boolean): void;
     }
-    interface QuestDialogConstructor extends ImpactClass<QuestDialog> {}
+    interface QuestDialogConstructor extends ImpactClass<QuestDialog> {
+      new (quest: sc.Quest, finished: boolean): QuestDialog;
+    }
     var QuestDialog: QuestDialogConstructor;
 
     interface QuestStartDialogButtonBox extends ig.BoxGui {

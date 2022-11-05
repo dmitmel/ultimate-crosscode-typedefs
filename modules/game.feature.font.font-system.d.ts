@@ -19,11 +19,7 @@ declare global {
       smallFont: ig.MultiFont;
       tinyFont: ig.MultiFont;
 
-      // see `impact.base.input` for why this rule is disabled
-      /* eslint-disable @typescript-eslint/unified-signatures */
-      changeKeyCodeIcon(this: this, action: ig.Input.KnownAction, key: ig.KEY): void;
-      changeKeyCodeIcon(this: this, action: string, key: ig.KEY): void;
-      /* eslint-enable @typescript-eslint/unified-signatures */
+      changeKeyCodeIcon(this: this, action: LiteralUnion<ig.Input.KnownAction>, key: ig.KEY): void;
     }
     interface FontSystemConstructor extends ImpactClass<FontSystem> {
       new (): FontSystem;

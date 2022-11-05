@@ -208,18 +208,18 @@
       "required": ["type", "content"],
       "properties": {
         "type": { "const": "MERGE_CONTENT" },
-        "content": { "type": ["array", "object"] }
+        "content": {}
       }
     },
 
     "PatchStep.CALL": {
       "allOf": [{ "$ref": "#/definitions/BasePatchStep" }],
       "type": "object",
-      "required": ["type", "id"],
+      "required": ["type", "id", "args"],
       "properties": {
         "type": { "const": "CALL" },
         "id": { "type": "string" },
-        "args": { "type": "object" }
+        "args": {}
       }
     }
   }

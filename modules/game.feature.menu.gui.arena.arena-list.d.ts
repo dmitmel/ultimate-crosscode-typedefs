@@ -10,6 +10,10 @@ export {};
 
 declare global {
   namespace sc {
+    interface ArenaRoundList extends sc.ListTabbedPane {}
+    interface ArenaRoundListConstructor extends ImpactClass<ArenaRoundList> {}
+    var ArenaRoundList: ArenaRoundListConstructor;
+
     interface ArenaCupList extends sc.ListTabbedPane {}
     interface ArenaCupListConstructor extends ImpactClass<ArenaCupList> {}
     var ArenaCupList: ArenaCupListConstructor;
