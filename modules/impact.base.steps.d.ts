@@ -10,6 +10,8 @@ declare global {
       start(this: this, ...args: unknown[]): void;
       run(this: this, ...args: unknown[]): boolean;
       getNext(this: this, ...args: unknown[]): ig.StepBase;
+      getJumpLabelName?(this: this): string | null;
+      getBranchNames?(this: this): string[];
     }
     interface StepBaseConstructor extends ImpactClass<StepBase> {
       new (settings: unknown): StepBase;
