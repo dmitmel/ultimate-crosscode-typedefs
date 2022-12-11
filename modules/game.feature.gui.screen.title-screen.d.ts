@@ -15,6 +15,7 @@ export {};
 declare global {
   namespace sc {
     interface TitleScreenGui extends ig.GuiElementBase {
+      buttons: sc.TitleScreenButtonGui;
       versionGui: sc.TextGui;
     }
     interface TitleScreenGuiConstructor extends ImpactClass<TitleScreenGui> {
