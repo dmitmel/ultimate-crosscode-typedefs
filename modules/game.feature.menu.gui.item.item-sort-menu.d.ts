@@ -16,6 +16,7 @@ declare global {
             addButton(key: string, enumIndex: number, buttonIndex: number): void;
             hideSortMenu(this: this): void;
             showSortMenu(this: this, referenceGUI: ig.GuiElementBase): void;
+            showSortMenuAt(this: this, x: number, y: number): void;
         }
         interface SortMenuConstructor extends ImpactClass<SortMenu> {
             new (

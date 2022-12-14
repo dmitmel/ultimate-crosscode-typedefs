@@ -23,9 +23,11 @@ declare global {
       buttons: sc.ButtonGui[];
       buttonInteract: ig.ButtonInteractEntry;
       buttongroup: sc.ButtonGroup;
+      back: sc.ButtonGui;
 
       show(this: this): void;
       hide(this: this): void;
+      onBackButtonCheck(this: this): boolean;
     }
     interface ModalButtonInteractConstructor extends ImpactClass<ModalButtonInteract> {
       new (

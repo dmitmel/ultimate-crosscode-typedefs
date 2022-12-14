@@ -162,6 +162,7 @@ declare global {
       state(this: this, action: LiteralUnion<ig.Input.KnownAction>): boolean;
       pressed(this: this, action: LiteralUnion<ig.Input.KnownAction>): boolean;
       keyupd(this: this, action: LiteralUnion<ig.Input.KnownAction>): boolean;
+      keydown(this: this, action: LiteralUnion<ig.Input.KnownAction>): boolean;
     }
     interface InputConstructor extends ImpactClass<Input> {}
     var Input: InputConstructor;

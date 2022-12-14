@@ -21,6 +21,7 @@ declare global {
       menuHotkeyHelp(this: this): boolean;
       menuHotkeyHelp2(this: this): boolean;
       menuHotkeyHelp3(this: this): boolean;
+      menuBack(this: this): boolean;
     }
     interface ControlConstructor extends ImpactClass<Control> {
       new (): Control;
