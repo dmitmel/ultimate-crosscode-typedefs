@@ -75,9 +75,9 @@ declare global {
         damageResult: sc.CombatParams.DamageResult,
         shieldResult: sc.SHIELD_RESULT,
       ): boolean;
-      heal(this: this, healInfo: sc.HealInfo | sc.HealInfo.Settings, hideNumbers?: boolean): void;
+      heal(this: this, healInfo: sc.HealInfoType, hideNumbers?: boolean): void;
       // only natively exists on ig.ENTITY.Player, but a function of this signature is expected.
-      onHeal?(this: this, healInfo: sc.HealInfo | sc.HealInfo.Settings, amount: number): void;
+      onHeal?(this: this, healInfo: sc.HealInfoType, amount: number): void;
     }
     interface CombatantConstructor extends ImpactClass<Combatant> {
       new (x: number, y: number, z: number, settings: ig.Entity.Settings): ig.ENTITY.Combatant

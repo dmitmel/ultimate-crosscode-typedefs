@@ -1,7 +1,5 @@
 // requires game.feature.model.base-model
 
-import { HeapProfiler } from "inspector";
-
 export {};
 
 declare global {
@@ -93,8 +91,7 @@ declare global {
         noHack?: boolean | null,
       ): sc.CombatParams.Params[K];
       getModifier(this: this, modifier: keyof sc.MODIFIERS): number;
-      // the game actually uses *both* sc.HealInfo and an ordinary object with the two relevant properties.
-      getHealAmount(this: this, healInfo: sc.HealInfo | sc.HealInfo.Settings): number;
+      getHealAmount(this: this, healInfo: sc.HealInfoType): number;
       increaseHp(this: this, amount: number): void;
       getHpFactor(this: this): number;
       getRelativeSp(this: this): number;
@@ -144,5 +141,8 @@ declare global {
       new (params: sc.CombatParams, settings: HealInfo.Settings): sc.HealInfo;
     }
     var HealInfo: HealInfoConstructor;
+    //in any situation where the game expects sc.HealInfo, a normal object that can work as well.
+    //in fact, the devs used this property quite a bit.
+    type HealInfoType = sc.HealInfo | sc.HealInfo.Settings; 
   }
 }
