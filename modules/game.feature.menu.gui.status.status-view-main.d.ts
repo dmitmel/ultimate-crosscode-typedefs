@@ -30,6 +30,8 @@ declare global {
       }
     }
     interface StatusViewMainParameters extends sc.MenuPanel {
+      menuGfx: ig.Image;
+      level: sc.NumberGui;
       baseParams: sc.StatusViewMainParameters.BaseParams;
     }
     interface StatusViewMainParametersConstructor extends ImpactClass<StatusViewMainParameters> {
