@@ -15,6 +15,7 @@ declare global {
   namespace sc {
     interface QuestHubListEntry extends ig.FocusGui {
       questLocation: sc.TextGui;
+      levelContent: ig.ColorGui;
       rewards: sc.QuestHubRewards;
     }
     interface QuestHubListEntryConstructor extends ImpactClass<QuestHubListEntry> {
