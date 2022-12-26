@@ -19,7 +19,8 @@ declare global {
     namespace modDataStorage {
       export import FileData = modDataStorageM.FileData;
 
-      export import filePath = modDataStorageM.filePath;
+      export import FILE_NAME = modDataStorageM.FILE_NAME;
+      export import fileDir = modDataStorageM.fileDir;
       export import data = modDataStorageM.data;
 
       export import readImmediately = modDataStorageM.readImmediately;

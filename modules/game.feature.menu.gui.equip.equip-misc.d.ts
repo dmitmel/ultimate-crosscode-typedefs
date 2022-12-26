@@ -5,6 +5,12 @@ export {};
 
 declare global {
   namespace sc {
+    interface EquipLevelOverview extends sc.MenuPanel {}
+    interface EquipLevelOverviewConstructor extends ImpactClass<EquipLevelOverview> {
+      new (): EquipLevelOverview;
+    }
+    var EquipLevelOverview: EquipLevelOverviewConstructor;
+
     interface BodyPartButton extends sc.ButtonGui {}
     interface BodyPartButtonConstructor extends ImpactClass<BodyPartButton> {}
     var BodyPartButton: BodyPartButtonConstructor;

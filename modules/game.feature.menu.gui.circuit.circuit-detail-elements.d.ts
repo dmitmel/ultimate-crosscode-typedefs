@@ -12,7 +12,10 @@ export {};
 declare global {
   namespace sc {
     interface CircuitNodeMenu extends sc.MenuPanel {
+      costCP: sc.TextGui;
       activate: sc.ButtonGui;
+
+      _setContent(this: this, chainMode?: boolean | null): void;
     }
     interface CircuitNodeMenuConstructor extends ImpactClass<CircuitNodeMenu> {
       new (scrollHook: ig.GuiHook): CircuitNodeMenu;
@@ -22,6 +25,9 @@ declare global {
     interface CircuitInfoBox extends sc.MenuPanel {
       header: sc.TextGui;
       special: sc.TextGui;
+      cpCost: sc.TextGui;
+
+      _setContent(this: this): void;
     }
     interface CircuitInfoBoxConstructor extends ImpactClass<CircuitInfoBox> {
       new (scrollHook: ig.GuiHook): CircuitInfoBox;

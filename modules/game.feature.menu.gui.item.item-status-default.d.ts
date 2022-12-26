@@ -33,5 +33,14 @@ declare global {
       ): ItemStatusDefaultBar;
     }
     var ItemStatusDefaultBar: ItemStatusDefaultBarConstructor;
+
+    interface ItemStatusDefault extends sc.MenuPanel {
+      menuGfx: ig.Image;
+      level: sc.NumberGui;
+    }
+    interface ItemStatusDefaultConstructor extends ImpactClass<ItemStatusDefault> {
+      new (): ItemStatusDefault;
+    }
+    var ItemStatusDefault: ItemStatusDefaultConstructor;
   }
 }

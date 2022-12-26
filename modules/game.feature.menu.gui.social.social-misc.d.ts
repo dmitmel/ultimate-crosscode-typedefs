@@ -24,6 +24,16 @@ declare global {
     interface SocialInfoBoxConstructor extends ImpactClass<SocialInfoBox> {}
     var SocialInfoBox: SocialInfoBoxConstructor;
 
+    interface SocialBaseInfoBox extends ig.GuiElementBase {
+      exp: sc.ItemStatusDefaultBar;
+      hp: sc.ItemStatusDefaultBar;
+      sp: sc.ItemStatusDefaultBar;
+    }
+    interface SocialBaseInfoBoxConstructor extends ImpactClass<SocialBaseInfoBox> {
+      new (): SocialBaseInfoBox;
+    }
+    var SocialBaseInfoBox: SocialBaseInfoBoxConstructor;
+
     interface SocialEntryButton extends sc.ListBoxButton {
       gfx2: ig.Image;
       head: sc.SocialHead;
