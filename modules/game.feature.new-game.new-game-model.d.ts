@@ -20,6 +20,11 @@ declare global {
     }
     var NEW_GAME_OPTIONS: Record<string, sc.NewGameOption>;
 
+    namespace NewGamePlusModel {
+      interface Applier {
+        onNewGameApply(this: this, save: ig.SaveSlot.Data): void;
+      }
+    }
     interface NewGamePlusModel extends ig.GameAddon, sc.Model {
       options: { [id: string]: boolean };
 

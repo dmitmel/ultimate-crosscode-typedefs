@@ -12,6 +12,7 @@ declare global {
         shops: { [id: string]: ShopData };
         traders: { [id: string]: sc.TradeModel.Trader };
         chapters: Chapter[];
+        toggleSets: { [name: string]: ToggleSet }
       }
 
       interface EnemyData {
@@ -53,6 +54,14 @@ declare global {
         prefix?: ig.LangLabel;
         // this is not used in any capacity, but it is present
         condition?: string;
+      }
+
+      interface ToggleSet {
+        type: "SINGLE" | "MULTI";
+        name: ig.LangLabel.Data;
+        order: number;
+        color: string;
+        items: sc.ItemID[];
       }
     }
     interface Database extends ig.SingleLoadable {

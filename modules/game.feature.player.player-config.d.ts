@@ -69,6 +69,7 @@ declare global {
     }
     interface PlayerConfig extends ig.JsonLoadable {
       name: string;
+      baseConfig: sc.PlayerSubConfig;
       elementConfigs: Record<sc.ELEMENT, sc.PlayerSubConfig>;
       stats: PlayerConfig.Stats;
       autoequip: PlayerConfig.AutoEquip;
