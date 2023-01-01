@@ -90,6 +90,8 @@ declare global {
         torso: number;
         feet: number;
       }
+      
+      type ActionKey = sc.PLAYER_ACTION | keyof typeof sc.PLAYER_ACTION;
     }
 
     interface PlayerModel extends ig.Class, ig.Vars.Accessor, sc.Model, ig.Storage.Listener {
@@ -213,10 +215,10 @@ declare global {
       scrollElementMode(this: this, a: number, force: boolean, skipEffect: boolean): boolean;
       getCurrentElementMode(this: this): sc.PlayerSubConfig;
       getCombatArt(this: this, element: sc.ELEMENT, actionType: sc.PLAYER_ACTION): ig.Action;
-      getCombatArtName(this: this, actionType: sc.PLAYER_ACTION): string;
-      getActiveCombatArt(this: this, element: sc.ELEMENT, actionType: sc.PLAYER_ACTION): ig.Action;
+      getCombatArtName(this: this, actionType: PlayerModel.ActionKey): string;
+      getActiveCombatArt(this: this, element: sc.ELEMENT, actionType: PlayerModel.ActionKey): ig.Action;
       getAction(this: this, action: sc.PLAYER_ACTION): ig.Action;
-      getActionByElement(this: this, element: sc.ELEMENT, actionType: sc.PLAYER_ACTION): ig.Action;
+      getActionByElement(this: this, element: sc.ELEMENT, actionType: PlayerModel.ActionKey): ig.Action;
       getBalls(this: this): Record<string, sc.ProxySpawnerBase>;
       getOptionFace(this: this): string;
       updateStats(this: this): void;
