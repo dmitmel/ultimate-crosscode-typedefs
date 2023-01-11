@@ -26,8 +26,18 @@ declare global {
   }
 
   namespace ig.ENTITY {
-    interface Ball extends ig.ENTITY.Projectile {}
-    interface BallConstructor extends ImpactClass<Ball> {}
+    namespace Ball {
+      interface Settings extends ig.Entity.Settings {}
+    }
+    interface Ball extends ig.ENTITY.Projectile {
+      attackInfo: sc.AttackInfo;
+      remainingHits: number;
+      timer: number;
+      isBall?: boolean;
+    }
+    interface BallConstructor extends ImpactClass<Ball> {
+      new(x: number, y: number, z: number, settings: Ball.Settings): Ball;
+    }
     var Ball: BallConstructor;
   }
 }

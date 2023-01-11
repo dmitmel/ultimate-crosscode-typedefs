@@ -41,7 +41,9 @@ declare global {
     var ParticleState: ParticleStateConstructor;
 
     namespace EffectSheet {
-      interface SpawnSettings {}
+      interface SpawnSettings {
+        
+      }
     }
     interface EffectSheet extends ig.JsonLoadable {
       spawnOnTarget(

@@ -121,6 +121,8 @@ declare global {
       defenseFactor: number;
       element: sc.ELEMENT;
       critFactor: number;
+
+      hasHint(this: this, hint: string): boolean
     }
     interface AttackInfoConstructor extends ImpactClass<AttackInfo> {}
     var AttackInfo: AttackInfoConstructor;

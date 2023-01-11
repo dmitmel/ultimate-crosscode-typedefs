@@ -31,12 +31,14 @@ declare global {
       settings: unknown; // an empty object, appears to be unused
       coll: ig.CollEntry;
       isPlayer: boolean | undefined;
+      _killed: boolean;
 
       reset(this: this, x: number, y: number, z: number, settings: ig.Entity.Settings): void;
       setPos(this: this, x: number, y: number, z: number, moveDelta?: boolean | null): void;
       getAlignedPos(this: this, alignment: ig.ENTITY_ALIGN, dest?: Vec3 | null): Vec3;
       kill(this: this, levelChange?: boolean | null): void;
       update(this: this): void;
+      collideWith(this: this, entity: ig.Entity, dir: Vec2): void;
     }
     interface EntityConstructor extends ImpactClass<Entity> {
       new (x: number, y: number, z: number, settings: ig.Entity.Settings): Entity;
@@ -47,7 +49,8 @@ declare global {
       animState: ig.AnimationState;
       currentAnim: string;
 
-      setCurrentAnim(this: this, name: string, reset: boolean, followUp?: string | null, force?: boolean, callbackOnFinish?: boolean): void;
+      setCurrentAnim(this: this, name: string, reset?: boolean, followUp?: string | null, force?: boolean, callbackOnFinish?: boolean): void;
+      initAnimations(this: this, sheet: ig.AnimationSheet | string | unknown): void;
     }
     interface AnimatedEntityConstructor extends ImpactClass<AnimatedEntity> {
       new (x: number, y: number, z: number, settings: ig.Entity.Settings): AnimatedEntity;

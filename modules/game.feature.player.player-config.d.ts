@@ -75,7 +75,9 @@ declare global {
       autoequip: PlayerConfig.AutoEquip;
     }
     interface PlayerConfigConstructor extends ImpactClass<PlayerConfig> {
-      new (name: string): sc.PlayerConfig
+      new (name: string): sc.PlayerConfig;
+
+      getElementBall(combatant: sc.PlayerBaseEntity, element: sc.ELEMENT, charged: boolean): sc.ProxySpawnerBase
     }
     var PlayerConfig: PlayerConfigConstructor;
 

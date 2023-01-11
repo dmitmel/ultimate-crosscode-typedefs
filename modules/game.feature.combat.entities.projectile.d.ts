@@ -6,7 +6,10 @@ export {};
 
 declare global {
   namespace ig.ENTITY {
-    interface Projectile extends ig.AnimatedEntity {}
+    interface Projectile extends ig.AnimatedEntity {
+      getCombatantRoot(this: this): ig.ENTITY.Combatant;
+      getElement(this: this): sc.ELEMENT;
+    }
     interface ProjectileConstructor extends ImpactClass<Projectile> {}
     var Projectile: ProjectileConstructor;
   }
