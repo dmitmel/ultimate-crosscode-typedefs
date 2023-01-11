@@ -59,5 +59,14 @@ declare global {
       new (pathOrData: string | unknown): ig.AnimationSheet;
     }
     var AnimationSheet: AnimationSheetConstructor;
+    
+    enum ANIM_SHAPE_TYPE {
+      NO_EXPAND = 1,
+      Y_EXPAND = 2,
+      Z_EXPAND = 3,
+      YZ_EXPAND = 4,
+      Y_FLAT = 5,
+      Z_FLAT = 6
+  }
   }
 }

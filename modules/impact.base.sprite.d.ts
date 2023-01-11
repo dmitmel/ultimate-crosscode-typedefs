@@ -11,6 +11,19 @@ declare global {
         offsetX?: number | null,
         offsetY?: number | null,
       ): void;
+      setEntityDefault(
+        this: this,
+        entity: ig.Entity,
+        tileWidth: number,
+        tileHeight: number,
+        shapeType: keyof typeof ig.ANIM_SHAPE_TYPE,
+        wallY: number,
+        offset: Vec3 | null,
+        image: ig.Image,
+        srcX: number,
+        srcY: number,
+      ): void;
+      setPos(this: this, x: number, y: number, z: number): void;
     }
     interface CubeSpriteConstructor extends ImpactClass<CubeSprite> {}
     var CubeSprite: CubeSpriteConstructor;

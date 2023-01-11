@@ -28,10 +28,15 @@ declare global {
       }
     }
     interface Entity extends ig.Class, ig.Vars.Accessor {
+      id: number;
+      uid: number;
+      mapId: number;
+
       settings: unknown; // an empty object, appears to be unused
       coll: ig.CollEntry;
       isPlayer: boolean | undefined;
       _killed: boolean;
+      sprites: ig.CubeSprite[];
 
       reset(this: this, x: number, y: number, z: number, settings: ig.Entity.Settings): void;
       setPos(this: this, x: number, y: number, z: number, moveDelta?: boolean | null): void;
@@ -39,6 +44,9 @@ declare global {
       kill(this: this, levelChange?: boolean | null): void;
       update(this: this): void;
       collideWith(this: this, entity: ig.Entity, dir: Vec2): void;
+      initSprites(this: this): void;
+      setSpriteCount(this: this, count: number, guiSprites?: boolean): void;
+      updateSprites(this: this): void;
     }
     interface EntityConstructor extends ImpactClass<Entity> {
       new (x: number, y: number, z: number, settings: ig.Entity.Settings): Entity;

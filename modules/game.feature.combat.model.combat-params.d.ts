@@ -117,8 +117,11 @@ declare global {
     interface AttackInfo extends ig.Class {
       type: sc.ATTACK_TYPE;
       attackerParams: sc.CombatParams;
+      ballDamage: boolean;
       damageFactor: number;
       defenseFactor: number;
+      statusInflict: number;
+      spFactor: number;
       element: sc.ELEMENT;
       critFactor: number;
 
