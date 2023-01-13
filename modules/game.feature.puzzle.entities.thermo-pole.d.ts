@@ -25,6 +25,8 @@ declare global {
     namespace ig.ENTITY {
         interface ElementPole extends ig.AnimatedEntity {
             group: string;
+
+            ballHit(this: this, ball: ig.ENTITY.Ball): boolean;
         }
         interface ElementPoleConstructor extends ImpactClass<ElementPole> {}
         let ElementPole: ElementPoleConstructor

@@ -37,6 +37,8 @@ declare global {
       isPlayer: boolean | undefined;
       _killed: boolean;
       sprites: ig.CubeSprite[];
+      
+      ballDestroyer?: boolean;
 
       reset(this: this, x: number, y: number, z: number, settings: ig.Entity.Settings): void;
       setPos(this: this, x: number, y: number, z: number, moveDelta?: boolean | null): void;
@@ -47,6 +49,14 @@ declare global {
       initSprites(this: this): void;
       setSpriteCount(this: this, count: number, guiSprites?: boolean): void;
       updateSprites(this: this): void;
+
+      // below are functions not formally defined in ig.Entity,
+      // but other relevant classes do check for them.
+      varsChanged?(this: this): void;
+      isBallDestroyer?(this: this): boolean;
+      isBallAdjust?(this: this): boolean;
+      doBallAdjust?(this: this, pos: Vec3, dir: Vec2, size: Vec3, maxBounce: number): void;
+      ballHit?(this: this, ball: ig.ENTITY.Ball): boolean | void;
     }
     interface EntityConstructor extends ImpactClass<Entity> {
       new (x: number, y: number, z: number, settings: ig.Entity.Settings): Entity;

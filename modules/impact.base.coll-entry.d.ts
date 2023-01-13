@@ -16,6 +16,11 @@ declare global {
       FENCE = 10,
       NPFENCE = 11
     }
+    enum COLL_SHADOW_TYPE {
+      DEFAULT = 0,
+      STATIC_SIZE = 1,
+      RECTANGULAR = 2, 
+    }
     interface CollEntry extends ig.Class {
       pos: Vec3;
       vel: Vec3;
@@ -23,6 +28,7 @@ declare global {
       type: COLLTYPE;
       weight: number;
       zGravityFactor: number;
+      baseZPos: number;
 
       setSize(x: number, y: number, z: number): void;
       setPadding(this: this, x: number, y: number): void;

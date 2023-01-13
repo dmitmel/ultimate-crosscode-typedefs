@@ -34,6 +34,8 @@ declare global {
       remainingHits: number;
       timer: number;
       isBall?: boolean;
+
+      destroy(this: this): void;
     }
     interface BallConstructor extends ImpactClass<Ball> {
       new(x: number, y: number, z: number, settings: Ball.Settings): Ball;

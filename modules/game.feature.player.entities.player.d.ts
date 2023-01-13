@@ -56,6 +56,10 @@ declare global {
       interface ActionKey {
         actionKey: 'ATTACK_SPECIAL' | 'THROW_SPECIAL' | 'GUARD_SPECIAL' | 'DASH_SPECIAL';
       }
+
+      interface Gui {
+        crosshair: ig.ENTITY.Crosshair
+      }
     }
     interface Player extends sc.PlayerBaseEntity {
       proxies: Record<string, sc.ProxySpawnerBase>;
@@ -74,6 +78,7 @@ declare global {
       jumpForwardDir: Vec2;
       dashTimer: number;
       dashBlock: number;
+      gui: Player.Gui;
       
       updateSkinAura(this: this): void;
       updateModelStats(this: this, a: boolean): void;
