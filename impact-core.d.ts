@@ -1,4 +1,4 @@
-export {};
+export { };
 
 declare global {
   interface Vec2 {
@@ -7,10 +7,22 @@ declare global {
   }
 
   namespace Vec2 {
-    function create(): Vec2;
+    function create(v?: Vec2): Vec2;
     function createC(x?: number | null, y?: number | null): Vec2;
     function assign(a: Vec2, b: Vec2): Vec2;
-    function clockangle(a: Vec2): Vec2;
+    function assignC(v: Vec2, x?: number, y?: number): Vec2;
+    function add(a: Vec2, b: Vec2, out?: Vec2): Vec2;
+    function addMulF(a: Vec2, b: Vec2, mul: number, out?: Vec2): Vec2;
+    function addC(a: Vec2, x: number, y?: number, out?: Vec2): Vec2;
+    function sub(a: Vec2, b: Vec2, out?: Vec2): Vec2;
+    function subC(a: Vec2, x: number, y?: number, out?: Vec2): Vec2;
+    function mul(a: Vec2, b: Vec2, out?: Vec2): Vec2;
+    function mulC(a: Vec2, x: number, y?: number, out?: Vec2): Vec2;
+    function div(a: Vec2, b: Vec2, out?: Vec2): Vec2;
+    function divC(a: Vec2, x: number, y?: number, out?: Vec2): Vec2;
+    function isZero(v: Vec2): boolean;
+    function angle(a: Vec2, b: Vec2): number;
+    function equal(a: Vec2, b: Vec2): boolean;
   }
 
   interface Vec3 {
@@ -30,7 +42,7 @@ declare global {
   // note that `KeySpline` is not an impact class
   interface KeySplineConstructor {
     // eslint-disable-next-line @typescript-eslint/prefer-function-type
-    new (x1: number, y1: number, x2: number, y2: number): KeySpline;
+    new(x1: number, y1: number, x2: number, y2: number): KeySpline;
   }
   var KeySpline: KeySplineConstructor;
 
@@ -94,12 +106,13 @@ declare global {
     function initGameAddons(): ig.GameAddon[];
 
     function _execModules(): void;
+    function _loadScript(name: string, requirer?: string): void;
 
     interface Class {
       readonly classId: number;
     }
     interface ClassConstructor extends ImpactClass<Class> {
-      new (): Class;
+      new(): Class;
     }
     var Class: ClassConstructor;
 
@@ -134,7 +147,7 @@ declare global {
     var platform: ig.PLATFORM_TYPES;
   }
 
-  namespace sc {}
+  namespace sc { }
 
   interface Number {
     map(min1: number, max1: number, min2: number, max2: number): number;

@@ -76,6 +76,9 @@ declare global {
       loadLevel(this: this, data: any, clearCache?: boolean, reloadCache?: boolean): void;
       loadingComplete(this: this): void;
       update(this: this): void;
+      setPaused(this: this, paused: boolean): void;
+      paused: boolean;
+      physics: ig.Physics;
     }
     interface GameConstructor extends ImpactClass<Game> {
       new (): Game;
@@ -125,6 +128,7 @@ declare global {
 
       windowFocusOrder: number;
       onWindowFocusChanged?(this: this, status: boolean): void;
+      update(this: this): void;
     }
     interface GameAddonConstructor extends ImpactClass<GameAddon> {
       new (name: string): GameAddon;
