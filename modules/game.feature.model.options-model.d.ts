@@ -10,7 +10,7 @@ declare global {
     var KEY_BLACK_LIST: Record<ig.KEY, boolean>;
 
     interface KEY_OPTION_MAP {
-      [index: string]: string
+      [index: string]: string;
     }
 
     var KEY_OPTION_MAP: KEY_OPTION_MAP;

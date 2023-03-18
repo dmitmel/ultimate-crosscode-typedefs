@@ -3,7 +3,7 @@
 // requires impact.feature.interact.gui.focus-gui
 // requires game.feature.interact.button-group
 
-export { };
+export {};
 
 declare global {
   namespace sc {
@@ -29,17 +29,15 @@ declare global {
     }
 
     interface ButtonHighlightGuiCon extends ImpactClass<ButtonHighlightGui> {
-      new(width: number, type: sc.ButtonGui.Type): ButtonHighlightGui;
+      new (width: number, type: sc.ButtonGui.Type): ButtonHighlightGui;
     }
 
     let ButtonHighlightGui: ButtonHighlightGuiCon;
 
-    interface ButtonBgGui extends ig.BoxGui {
-
-    }
+    interface ButtonBgGui extends ig.BoxGui {}
 
     interface ButtonBgGuiCon extends ImpactClass<ButtonBgGui> {
-      new(width: number, type: sc.ButtonGui.Type): ButtonBgGui;
+      new (width: number, type: sc.ButtonGui.Type): ButtonBgGui;
     }
 
     let ButtonBgGui: ButtonBgGuiCon;
@@ -61,9 +59,9 @@ declare global {
       setText(this: this, text: sc.TextLike, ignoreWidth?: boolean): void;
       getButtonText(this: this): string;
     }
-    
+
     interface ButtonGuiConstructor extends ImpactClass<ButtonGui> {
-      new(
+      new (
         text: sc.TextLike,
         width?: number,
         active?: boolean,
@@ -75,8 +73,8 @@ declare global {
     }
     var ButtonGui: ButtonGuiConstructor;
 
-    interface CheckboxGui extends sc.ButtonGui { }
-    interface CheckboxGuiConstructor extends ImpactClass<CheckboxGui> { }
+    interface CheckboxGui extends sc.ButtonGui {}
+    interface CheckboxGuiConstructor extends ImpactClass<CheckboxGui> {}
     var CheckboxGui: CheckboxGuiConstructor;
 
     var BUTTON_TYPE: { [type: string]: ButtonGui.Type };

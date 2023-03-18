@@ -4,10 +4,10 @@
 export {};
 
 declare global {
-	namespace ig {
-		interface Physics extends Class {
-			cellSize: number,
-			_updateCount: number,
-		}
-	}
+  namespace ig {
+    interface Physics extends Class {
+      cellSize: number;
+      _updateCount: number;
+    }
+  }
 }

@@ -3,7 +3,7 @@
 // requires impact.feature.gui.gui
 // requires impact.feature.storage.storage
 
-export { };
+export {};
 
 declare global {
   namespace ig {
@@ -14,7 +14,7 @@ declare global {
       controlModule: sc.Control;
     }
     interface GuiConstructor extends ImpactClass<Gui> {
-      new(): Gui;
+      new (): Gui;
     }
     var Gui: GuiConstructor;
     var gui: Gui;

@@ -5,7 +5,7 @@
 // requires game.feature.gui.base.button
 // requires game.feature.combat.stat-change
 
-export { };
+export {};
 
 declare global {
   namespace sc {
@@ -32,7 +32,7 @@ declare global {
       setText(this: this, text: string, initDelay: number): void;
     }
     interface BuffInfoConstructor extends ImpactClass<BuffInfo> {
-      new(): BuffInfo;
+      new (): BuffInfo;
     }
     var BuffInfo: BuffInfoConstructor;
 
@@ -58,7 +58,7 @@ declare global {
       ): void;
     }
     interface InfoBarConstructor extends ImpactClass<InfoBar> {
-      new(width: number, height: number, skipRender: boolean): InfoBar;
+      new (width: number, height: number, skipRender: boolean): InfoBar;
     }
     var InfoBar: InfoBarConstructor;
 
@@ -80,7 +80,7 @@ declare global {
       setActive(this: this, active: boolean): void;
     }
     interface ListBoxButtonConstructor extends ImpactClass<ListBoxButton> {
-      new(
+      new (
         text: sc.TextLike,
         buttonWidth: number,
         lineWidth: number,
@@ -126,7 +126,7 @@ declare global {
       width: number;
     }
     interface SimpleStatusDisplayConstructor extends ImpactClass<SimpleStatusDisplay> {
-      new(
+      new (
         name: string,
         lineID: number,
         iconID: number,
@@ -139,20 +139,20 @@ declare global {
     }
     var SimpleStatusDisplay: SimpleStatusDisplayConstructor;
 
-    interface PercentChar extends ig.GuiElementBase { }
-    interface PercentCharConstructor extends ImpactClass<PercentChar> { }
+    interface PercentChar extends ig.GuiElementBase {}
+    interface PercentCharConstructor extends ImpactClass<PercentChar> {}
     var PercentChar: PercentCharConstructor;
 
-    interface MenuPanel extends ig.BoxGui { }
-    interface MenuPanelConstructor extends ImpactClass<MenuPanel> { }
+    interface MenuPanel extends ig.BoxGui {}
+    interface MenuPanelConstructor extends ImpactClass<MenuPanel> {}
     var MenuPanel: MenuPanelConstructor;
 
-    interface HeaderMenuPanel extends sc.MenuPanel { }
-    interface HeaderMenuPanelConstructor extends ImpactClass<HeaderMenuPanel> { }
+    interface HeaderMenuPanel extends sc.MenuPanel {}
+    interface HeaderMenuPanelConstructor extends ImpactClass<HeaderMenuPanel> {}
     var HeaderMenuPanel: HeaderMenuPanelConstructor;
 
-    interface MenuScanLines extends ig.GuiElementBase { }
-    interface MenuScanLinesConstructor extends ImpactClass<MenuScanLines> { }
+    interface MenuScanLines extends ig.GuiElementBase {}
+    interface MenuScanLinesConstructor extends ImpactClass<MenuScanLines> {}
     var MenuScanLines: MenuScanLinesConstructor;
 
     namespace ScrollPane {
@@ -195,16 +195,14 @@ declare global {
       timeHour: sc.NumberGui;
     }
     interface TimeAndMoneyGUIConstructor extends ImpactClass<TimeAndMoneyGUI> {
-      new(): TimeAndMoneyGUI;
+      new (): TimeAndMoneyGUI;
     }
     var TimeAndMoneyGUI: TimeAndMoneyGUIConstructor;
 
-    interface DummyContainer extends ig.GuiElementBase {
-
-    }
+    interface DummyContainer extends ig.GuiElementBase {}
 
     interface DummyContainerCon extends ImpactClass<DummyContainer> {
-      new(child: ig.GuiElementBase): DummyContainer;
+      new (child: ig.GuiElementBase): DummyContainer;
     }
 
     let DummyContainer: DummyContainerCon;

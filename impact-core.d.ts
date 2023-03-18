@@ -1,4 +1,4 @@
-export { };
+export {};
 
 declare global {
   interface Vec2 {
@@ -42,7 +42,7 @@ declare global {
   // note that `KeySpline` is not an impact class
   interface KeySplineConstructor {
     // eslint-disable-next-line @typescript-eslint/prefer-function-type
-    new(x1: number, y1: number, x2: number, y2: number): KeySpline;
+    new (x1: number, y1: number, x2: number, y2: number): KeySpline;
   }
   var KeySpline: KeySplineConstructor;
 
@@ -112,7 +112,7 @@ declare global {
       readonly classId: number;
     }
     interface ClassConstructor extends ImpactClass<Class> {
-      new(): Class;
+      new (): Class;
     }
     var Class: ClassConstructor;
 
@@ -147,7 +147,7 @@ declare global {
     var platform: ig.PLATFORM_TYPES;
   }
 
-  namespace sc { }
+  namespace sc {}
 
   interface Number {
     map(min1: number, max1: number, min2: number, max2: number): number;

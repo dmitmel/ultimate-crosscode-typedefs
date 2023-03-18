@@ -1,4 +1,4 @@
-export { };
+export {};
 
 declare global {
   namespace ig {
@@ -158,7 +158,7 @@ declare global {
       bindings: Record<ig.KEY, ig.Input.KnownAction> & Record<ig.KEY, string>;
       mouse: Vec2;
       ignoreKeyboard: boolean;
-      actions: { [index: string]: boolean }
+      actions: { [index: string]: boolean };
 
       bind(this: this, key: ig.KEY, action: LiteralUnion<ig.Input.KnownAction>): void;
       unbind(this: this, key: ig.KEY): void;
@@ -166,7 +166,7 @@ declare global {
       pressed(this: this, action: LiteralUnion<ig.Input.KnownAction>): boolean;
       keyupd(this: this, action: LiteralUnion<ig.Input.KnownAction>): boolean;
     }
-    interface InputConstructor extends ImpactClass<Input> { }
+    interface InputConstructor extends ImpactClass<Input> {}
     var Input: InputConstructor;
     var input: Input;
   }
