@@ -32,6 +32,27 @@ declare global {
 
       interface Map {
         name: string;
+        mapHeight: number;
+        mapWidth: number;
+        masterLevel: number;
+        layer: MapLayer[];
+      }
+
+      interface MapLayer {
+        id: number;
+        type: string;
+        name: string;
+        level: string;
+        width: number;
+        height: number;
+        distance: number;
+        repeat: boolean;
+        moveSpeed: Vec2;
+        tilesetName: string;
+        tilesize: number;
+        visible: number;
+        yDistance: number;
+        data: number[][];
       }
     }
     interface MapModel extends ig.GameAddon, sc.Model {

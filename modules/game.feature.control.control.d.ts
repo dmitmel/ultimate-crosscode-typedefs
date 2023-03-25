@@ -18,6 +18,8 @@ declare global {
       autoThrown(this: this): boolean;
       menuScrollUp(this: this): boolean;
       menuScrollDown(this: this): boolean;
+      getMouseX(this: this): number;
+      getMouseY(this: this): number;
     }
     interface ControlConstructor extends ImpactClass<Control> {
       new (): Control;
