@@ -9,9 +9,9 @@ declare global {
   namespace ig {
     interface Gui extends ig.GameAddon {
       guiHooks: ig.GuiHook[];
+      controlModule: sc.Control;
 
       addGuiElement(this: this, guiElement: ig.GuiElementBase): void;
-      controlModule: sc.Control;
     }
     interface GuiConstructor extends ImpactClass<Gui> {
       new (): Gui;

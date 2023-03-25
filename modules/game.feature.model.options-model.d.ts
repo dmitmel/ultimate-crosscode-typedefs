@@ -9,12 +9,6 @@ declare global {
   namespace sc {
     var KEY_BLACK_LIST: Record<ig.KEY, boolean>;
 
-    interface KEY_OPTION_MAP {
-      [index: string]: string;
-    }
-
-    var KEY_OPTION_MAP: KEY_OPTION_MAP;
-
     enum OPTION_TYPES {
       BUTTON_GROUP = 0,
       ARRAY_SLIDER = 1,
@@ -195,6 +189,8 @@ declare global {
         'assist-puzzle-speed': sc.OptionDefinition.OBJECT_SLIDER;
       }
     }
+
+    var KEY_OPTION_MAP: Record<string, string>;
 
     interface KeyBinder extends ig.Class {
       initBindings(this: this): void;

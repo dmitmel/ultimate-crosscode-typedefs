@@ -29,7 +29,7 @@ declare global {
         noDoubles?: boolean | null,
       ): void;
       removeGlobalButton(this: this, button: sc.ButtonGui): void;
-      removeButtonGroup(buttonGroup: sc.ButtonGroup): void;
+      removeButtonGroup(this: this, buttonGroup: sc.ButtonGroup): void;
     }
     interface ButtonInteractEntryConstructor extends ImpactClass<ButtonInteractEntry> {
       new (): ButtonInteractEntry;

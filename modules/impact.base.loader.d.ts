@@ -34,7 +34,6 @@ declare global {
     interface JsonLoadableConstructor extends ImpactClass<JsonLoadable> {
       new (item: string): JsonLoadable;
     }
-
     var JsonLoadable: JsonLoadableConstructor;
 
     interface SingleLoadable extends ig.Class, ig.Resource {

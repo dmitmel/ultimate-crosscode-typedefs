@@ -200,11 +200,9 @@ declare global {
     var TimeAndMoneyGUI: TimeAndMoneyGUIConstructor;
 
     interface DummyContainer extends ig.GuiElementBase {}
-
-    interface DummyContainerCon extends ImpactClass<DummyContainer> {
+    interface DummyContainerConstructor extends ImpactClass<DummyContainer> {
       new (child: ig.GuiElementBase): DummyContainer;
     }
-
-    let DummyContainer: DummyContainerCon;
+    var DummyContainer: DummyContainerConstructor;
   }
 }

@@ -10,44 +10,40 @@ declare global {
     var BUTTON_DEFAULT_WIDTH: number;
     var BUTTON_SOUND: { [name: string]: ig.Sound };
 
-    interface Highlight {
-      startX: number;
-      endX: number;
-      leftWidth: number;
-      rightWidth: number;
-      offsetY: number;
-      gfx: ig.Image;
-      pattern: ig.ImagePattern;
-    }
-
     interface ButtonHighlightGui extends ig.GuiElementBase {
       focusWeight: number;
       gfx: ig.Image;
       pattern: ig.ImagePattern;
       flipped: boolean;
-      highlight: sc.Highlight;
+      highlight: sc.ButtonGui.Highlight;
     }
-
-    interface ButtonHighlightGuiCon extends ImpactClass<ButtonHighlightGui> {
+    interface ButtonHighlightGuiConstructor extends ImpactClass<ButtonHighlightGui> {
       new (width: number, type: sc.ButtonGui.Type): ButtonHighlightGui;
     }
-
-    let ButtonHighlightGui: ButtonHighlightGuiCon;
+    var ButtonHighlightGui: ButtonHighlightGuiConstructor;
 
     interface ButtonBgGui extends ig.BoxGui {}
-
-    interface ButtonBgGuiCon extends ImpactClass<ButtonBgGui> {
+    interface ButtonBgGuiConstructor extends ImpactClass<ButtonBgGui> {
       new (width: number, type: sc.ButtonGui.Type): ButtonBgGui;
     }
-
-    let ButtonBgGui: ButtonBgGuiCon;
+    var ButtonBgGui: ButtonBgGuiConstructor;
 
     namespace ButtonGui {
+      interface Highlight {
+        startX: number;
+        endX: number;
+        leftWidth: number;
+        rightWidth: number;
+        offsetY: number;
+        gfx: ig.Image;
+        pattern: ig.ImagePattern;
+      }
+
       interface Type {
         alignXPadding?: number;
+        highlight?: Highlight | null;
       }
     }
-
     interface ButtonGui extends ig.FocusGui {
       text: sc.TextLike;
       buttonType: sc.ButtonGui.Type;
@@ -59,7 +55,6 @@ declare global {
       setText(this: this, text: sc.TextLike, ignoreWidth?: boolean): void;
       getButtonText(this: this): string;
     }
-
     interface ButtonGuiConstructor extends ImpactClass<ButtonGui> {
       new (
         text: sc.TextLike,
