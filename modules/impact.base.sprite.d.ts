@@ -6,6 +6,7 @@ declare global {
   namespace ig {
     interface CubeSprite extends ig.Class {
       size: Vec3;
+      alpha: number;
 
       setImageSrc(
         this: this,

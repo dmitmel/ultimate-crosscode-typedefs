@@ -23,8 +23,14 @@ declare global {
     }
 
     namespace ig.ENTITY {
+        namespace ElementPole {
+            interface Charge {
+                element: sc.ELEMENT;
+            }
+        }
         interface ElementPole extends ig.AnimatedEntity {
             group: string;
+            charge: ElementPole.Charge;
 
             ballHit(this: this, ball: ig.ENTITY.Ball): boolean;
         }

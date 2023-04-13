@@ -152,7 +152,7 @@ declare global {
       addItem(this: this, item: sc.ItemID, amount: number, hideEffect?: boolean): void;
       startItemConsume(this: this): void;
       endItemConsume(this: this): void;
-      useItem(this: this, id: sc.ItemID): void;
+      useItem(this: this, id: number): void;
       getItemBlockTime(this: this): number;
       getTotalItemsUsed(this: this, id?: sc.ItemID): number;
       removeItem(
@@ -173,7 +173,7 @@ declare global {
       hasAnyToggleItems(this: this): boolean;
       getItemSubList(this: this, type: keyof typeof sc.ITEMS_TYPES, sort: sc.SORT_TYPE, includeFavs?: boolean): number[];
       getNewItemList(this: this): number[];
-      getEquipSubList(this: this, equipType: sc.ITEMS_EQUIP_TYPES, addEquipped?: boolean, sort?: boolean): number[];
+      getEquipSubList(this: this, equipType: sc.ITEMS_EQUIP_TYPES, addEquipped?: boolean, sort?: sc.SORT_TYPE): number[];
       sortItemList(this: this, list: sc.ItemID[], sortType: sc.SORT_TYPE, includeFavorites?: boolean): sc.ItemID[];
       _addNewItem(this: this, item: sc.ItemID): void;
       _removeIDFromNewList(this: this, item: sc.ItemID): void;

@@ -105,8 +105,25 @@ declare global {
     interface PlayerActionConstructor extends ImpactClass<PlayerAction> {}
     var PlayerAction: PlayerActionConstructor;
 
+    namespace PlayerSubConfig {
+      interface Factor {
+        hp: number;
+        attack: number;
+        defense: number;
+        focus: number;
+        elemFactor: number[];
+      }
+    }
+
     interface PlayerSubConfig extends ig.Class {
+      paramFactors?: PlayerSubConfig.Factor;
       actions: Record<string, sc.PlayerAction>;
+      baseParams: sc.CombatParams.BaseParams;
+      modifiers: Partial<Record<keyof sc.MODIFIERS, number>>;
+      skillFactors: PlayerSubConfig.Factor;
+
+      update(this: this, config: sc.CombatParams.BaseParams, modifiers: Partial<Record<keyof sc.MODIFIERS, number>>): void;
+      preSkillInit(this: this): void;
     }
     interface PlayerSubConfigConstructor extends ImpactClass<PlayerSubConfig> {}
     var PlayerSubConfig: PlayerSubConfigConstructor;

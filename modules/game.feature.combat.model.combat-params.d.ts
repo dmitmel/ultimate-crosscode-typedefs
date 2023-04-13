@@ -110,6 +110,8 @@ declare global {
       removeBuff(this: this, buff: sc.StatChange): void;
       removeAllBuffs(this: this): void;
       reset(this: this, maxSp: number): void;
+      setBaseParams(this: this, baseParams: sc.CombatParams.BaseParams): void;
+      setMaxSp(this: this, maxSp: number): void;
     }
     interface CombatParamsConstructor extends ImpactClass<CombatParams> {}
     var CombatParams: CombatParamsConstructor;
