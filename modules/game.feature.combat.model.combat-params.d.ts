@@ -72,6 +72,7 @@ declare global {
       modifiers: Record<keyof sc.MODIFIERS, number>;
       currentHp: number;
       maxSp: number;
+      currentSp: number;
       spHoldTimer: number;
       currentItemBuffs: number;
       tmpElemFactor: number[];

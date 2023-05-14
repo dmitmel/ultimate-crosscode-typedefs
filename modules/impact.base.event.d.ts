@@ -26,13 +26,26 @@ declare global {
         name: string;
         steps: any; // TODO
       }
+
+      interface VarObject {
+        indirect?: string;
+        varName?: string;
+      }
+
+      type VarExpression<T> = T | VarObject;
+
+      type NumberExpression = VarExpression<number>;
+      type BooleanExpression = VarExpression<boolean>;
+      type StringExpression = VarExpression<string>;
     }
     interface Event extends ig.Class {}
     interface EventConstructor extends ImpactClass<Event> {
       new (settings: ig.Event.Settings): Event;
       
-      getVarName(varName: string | ig.Vars.VarObject): string | null;
-      getExpressionValue(expression: ig.VarValue | ig.Vars.VarObject): ig.VarValue;
+      getVec2(input: Event.VarExpression<Vec2>, dest: Vec2): Vec2;
+      getVec3(input: Event.VarExpression<Vec3>, dest: Vec3): Vec3;
+      getVarName(varName: string | ig.Event.VarObject): string | null;
+      getExpressionValue<T>(expression: ig.Event.VarExpression<T>): T;
     }
     var Event: EventConstructor;
   }

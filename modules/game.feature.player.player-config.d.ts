@@ -118,6 +118,7 @@ declare global {
     interface PlayerSubConfig extends ig.Class {
       paramFactors?: PlayerSubConfig.Factor;
       actions: Record<string, sc.PlayerAction>;
+      activeActions: Record<number, sc.PlayerAction>;
       baseParams: sc.CombatParams.BaseParams;
       modifiers: Partial<Record<keyof sc.MODIFIERS, number>>;
       skillFactors: PlayerSubConfig.Factor;
