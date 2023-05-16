@@ -18,6 +18,7 @@ declare global {
         ignoreEmptyCells?: boolean | null,
       ): void;
       addSelectionCallback(this: this, callback: (focusGui: ig.FocusGui) => void): void;
+      setMouseFocusLostCallback(this: this, callback: () => void): void;
     }
     interface ButtonGroupConstructor extends ImpactClass<ButtonGroup> {
       new (): sc.ButtonGroup;

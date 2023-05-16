@@ -14,6 +14,7 @@ declare global {
       largestIndex: Vec2;
 
       addFocusGui(this: this, gui: ig.FocusGui, x?: number, y?: number, asBackButton?: boolean): void;
+      removeFocusGui(this: this, x: number, y: number): void;
       addPressCallback(this: this, callback: ig.ButtonGroup.PressCallback): void;
       clear(this: this): void;
     }
