@@ -92,6 +92,11 @@ export namespace PatchStep {
     id: string;
     args: unknown;
   }
+
+  export interface CUSTOM extends BasePatchStep {
+    type: string;
+    [key: string]: any;
+  }
 }
 
 // This is expressed with an interface so that mods can define their own
@@ -110,6 +115,7 @@ export interface PatchStepsRegistry {
   PASTE: PatchStep.PASTE;
   COMMENT: PatchStep.COMMENT;
   DEBUG: PatchStep.DEBUG;
+  [name: string]: PatchStep.CUSTOM;
 }
 export type AnyPatchStep = Extract<PatchStepsRegistry[keyof PatchStepsRegistry], BasePatchStep>;
 
@@ -180,7 +186,7 @@ export class DebugState {
   /** @final */
   removeLastFile(): FileInfo;
   /** @final */
-  addStep(index: Index, name?: string): void;
+  addStep(index: Index, name?: string, functionName?: string): void;
   /** @final */
   removeLastStep(): FileInfo;
   /** @final */
@@ -194,17 +200,43 @@ export class DebugState {
   afterStep(): Promise<void>;
 }
 
+export class StepMachine {
+  steps: AnyPatchStep[];
+  si: number;
+  finished: boolean;
+
+  run(): Iterator<[number, AnyPatchStep]>;
+  addSteps(newSteps: AnyPatchStep[] | AnyPatchStep): void;
+  exit(): void;
+  gotoLabel(labelName: string): boolean;
+  setStepIndex(newStepIndex: number): boolean;
+  getCurrentStep(): AnyPatchStep;
+  getStepIndex(): number;
+  findLabelIndex(labelName: string): number;
+}
+
 export const appliers: Record<string, Applier>;
 
 export type Applier = (this: StackEntry.Step, state: ApplierState) => Promise<void>;
 
+interface CallstackItem {
+  returnIndex: number;
+  functionName: string;
+  oldReferenceIndex: number;
+}
 export interface ApplierState {
   currentValue: unknown;
   stack: StackEntry[];
+  stepMachine: StepMachine;
   cloneMap: Map<string, unknown>;
   loader: Loader;
   debugState: DebugState;
   debug: boolean;
+  memory: {
+    callstack: Array<CallstackItem>;
+  };
+  functionName: string;
+  stepReferenceIndex: number;
 }
 
 export function patch(
@@ -217,7 +249,7 @@ export function patch(
 type Loader = (fromGame: boolean | string, path: string) => Promise<unknown>;
 
 export namespace callable {
-  export type Callable = (state: ApplierState, args: unknown) => void | Promise<void>;
+  export type Callable<T> = (state: ApplierState, args: T extends object ? T : unknown) => void | Promise<void>;
 
-  export function register(id: string, callable: Callable): void;
+  export function register<T>(id: string, callable: Callable<T>): void;
 }
