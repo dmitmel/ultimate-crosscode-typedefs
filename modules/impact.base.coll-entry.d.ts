@@ -29,6 +29,7 @@ declare global {
       weight: number;
       zGravityFactor: number;
       baseZPos: number;
+      level: number;
 
       setSize(x: number, y: number, z: number): void;
       setPadding(this: this, x: number, y: number): void;
