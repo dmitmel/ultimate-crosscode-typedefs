@@ -89,6 +89,7 @@ declare global {
       loadLevel(this: this, data: any, clearCache?: boolean, reloadCache?: boolean): void;
       loadingComplete(this: this): void;
       update(this: this): void;
+      varsChangedDeferred(this: this): void;
     }
     interface GameConstructor extends ImpactClass<Game> {
       new (): Game;

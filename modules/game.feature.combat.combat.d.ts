@@ -39,6 +39,7 @@ declare global {
       showModeAura(this: this, combatant: ig.ENTITY.Combatant, element: sc.ELEMENT): void;
       clearModeAura(this: this, combatant: ig.ENTITY.Combatant): void;
       showModeDash(this: this, combatant: ig.ENTITY.Combatant, element: sc.ELEMENT): void;
+      onCombatantDeathHit(this: this, attacker: ig.ENTITY.Combatant, victim: ig.ENTITY.Combatant): void;
     }
     interface CombatConstructor extends ImpactClass<Combat> {}
     var Combat: CombatConstructor;

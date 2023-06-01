@@ -26,5 +26,11 @@ declare global {
       new (width: number): sc.LineGui
     }
     var LineGui: LineGuiConstructor;
+
+    interface SideBoxGui extends ig.GuiElementBase {
+      remove(this: this): void;
+    }
+    interface SideBoxGuiConstructor extends ImpactClass<SideBoxGui> {}
+    var SideBoxGui: SideBoxGuiConstructor;
   }
 }

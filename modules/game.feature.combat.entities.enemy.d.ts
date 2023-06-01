@@ -19,14 +19,21 @@ declare global {
       interface Settings extends ig.Entity.Settings {
         enemyInfo: sc.EnemyInfo.Settings;
       }
+
+      interface Level {
+        override: number | null;
+        setting: number | null;
+      }
     }
 
     interface Enemy extends ig.ENTITY.Combatant {
       enemyType: sc.EnemyType;
       currentState: string;
       boosterState: sc.ENEMY_BOOSTER_STATE;
+      level: Enemy.Level;
 
       setLevelOverride(this: this, newLevel?: number | null): void;
+      getLevel(this: this): number;
       changeState(this: this, state: string, immediate?: boolean | null): void;
     }
     interface EnemyConstructor extends ImpactClass<Enemy> {

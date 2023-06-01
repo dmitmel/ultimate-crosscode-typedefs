@@ -189,7 +189,7 @@ declare global {
       setEquipment(this: this, bodypart: sc.MENU_EQUIP_BODYPART, itemID: sc.ItemID): void;
       isEquipped(this: this, itemID: sc.ItemID): void;
       getAvgEquipLevel(this: this): number;
-      setCore(this: this, core: sc.PLAYER_CORE): boolean;
+      setCore(this: this, core: sc.PLAYER_CORE, state: boolean): void;
       setCoreAll(this: this, ): boolean;
       getCore(this: this, core: sc.PLAYER_CORE): boolean;
       getCombatCooldownTime(this: this): number;

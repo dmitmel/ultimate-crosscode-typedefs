@@ -43,7 +43,10 @@ declare global {
       undoTransform(this: this): void;
     }
 
-    namespace GUI {}
+    namespace GUI {
+    }
+    interface GUI {}
+    var GUI: GUI;
 
     enum GUI_ALIGN {
       Y_TOP,
