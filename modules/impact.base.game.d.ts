@@ -49,6 +49,7 @@ declare global {
       playerEntity: ig.ENTITY.Player;
       addons: Game.Addons;
       mapName: string;
+      paused: boolean;
 
       getEntityByName<E extends ig.Entity>(this: this, name: string): E;
       getEntitiesByType<E extends ig.Entity, S extends ig.Entity.Settings>(

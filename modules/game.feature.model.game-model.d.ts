@@ -53,6 +53,19 @@ declare global {
     var GameModel: GameModelConstructor;
     var model: sc.GameModel;
 
+    enum GAME_MODEL_MSG {
+      STATE_CHANGED = 0,
+      TASK_CHANGED = 1,
+      SUB_STATE_CHANGED = 2,
+      COMBAT_MODE_CHANGED = 3,
+      COMBAT_RANK_CHANGED = 4,
+      CUTSCENE_SKIP = 5,
+      RESET_MENU_STATE = 6,
+      PERMA_TASK_CHANGED = 7,
+      CLEAR_TOP_MESSAGE = 8,
+      DREAM_MODE_CHANGE = 9
+    }
+
     enum GAME_MODEL_SUBSTATE {
       RUNNING = 0,
       TELEPORT = 1,

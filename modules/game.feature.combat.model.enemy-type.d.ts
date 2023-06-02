@@ -27,6 +27,7 @@ declare global {
       actions: Record<string, ig.Action>;
       reactions: Record<string, EnemyReactionBase>;
       size: Vec2;
+      enduranceScale: number;
 
       resolveItemDrops(this: this, enemyEntity: ig.ENTITY.Enemy): void;
     }

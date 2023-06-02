@@ -178,12 +178,11 @@ declare global {
       ): void;
       onPreDamageApply(
         this: this,
-        // TODO
-        a: sc.BasicCombatant,
-        b: sc.CombatParams.DamageResult,
-        c: sc.SHIELD_RESULT,
-        d: ig.ENTITY.Combatant,
-        e: sc.AttackInfo,
+        combatant: ig.ENTITY.Combatant,
+        damageResult: sc.CombatParams.DamageResult,
+        shieldResult: sc.SHIELD_RESULT,
+        attacker: ig.ENTITY.Combatant,
+        attackInfo: sc.AttackInfo,
       ): void;
       addScore(this: this, scoreType: keyof sc.ARENA_SCORE_TYPES, points?: number): void;
       getTotalArenaCompletion(this: this): number;
