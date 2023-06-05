@@ -43,16 +43,17 @@ declare global {
                     conditions: unknown[];
                 }
             }
-            interface COLLAB extends EnemyReactionBase {
-
-            }
+            interface COLLAB extends EnemyReactionBase {}
             interface COLLAB_CONSTRUCTOR extends ImpactClass<COLLAB> {
                 new (name: string, data: ENEMY_REACTION.COLLAB.Data): COLLAB;
             }
+            let COLLAB: COLLAB_CONSTRUCTOR;
+
+            interface GUARD_COUNTER extends EnemyReactionBase {
+                onGuardCountered(this: this, entity: ig.ENTITY.Enemy, guardingEntity: ig.ENTITY.Combatant): void;
+            }
+            interface GUARD_COUNTER_CONSTRUCTOR extends ImpactClass<GUARD_COUNTER> {}
+            let GUARD_COUNTER: GUARD_COUNTER_CONSTRUCTOR;
         }
-        interface ENEMY_REACTION {
-            COLLAB: ENEMY_REACTION.COLLAB_CONSTRUCTOR;
-        }
-        var ENEMY_REACTION: ENEMY_REACTION;
     }
 }

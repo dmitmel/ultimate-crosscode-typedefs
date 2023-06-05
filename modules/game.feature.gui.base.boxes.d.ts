@@ -32,5 +32,14 @@ declare global {
     }
     interface SideBoxGuiConstructor extends ImpactClass<SideBoxGui> {}
     var SideBoxGui: SideBoxGuiConstructor;
+
+    type SmallBoxAlign = (dest: Vec2, coll: ig.CollEntry) => void;
+    let SMALL_BOX_ALIGN: Record<string, SmallBoxAlign>;
+
+    interface SmallEntityBox extends ig.GuiElementBase {}
+    interface SmallEntityBoxConstructor extends ImpactClass<SmallEntityBox> {
+      new (entity: ig.Entity, text: string, time: number, align?: SmallBoxAlign, offY?: number): SmallEntityBox;
+    }
+    let  SmallEntityBox: SmallEntityBoxConstructor;
   }
 }

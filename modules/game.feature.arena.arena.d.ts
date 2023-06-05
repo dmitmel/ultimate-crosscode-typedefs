@@ -205,6 +205,7 @@ declare global {
         attribute: K,
       ): Arena.KnownCupAttributes[K];
       hasChallenge(this: this, challenge: keyof sc.ARENA_CHALLENGES): boolean;
+      onEnemyBreak(this: this, enemy: ig.ENTITY.Enemy): void;
     }
     interface ArenaConstructor extends ImpactClass<Arena> {
       new (): Arena;
