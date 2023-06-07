@@ -81,7 +81,7 @@ declare global {
       isTeleporting(this: this): boolean;
       teleport(
         mapName: string,
-        marker?: ig.TeleportPosition,
+        marker?: ig.TeleportPosition | null,
         hint?: ig.Game.TeleportLoadHint,
         clearCache?: boolean | null,
         reloadCache?: boolean | null,

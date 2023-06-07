@@ -3,10 +3,15 @@ export {};
 declare global {
     namespace sc {
         interface LevelCurve {
-            getFactor(a: number, b: number): number;
+            getFactor(playerLevel: number, otherLevel: number): number;
             ignorePartyCount?: boolean;
         }
-        let LEVEL_CURVES: Record<string, LevelCurve>;
+        interface LEVEL_CURVES {
+            REGULAR: LevelCurve;
+            STATIC_REGULAR: LevelCurve;
+            QUEST: LevelCurve;
+        }
+        let LEVEL_CURVES: LEVEL_CURVES;
 
         //note: not an impact class!
         interface PlayerLevelTools {
