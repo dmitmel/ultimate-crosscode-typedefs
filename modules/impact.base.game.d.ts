@@ -50,6 +50,7 @@ declare global {
       addons: Game.Addons;
       mapName: string;
       paused: boolean;
+      events: ig.EventManager;
 
       getEntityByName<E extends ig.Entity>(this: this, name: string): E;
       getEntitiesByType<E extends ig.Entity, S extends ig.Entity.Settings>(

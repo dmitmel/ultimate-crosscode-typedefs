@@ -4,6 +4,20 @@ export {};
 
 declare global {
   namespace ig {
+    enum EventRunType {
+      INTERRUPTABLE = 0,
+      PARALLEL = 1,
+      BLOCKING = 2,
+    }
+
+    interface EventManager extends ig.Class {
+      callEvent(this: this, event: ig.Event, runType: ig.EventRunType, onStart?: () => void, onEnd?: () => void, input?: unknown, callEntity?: ig.Entity, data?: unknown): void
+    }
+    interface EventManagerConstructor extends ImpactClass<EventManager> {
+      new (): EventManager;
+    }
+    let EventManager: EventManagerConstructor;
+
     interface EventCall extends ig.Class {}
     interface EventCallConstructor extends ImpactClass<EventCall> {}
     var EventCall: EventCallConstructor;
