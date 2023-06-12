@@ -17,6 +17,7 @@ declare global {
         settings?: S | null,
         forceTargetPos?: boolean | null,
       ): void;
+      isDone(this: this): boolean;
     }
     interface EffectConstructor extends ImpactClass<Effect> {}
     var Effect: EffectConstructor;

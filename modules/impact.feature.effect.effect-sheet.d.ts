@@ -41,8 +41,17 @@ declare global {
     var ParticleState: ParticleStateConstructor;
 
     namespace EffectSheet {
+      interface EventCallback {
+        onEffectEvent(this: this, effect: ig.ENTITY.Effect): void;
+      }
+
       interface SpawnSettings {
-        
+        target?: ig.Entity;
+        align?: ig.ENTITY_ALIGN;
+        target2?: ig.Entity;
+        target2Align?: ig.ENTITY_ALIGN;
+        spriteFilter?: number[];
+        callback?: EventCallback;
       }
     }
     interface EffectSheet extends ig.JsonLoadable {
@@ -67,6 +76,27 @@ declare global {
       cache: Record<string, ig.EffectSheet>;
     }
     var EffectSheet: EffectSheetConstructor;
+
+    namespace EffectHandle {
+      interface Settings {
+        sheet: string;
+        name: string;
+      }
+    }
+    interface EffectHandle extends ig.Class {
+      effectSheet: ig.EffectSheet;
+      name: string;
+      externalSheet: boolean;
+
+      clearCached(this: this): void;
+      spawnOnTarget(this: this, target: ig.Entity, settings?: ig.EffectSheet.SpawnSettings): ig.ENTITY.Effect;
+      spawnFixed(this: this, x: number, y: number, z: number, target: ig.Entity, settings?: ig.EffectSheet.SpawnSettings): ig.ENTITY.Effect;
+    }
+    interface EffectHandleConstructor extends ImpactClass<EffectHandle> {
+      new (settings: EffectHandle.Settings): ig.EffectHandle;
+    }
+    let EffectHandle: EffectHandleConstructor;
+
 
     namespace EffectStepBase {
       interface Settings {

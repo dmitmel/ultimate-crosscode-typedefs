@@ -14,7 +14,7 @@ declare global {
     }
 
     interface CrossCode extends ig.Game {
-      effects: Record<string, ig.EffectSheet>;
+      effects: Record<"dust" | "teleport" | "npc" | "death" | "speedlines" | "drops", ig.EffectSheet>;
 
       onGameLoopStart(this: this): void;
       start(this: this, startMode?: sc.START_MODE, transitionTime?: number): void;
