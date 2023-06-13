@@ -96,6 +96,7 @@ declare global {
       increaseHp(this: this, amount: number): void;
       getHpFactor(this: this): number;
       getRelativeSp(this: this): number;
+      setRelativeSp(this: this, factor: number): void;
       update(this: this, inCombat: boolean): void;
       getSp(this: this): number;
       notifySpConsume(this: this, sp: number): void;
