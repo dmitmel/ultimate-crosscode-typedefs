@@ -159,8 +159,8 @@ declare global {
         this: this,
         item: sc.ItemID,
         amount: number,
-        skipNotification?: boolean | null,
-        includeEquip?: boolean | null,
+        skipNotification?: Optional<boolean>,
+        includeEquip?: Optional<boolean>,
       ): boolean;
       getItemAmount(this: this, item: sc.ItemID): number;
       hasItem(this: this, item: sc.ItemID): boolean;
@@ -209,8 +209,8 @@ declare global {
       setElementMode(
         this: this,
         element: sc.ELEMENT,
-        force?: boolean | null,
-        skipEffect?: boolean | null,
+        force?: Optional<boolean>,
+        skipEffect?: Optional<boolean>,
       ): boolean;
       scrollElementMode(this: this, a: number, force: boolean, skipEffect: boolean): boolean;
       getCurrentElementMode(this: this): sc.PlayerSubConfig;

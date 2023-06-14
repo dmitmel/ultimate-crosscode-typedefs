@@ -65,13 +65,13 @@ declare global {
       shieldsConnections: sc.CombatantShieldConnection[];
       effects: Record<string, ig.EffectSheet>;
 
-      setTarget(this: this, combatant: sc.BasicCombatant, fixed?: boolean | null): void;
+      setTarget(this: this, combatant: sc.BasicCombatant, fixed?: Optional<boolean>): void;
       onPreDamageModification(
         this: this,
         modifications: unknown,
         damagingEntity: sc.BasicCombatant.DamagingEntity,
         attackInfo: sc.AttackInfo,
-        partEntity: sc.BasicCombatant.DamagingEntity | null | undefined,
+        partEntity: Optional<sc.BasicCombatant.DamagingEntity>,
         damageResult: sc.CombatParams.DamageResult,
         shieldResult: sc.SHIELD_RESULT,
       ): boolean;

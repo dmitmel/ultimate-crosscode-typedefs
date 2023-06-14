@@ -23,7 +23,7 @@ declare global {
     var EventCall: EventCallConstructor;
 
     interface EventStepBase extends ig.StepBase {
-      _nextStep: ig.EventStepBase | null | undefined;
+      _nextStep: Optional<ig.EventStepBase>;
       branches: Record<string, ig.EventStepBase> | null | undefined;
 
       start(this: this, data?: unknown, eventCall?: ig.EventCall): void;

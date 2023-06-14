@@ -3,7 +3,7 @@ export {};
 declare global {
   namespace ig {
     interface StepBase extends ig.Class {
-      _nextStep: ig.StepBase | null | undefined;
+      _nextStep: Optional<ig.StepBase>;
       _cacheIsCleared: boolean;
       branches: Record<string, ig.StepBase> | null | undefined;
 

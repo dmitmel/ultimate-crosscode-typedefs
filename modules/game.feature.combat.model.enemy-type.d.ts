@@ -14,8 +14,8 @@ declare global {
         min: number;
         max: number;
         rank: sc.CombatRankLabel | '';
-        boosted?: boolean | null;
-        condition?: string | null;
+        boosted?: Optional<boolean>;
+        condition?: Optional<string>;
       }
     }
     interface EnemyType extends ig.JsonLoadable {

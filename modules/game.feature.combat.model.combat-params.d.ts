@@ -89,7 +89,7 @@ declare global {
       getStat<K extends sc.CombatParams.ParamName>(
         this: this,
         key: K,
-        noHack?: boolean | null,
+        noHack?: Optional<boolean>,
       ): sc.CombatParams.Params[K];
       getModifier(this: this, modifier: keyof sc.MODIFIERS): number;
       getHealAmount(this: this, healInfo: sc.HealInfoType): number;

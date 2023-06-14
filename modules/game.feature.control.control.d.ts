@@ -13,7 +13,7 @@ declare global {
         this: this,
         destVec: Vec2,
         lastRelativeVel: number,
-        ignoreLastDir?: number | null,
+        ignoreLastDir?: Optional<number>,
       ): number;
       autoThrown(this: this): boolean;
       menuScrollUp(this: this): boolean;

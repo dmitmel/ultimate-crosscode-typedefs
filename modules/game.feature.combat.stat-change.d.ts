@@ -41,7 +41,7 @@ declare global {
       hacked: boolean;
     }
     interface ActionBuffConstructor extends ImpactClass<ActionBuff> {
-      new (stats: sc.StatChange.StatName[], name: string, hacked?: boolean | null): ActionBuff;
+      new (stats: sc.StatChange.StatName[], name: string, hacked?: Optional<boolean>): ActionBuff;
     }
     var ActionBuff: ActionBuffConstructor;
 

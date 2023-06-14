@@ -25,7 +25,7 @@ declare global {
 
       interface EnemyDescriptionBlock {
         text: ig.LangLabel.Data;
-        condition?: string | null;
+        condition?: Optional<string>;
       }
 
       interface ShopData {

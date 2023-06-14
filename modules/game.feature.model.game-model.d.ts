@@ -46,7 +46,7 @@ declare global {
       isAssistMode(this: this): boolean;
       getCombatRankDropRate(this: this): number;
       enterPrevSubState(this: this): void;
-      enterMenu(this: this, force?: boolean | null): void;
+      enterMenu(this: this, force?: Optional<boolean>): void;
       setMobilityBlock(this: this, mobilityBlock: keyof sc.GAME_MOBILITY_BLOCK): void;
     }
     interface GameModelConstructor extends ImpactClass<GameModel> {}

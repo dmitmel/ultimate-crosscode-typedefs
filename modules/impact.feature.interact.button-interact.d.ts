@@ -27,7 +27,7 @@ declare global {
         this: this,
         button: sc.ButtonGui,
         hotkeyCallback: () => boolean,
-        noDoubles?: boolean | null,
+        noDoubles?: Optional<boolean>,
       ): void;
       removeGlobalButton(this: this, button: sc.ButtonGui): void;
       addParallelGroup(this: this, buttongroup: sc.ButtonGroup): void;

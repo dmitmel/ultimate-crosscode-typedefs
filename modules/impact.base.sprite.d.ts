@@ -11,8 +11,8 @@ declare global {
       setImageSrc(
         this: this,
         image: ig.Image,
-        offsetX?: number | null,
-        offsetY?: number | null,
+        offsetX?: Optional<number>,
+        offsetY?: Optional<number>,
       ): void;
       setEntityDefault(
         this: this,

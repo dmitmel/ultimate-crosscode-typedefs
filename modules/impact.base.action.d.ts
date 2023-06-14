@@ -7,8 +7,8 @@ declare global {
     namespace ACTION_STEP {}
 
     interface ActionStepBase extends ig.StepBase {
-      _nextStep: ig.ActionStepBase | null | undefined;
-      branches: Record<string, ig.ActionStepBase> | null | undefined;
+      _nextStep: Optional<ig.ActionStepBase>;
+      branches: Optional<Record<string, ig.ActionStepBase>>;
 
       start(this: this, target: ig.ActorEntity): void;
       run(this: this, target: ig.ActorEntity): boolean;
@@ -27,8 +27,8 @@ declare global {
       new (
         name: string,
         steps: any[], // TODO
-        parallelMove?: boolean | null,
-        repeating?: boolean | null,
+        parallelMove?: Optional<boolean>,
+        repeating?: Optional<boolean>,
       ): Action;
 
       getVec3(value: Vec3, actor: ig.ActorEntity, dest: Vec3): Vec3;

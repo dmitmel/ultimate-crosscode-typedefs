@@ -17,15 +17,15 @@ declare global {
       loadParticleData(
         animSheet: ig.AnimationSheet,
         settings: ig.EffectStepBase.Settings,
-        cacheKey: string | null | undefined,
+        cacheKey: Optional<string>,
       ): ig.ParticleData;
     }
     var EffectConfig: EffectConfigConstructor;
 
     interface ParticleData {
       anim: ig.BaseAnimationSet;
-      followUpAnim?: ig.BaseAnimationSet | null;
-      postAnim?: ig.BaseAnimationSet | null;
+      followUpAnim?: Optional<ig.BaseAnimationSet>;
+      postAnim?: Optional<ig.BaseAnimationSet>;
       state: ig.ParticleState;
       moveWithTarget: number;
       particleDuration: number;
@@ -59,7 +59,7 @@ declare global {
         this: this,
         name: string,
         target: ig.Entity,
-        settings?: ig.EffectSheet.SpawnSettings | null,
+        settings?: Optional<ig.EffectSheet.SpawnSettings>,
       ): ig.ENTITY.Effect;
       spawnFixed(
         this: this,
@@ -68,7 +68,7 @@ declare global {
         y: number,
         z: number,
         target: ig.Entity,
-        settings?: ig.EffectSheet.SpawnSettings | null,
+        settings?: Optional<ig.EffectSheet.SpawnSettings>,
       ): ig.ENTITY.Effect | null;
     }
     interface EffectSheetConstructor extends ImpactClass<EffectSheet> {
@@ -101,23 +101,23 @@ declare global {
     namespace EffectStepBase {
       interface Settings {
         anim: string;
-        followUpAnim?: string | null;
-        postAnim?: string | null;
-        pAlpha?: number | null;
-        pScale?: number | null;
-        pRotate?: number | null;
-        angleVary?: number | null;
-        randFlip?: boolean | null;
-        moveWithTarget?: number | null;
+        followUpAnim?: Optional<string>;
+        postAnim?: Optional<string>;
+        pAlpha?: Optional<number>;
+        pScale?: Optional<number>;
+        pRotate?: Optional<number>;
+        angleVary?: Optional<number>;
+        randFlip?: Optional<boolean>;
+        moveWithTarget?: Optional<number>;
         pLight?: keyof typeof ig.LIGHT_SIZE | null;
-        particleDuration?: number | null;
-        particleDurVariance?: number | null;
-        cancelable?: boolean | null;
+        particleDuration?: Optional<number>;
+        particleDurVariance?: Optional<number>;
+        cancelable?: Optional<boolean>;
       }
     }
     interface EffectStepBase extends ig.StepBase {
-      _nextStep: ig.EffectStepBase | null | undefined;
-      branches: Record<string, ig.EffectStepBase> | null | undefined;
+      _nextStep: Optional<ig.EffectStepBase>;
+      branches: Optional<Record<string, ig.EffectStepBase>>;
 
       start(this: this, entity: ig.ENTITY.Effect): void;
       run(this: this, entity: ig.ENTITY.Effect): boolean;

@@ -35,10 +35,10 @@ declare global {
       setAction(
         this: this,
         action: ig.Action,
-        keepState?: boolean | null,
-        noStateReset?: boolean | null,
+        keepState?: Optional<boolean>,
+        noStateReset?: Optional<boolean>,
       ): void;
-      getTarget(this: this): ig.ActorEntity | null | undefined;
+      getTarget(this: this): Optional<ig.ActorEntity>;
       setAttribute(this: this, key: string, value: unknown): void;
       getAttribute(this: this, key: string): unknown;
       storeWalkAnims(this: this, name: string, config: ig.ActorEntity.WalkAnims): void;

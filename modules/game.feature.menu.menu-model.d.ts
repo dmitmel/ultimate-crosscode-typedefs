@@ -167,7 +167,7 @@ declare global {
       hotkeysCallbacks: sc.MenuModel.HotkeyCallback;
       currentBackCallback: sc.MenuModel.BackCallback;
       buttonInteract: ig.ButtonInteractEntry;
-      shopID: string | null | undefined;
+      shopID: Optional<string>;
       shopPage: number;
       shopCart: sc.MenuModel.ShopCartEntry[];
       shopSellMode: boolean;
@@ -177,9 +177,9 @@ declare global {
 
       pushBackCallback(this: this, callback: sc.MenuModel.BackCallback): void;
       popBackCallback(this: this): void;
-      addHotkey(this: this, callback: sc.MenuModel.HotkeyCallback, commit?: boolean | null): void;
+      addHotkey(this: this, callback: sc.MenuModel.HotkeyCallback, commit?: Optional<boolean>): void;
       popMenu(this: this): void;
-      setDirectMode(direct?: boolean | null, menu?: sc.MENU_SUBMENU | null): void;
+      setDirectMode(direct?: Optional<boolean>, menu?: Optional<sc.MENU_SUBMENU>): void;
       exitMenu(this: this): void;
       moveLeaSprite(this: this, x: number, y: number, state: sc.MENU_LEA_STATE, skip?: boolean): void;
       updateCart(this: this, itemID: sc.ItemID, amount: number, price: number): void;

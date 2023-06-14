@@ -13,9 +13,9 @@ declare global {
       spawnParticle<E extends ig.Entity, S extends ig.Entity.Settings>(
         this: this,
         entity: string | (new (x: number, y: number, z: number, settings: S) => E),
-        offset?: NullablePartial<Vec3> | null,
-        settings?: S | null,
-        forceTargetPos?: boolean | null,
+        offset?: Optional<NullablePartial<Vec3>>,
+        settings?: Optional<S>,
+        forceTargetPos?: Optional<boolean>,
       ): void;
       isDone(this: this): boolean;
     }

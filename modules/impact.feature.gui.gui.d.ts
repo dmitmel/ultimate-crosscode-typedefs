@@ -98,7 +98,7 @@ declare global {
       pivot: Vec2;
       scroll: Vec2;
       align: { x: ig.GUI_ALIGN; y: ig.GUI_ALIGN };
-      parentHook: ig.GuiHook | null | undefined;
+      parentHook: Optional<ig.GuiHook>;
       children: ig.GuiHook[];
       screenCoords?: ig.GuiHook.ScreenCoords;
       localAlpha: number;

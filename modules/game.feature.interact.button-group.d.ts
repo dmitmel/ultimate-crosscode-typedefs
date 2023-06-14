@@ -12,10 +12,10 @@ declare global {
         this: this,
         newX: number,
         newY: number,
-        ignoreCallbacks?: boolean | null,
-        ignoreSounds?: boolean | null,
-        ignoreIfSame?: boolean | null,
-        ignoreEmptyCells?: boolean | null,
+        ignoreCallbacks?: Optional<boolean>,
+        ignoreSounds?: Optional<boolean>,
+        ignoreIfSame?: Optional<boolean>,
+        ignoreEmptyCells?: Optional<boolean>,
       ): void;
       addSelectionCallback(this: this, callback: (focusGui: ig.FocusGui) => void): void;
       setMouseFocusLostCallback(this: this, callback: () => void): void;

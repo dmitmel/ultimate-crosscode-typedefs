@@ -32,10 +32,10 @@ declare global {
     interface ModalButtonInteractConstructor extends ImpactClass<ModalButtonInteract> {
       new (
         text: sc.TextLike,
-        icon: sc.DIALOG_INFO_ICON | null | undefined,
+        icon: Optional<sc.DIALOG_INFO_ICON>,
         options: sc.TextLike[],
         callback: (button: sc.ButtonGui) => void,
-        disableSubmitSound?: boolean | null,
+        disableSubmitSound?: Optional<boolean>,
       ): ModalButtonInteract;
     }
     var ModalButtonInteract: ModalButtonInteractConstructor;
