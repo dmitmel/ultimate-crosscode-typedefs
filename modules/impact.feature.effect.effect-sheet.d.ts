@@ -47,11 +47,13 @@ declare global {
 
       interface SpawnSettings {
         target?: ig.Entity;
-        align?: ig.ENTITY_ALIGN;
+        align?: keyof typeof ig.ENTITY_ALIGN | ig.ENTITY_ALIGN;
         target2?: ig.Entity;
         target2Align?: ig.ENTITY_ALIGN;
         spriteFilter?: number[];
         callback?: EventCallback;
+        duration?: number;
+        group?: string;
       }
     }
     interface EffectSheet extends ig.JsonLoadable {
@@ -89,8 +91,8 @@ declare global {
       externalSheet: boolean;
 
       clearCached(this: this): void;
-      spawnOnTarget(this: this, target: ig.Entity, settings?: ig.EffectSheet.SpawnSettings): ig.ENTITY.Effect;
-      spawnFixed(this: this, x: number, y: number, z: number, target: ig.Entity, settings?: ig.EffectSheet.SpawnSettings): ig.ENTITY.Effect;
+      spawnOnTarget(this: this, target: ig.Entity, settings?: Optional<ig.EffectSheet.SpawnSettings>): ig.ENTITY.Effect;
+      spawnFixed(this: this, x: number, y: number, z: number, target: ig.Entity, settings?: Optional<ig.EffectSheet.SpawnSettings>): ig.ENTITY.Effect;
     }
     interface EffectHandleConstructor extends ImpactClass<EffectHandle> {
       new (settings: EffectHandle.Settings): ig.EffectHandle;
