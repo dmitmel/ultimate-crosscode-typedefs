@@ -54,6 +54,7 @@ declare global {
         callback?: EventCallback;
         duration?: number;
         group?: string;
+        angle?: Vec2;
       }
     }
     interface EffectSheet extends ig.JsonLoadable {
