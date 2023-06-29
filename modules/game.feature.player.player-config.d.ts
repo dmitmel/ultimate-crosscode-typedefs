@@ -120,10 +120,10 @@ declare global {
       actions: Record<string, sc.PlayerAction>;
       activeActions: Record<number, sc.PlayerAction>;
       baseParams: sc.CombatParams.BaseParams;
-      modifiers: Partial<Record<keyof sc.MODIFIERS, number>>;
+      modifiers: sc.ModifierList;
       skillFactors: PlayerSubConfig.Factor;
 
-      update(this: this, config: sc.CombatParams.BaseParams, modifiers: Partial<Record<keyof sc.MODIFIERS, number>>): void;
+      update(this: this, config: sc.CombatParams.BaseParams, modifiers: sc.ModifierList): void;
       preSkillInit(this: this): void;
     }
     interface PlayerSubConfigConstructor extends ImpactClass<PlayerSubConfig> {}

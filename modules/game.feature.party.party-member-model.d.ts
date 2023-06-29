@@ -8,6 +8,13 @@ export {};
 
 declare global {
   namespace sc {
+    enum PARTY_MEMBER_MSG {
+      ELEMENT_MODE_CHANGE = 1,
+      //skipping 2 is intentional
+      EXP_CHANGE = 3,
+      LEVEL_CHANGE = 4,
+      STATS_CHANGED = 5
+    }
     namespace PartyMemberModel {
       interface Healing {
         sandwich: number[];
@@ -15,15 +22,20 @@ declare global {
         needRestock: boolean;
       }
     }
-    interface PartyMemberModel extends ig.Class {
+    interface PartyMemberModel extends ig.Class, sc.Model {
       config: sc.PlayerConfig;
       healing: PartyMemberModel.Healing;
+      elementConfigs: Record<sc.ELEMENT, sc.PlayerSubConfig>;
+      params: sc.CombatParams;
+      currentElementMode: sc.ELEMENT;
 
       getHeadIdx(this: this): number;
       revive(this: this): void;
       setTemporary(this: this, a: boolean): void;
       setNoDie(this: this, a: boolean): void;
       update(this: this): void;
+      reset(this: this): void;
+      updateStats(this: this): void;
     }
     interface PartyMemberModelConstructor extends ImpactClass<PartyMemberModel> {
       new (name: string): PartyMemberModel;

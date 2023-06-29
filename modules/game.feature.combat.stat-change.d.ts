@@ -19,7 +19,7 @@ declare global {
     }
     interface StatChange extends ig.Class {
       params: StatChange.Params;
-      modifiers: Partial<Record<keyof sc.MODIFIERS, number>>;
+      modifiers: sc.ModifierList;
       iconString: string;
       hasTimer: boolean;
 

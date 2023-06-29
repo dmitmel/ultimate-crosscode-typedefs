@@ -107,7 +107,7 @@ declare global {
       setRelativeHp(this: this, ratio: number): void;
       addSp(this: this, spAdd: number, maxSp?: number): void;
       setCombatant(this: this, combatant: ig.ENTITY.Combatant): void;
-      setModifiers(this: this, modifiers: Record<keyof sc.MODIFIERS, number>): void;
+      setModifiers(this: this, modifiers: sc.ModifierList): void;
       addBuff(this: this, buff: sc.StatChange): true;
       removeBuff(this: this, buff: sc.StatChange): void;
       removeAllBuffs(this: this): void;

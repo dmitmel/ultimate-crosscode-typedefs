@@ -111,7 +111,14 @@ declare global {
       setLocked(this: this, name: string, locked: boolean): void;
       addPartyOption(this: this, name: string): void;
       initParty(this: this, partyString: string): void;
-      addPartyMember(this: this, name: string, npc?: Optional<ig.ENTITY.NPC>, noEntityUpdate?: boolean, skipEffect?: boolean, temporary?: boolean): void;
+      addPartyMember(
+        this: this,
+        name: string,
+        npc?: Optional<ig.ENTITY.NPC>,
+        noEntityUpdate?: Optional<boolean>,
+        skipEffect?: Optional<boolean>,
+        temporary?: Optional<boolean>
+      ): void;
       removePartyMember(this: this, name: string, npc?: ig.ENTITY.NPC, skipEffect?: boolean): void;
       reviveAllPartyMembers(this: this): void;
       reviveAllPartyMemberModels(this: this): void;
