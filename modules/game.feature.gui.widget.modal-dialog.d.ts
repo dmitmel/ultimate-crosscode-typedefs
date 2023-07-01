@@ -25,6 +25,8 @@ declare global {
       buttongroup: sc.ButtonGroup;
       back: sc.ButtonGui;
 
+      keepOpen: boolean;
+
       show(this: this): void;
       hide(this: this): void;
       onBackButtonCheck(this: this): boolean;
@@ -43,9 +45,9 @@ declare global {
     interface Dialogs {
       showYesNoDialog(
         this: this,
-        text?: sc.TextLike,
-        icon?: sc.DIALOG_INFO_ICON,
-        callback?: (button: sc.ButtonGui, dialog?: sc.ModalButtonInteract) => void,
+        text?: Optional<sc.TextLike>,
+        icon?: Optional<sc.DIALOG_INFO_ICON>,
+        callback?: Optional<(button: sc.ButtonGui & {data: number}, dialog?: sc.ModalButtonInteract) => void>,
         noSubmitSound?: boolean,
       ): void;
     }

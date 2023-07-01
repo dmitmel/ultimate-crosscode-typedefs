@@ -152,6 +152,6 @@ declare global {
     var HealInfo: HealInfoConstructor;
     //in any situation where the game expects sc.HealInfo, a normal object that can work as well.
     //in fact, the devs used this property quite a bit.
-    type HealInfoType = sc.HealInfo | sc.HealInfo.Settings; 
+    type HealInfoType = sc.HealInfo | sc.HealInfo.Settings;
   }
 }
