@@ -47,9 +47,15 @@ declare global {
       getCombatRankDropRate(this: this): number;
       enterPrevSubState(this: this): void;
       enterMenu(this: this, force?: Optional<boolean>): void;
+      enterCutscene(this: this, combatCutscene?: boolean): void;
+      enterGame(this: this): void;
       setMobilityBlock(this: this, mobilityBlock: keyof sc.GAME_MOBILITY_BLOCK): void;
+      isCutscene(this: this): boolean;
+      isQuickMenu(this: this): boolean;
     }
-    interface GameModelConstructor extends ImpactClass<GameModel> {}
+    interface GameModelConstructor extends ImpactClass<GameModel> {
+      new (): GameModel;
+    }
     var GameModel: GameModelConstructor;
     var model: sc.GameModel;
 
