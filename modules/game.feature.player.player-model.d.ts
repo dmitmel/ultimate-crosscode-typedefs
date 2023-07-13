@@ -152,9 +152,9 @@ declare global {
       addItem(this: this, item: sc.ItemID, amount: number, hideEffect?: boolean): void;
       startItemConsume(this: this): void;
       endItemConsume(this: this): void;
-      useItem(this: this, id: number): void;
+      useItem(this: this, id: number): boolean;
       getItemBlockTime(this: this): number;
-      getTotalItemsUsed(this: this, id?: sc.ItemID): number;
+      getTotalItemsUsed(this: this, b?: boolean): number;
       removeItem(
         this: this,
         item: sc.ItemID,

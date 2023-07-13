@@ -29,6 +29,7 @@ declare global {
       ): void;
       clear(this: this, skip?: Optional<boolean>): void;
       scrollToY(this: this, y: number, b: boolean): void;
+      getScrollY(this: this): number;
     }
     interface ButtonListBoxConstructor extends ImpactClass<ButtonListBox> {}
     var ButtonListBox: ButtonListBoxConstructor;

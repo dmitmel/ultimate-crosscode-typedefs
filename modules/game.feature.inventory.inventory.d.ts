@@ -62,6 +62,8 @@ declare global {
         isScalable?: Optional<boolean>;
         stats?: Optional<string[]>;
         time?: Optional<number>;
+        isBuff?: boolean;
+        foodSprite?: string;
         // TODO
       }
 

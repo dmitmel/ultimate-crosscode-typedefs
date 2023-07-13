@@ -7,11 +7,13 @@ declare global {
   namespace ig {
     namespace Image {
       type Data = Exclude<CanvasImageSource, SVGImageElement>;
+      type Callback = () => void;
     }
     interface Image extends ig.Loadable {
       data: ig.Image.Data;
       width: number;
       height: number;
+      additionalCallbacks: Image.Callback[];
 
       loadInternal(this: this, path: string): void;
       onload(this: this): void;
@@ -40,6 +42,9 @@ declare global {
         fragmentAlpha?: number,
         filtered?: unknown
       ): void;
+      resize(this: this, scale: number): void;
+
+      addCallback(this: this, callback: Image.Callback): void;
     }
     interface ImageConstructor extends ImpactClass<Image> {
       new (pathOrData: string): Image;
