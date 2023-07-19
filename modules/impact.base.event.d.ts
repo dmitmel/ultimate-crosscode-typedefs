@@ -43,7 +43,7 @@ declare global {
 
       start(this: this, data?: unknown, eventCall?: ig.EventCall): void;
       run(this: this, data?: unknown): boolean;
-      getNext(this: this, data?: unknown): ig.EventStepBase;
+      getNext(this: this, data?: unknown): Optional<ig.EventStepBase>;
     }
     interface EventStepBaseConstructor extends ImpactClass<EventStepBase> {}
     var EventStepBase: EventStepBaseConstructor;
@@ -61,7 +61,7 @@ declare global {
         varName?: string;
       }
 
-      type VarExpression<T> = T | VarObject;
+      type VarExpression<T = ig.VarValue> = T | VarObject;
 
       type NumberExpression = VarExpression<number>;
       type BooleanExpression = VarExpression<boolean>;

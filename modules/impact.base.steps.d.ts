@@ -9,7 +9,7 @@ declare global {
 
       start(this: this, ...args: unknown[]): void;
       run(this: this, ...args: unknown[]): boolean;
-      getNext(this: this, ...args: unknown[]): ig.StepBase;
+      getNext(this: this, ...args: unknown[]): Optional<ig.StepBase>;
       getJumpLabelName?(this: this): string | null;
       getBranchNames?(this: this): string[];
     }

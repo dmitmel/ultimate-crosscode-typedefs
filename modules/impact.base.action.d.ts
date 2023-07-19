@@ -12,7 +12,7 @@ declare global {
 
       start(this: this, target: ig.ActorEntity): void;
       run(this: this, target: ig.ActorEntity): boolean;
-      getNext(this: this, target: ig.ActorEntity): ig.ActionStepBase;
+      getNext(this: this, target: ig.ActorEntity): Optional<ig.ActionStepBase>;
     }
     interface ActionStepBaseConstructor extends ImpactClass<ActionStepBase> {}
     var ActionStepBase: ActionStepBaseConstructor;
