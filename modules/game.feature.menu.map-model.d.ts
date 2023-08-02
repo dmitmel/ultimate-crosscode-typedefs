@@ -17,6 +17,7 @@ declare global {
           description: ig.LangLabel.Data;
         }
       }
+
       interface Area {
         name: ig.LangLabel.Data;
         path: string;
@@ -35,10 +36,10 @@ declare global {
         mapHeight: number;
         mapWidth: number;
         masterLevel: number;
-        layer: MapLayer[];
+        layer: MapModel.MapLayer[];
         levels: { height: number }[];
-        entities: MapEntity[],
-        attributes: MapAttributes
+        entities: MapModel.MapEntity[],
+        attributes: MapModel.MapAttributes
         screen: Vec2
       }
       
@@ -64,9 +65,9 @@ declare global {
 
       interface MapLayer {
         id: number;
-        type: MapLayerType;
+        type: MapModel.MapLayerType;
         name: string;
-        level: MapLayerLevelType;
+        level: MapModel.MapLayerLevelType;
         width: number;
         height: number;
         distance: number;
