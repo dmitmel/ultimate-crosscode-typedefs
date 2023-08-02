@@ -63,7 +63,7 @@ declare global {
       
       onload(this: this, data: sc.AreaLoadable.Data): void;
     }
-    interface AreaLoadableConstructor extends ImpactClass<AreaLoadable> {
+    interface AreaLoadableConstructor extends ImpactClass<AreaLoadable>, ig.Cacheable.ImplementsCache<AreaLoadable> {
       new (path: string): AreaLoadable;
     }
     var AreaLoadable: AreaLoadableConstructor;

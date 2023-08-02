@@ -5,6 +5,11 @@ declare global {
     var fileForwarding: Record<string, string>;
     function getFilePath(path: string): string;
 
+    namespace Cacheable {
+      interface ImplementsCache<T extends ig.Loadable> {
+        cache: Record<string, T>;
+      }
+    }
     interface Cacheable extends ig.Class {
       cacheType: string;
 
