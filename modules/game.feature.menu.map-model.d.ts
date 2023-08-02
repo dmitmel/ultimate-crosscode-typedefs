@@ -59,12 +59,14 @@ declare global {
         area: string
       }
 
+      type MapLayerType = 'Background' | 'Collision' | 'Navigation' | 'Light' | 'object1' | 'object2' | 'object3';
+      type MapLayerLevelType = 'last' | 'light' | 'object1' | 'object2' | 'object3' | number;
 
       interface MapLayer {
         id: number;
-        type: 'Background' | 'Collision' | 'Navigation' | 'Light' | 'object1' | 'object2' | 'object3';
+        type: MapLayerType;
         name: string;
-        level: 'last' | 'light' | 'object1' | 'object2' | 'object3' | number;
+        level: MapLayerLevelType;
         width: number;
         height: number;
         distance: number;
