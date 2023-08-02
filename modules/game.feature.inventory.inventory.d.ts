@@ -93,7 +93,7 @@ declare global {
       getRaritySuffix(this: this, rarity: sc.ITEMS_RARITY): string;
       getItemNameWithIcon(this: this, id: sc.ItemID): string;
       getItemIcon(this: this, id: sc.ItemID): string;
-      getBuffString(this: this, id: sc.ItemID, a?: boolean, statChangeSettings?: string[]): string | void;
+      getBuffString(this: this, id: sc.ItemID, a?: boolean, statChangeSettings?: string[]): string | undefined;
       isBuffID(this: this, id: sc.ItemID): boolean
     }
     interface InventoryConstructor extends ImpactClass<Inventory> {

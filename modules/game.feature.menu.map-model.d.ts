@@ -10,6 +10,23 @@ export {};
 
 declare global {
   namespace sc {
+    namespace LandmarkOption {
+      interface Bounds {
+        x: number;
+        y: number;
+        w: number;
+        h: number;
+      }
+    }
+    interface LandmarkOption {
+      icon: unknown;
+      bounds: LandmarkOption.Bounds;
+    }
+    interface LANDMARK_OPTIONS {
+      DEFAULT: LandmarkOption;
+    }
+    let LANDMARK_OPTIONS: LANDMARK_OPTIONS;
+
     namespace MapModel {
       namespace Area {
         interface Landmark {
