@@ -39,6 +39,7 @@ declare global {
         levels: { height: number }[];
         entities: MapEntity[],
         attributes: MapAttributes
+        screen: Vec2
       }
       
       interface MapEntity {
