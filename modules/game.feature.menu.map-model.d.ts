@@ -36,7 +36,7 @@ declare global {
         mapWidth: number;
         masterLevel: number;
         layer: MapLayer[];
-        levels: { height: number };
+        levels: { height: number }[];
         entities: MapEntity[],
         attributes: MapAttributes
       }
