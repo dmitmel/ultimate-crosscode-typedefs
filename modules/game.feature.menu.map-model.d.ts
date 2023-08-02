@@ -36,13 +36,34 @@ declare global {
         mapWidth: number;
         masterLevel: number;
         layer: MapLayer[];
+        levels: { height: number };
+        entities: MapEntity[],
+        attributes: MapAttributes
       }
+      
+      interface MapEntity {
+        x: number,
+        y: number,
+        level: number,
+        settings: ig.Entity.Settings
+      }
+
+      interface MapAttributes {
+        saveMode: 'ENABLED' | 'DISABLED' | ''
+        cameraInBounds: boolean
+        bgm: string
+        'map-sounds': string
+        mapStyle: string
+        weather: string
+        area: string
+      }
+
 
       interface MapLayer {
         id: number;
-        type: string;
+        type: 'Background' | 'Collision' | 'Navigation' | 'Light' | 'object1' | 'object2' | 'object3';
         name: string;
-        level: string;
+        level: 'last' | 'light' | 'object1' | 'object2' | 'object3' | number;
         width: number;
         height: number;
         distance: number;
