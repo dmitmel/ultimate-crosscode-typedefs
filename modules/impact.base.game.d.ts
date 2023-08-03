@@ -45,7 +45,6 @@ declare global {
       type TeleportLoadHint = Optional<'NEW' | 'LOAD'>;
     }
     interface Game extends ig.Class {
-      paused: boolean;
       entities: ig.Entity[];
       physics: ig.Physics;
       playerEntity: ig.ENTITY.Player;

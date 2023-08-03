@@ -42,6 +42,7 @@ declare global {
       interface Type {
         alignXPadding?: number;
         highlight?: Highlight | null;
+        height: number;
       }
     }
     interface ButtonGui extends ig.FocusGui {

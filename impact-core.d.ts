@@ -7,24 +7,29 @@ declare global {
   }
 
   namespace Vec2 {
-    function create(v?: Optional<Vec2>): Vec2;
+    function create(otherVec?: Optional<Vec2>): Vec2;
     function createC(x?: Optional<number>, y?: Optional<number>): Vec2;
-    function assign(a: Vec2, b: Vec2): Vec2;
+    function assign(v1: Vec2, v2: Vec2): Vec2;
     function assignC(v: Vec2, x?: Optional<number>, y?: Optional<number>): Vec2;
-    function add(a: Vec2, b: Vec2, out?: Optional<Vec2>): Vec2;
-    function addMulF(a: Vec2, b: Vec2, mul: number, out?: Optional<Vec2>): Vec2;
-    function addC(a: Vec2, x: number, y?: Optional<number>, out?: Optional<Vec2>): Vec2;
-    function sub(a: Vec2, b: Vec2, out?: Optional<Vec2>): Vec2;
-    function subC(a: Vec2, x: number, y?: Optional<number>, out?: Optional<Vec2>): Vec2;
-    function mul(a: Vec2, b: Vec2, out?: Optional<Vec2>): Vec2;
-    function mulC(a: Vec2, x: number, y?: Optional<number>, out?: Optional<Vec2>): Vec2;
-    function div(a: Vec2, b: Vec2, out?: Optional<Vec2>): Vec2;
-    function divC(a: Vec2, x: number, y?: Optional<number>, out?: Optional<Vec2>): Vec2;
-    function isZero(v: Vec2): boolean;
-    function angle(a: Vec2, b: Vec2): number;
-    function equal(a: Vec2, b: Vec2): boolean;
-    function clockangle(a: Vec2): Vec2;
-    function angle(v1: Vec2, v2: Vec2): number
+    function add(v1: Vec2, v2: Vec2, dest?: Optional<Vec2>): Vec2;
+    function addMulF(v1: Vec2, v2: Vec2, factor: number, dest?: Optional<Vec2>): Vec2;
+    function addC(v1: Vec2, x: number, y?: Optional<number>, dest?: Optional<Vec2>): Vec2;
+    function sub(v1: Vec2, v2: Vec2, dest?: Optional<Vec2>): Vec2;
+    function subC(v1: Vec2, x: number, y?: Optional<number>, dest?: Optional<Vec2>): Vec2;
+    function mul(v1: Vec2, v2: Vec2, dest?: Optional<Vec2>): Vec2;
+    function mulC(v: Vec2, x: number, y?: Optional<number>, dest?: Optional<Vec2>): Vec2;
+    function mulF(v1: Vec2, f: number, dest: Vec2): Vec2;
+    function div(v1: Vec2, v2: Vec2, dest?: Optional<Vec2>): Vec2;
+    function divC(v: Vec2, x: number, y?: Optional<number>, dest?: Optional<Vec2>): Vec2;
+    function dot(v1: Vec2, v2: Vec2): Vec2;
+    function dotR(v1: Vec2, v2: Vec2): Vec2;
+    //the length function behaves differently depending if newLength is passed in.
+    function length(v: Vec2): number;
+    function length(v: Vec2, newLength: number, dest?: Optional<Vec2>): Vec2;
+    function limit(v: Vec2, min: number, max: number, dest?: Optional<Vec2>): Vec2;
+    function normalize(v: Vec2, dest?: Optional<Vec2>): Vec2;
+    function clockangle(v: Vec2): Vec2;
+    function angle(v1: Vec2, v2: Vec2): number;
     function angle3Point(start: Vec2, dest1: Vec2, dest2: Vec2): number;
     function areClockwise(v1: Vec2, v2: Vec2): boolean;
     function isAngleInRange(testVec: Vec2, destVec: Vec2, startAngle: number, endAngle: number): boolean;
@@ -41,6 +46,7 @@ declare global {
     function squareDistance(v1: Vec2, v2: Vec2): number;
     function lerp(v1: Vec2, v2: Vec2, i: number, dest?: Vec2): number;
     function isZero(v: Vec2): boolean
+    function lengthVec(v: Vec2): number;
     function min(v1: Vec2, v2: Vec2, dest?: Vec2): Vec2;
     function minC(v: Vec2, x: number, y: number, dest?: Vec2): Vec2;
     function max(v1: Vec2, v2: Vec2, dest?: Vec2): Vec2;

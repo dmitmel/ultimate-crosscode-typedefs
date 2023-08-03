@@ -55,7 +55,7 @@ declare global {
       code: string;
       pretty: string;
       vars: string[];
-      condition: () => unknown;
+      condition: () => boolean;
 
       setCondition(this: this, condition: string): void;
       evaluate(this: this): boolean;
