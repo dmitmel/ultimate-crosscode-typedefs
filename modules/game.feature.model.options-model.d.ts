@@ -190,6 +190,8 @@ declare global {
       }
     }
 
+    var KEY_OPTION_MAP: Record<string, string>;
+
     interface KeyBinder extends ig.Class {
       initBindings(this: this): void;
       unbind(this: this, key: ig.KEY, data: sc.OptionDefinition.CONTROLS): void;

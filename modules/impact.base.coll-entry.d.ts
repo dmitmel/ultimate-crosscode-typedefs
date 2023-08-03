@@ -25,6 +25,7 @@ declare global {
       pos: Vec3;
       vel: Vec3;
       size: Vec3;
+      relativeVel: Vec2;
       type: COLLTYPE;
       weight: number;
       zGravityFactor: number;

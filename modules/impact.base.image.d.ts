@@ -66,7 +66,14 @@ declare global {
     }
     interface ImagePatternConstructor extends ImpactClass<ImagePattern> {
       OPT: typeof ImagePattern$OPT;
-      new (image: string | ig.Image, sourceX: number, sourceY: number, width: number, height: number, optMode: ig.ImagePattern.OPT): ImagePattern;
+      new (
+        path: string | ig.Image,
+        sourceX: number,
+        sourceY: number,
+        width: number,
+        height: number,
+        patternType: ImagePattern$OPT,
+      ): ig.ImagePattern;
     }
     var ImagePattern: ImagePatternConstructor;
 

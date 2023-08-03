@@ -37,7 +37,9 @@ declare global {
       onload(this: this, data: unknown): void;
       getJsonPath(this: this): string;
     }
-    interface JsonLoadableConstructor extends ImpactClass<JsonLoadable> {}
+    interface JsonLoadableConstructor extends ImpactClass<JsonLoadable> {
+      new (item: string): JsonLoadable;
+    }
     var JsonLoadable: JsonLoadableConstructor;
 
     interface SingleLoadable extends ig.Class, ig.Resource {

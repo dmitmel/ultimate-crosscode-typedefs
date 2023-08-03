@@ -7,25 +7,22 @@ declare global {
   }
 
   namespace Vec2 {
-    function create(): Vec2;
-    function createC(x?: number, y?: number): Vec2;
-    function assign(v1: Vec2, v2: Vec2): Vec2;
-    function assignC(v: Vec2, x?: number, y?: number): Vec2;
-    function add(v1: Vec2, v2: Vec2, dest?: Vec2): Vec2
-    function addMulF(v1: Vec2, v2: Vec2, factor: number, dest?: Vec2): Vec2;
-    function addC(v1: Vec2, x?: number, y?: number, dest?: Vec2): Vec2;
-    function sub(v1: Vec2, v2: Vec2, dest?: Vec2): Vec2
-    function subC(v1: Vec2, x?: number, y?: number, dest?: Vec2): Vec2;
-    function mul(v1: Vec2, v2: Vec2, dest?: Vec2): Vec2;
-    function mulC(v1: Vec2, x?: number, y?: number, dest?: Vec2): Vec2;
-    function mulF(v1: Vec2, f: number, dest?: Vec2): Vec2;
-    function div(v1: Vec2, v2: Vec2, dest?: Vec2): Vec2;
-    function divC(v1: Vec2, x?: number, y?: number, dest?: Vec2): Vec2;
-    function dot(v1: Vec2, v2: Vec2): number;
-    function dotR(v1: Vec2, v2: Vec2): number;
-    function length(v: Vec2, newLength?: number, dest?: Vec2): number;
-    function limit(v: Vec2, min: number, max: number, dest?: Vec2): Vec2;
-    function normalize(v: Vec2, dest?: Vec2): void;
+    function create(v?: Optional<Vec2>): Vec2;
+    function createC(x?: Optional<number>, y?: Optional<number>): Vec2;
+    function assign(a: Vec2, b: Vec2): Vec2;
+    function assignC(v: Vec2, x?: Optional<number>, y?: Optional<number>): Vec2;
+    function add(a: Vec2, b: Vec2, out?: Optional<Vec2>): Vec2;
+    function addMulF(a: Vec2, b: Vec2, mul: number, out?: Optional<Vec2>): Vec2;
+    function addC(a: Vec2, x: number, y?: Optional<number>, out?: Optional<Vec2>): Vec2;
+    function sub(a: Vec2, b: Vec2, out?: Optional<Vec2>): Vec2;
+    function subC(a: Vec2, x: number, y?: Optional<number>, out?: Optional<Vec2>): Vec2;
+    function mul(a: Vec2, b: Vec2, out?: Optional<Vec2>): Vec2;
+    function mulC(a: Vec2, x: number, y?: Optional<number>, out?: Optional<Vec2>): Vec2;
+    function div(a: Vec2, b: Vec2, out?: Optional<Vec2>): Vec2;
+    function divC(a: Vec2, x: number, y?: Optional<number>, out?: Optional<Vec2>): Vec2;
+    function isZero(v: Vec2): boolean;
+    function angle(a: Vec2, b: Vec2): number;
+    function equal(a: Vec2, b: Vec2): boolean;
     function clockangle(a: Vec2): Vec2;
     function angle(v1: Vec2, v2: Vec2): number
     function angle3Point(start: Vec2, dest1: Vec2, dest2: Vec2): number;
@@ -142,7 +139,7 @@ declare global {
     function $new(tagName: string): HTMLElement;
 
     function copy<T>(object: T): T;
-    function merge<T, U>(original: T, extended: U, noArrayMerge?: boolean | null): T & U;
+    function merge<T, U>(original: T, extended: U, noArrayMerge?: Optional<boolean>): T & U;
 
     function module(name: string): typeof ig;
     function requires(...names: string[]): typeof ig;
@@ -155,6 +152,7 @@ declare global {
     function initGameAddons(): ig.GameAddon[];
 
     function _execModules(): void;
+    function _loadScript(name: string, requirer?: Optional<string>): void;
 
     interface Class {
       readonly classId: number;

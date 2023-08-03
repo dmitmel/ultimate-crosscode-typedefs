@@ -10,14 +10,38 @@ declare global {
     var BUTTON_DEFAULT_WIDTH: number;
     var BUTTON_SOUND: { [name: string]: ig.Sound };
 
+    interface ButtonHighlightGui extends ig.GuiElementBase {
+      focusWeight: number;
+      gfx: ig.Image;
+      pattern: ig.ImagePattern;
+      flipped: boolean;
+      highlight: sc.ButtonGui.Highlight;
+    }
+    interface ButtonHighlightGuiConstructor extends ImpactClass<ButtonHighlightGui> {
+      new (width: number, type: sc.ButtonGui.Type): ButtonHighlightGui;
+    }
+    var ButtonHighlightGui: ButtonHighlightGuiConstructor;
+
     interface ButtonBgGui extends ig.BoxGui {}
-    interface ButtonBgGuiConstructor extends ImpactClass<ButtonBgGui> {}
+    interface ButtonBgGuiConstructor extends ImpactClass<ButtonBgGui> {
+      new (width: number, type: sc.ButtonGui.Type): ButtonBgGui;
+    }
     var ButtonBgGui: ButtonBgGuiConstructor;
 
     namespace ButtonGui {
+      interface Highlight {
+        startX: number;
+        endX: number;
+        leftWidth: number;
+        rightWidth: number;
+        offsetY: number;
+        gfx: ig.Image;
+        pattern: ig.ImagePattern;
+      }
+
       interface Type {
         alignXPadding?: number;
-        height: number;
+        highlight?: Highlight | null;
       }
     }
     interface ButtonGui extends ig.FocusGui {

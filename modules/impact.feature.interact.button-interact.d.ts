@@ -30,8 +30,12 @@ declare global {
         noDoubles?: Optional<boolean>,
       ): void;
       removeGlobalButton(this: this, button: sc.ButtonGui): void;
+<<<<<<< HEAD
       addParallelGroup(this: this, buttongroup: sc.ButtonGroup): void;
       removeButtonGroup(this: this, buttongroup: sc.ButtonGroup): void;
+=======
+      removeButtonGroup(this: this, buttonGroup: sc.ButtonGroup): void;
+>>>>>>> upstream/master
     }
     interface ButtonInteractEntryConstructor extends ImpactClass<ButtonInteractEntry> {
       new (): ButtonInteractEntry;

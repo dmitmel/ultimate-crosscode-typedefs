@@ -18,6 +18,8 @@ declare global {
       autoThrown(this: this): boolean;
       menuScrollUp(this: this): boolean;
       menuScrollDown(this: this): boolean;
+      getMouseX(this: this): number;
+      getMouseY(this: this): number;
       menuHotkeyHelp(this: this): boolean;
       menuHotkeyHelp2(this: this): boolean;
       menuHotkeyHelp3(this: this): boolean;

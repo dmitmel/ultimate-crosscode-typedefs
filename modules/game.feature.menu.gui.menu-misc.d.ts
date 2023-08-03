@@ -210,5 +210,11 @@ declare global {
       new (): TimeAndMoneyGUI;
     }
     var TimeAndMoneyGUI: TimeAndMoneyGUIConstructor;
+
+    interface DummyContainer extends ig.GuiElementBase {}
+    interface DummyContainerConstructor extends ImpactClass<DummyContainer> {
+      new (child: ig.GuiElementBase): DummyContainer;
+    }
+    var DummyContainer: DummyContainerConstructor;
   }
 }

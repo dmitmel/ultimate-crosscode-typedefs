@@ -45,7 +45,9 @@ declare global {
       type TeleportLoadHint = Optional<'NEW' | 'LOAD'>;
     }
     interface Game extends ig.Class {
+      paused: boolean;
       entities: ig.Entity[];
+      physics: ig.Physics;
       playerEntity: ig.ENTITY.Player;
       addons: Game.Addons;
       mapName: string;
@@ -71,6 +73,7 @@ declare global {
       ): ig.Entity[];
       createPlayer(this: this): void;
       getErrorData(this: this, gameInfo: Record<string, unknown>): void;
+      setPaused(this: this, paused: boolean): void;
       spawnEntity<E extends ig.Entity, S extends ig.Entity.Settings>(
         entity: string | (new (x: number, y: number, z: number, settings: S) => E),
         x: number,

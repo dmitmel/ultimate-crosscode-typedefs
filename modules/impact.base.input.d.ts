@@ -156,6 +156,9 @@ declare global {
 
     interface Input extends ig.Class {
       bindings: Record<ig.KEY, ig.Input.KnownAction> & Record<ig.KEY, string>;
+      actions: Record<ig.KEY, boolean>;
+      mouse: Vec2;
+      ignoreKeyboard: boolean;
 
       bind(this: this, key: ig.KEY, action: LiteralUnion<ig.Input.KnownAction>): void;
       unbind(this: this, key: ig.KEY): void;
