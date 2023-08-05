@@ -18,6 +18,8 @@ declare global {
                         x: number;
                         y: number;
                         xCount: number;
+                        sideX?: number;
+                        sideY?: number;
                     }
                     interface DoorVariation {
                         x: number;
@@ -28,9 +30,10 @@ declare global {
                 interface Map {
                     sheet: string;
                     hasDoorMat: boolean;
-                    teleportField: Map.TeleportField;
+                    teleportField?: Map.TeleportField;
                     doorGlow?: Map.DoorGlow;
                     doorVariations?: Record<string, Map.DoorVariation>;
+                    doorSound?: string;
                 }
 
                 interface Puzzle {
@@ -38,6 +41,10 @@ declare global {
                 }
 
                 interface Puzzle2 {
+                    sheet: string;
+                }
+
+                interface Effect {
                     sheet: string;
                 }
 
@@ -54,12 +61,42 @@ declare global {
                 interface Walls {
                     colors: Walls.Colors;
                 }
+
+                interface PuzzleElement {
+                    sheet: string;
+                    x: number;
+                    y: number;
+                }
+
+                interface Lorry {
+                    sheet: string;
+                    railX: number;
+                    railY: number;
+                    lorryX: number;
+                    lorryY: number;
+                }
             }
             interface MapStyleTypes {
                 map: MapStyleType.Map;
                 puzzle: MapStyleType.Puzzle;
                 puzzle2: MapStyleType.Puzzle2;
                 walls: MapStyleType.Walls;
+                effect: MapStyleType.Effect;
+                quickSand: MapStyleType.PuzzleElement;
+                pipes: MapStyleType.PuzzleElement;
+                pipeSwitch: MapStyleType.PuzzleElement;
+                propeller: MapStyleType.PuzzleElement;
+                magnet: MapStyleType.PuzzleElement;
+                tesla: MapStyleType.PuzzleElement;
+                teslaSwitch: MapStyleType.PuzzleElement;
+                anticompress: MapStyleType.PuzzleElement;
+                dynPlatformSmall: MapStyleType.PuzzleElement;
+                dynPlatformMedium: MapStyleType.PuzzleElement;
+                rotateBlocker: MapStyleType.PuzzleElement;
+                waveSwitch: MapStyleType.PuzzleElement;
+                waveblock: MapStyleType.PuzzleElement;
+                bouncer: MapStyleType.PuzzleElement;
+                lorry: MapStyleType.Lorry;
             }
 
             type MapStyleEntry = PartialRecord<string, MapStyleTypes>;
