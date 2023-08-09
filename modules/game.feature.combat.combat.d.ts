@@ -25,6 +25,10 @@ declare global {
         heal: ig.EffectSheet;
         cooldownHandle: ig.EffectSheet; // never actually used and is set to null
       }
+
+      interface ActionAttached {
+        onActionEndDetach(this: this): void;
+      }
     }
     interface Combat extends ig.GameAddon {
       enemyDataList: Record<string, sc.EnemyType>;

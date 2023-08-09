@@ -60,6 +60,7 @@ declare global {
                 }
                 interface Walls {
                     colors: Walls.Colors;
+                    alpha?: number;
                 }
 
                 interface PuzzleElement {

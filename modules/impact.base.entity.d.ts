@@ -26,6 +26,10 @@ declare global {
         size?: Partial<Vec3>;
         mapId?: number;
       }
+
+      interface EntityAttached {
+        onEntityKillDetach(this: this): void;
+      }
     }
     interface Entity extends ig.Class, ig.Vars.Accessor {
       id: number;
