@@ -21,10 +21,16 @@ declare global {
                         sideX?: number;
                         sideY?: number;
                     }
+                    interface DoorVariationGlow {
+                        x: number;
+                        y: number;
+                        xCount: number;
+                    }
                     interface DoorVariation {
                         x: number;
                         y: number;
                         doorMat: boolean;
+                        doorGlow?: DoorVariationGlow;
                     }
                 }
                 interface Map {
@@ -68,6 +74,10 @@ declare global {
                     x: number;
                     y: number;
                 }
+                interface WaterBlock extends PuzzleElement {
+                    puddleX: number;
+                    puddleY: number;
+                }
 
                 interface Lorry {
                     sheet: string;
@@ -96,18 +106,22 @@ declare global {
                 rotateBlocker: MapStyleType.PuzzleElement;
                 waveSwitch: MapStyleType.PuzzleElement;
                 waveblock: MapStyleType.PuzzleElement;
+                waterblock: MapStyleType.WaterBlock;
                 bouncer: MapStyleType.PuzzleElement;
                 lorry: MapStyleType.Lorry;
             }
 
             type MapStyleEntry = PartialRecord<string, MapStyleTypes>;
         }
-        interface MapStyle extends ig.GameAddon {}
+        interface MapStyle extends ig.GameAddon {
+            get<K extends keyof MapStyle.MapStyleTypes>(this: this, contentType: K): MapStyle.MapStyleTypes[K];
+        }
         interface MapStyleConstructor extends ImpactClass<MapStyle> {
             new (): MapStyle;
 
             registerStyle<K extends keyof MapStyle.MapStyleTypes>(name: string, contentType: K, data: MapStyle.MapStyleTypes[K]): void;
         }
         let MapStyle: MapStyleConstructor;
+        let mapStyle: MapStyle;
     }
 }

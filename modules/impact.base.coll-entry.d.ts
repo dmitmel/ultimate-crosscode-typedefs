@@ -2,24 +2,18 @@ export {};
 
 declare global {
   namespace ig {
-    enum COLLTYPE {
-      NONE = 0,
-      IGNORE = 1,
-      PROJECTILE = 2,
-      VIRTUAL = 3,
-      PBLOCK = 4,
-      NPBLOCK = 5,
-      BLOCK = 6,
-      TRIGGER = 7,
-      PASSIVE = 8,
-      SEMI_IGNORE = 9,
-      FENCE = 10,
-      NPFENCE = 11
-    }
     enum COLL_SHADOW_TYPE {
       DEFAULT = 0,
       STATIC_SIZE = 1,
       RECTANGULAR = 2, 
+    }
+    namespace CollEntry {
+      interface Shadow {
+        type: ig.COLL_SHADOW_TYPE;
+        size: number;
+        scaleY: number;
+        offset: Vec2;
+      }
     }
     interface CollEntry extends ig.Class {
       pos: Vec3;
@@ -30,7 +24,9 @@ declare global {
       weight: number;
       zGravityFactor: number;
       baseZPos: number;
+      zBounciness: number;
       level: number;
+      shadow: CollEntry.Shadow;
 
       setSize(x: number, y: number, z: number): void;
       setPadding(this: this, x: number, y: number): void;

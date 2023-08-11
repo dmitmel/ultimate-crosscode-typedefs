@@ -5,6 +5,23 @@ export {};
 
 declare global {
   namespace ig {
+    enum ActorEntity$FACE4 {
+      NORTH = 0,
+      EAST = 1,
+      SOUTH = 2,
+      WEST = 3
+    }
+    enum ActorEntity$FACE8 {
+      NORTH = 0,
+      EAST = 1,
+      SOUTH = 2,
+      WEST = 3,
+      NORTH_EAST = 4,
+      SOUTH_EAST = 5,
+      SOUTH_WEST = 6,
+      NORTH_WEST = 7
+    } 
+
     namespace ActorEntity {
       interface WalkAnims {
         idle: string;
@@ -25,6 +42,9 @@ declare global {
         hoverMoveRev?: string;
         land?: string;
       }
+
+      type FACE4 = ig.ActorEntity$FACE4;
+      type FACE8 = ig.ActorEntity$FACE8;
     }
 
     interface ActorEntity extends ig.AnimatedEntity {

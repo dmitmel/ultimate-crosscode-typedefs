@@ -24,7 +24,7 @@ declare global {
     }
     let LIGHT_METRIC: Record<ig.LIGHT_SIZE, LightMetric>;
 
-    interface LightHandle extends ig.Class, ig.Entity.EntityAttached, sc.Combat.ActionAttached {
+    interface LightHandle extends ig.Class, ig.Entity.Attachable, sc.Combat.ActionAttached {
       targetEntity: ig.Entity;
       lastPos: Vec3;
       size: ig.LIGHT_SIZE;
