@@ -100,7 +100,7 @@ declare global {
                 magnet: MapStyleType.PuzzleElement;
                 tesla: MapStyleType.PuzzleElement;
                 teslaSwitch: MapStyleType.PuzzleElement;
-                anticompress: MapStyleType.PuzzleElement;
+                anticompressor: MapStyleType.PuzzleElement;
                 dynPlatformSmall: MapStyleType.PuzzleElement;
                 dynPlatformMedium: MapStyleType.PuzzleElement;
                 rotateBlocker: MapStyleType.PuzzleElement;

@@ -72,7 +72,7 @@ declare global {
       isBallDestroyer?(this: this): boolean;
       isBallAdjust?(this: this): boolean;
       doBallAdjust?(this: this, pos: Vec3, dir: Vec2, size: Vec3, maxBounce: number): void;
-      ballHit?(this: this, ball: ig.ENTITY.Ball): boolean | void;
+      ballHit?(this: this, ball: ig.Entity): boolean | void;
     }
     interface EntityConstructor extends ImpactClass<Entity> {
       new (x: number, y: number, z: number, settings: ig.Entity.Settings): Entity;

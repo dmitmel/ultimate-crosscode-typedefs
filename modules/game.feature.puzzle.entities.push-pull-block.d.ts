@@ -29,6 +29,7 @@ declare global {
             phased: boolean;
 
             ballHit(this: this, ball: ig.ENTITY.Ball): boolean;
+            resetPos(this: this, pos?: Optional<Vec3>): void;
         }
         interface WavePushPullBlockConstructor extends ImpactClass<WavePushPullBlock> {
             new(x: number, y: number, z: number, settings: WavePushPullBlock.Settings): WavePushPullBlock;
