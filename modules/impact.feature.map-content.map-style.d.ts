@@ -78,13 +78,15 @@ declare global {
                     puddleX: number;
                     puddleY: number;
                 }
-
                 interface Lorry {
                     sheet: string;
                     railX: number;
                     railY: number;
                     lorryX: number;
                     lorryY: number;
+                }
+                interface Destruct {
+                    sheet: string;
                 }
             }
             interface MapStyleTypes {
@@ -108,6 +110,7 @@ declare global {
                 waveblock: MapStyleType.PuzzleElement;
                 waterblock: MapStyleType.WaterBlock;
                 bouncer: MapStyleType.PuzzleElement;
+                destruct: MapStyleType.Destruct;
                 lorry: MapStyleType.Lorry;
             }
 

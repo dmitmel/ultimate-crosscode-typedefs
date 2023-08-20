@@ -10,7 +10,7 @@ declare global {
 
       setImageSrc(
         this: this,
-        image: ig.Image,
+        image: ig.Drawable | ig.DoubleColor,
         offsetX?: Optional<number>,
         offsetY?: Optional<number>,
       ): void;

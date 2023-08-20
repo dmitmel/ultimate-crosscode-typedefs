@@ -108,6 +108,9 @@ declare global {
       SLOPE_NW = 5
     }
 
+    namespace AnimatedEntity {
+      interface Settings extends ig.Entity.Settings {}
+    }
     interface AnimatedEntity extends ig.Entity {
       animState: ig.AnimationState;
       currentAnim: string;
@@ -116,7 +119,7 @@ declare global {
       initAnimations(this: this, sheet: ig.AnimationSheet | string | unknown): void;
     }
     interface AnimatedEntityConstructor extends ImpactClass<AnimatedEntity> {
-      new (x: number, y: number, z: number, settings: ig.Entity.Settings): AnimatedEntity;
+      new (x: number, y: number, z: number, settings: ig.AnimatedEntity.Settings): AnimatedEntity;
     }
     var AnimatedEntity: AnimatedEntityConstructor;
   }
