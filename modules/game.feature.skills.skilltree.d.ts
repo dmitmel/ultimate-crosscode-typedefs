@@ -16,7 +16,6 @@ declare global {
             CCW_135 = 6
         }
 
-
         interface SkillTree extends ig.SingleLoadable {
             version: number;
             skills: sc.BaseSkill[]

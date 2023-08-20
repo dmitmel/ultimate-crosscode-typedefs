@@ -8,9 +8,7 @@ export {};
 declare global {
     namespace ig {
         namespace GUI {
-            interface TimerGui extends sc.SlickBoxRawGui {
-                
-            }
+            interface TimerGui extends sc.SlickBoxRawGui {}
             interface TimerGuiConstructor extends ImpactClass<TimerGuiConstructor> {}
         }
         interface GUI {

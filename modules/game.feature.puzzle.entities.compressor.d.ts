@@ -10,13 +10,13 @@ declare global {
             interface Settings extends ig.Entity.Settings {}
         }
         interface CompressedBaseEntity extends ig.AnimatedEntity {
-            speedFactor: number;
-            fastMode: boolean;
-            globalCount: number;
-            killTimer: number;
             nudgeTimer: number;
+            killTimer: number;
+            globalCount: number;
+            speedFactor: number;
             combatant: ig.ENTITY.Combatant;
             attackInfo: sc.AttackInfo;
+            fastMode: boolean;
 
             getElement(this: this): sc.ELEMENT;
         }

@@ -17,8 +17,8 @@ declare global {
       effects: Record<"dust" | "teleport" | "npc" | "death" | "speedlines" | "drops", ig.EffectSheet>;
 
       onGameLoopStart(this: this): void;
-      start(this: this, startMode?: sc.START_MODE, transitionTime?: number): void;
       addTeleportMessage(this: this, message: string): void;
+      start(this: this, startMode?: sc.START_MODE, transitionTime?: number): void;
     }
     interface CrossCodeConstructor extends ImpactClass<CrossCode> {}
     var CrossCode: CrossCodeConstructor;

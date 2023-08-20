@@ -38,12 +38,12 @@ declare global {
 
       settings: unknown; // an empty object, appears to be unused
       coll: ig.CollEntry;
-      isPlayer: boolean | undefined;
-      _killed: boolean;
       sprites: ig.CubeSprite[];
       entityAttached: ig.Entity.Attachable[];
+      _killed: boolean;
       
       ballDestroyer?: boolean;
+      isPlayer?: boolean;
 
       reset(this: this, x: number, y: number, z: number, settings: ig.Entity.Settings): void;
       initSprites(this: this): void;
@@ -115,8 +115,8 @@ declare global {
       animState: ig.AnimationState;
       currentAnim: string;
 
-      setCurrentAnim(this: this, name: string, reset?: boolean, followUp?: Optional<string>, force?: boolean, callbackOnFinish?: boolean): void;
       initAnimations(this: this, sheet: ig.AnimationSheet | string | unknown): void;
+      setCurrentAnim(this: this, name: string, reset?: boolean, followUp?: Optional<string>, force?: boolean, callbackOnFinish?: boolean): void;
     }
     interface AnimatedEntityConstructor extends ImpactClass<AnimatedEntity> {
       new (x: number, y: number, z: number, settings: ig.AnimatedEntity.Settings): AnimatedEntity;

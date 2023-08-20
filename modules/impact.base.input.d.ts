@@ -159,13 +159,13 @@ declare global {
       actions: Record<ig.KEY, boolean>;
       mouse: Vec2;
       ignoreKeyboard: boolean;
-
+      
+      keydown(this: this, action: LiteralUnion<ig.Input.KnownAction>): boolean;
       bind(this: this, key: ig.KEY, action: LiteralUnion<ig.Input.KnownAction>): void;
       unbind(this: this, key: ig.KEY): void;
       state(this: this, action: LiteralUnion<ig.Input.KnownAction>): boolean;
       pressed(this: this, action: LiteralUnion<ig.Input.KnownAction>): boolean;
       keyupd(this: this, action: LiteralUnion<ig.Input.KnownAction>): boolean;
-      keydown(this: this, action: LiteralUnion<ig.Input.KnownAction>): boolean;
     }
     interface InputConstructor extends ImpactClass<Input> {}
     var Input: InputConstructor;

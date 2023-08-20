@@ -210,9 +210,9 @@ declare global {
     var KeyBinder: KeyBinderConstructor;
 
     interface OptionModel extends ig.GameAddon, sc.Model, ig.Storage.Listener {
+      hdMode: boolean;
       hasChanged: boolean;
       values: ig.Storage.GlobalsData.Options;
-      hdMode: boolean;
 
       dispatchKeySwappedEvent(this: this): void;
       get<K extends keyof sc.OPTIONS_DEFINITION.KnownTypesMap>(

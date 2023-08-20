@@ -24,18 +24,18 @@ declare global {
     }
     interface PartyMemberModel extends ig.Class, sc.Model {
       config: sc.PlayerConfig;
-      healing: PartyMemberModel.Healing;
-      elementConfigs: Record<sc.ELEMENT, sc.PlayerSubConfig>;
       params: sc.CombatParams;
+      elementConfigs: Record<sc.ELEMENT, sc.PlayerSubConfig>;
+      healing: PartyMemberModel.Healing;
       currentElementMode: sc.ELEMENT;
 
       getHeadIdx(this: this): number;
+      updateStats(this: this): void;
       revive(this: this): void;
       setTemporary(this: this, a: boolean): void;
       setNoDie(this: this, a: boolean): void;
       update(this: this): void;
       reset(this: this): void;
-      updateStats(this: this): void;
     }
     interface PartyMemberModelConstructor extends ImpactClass<PartyMemberModel> {
       new (name: string): PartyMemberModel;

@@ -24,7 +24,6 @@ declare global {
       buttonInteract: ig.ButtonInteractEntry;
       buttongroup: sc.ButtonGroup;
       back: sc.ButtonGui;
-
       keepOpen: boolean;
 
       show(this: this): void;

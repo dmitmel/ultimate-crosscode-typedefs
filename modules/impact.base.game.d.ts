@@ -45,19 +45,15 @@ declare global {
       type TeleportLoadHint = Optional<'NEW' | 'LOAD'>;
     }
     interface Game extends ig.Class {
+      paused: boolean;
+      mapName: string;
       entities: ig.Entity[];
+      events: ig.EventManager;
       physics: ig.Physics;
       playerEntity: ig.ENTITY.Player;
       addons: Game.Addons;
-      mapName: string;
-      paused: boolean;
-      events: ig.EventManager;
 
       getEntityByName<E extends ig.Entity>(this: this, name: string): E;
-      getEntitiesByType<E extends ig.Entity, S extends ig.Entity.Settings>(
-        this: this,
-        type: new (x: number, y: number, z: number, settings: S) => E,
-      ): E[];
       getEntitiesInCircle(
         center: Vec3,
         radius: number,
@@ -70,6 +66,10 @@ declare global {
         moreExceptions?: ig.Entity[],
         rectangular?: boolean
       ): ig.Entity[];
+      getEntitiesByType<E extends ig.Entity, S extends ig.Entity.Settings>(
+        this: this,
+        type: new (x: number, y: number, z: number, settings: S) => E | string,
+      ): E[];
       createPlayer(this: this): void;
       getErrorData(this: this, gameInfo: Record<string, unknown>): void;
       setPaused(this: this, paused: boolean): void;

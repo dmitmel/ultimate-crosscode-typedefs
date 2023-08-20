@@ -47,11 +47,11 @@ declare global {
     }
     interface ButtonGui extends ig.FocusGui {
       text: sc.TextLike;
-      buttonType: sc.ButtonGui.Type;
-      textChild: sc.TextGui;
       bgGui: sc.ButtonBgGui;
-      data?: unknown;
+      buttonType: sc.ButtonGui.Type;
       submitSound?: ig.Sound;
+      data?: unknown;
+      textChild: sc.TextGui;
 
       setWidth(this: this, width: number): void;
       setText(this: this, text: sc.TextLike, ignoreWidth?: boolean): void;

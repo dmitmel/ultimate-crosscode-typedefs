@@ -19,6 +19,7 @@ declare global {
       }
     }
     interface EnemyType extends ig.JsonLoadable {
+      enduranceScale: number;
       level: number;
       boss: boolean;
       itemDrops: sc.EnemyType.ItemDrop[];
@@ -27,7 +28,6 @@ declare global {
       actions: Record<string, ig.Action>;
       reactions: Record<string, EnemyReactionBase>;
       size: Vec2;
-      enduranceScale: number;
 
       resolveItemDrops(this: this, enemyEntity: ig.ENTITY.Enemy): void;
     }

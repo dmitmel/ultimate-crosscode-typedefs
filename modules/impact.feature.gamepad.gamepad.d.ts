@@ -38,6 +38,7 @@ declare global {
             getAxesValue(this: this, axis: ig.AXES, clipDeadZone: number): number;
             isAxesDown(this: this, axis: ig.AXES): boolean;
             isLeftStickDown(this: this): boolean;
+            isRightStickDown(this: this): boolean;
             
             isSupported(this: this): boolean;
         }

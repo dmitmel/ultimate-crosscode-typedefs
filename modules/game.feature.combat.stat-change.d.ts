@@ -23,22 +23,23 @@ declare global {
       iconString: string;
       hasTimer: boolean;
 
-      update(this: this): boolean;
-      onActionEndDetach(this: this): void;
-      onEntityKillDetach(this: this): void;
       clear(this: this): void;
-      reset(this: this, time: number): void;
       getTimeFactor(this: this): number;
+      
+      //does not exist on base class, but it is expected to exist in all uses of StatChange.
+      update(this: this): boolean;
     }
     interface StatChangeConstructor extends ImpactClass<StatChange> {
       new (stats: sc.StatChange.StatName[]): StatChange;
     }
     var StatChange: StatChangeConstructor;
 
-    interface ActionBuff extends sc.StatChange {
+    interface ActionBuff extends sc.StatChange, ig.Entity.Attachable, sc.Combat.ActionAttached {
       active: boolean;
       name: string;
       hacked: boolean;
+
+      reset(this: this, time: number): void;
     }
     interface ActionBuffConstructor extends ImpactClass<ActionBuff> {
       new (stats: sc.StatChange.StatName[], name: string, hacked?: Optional<boolean>): ActionBuff;

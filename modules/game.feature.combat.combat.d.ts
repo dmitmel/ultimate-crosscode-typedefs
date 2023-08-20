@@ -40,11 +40,11 @@ declare global {
       showPerfectDashEffect(this: this, target: ig.ActorEntity): void;
       getElementMode(this: this, combatant: ig.ENTITY.Combatant): sc.ELEMENT;
       isInCombat(this: this, combatant: ig.ENTITY.Combatant): boolean;
+      onCombatantDeathHit(this: this, attacker: ig.ENTITY.Combatant, victim: ig.ENTITY.Combatant): void;
       showModeChange(this: this, combatant: ig.ENTITY.Combatant, element: sc.ELEMENT): ig.ENTITY.Effect;
       showModeAura(this: this, combatant: ig.ENTITY.Combatant, element: sc.ELEMENT): void;
       clearModeAura(this: this, combatant: ig.ENTITY.Combatant): void;
       showModeDash(this: this, combatant: ig.ENTITY.Combatant, element: sc.ELEMENT): void;
-      onCombatantDeathHit(this: this, attacker: ig.ENTITY.Combatant, victim: ig.ENTITY.Combatant): void;
     }
     interface CombatConstructor extends ImpactClass<Combat> {}
     var Combat: CombatConstructor;

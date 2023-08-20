@@ -69,10 +69,10 @@ declare global {
     }
     interface PlayerConfig extends ig.JsonLoadable {
       name: string;
-      baseConfig: sc.PlayerSubConfig;
-      elementConfigs: Record<sc.ELEMENT, sc.PlayerSubConfig>;
       stats: PlayerConfig.Stats;
       autoequip: PlayerConfig.AutoEquip;
+      baseConfig: sc.PlayerSubConfig;
+      elementConfigs: Record<sc.ELEMENT, sc.PlayerSubConfig>;
     }
     interface PlayerConfigConstructor extends ImpactClass<PlayerConfig> {
       new (name: string): sc.PlayerConfig;
@@ -117,14 +117,14 @@ declare global {
 
     interface PlayerSubConfig extends ig.Class {
       paramFactors?: PlayerSubConfig.Factor;
+      skillFactors: PlayerSubConfig.Factor;
       actions: Record<string, sc.PlayerAction>;
-      activeActions: Record<number, sc.PlayerAction>;
       baseParams: sc.CombatParams.BaseParams;
       modifiers: sc.ModifierList;
-      skillFactors: PlayerSubConfig.Factor;
+      activeActions: Record<number, sc.PlayerAction>;
 
-      update(this: this, config: sc.CombatParams.BaseParams, modifiers: sc.ModifierList): void;
       preSkillInit(this: this): void;
+      update(this: this, config: sc.CombatParams.BaseParams, modifiers: sc.ModifierList): void;
     }
     interface PlayerSubConfigConstructor extends ImpactClass<PlayerSubConfig> {}
     var PlayerSubConfig: PlayerSubConfigConstructor;

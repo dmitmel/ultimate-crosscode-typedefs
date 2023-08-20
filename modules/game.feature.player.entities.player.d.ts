@@ -69,20 +69,22 @@ declare global {
       regenFactor: number;
       model: sc.PlayerModel;
       attackCounter: number;
-      isPlayer: true;
-      charging: ig.ENTITY.Player.Charging;
       dashCount: number;
       dashAttackCount: number;
       maxDash: number;
       jumpPoint: Vec2;
       jumpForwardDir: Vec2;
+      gui: Player.Gui;
       dashTimer: number;
       dashBlock: number;
-      gui: Player.Gui;
+      charging: ig.ENTITY.Player.Charging;
+      isPlayer: true;
       
       updateSkinAura(this: this): void;
       updateModelStats(this: this, a: boolean): void;
+      showChargeEffect(this: this, level: number): void;
       getMaxChargeLevel(this: this, actionKey: Player.ActionKey): 0 | 1 | 2 | 3;
+      getChargeAction(this: this, chargeType: ig.ENTITY.Player.Charging.Type, level: number): string;
       gatherInput(this: this): ig.ENTITY.Player.PlayerInput;
       handleStateStart(
         this: this,
@@ -90,8 +92,6 @@ declare global {
         inputState: ig.ENTITY.Player.PlayerInput,
       ): void;
       onPerfectDash(this: this): void;
-      showChargeEffect(this: this, level: number): void;
-      getChargeAction(this: this, chargeType: ig.ENTITY.Player.Charging.Type, level: number): string;
       onHeal(this: this, healInfo: sc.HealInfo.Settings | sc.HealInfo, amount: number): void
     }
     interface PlayerConstructor extends ImpactClass<Player> {}

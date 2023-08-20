@@ -10,8 +10,8 @@ export {};
 declare global {
     namespace sc {
         interface QuickItemMenu extends ig.BoxGui {
-            buttongroup: sc.ButtonGroup;
             list: sc.ButtonListBox;
+            buttongroup: sc.ButtonGroup;
             
             updateList(this: this, skipSounds: boolean): void;
             addFavoriteOverlay(this: this, button: sc.ItemBoxButton): void;

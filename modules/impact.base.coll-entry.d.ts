@@ -16,17 +16,17 @@ declare global {
       }
     }
     interface CollEntry extends ig.Class {
-      pos: Vec3;
-      vel: Vec3;
-      size: Vec3;
-      relativeVel: Vec2;
       type: COLLTYPE;
+      size: Vec3;
       weight: number;
-      zGravityFactor: number;
-      baseZPos: number;
+      relativeVel: number;
       zBounciness: number;
+      zGravityFactor: number;
+      pos: Vec3;
       level: number;
+      baseZPos: number;
       shadow: CollEntry.Shadow;
+      vel: Vec3;
 
       setSize(x: number, y: number, z: number): void;
       setPadding(this: this, x: number, y: number): void;

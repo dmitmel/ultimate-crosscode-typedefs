@@ -163,37 +163,36 @@ declare global {
       type HotkeyCallback = () => sc.ButtonGui;
     }
     interface MenuModel extends ig.GameAddon, sc.Model {
+      previousMenu: sc.MENU_SUBMENU;
+      buttonInteract: ig.ButtonInteractEntry;
       backCallbackStack: sc.MenuModel.BackCallback[];
       hotkeysCallbacks: sc.MenuModel.HotkeyCallback;
       currentBackCallback: sc.MenuModel.BackCallback;
-      buttonInteract: ig.ButtonInteractEntry;
       shopID: Optional<string>;
       shopPage: number;
       shopCart: sc.MenuModel.ShopCartEntry[];
       shopSellMode: boolean;
       statusElement: sc.ELEMENT;
       statusDiff: boolean;
-      previousMenu: sc.MENU_SUBMENU;
 
+      addHotkey(this: this, callback: sc.MenuModel.HotkeyCallback, commit?: Optional<boolean>): void;
+      commitHotkeys(this: this, a?: boolean): void;
+      updateHotkeys(this: this): void;
+      removeHotkeys(this: this): void;
       pushBackCallback(this: this, callback: sc.MenuModel.BackCallback): void;
       popBackCallback(this: this): void;
-      addHotkey(this: this, callback: sc.MenuModel.HotkeyCallback, commit?: Optional<boolean>): void;
+      pushMenu(this: this, menu: sc.MENU_SUBMENU): void;
       popMenu(this: this): void;
       setDirectMode(direct?: Optional<boolean>, menu?: Optional<sc.MENU_SUBMENU>): void;
       exitMenu(this: this): void;
       moveLeaSprite(this: this, x: number, y: number, state: sc.MENU_LEA_STATE, skip?: boolean): void;
-      updateCart(this: this, itemID: sc.ItemID, amount: number, price: number): void;
-      getTotalCost(this: this): number;
-      getItemQuantity(this: this, itemID: sc.ItemID, price: number): number;
       setInfoText(this: this, text: sc.TextLike, fade?: boolean): void;
       setBuffText(this: this, text: sc.TextLike, fade?: boolean, id?: sc.ItemID): void;
       setShopPage(this: this, page: number): void;
-      pushMenu(this: this, menu: sc.MENU_SUBMENU): void;
-      popMenu(this: this): void;
+      updateCart(this: this, itemID: sc.ItemID, amount: number, price: number): void;
+      getTotalCost(this: this): number;
+      getItemQuantity(this: this, itemID: sc.ItemID, price: number): number;
       sortList(this: this, button: ig.FocusGui): void;
-      commitHotkeys(this: this, a?: boolean): void;
-      updateHotkeys(this: this): void;
-      removeHotkeys(this: this): void;
     }
     interface MenuModelConstructor extends ImpactClass<MenuModel> {
       new (): MenuModel;

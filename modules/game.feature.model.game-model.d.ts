@@ -43,15 +43,15 @@ declare global {
 
       addChoiceGui(this: this, choiceGui: ig.GuiElementBase): void;
       removeChoiceGui(this: this, choiceGui: ig.GuiElementBase): void;
-      isAssistMode(this: this): boolean;
       getCombatRankDropRate(this: this): number;
-      enterPrevSubState(this: this): void;
-      enterMenu(this: this, force?: Optional<boolean>): void;
+      isAssistMode(this: this): boolean;
+      setMobilityBlock(this: this, mobilityBlock: keyof sc.GAME_MOBILITY_BLOCK): void;
       enterCutscene(this: this, combatCutscene?: boolean): void;
       enterGame(this: this): void;
-      setMobilityBlock(this: this, mobilityBlock: keyof sc.GAME_MOBILITY_BLOCK): void;
+      enterPrevSubState(this: this): void;
+      enterMenu(this: this, force?: Optional<boolean>): void;
       isCutscene(this: this): boolean;
-      isQuickMenu(this: this): boolean;
+      isQuickMenu(this: this): boolean;      
     }
     interface GameModelConstructor extends ImpactClass<GameModel> {
       new (): GameModel;

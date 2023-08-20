@@ -37,9 +37,7 @@ declare global {
     }
     let SocialPartyBox: SocialPartyBoxConstructor;
 
-    interface SocialPartyMember extends sc.MenuPanel {
-
-    }
+    interface SocialPartyMember extends sc.MenuPanel {}
     interface SocialPartyMemberConstructor extends ImpactClass<SocialPartyMember> {}
     let SocialPartyMember: SocialPartyMemberConstructor
 

@@ -173,6 +173,7 @@ declare global {
 
         getContentWidth(this: this): number;
         getContentHeight(this: this): number;
+        getScrollY(this: this): number;
       }
       interface ContainerConstructor extends ImpactClass<Container> {
         new (): Container;

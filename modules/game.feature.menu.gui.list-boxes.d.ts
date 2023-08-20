@@ -29,7 +29,6 @@ declare global {
       ): void;
       clear(this: this, skip?: Optional<boolean>): void;
       scrollToY(this: this, y: number, b: boolean): void;
-      getScrollY(this: this): number;
     }
     interface ButtonListBoxConstructor extends ImpactClass<ButtonListBox> {}
     var ButtonListBox: ButtonListBoxConstructor;
@@ -50,8 +49,8 @@ declare global {
       list: sc.ButtonListBox;
 
       addButton(this: this, button: sc.ListBoxButton): void;
-      buttonGroup(this: this): sc.ButtonGroup;
       clear(this: this, refocus: boolean): void;
+      buttonGroup(this: this): sc.ButtonGroup;
     }
     interface MultiColumnItemListBoxConstructor extends ImpactClass<MultiColumnItemListBox> {
       new (b: number, a: number, columns: sc.LIST_COLUMNS, c: number): sc.MultiColumnItemListBox;

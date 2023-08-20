@@ -96,8 +96,8 @@ declare global {
       options: Record<sc.NEW_GAME_OPTIONS.Keys, boolean>;
 
       get(this: this, option: sc.NEW_GAME_OPTIONS.Keys): boolean;
-      getDropRateMultiplier(this: this): number;
       applyStoreData(this: this, atRhombus: boolean): void;
+      getDropRateMultiplier(this: this): number;
     }
     interface NewGamePlusModelConstructor extends ImpactClass<NewGamePlusModel> {
       new (): NewGamePlusModel;

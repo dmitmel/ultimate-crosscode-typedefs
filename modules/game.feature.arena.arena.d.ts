@@ -136,22 +136,6 @@ declare global {
         roundStarted: boolean;
         currentRound: number;
       }
-
-      interface Runtime {
-        score: number;
-        prevScore: number;
-        timer: number;
-        chain: number;
-        rushChain: number;
-        rushChainMax: number;
-        chainTimer: number;
-        roundKills: number;
-        currentWave: number;
-        waveKillsNeeded: number;
-        rush: boolean;
-        roundStarted: boolean;
-        currentRound: number;
-      }
     }
 
     interface Arena extends ig.GameAddon, ig.Vars.Accessor, sc.Model.Observer {
@@ -204,8 +188,8 @@ declare global {
         cupName: string,
         attribute: K,
       ): Arena.KnownCupAttributes[K];
-      hasChallenge(this: this, challenge: keyof sc.ARENA_CHALLENGES): boolean;
       onEnemyBreak(this: this, enemy: ig.ENTITY.Enemy): void;
+      hasChallenge(this: this, challenge: keyof sc.ARENA_CHALLENGES): boolean;
     }
     interface ArenaConstructor extends ImpactClass<Arena> {
       new (): Arena;

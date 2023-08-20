@@ -30,11 +30,11 @@ declare global {
       _hasKeyboardFocus: boolean;
       changeCallback: (value: number) => void
 
-      setMinMaxValue(this: this, min: number, max: number): void;
       setPreferredThumbSize(this: this, width: number, height: number): void;
-      setValue(this: this, value: number): void;
       setSize(this: this, x: number, y: number): void;
       setSize(this: this, x: number, y: number, sliderHeight: number): void;
+      setValue(this: this, value: number): void;
+      setMinMaxValue(this: this, min: number, max: number): void;
     }
     interface OptionFocusSliderConstructor extends ImpactClass<OptionFocusSlider> {
       new (changeCallback: (value: number) => void, snap?: boolean, fill?: boolean): OptionFocusSlider;
