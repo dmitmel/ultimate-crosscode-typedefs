@@ -173,7 +173,6 @@ declare global {
 
         getContentWidth(this: this): number;
         getContentHeight(this: this): number;
-        getScrollY(this: this): number;
       }
       interface ContainerConstructor extends ImpactClass<Container> {
         new (): Container;
@@ -192,6 +191,7 @@ declare global {
         timeFunction?: Optional<KeySpline>,
       ): void;
       recalculateScrollBars(this: this, skipTransition?: boolean): void;
+      getScrollY(this: this): number;
     }
     interface ScrollPaneConstructor extends ImpactClass<ScrollPane> {
       new (scrollType: sc.ScrollType): sc.ScrollPane;
