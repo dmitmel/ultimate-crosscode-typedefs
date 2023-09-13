@@ -18,6 +18,7 @@ export interface Manifest {
 
   assets?: FilePath[];
   assetsDir?: FilePath;
+  modPrefix?: string;
 
   plugin?: FilePath;
   preload?: FilePath;
